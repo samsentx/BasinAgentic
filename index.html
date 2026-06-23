@@ -247,7 +247,6 @@ color:white;
 }
 
 .intelligence h2{color:white}
-
 .intelligence p{color:#cbd5e1}
 
 .report-grid{
@@ -286,6 +285,7 @@ background:rgba(0,0,0,.92);
 justify-content:center;
 align-items:center;
 padding:30px;
+overflow:auto;
 }
 
 .modal img{
@@ -302,6 +302,23 @@ max-height:90%;
 border-radius:18px;
 background:black;
 box-shadow:0 0 45px rgba(255,255,255,.2);
+}
+
+.gallery{
+display:none;
+max-width:950px;
+width:100%;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+max-height:none;
+margin-bottom:24px;
+border-radius:18px;
+background:white;
+padding:10px;
+display:block;
 }
 
 .close-btn{
@@ -444,13 +461,13 @@ for safer energy operations.
 <span class="click-text">Open Visualization</span>
 </div>
 
-<div class="platform-card" onclick="openImage('swd-control-detail.png')">
+<div class="platform-card" onclick="openVideo('SWD.mp4')">
 <h3>Agentic AI SWD Control</h3>
 <p>Adaptive injection optimization using AI agents and reinforcement learning logic.</p>
-<span class="click-text">Open Visualization</span>
+<span class="click-text">Open Video</span>
 </div>
 
-<div class="platform-card" onclick="openImage('production-detail.png')">
+<div class="platform-card" onclick="openProduction()">
 <h3>Production Intelligence</h3>
 <p>Oil, gas, water and operational analytics for basin-scale decision support.</p>
 <span class="click-text">Open Visualization</span>
@@ -489,11 +506,11 @@ SWD injection control before elevated-magnitude events occur.
 <span class="click-text">Open Visualization</span>
 </div>
 
-<div class="platform-card" onclick="openVideo('swd-optimization.mp4')">
+<div class="platform-card" onclick="openImage('injection.png')">
 <i class="fa-solid fa-droplet"></i>
-<h3>SWD Optimization</h3>
-<p>Injection adjustment strategy based on seismic risk and b-value behavior.</p>
-<span class="click-text">Open Video</span>
+<h3>SWD Injection</h3>
+<p>Shallow and Deep Injection Wells visualization and operational monitoring.</p>
+<span class="click-text">Open Visualization</span>
 </div>
 
 </div>
@@ -531,33 +548,54 @@ info@basinagentic.com
 
 <div id="modal" class="modal" onclick="closeModal()">
 <span class="close-btn">&times;</span>
+
 <img id="modalImage" src="" alt="">
+
 <video id="modalVideo" controls>
 <source id="modalVideoSource" src="" type="video/mp4">
 </video>
+
+<div id="productionGallery" class="gallery">
+<img src="oil.png" alt="Oil Production">
+<img src="gas.png" alt="Gas Production">
+<img src="water.png" alt="Water Production">
+</div>
 </div>
 
 <script>
+function resetModal(){
+document.getElementById("modalImage").style.display="none";
+document.getElementById("modalVideo").style.display="none";
+document.getElementById("productionGallery").style.display="none";
+document.getElementById("modalImage").src="";
+document.getElementById("modalVideo").pause();
+document.getElementById("modalVideoSource").src="";
+}
+
 function openImage(file){
+resetModal();
 document.getElementById("modal").style.display="flex";
 document.getElementById("modalImage").style.display="block";
-document.getElementById("modalVideo").style.display="none";
 document.getElementById("modalImage").src=file;
 }
 
 function openVideo(file){
+resetModal();
 document.getElementById("modal").style.display="flex";
-document.getElementById("modalImage").style.display="none";
 document.getElementById("modalVideo").style.display="block";
 document.getElementById("modalVideoSource").src=file;
 document.getElementById("modalVideo").load();
 }
 
+function openProduction(){
+resetModal();
+document.getElementById("modal").style.display="flex";
+document.getElementById("productionGallery").style.display="block";
+}
+
 function closeModal(){
 document.getElementById("modal").style.display="none";
-document.getElementById("modalImage").src="";
-document.getElementById("modalVideo").pause();
-document.getElementById("modalVideoSource").src="";
+resetModal();
 }
 </script>
 
