@@ -196,12 +196,16 @@ gap:22px;
 .platform-card{
 background:white;
 border-radius:24px;
-padding:26px 22px 30px;
+padding:34px 22px 36px;
 box-shadow:0 16px 38px rgba(15,23,42,.1);
 border-top:5px solid #b8860b;
 transition:.25s;
 overflow:hidden;
 cursor:pointer;
+min-height:250px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .platform-card:hover{
@@ -227,17 +231,6 @@ font-size:15px;
 line-height:1.6;
 margin:0;
 color:#64748b;
-}
-
-.card-img{
-width:100%;
-height:155px;
-object-fit:contain;
-margin-bottom:20px;
-border-radius:18px;
-background:#f8fafc;
-padding:10px;
-display:block;
 }
 
 .click-text{
@@ -281,7 +274,6 @@ font-size:13px;
 font-weight:700;
 }
 
-/* MODAL */
 .modal{
 display:none;
 position:fixed;
@@ -441,31 +433,27 @@ for safer energy operations.
 <div class="platform-grid">
 
 <div class="platform-card" onclick="openImage('seismicity-detail.png')">
-<img src="seismicity.png" class="card-img" alt="Seismicity Forecasting">
 <h3>Seismicity Forecasting</h3>
 <p>Transformer-based forecasting for daily maximum magnitude and future seismic risk.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 <div class="platform-card" onclick="openImage('bvalue-detail.png')">
-<img src="bvalue.png" class="card-img" alt="b-Value Risk Mapping">
 <h3>b-Value Risk Mapping</h3>
 <p>Spatial identification of low b-value zones linked to elevated seismic hazard.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 <div class="platform-card" onclick="openImage('swd-control-detail.png')">
-<img src="swd-control.png" class="card-img" alt="Agentic AI SWD Control">
 <h3>Agentic AI SWD Control</h3>
 <p>Adaptive injection optimization using AI agents and reinforcement learning logic.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 <div class="platform-card" onclick="openImage('production-detail.png')">
-<img src="production.png" class="card-img" alt="Production Intelligence">
 <h3>Production Intelligence</h3>
 <p>Oil, gas, water and operational analytics for basin-scale decision support.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 </div>
@@ -484,28 +472,28 @@ SWD injection control before elevated-magnitude events occur.
 <i class="fa-solid fa-location-crosshairs"></i>
 <h3>Seismicity Map</h3>
 <p>Spatial visualization of earthquake activity across the basin.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 <div class="platform-card" onclick="openImage('time-series.png')">
 <i class="fa-solid fa-chart-area"></i>
 <h3>Time Series</h3>
 <p>Daily seismicity trends, magnitude evolution and energy release.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 <div class="platform-card" onclick="openImage('depth-analysis.png')">
 <i class="fa-solid fa-layer-group"></i>
 <h3>Depth Analysis</h3>
 <p>Depth distribution of seismic events and subsurface risk patterns.</p>
-<span class="click-text">Click to view PNG</span>
+<span class="click-text">Open Visualization</span>
 </div>
 
 <div class="platform-card" onclick="openVideo('swd-optimization.mp4')">
 <i class="fa-solid fa-droplet"></i>
 <h3>SWD Optimization</h3>
 <p>Injection adjustment strategy based on seismic risk and b-value behavior.</p>
-<span class="click-text">Click to view MP4</span>
+<span class="click-text">Open Video</span>
 </div>
 
 </div>
