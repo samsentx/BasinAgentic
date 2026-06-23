@@ -32,7 +32,6 @@ z-index:10;
 .logo{
 font-size:28px;
 font-weight:900;
-letter-spacing:.5px;
 color:#0f172a;
 }
 
@@ -63,7 +62,6 @@ font-size:68px;
 line-height:1;
 margin:0 0 18px;
 font-weight:900;
-letter-spacing:1px;
 color:#0f172a;
 }
 
@@ -140,7 +138,6 @@ border:1px solid rgba(184,134,11,.25);
 width:100%;
 display:block;
 border-radius:24px;
-filter:drop-shadow(0 18px 30px rgba(0,0,0,.22));
 }
 
 .metrics{
@@ -162,7 +159,6 @@ box-shadow:0 10px 25px rgba(15,23,42,.08);
 .metric strong{
 font-size:30px;
 display:block;
-color:#0f172a;
 font-weight:900;
 }
 
@@ -181,7 +177,6 @@ text-align:center;
 font-size:42px;
 margin:0 0 16px;
 font-weight:900;
-color:#0f172a;
 }
 
 .section p{
@@ -196,7 +191,6 @@ color:#475569;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:22px;
-align-items:start;
 }
 
 .platform-card{
@@ -207,6 +201,7 @@ box-shadow:0 16px 38px rgba(15,23,42,.1);
 border-top:5px solid #b8860b;
 transition:.25s;
 overflow:hidden;
+cursor:pointer;
 }
 
 .platform-card:hover{
@@ -245,55 +240,12 @@ padding:10px;
 display:block;
 }
 
-/* OPENABLE CARDS */
-.open-card{
-padding:0;
-}
-
-.open-card details{
-padding:26px 22px 30px;
-cursor:pointer;
-}
-
-.open-card summary{
-list-style:none;
-}
-
-.open-card summary::-webkit-details-marker{
-display:none;
-}
-
-.open-label{
-margin-top:18px;
+.click-text{
 display:inline-block;
+margin-top:18px;
 font-size:13px;
 font-weight:900;
 color:#b8860b;
-}
-
-.card-open-content{
-margin-top:20px;
-padding:15px;
-border-radius:18px;
-background:#f8fafc;
-border:1px solid #e2e8f0;
-}
-
-.detail-img{
-width:100%;
-height:260px;
-object-fit:contain;
-border-radius:16px;
-background:white;
-padding:8px;
-display:block;
-}
-
-.detail-video{
-width:100%;
-border-radius:16px;
-display:block;
-background:black;
 }
 
 .intelligence{
@@ -301,13 +253,9 @@ background:linear-gradient(135deg,#0f172a,#1e293b);
 color:white;
 }
 
-.intelligence h2{
-color:white;
-}
+.intelligence h2{color:white}
 
-.intelligence p{
-color:#cbd5e1;
-}
+.intelligence p{color:#cbd5e1}
 
 .report-grid{
 display:grid;
@@ -331,6 +279,48 @@ background:#0f172a;
 color:#cbd5e1;
 font-size:13px;
 font-weight:700;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.92);
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.modal img{
+max-width:94%;
+max-height:90%;
+border-radius:18px;
+background:white;
+box-shadow:0 0 45px rgba(255,255,255,.2);
+}
+
+.modal video{
+max-width:94%;
+max-height:90%;
+border-radius:18px;
+background:black;
+box-shadow:0 0 45px rgba(255,255,255,.2);
+}
+
+.close-btn{
+position:absolute;
+top:22px;
+right:38px;
+font-size:52px;
+color:white;
+font-weight:900;
+cursor:pointer;
+z-index:10000;
 }
 
 @media(max-width:1000px){
@@ -400,7 +390,6 @@ grid-template-columns:1fr;
 </nav>
 
 <section class="hero">
-
 <div class="hero-text">
 <h1>BASINAGENTIC</h1>
 <h2>Autonomous Basin Intelligence Platform</h2>
@@ -420,7 +409,6 @@ SWD injection optimization and production intelligence.
 <img src="hero.png" alt="BasinAgentic Hero Visualization">
 </div>
 </div>
-
 </section>
 
 <section class="metrics">
@@ -428,17 +416,14 @@ SWD injection optimization and production intelligence.
 <strong>37,732+</strong>
 <span>Earthquakes Analyzed</span>
 </div>
-
 <div class="metric">
 <strong>3,345</strong>
 <span>Daily Records</span>
 </div>
-
 <div class="metric">
 <strong>90 Days</strong>
 <span>Forecast Horizon</span>
 </div>
-
 <div class="metric">
 <strong>100</strong>
 <span>Risk Hotspots</span>
@@ -455,72 +440,32 @@ for safer energy operations.
 
 <div class="platform-grid">
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('seismicity-detail.png')">
 <img src="seismicity.png" class="card-img" alt="Seismicity Forecasting">
 <h3>Seismicity Forecasting</h3>
-<p>
-Transformer-based forecasting for daily maximum magnitude and future seismic risk.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="seismicity-detail.png" class="detail-img" alt="Seismicity Forecast Detail">
-</div>
-</details>
+<p>Transformer-based forecasting for daily maximum magnitude and future seismic risk.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('bvalue-detail.png')">
 <img src="bvalue.png" class="card-img" alt="b-Value Risk Mapping">
 <h3>b-Value Risk Mapping</h3>
-<p>
-Spatial identification of low b-value zones linked to elevated seismic hazard.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="bvalue-detail.png" class="detail-img" alt="b-Value Risk Map Detail">
-</div>
-</details>
+<p>Spatial identification of low b-value zones linked to elevated seismic hazard.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('swd-control-detail.png')">
 <img src="swd-control.png" class="card-img" alt="Agentic AI SWD Control">
 <h3>Agentic AI SWD Control</h3>
-<p>
-Adaptive injection optimization using AI agents and reinforcement learning logic.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="swd-control-detail.png" class="detail-img" alt="SWD Control Detail">
-</div>
-</details>
+<p>Adaptive injection optimization using AI agents and reinforcement learning logic.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('production-detail.png')">
 <img src="production.png" class="card-img" alt="Production Intelligence">
 <h3>Production Intelligence</h3>
-<p>
-Oil, gas, water and operational analytics for basin-scale decision support.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="production-detail.png" class="detail-img" alt="Production Intelligence Detail">
-</div>
-</details>
+<p>Oil, gas, water and operational analytics for basin-scale decision support.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
 </div>
@@ -535,75 +480,32 @@ SWD injection control before elevated-magnitude events occur.
 
 <div class="platform-grid">
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('seismicity-map.png')">
 <i class="fa-solid fa-location-crosshairs"></i>
 <h3>Seismicity Map</h3>
-<p>
-Spatial visualization of earthquake activity across the basin.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="seismicity-map.png" class="detail-img" alt="Seismicity Map">
-</div>
-</details>
+<p>Spatial visualization of earthquake activity across the basin.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('time-series.png')">
 <i class="fa-solid fa-chart-area"></i>
 <h3>Time Series</h3>
-<p>
-Daily seismicity trends, magnitude evolution and energy release.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="time-series.png" class="detail-img" alt="Seismicity Time Series">
-</div>
-</details>
+<p>Daily seismicity trends, magnitude evolution and energy release.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openImage('depth-analysis.png')">
 <i class="fa-solid fa-layer-group"></i>
 <h3>Depth Analysis</h3>
-<p>
-Depth distribution of seismic events and subsurface risk patterns.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<img src="depth-analysis.png" class="detail-img" alt="Depth Analysis">
-</div>
-</details>
+<p>Depth distribution of seismic events and subsurface risk patterns.</p>
+<span class="click-text">Click to view PNG</span>
 </div>
 
-<div class="platform-card open-card">
-<details>
-<summary>
+<div class="platform-card" onclick="openVideo('swd-optimization.mp4')">
 <i class="fa-solid fa-droplet"></i>
 <h3>SWD Optimization</h3>
-<p>
-Injection adjustment strategy based on seismic risk and b-value behavior.
-</p>
-<span class="open-label">Click to open</span>
-</summary>
-
-<div class="card-open-content">
-<video class="detail-video" controls>
-<source src="swd-optimization.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-</div>
-</details>
+<p>Injection adjustment strategy based on seismic risk and b-value behavior.</p>
+<span class="click-text">Click to view MP4</span>
 </div>
 
 </div>
@@ -638,6 +540,38 @@ info@basinagentic.com
 <footer class="footer">
 © 2026 BasinAgentic. Autonomous Basin Intelligence Platform.
 </footer>
+
+<div id="modal" class="modal" onclick="closeModal()">
+<span class="close-btn">&times;</span>
+<img id="modalImage" src="" alt="">
+<video id="modalVideo" controls>
+<source id="modalVideoSource" src="" type="video/mp4">
+</video>
+</div>
+
+<script>
+function openImage(file){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImage").style.display="block";
+document.getElementById("modalVideo").style.display="none";
+document.getElementById("modalImage").src=file;
+}
+
+function openVideo(file){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImage").style.display="none";
+document.getElementById("modalVideo").style.display="block";
+document.getElementById("modalVideoSource").src=file;
+document.getElementById("modalVideo").load();
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+document.getElementById("modalImage").src="";
+document.getElementById("modalVideo").pause();
+document.getElementById("modalVideoSource").src="";
+}
+</script>
 
 </body>
 </html>
