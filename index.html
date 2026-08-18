@@ -396,12 +396,11 @@ body{
     box-shadow:0 0 45px rgba(255,255,255,.2);
 }
 
-#modalVideo{
-    display:none;
-    width:min(1100px,94vw);
-    max-height:88vh;
+.modal video{
+    max-width:94%;
+    max-height:90%;
     border-radius:18px;
-    background:#000;
+    background:black;
     box-shadow:0 0 45px rgba(255,255,255,.2);
 }
 
@@ -580,7 +579,6 @@ body{
 
 </style>
 </head>
-
 
 <body>
 
@@ -931,61 +929,24 @@ body{
      MODAL
 ========================= -->
 
-<div
-    id="modal"
-    class="modal"
-    onclick="closeModal()"
->
+<div id="modal" class="modal" onclick="closeModal()">
 
-    <span
-        class="close-btn"
-        onclick="closeModal()"
-    >
-        &times;
-    </span>
+    <span class="close-btn">&times;</span>
 
+    <img id="modalImage" src="" alt="">
 
-    <img
-        id="modalImage"
-        src=""
-        alt=""
-        onclick="event.stopPropagation()"
-    >
-
-
-    <!-- DÜZELTİLMİŞ VIDEO -->
-
-    <video
-        id="modalVideo"
-        controls
-        playsinline
-        preload="metadata"
-        onclick="event.stopPropagation()"
-    >
-        Your browser does not support the video tag.
+    <!-- BUGÜN BAŞTA ÇALIŞAN VIDEO YAPISI -->
+    <video id="modalVideo" controls>
+        <source id="modalVideoSource" src="" type="video/mp4">
     </video>
 
+    <div id="productionGallery" class="gallery">
 
-    <div
-        id="productionGallery"
-        class="gallery"
-        onclick="event.stopPropagation()"
-    >
+        <img src="oil.png" alt="Oil Production">
 
-        <img
-            src="oil.png"
-            alt="Oil Production"
-        >
+        <img src="gas.png" alt="Gas Production">
 
-        <img
-            src="gas.png"
-            alt="Gas Production"
-        >
-
-        <img
-            src="water.png"
-            alt="Water Production"
-        >
+        <img src="water.png" alt="Water Production">
 
     </div>
 
@@ -1000,128 +961,66 @@ body{
 
 
 /* =========================
-   MODAL RESET
+   BUGÜN BAŞTA ÇALIŞAN MODAL
 ========================= */
 
 function resetModal(){
 
-    const image =
-        document.getElementById("modalImage");
+    document.getElementById("modalImage").style.display="none";
 
-    const video =
-        document.getElementById("modalVideo");
+    document.getElementById("modalVideo").style.display="none";
 
-    const gallery =
-        document.getElementById("productionGallery");
+    document.getElementById("productionGallery").style.display="none";
 
+    document.getElementById("modalImage").src="";
 
-    image.style.display="none";
+    document.getElementById("modalVideo").pause();
 
-    video.style.display="none";
-
-    gallery.style.display="none";
-
-
-    image.src="";
-
-
-    video.pause();
-
-    video.removeAttribute("src");
-
-    video.load();
+    document.getElementById("modalVideoSource").src="";
 }
 
-
-/* =========================
-   OPEN IMAGE
-========================= */
 
 function openImage(file){
 
     resetModal();
 
-    const modal =
-        document.getElementById("modal");
+    document.getElementById("modal").style.display="flex";
 
-    const image =
-        document.getElementById("modalImage");
+    document.getElementById("modalImage").style.display="block";
 
-    modal.style.display="flex";
-
-    image.style.display="block";
-
-    image.src=file;
+    document.getElementById("modalImage").src=file;
 }
 
 
-/* =========================
-   OPEN VIDEO
-========================= */
+/* BUGÜN BAŞTA ÇALIŞAN VIDEO FONKSİYONU */
 
 function openVideo(file){
 
     resetModal();
 
-    const modal =
-        document.getElementById("modal");
+    document.getElementById("modal").style.display="flex";
 
-    const video =
-        document.getElementById("modalVideo");
+    document.getElementById("modalVideo").style.display="block";
 
+    document.getElementById("modalVideoSource").src=file;
 
-    modal.style.display="flex";
-
-    video.style.display="block";
-
-
-    /* MP4 DOSYASINI DOĞRUDAN VIDEO'YA VER */
-
-    video.src=file;
-
-    video.load();
-
-
-    /* Kullanıcı karta tıkladığı için play çoğu browser'da çalışır */
-
-    video.play().catch(function(error){
-
-        console.log(
-            "Video otomatik başlamadı. Play butonuna basılabilir.",
-            error
-        );
-
-    });
+    document.getElementById("modalVideo").load();
 }
 
-
-/* =========================
-   PRODUCTION
-========================= */
 
 function openProduction(){
 
     resetModal();
 
-    document.getElementById(
-        "modal"
-    ).style.display="flex";
+    document.getElementById("modal").style.display="flex";
 
-    document.getElementById(
-        "productionGallery"
-    ).style.display="block";
+    document.getElementById("productionGallery").style.display="block";
 }
 
 
-/* =========================
-   CLOSE MODAL
-========================= */
-
 function closeModal(){
 
-    document.getElementById(
-        "modal"
-    ).style.display="none";
+    document.getElementById("modal").style.display="none";
 
     resetModal();
 }
@@ -1142,28 +1041,24 @@ const dots=
 
 function showSlide(index){
 
-    slides.forEach(
-        (slide,i)=>{
+    slides.forEach(function(slide,i){
 
-            slide.classList.toggle(
-                "active",
-                i===index
-            );
+        slide.classList.toggle(
+            "active",
+            i===index
+        );
 
-        }
-    );
+    });
 
 
-    dots.forEach(
-        (dot,i)=>{
+    dots.forEach(function(dot,i){
 
-            dot.classList.toggle(
-                "active",
-                i===index
-            );
+        dot.classList.toggle(
+            "active",
+            i===index
+        );
 
-        }
-    );
+    });
 
 
     currentSlide=index;
@@ -1187,7 +1082,7 @@ function nextSlide(){
 showSlide(0);
 
 
-/* 3.5 saniyede bir otomatik döner */
+/* HER 3.5 SANİYEDE OTOMATİK */
 
 setInterval(
     nextSlide,
