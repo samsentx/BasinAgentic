@@ -89,6 +89,7 @@ body{
     align-items:center;
     gap:70px;
     padding:45px 5% 65px;
+
     background:linear-gradient(
         135deg,
         #f8fafc 0%,
@@ -397,11 +398,12 @@ body{
 }
 
 .modal video{
-    max-width:94%;
-    max-height:90%;
+    width:min(1100px,94vw);
+    max-height:88vh;
     border-radius:18px;
-    background:black;
+    background:#000;
     box-shadow:0 0 45px rgba(255,255,255,.2);
+    display:none;
 }
 
 .gallery{
@@ -933,14 +935,29 @@ body{
 
     <span class="close-btn">&times;</span>
 
-    <img id="modalImage" src="" alt="">
+    <img
+        id="modalImage"
+        src=""
+        alt=""
+        onclick="event.stopPropagation()"
+    >
 
-    <!-- BUGÜN BAŞTA ÇALIŞAN VIDEO YAPISI -->
-    <video id="modalVideo" controls>
-        <source id="modalVideoSource" src="" type="video/mp4">
+    <!-- VIDEO -->
+    <video
+        id="modalVideo"
+        controls
+        playsinline
+        preload="metadata"
+        onclick="event.stopPropagation()"
+    >
+        Your browser does not support HTML5 video.
     </video>
 
-    <div id="productionGallery" class="gallery">
+    <div
+        id="productionGallery"
+        class="gallery"
+        onclick="event.stopPropagation()"
+    >
 
         <img src="oil.png" alt="Oil Production">
 
@@ -961,52 +978,115 @@ body{
 
 
 /* =========================
-   BUGÜN BAŞTA ÇALIŞAN MODAL
+   MODAL RESET
 ========================= */
 
 function resetModal(){
 
-    document.getElementById("modalImage").style.display="none";
+    const modalImage =
+        document.getElementById("modalImage");
 
-    document.getElementById("modalVideo").style.display="none";
+    const modalVideo =
+        document.getElementById("modalVideo");
 
-    document.getElementById("productionGallery").style.display="none";
+    const productionGallery =
+        document.getElementById("productionGallery");
 
-    document.getElementById("modalImage").src="";
 
-    document.getElementById("modalVideo").pause();
+    modalImage.style.display = "none";
 
-    document.getElementById("modalVideoSource").src="";
+    modalVideo.style.display = "none";
+
+    productionGallery.style.display = "none";
+
+
+    modalImage.src = "";
+
+
+    modalVideo.pause();
+
+    modalVideo.removeAttribute("src");
+
+    modalVideo.load();
 }
 
+
+/* =========================
+   OPEN IMAGE
+========================= */
 
 function openImage(file){
 
     resetModal();
 
-    document.getElementById("modal").style.display="flex";
+    const modal =
+        document.getElementById("modal");
 
-    document.getElementById("modalImage").style.display="block";
+    const image =
+        document.getElementById("modalImage");
 
-    document.getElementById("modalImage").src=file;
+
+    modal.style.display = "flex";
+
+    image.style.display = "block";
+
+    image.src = file;
 }
 
 
-/* BUGÜN BAŞTA ÇALIŞAN VIDEO FONKSİYONU */
+/* =========================
+   OPEN VIDEO
+========================= */
 
 function openVideo(file){
 
     resetModal();
 
-    document.getElementById("modal").style.display="flex";
+    const modal =
+        document.getElementById("modal");
 
-    document.getElementById("modalVideo").style.display="block";
+    const video =
+        document.getElementById("modalVideo");
 
-    document.getElementById("modalVideoSource").src=file;
 
-    document.getElementById("modalVideo").load();
+    modal.style.display = "flex";
+
+    video.style.display = "block";
+
+
+    /*
+    GitHub Pages için dosya adı:
+
+    SWD.mp4
+
+    index.html ile aynı klasörde olmalı.
+    */
+
+    video.src = file;
+
+    video.load();
+
+
+    const playPromise = video.play();
+
+    if(playPromise !== undefined){
+
+        playPromise.catch(function(error){
+
+            console.log(
+                "Video hazır. Play düğmesine basabilirsiniz.",
+                error
+            );
+
+        });
+
+    }
 }
 
+
+/* =========================
+   PRODUCTION
+========================= */
 
 function openProduction(){
 
@@ -1014,28 +1094,36 @@ function openProduction(){
 
     document.getElementById("modal").style.display="flex";
 
-    document.getElementById("productionGallery").style.display="block";
+    document.getElementById(
+        "productionGallery"
+    ).style.display="block";
 }
 
 
+/* =========================
+   CLOSE MODAL
+========================= */
+
 function closeModal(){
 
-    document.getElementById("modal").style.display="none";
+    document.getElementById(
+        "modal"
+    ).style.display="none";
 
     resetModal();
 }
 
 
 /* =========================
-   AUTOMATIC HERO SLIDER
+   HERO SLIDER
 ========================= */
 
-let currentSlide=0;
+let currentSlide = 0;
 
-const slides=
+const slides =
     document.querySelectorAll(".slide");
 
-const dots=
+const dots =
     document.querySelectorAll(".dot");
 
 
@@ -1045,7 +1133,7 @@ function showSlide(index){
 
         slide.classList.toggle(
             "active",
-            i===index
+            i === index
         );
 
     });
@@ -1055,13 +1143,13 @@ function showSlide(index){
 
         dot.classList.toggle(
             "active",
-            i===index
+            i === index
         );
 
     });
 
 
-    currentSlide=index;
+    currentSlide = index;
 }
 
 
@@ -1069,9 +1157,9 @@ function nextSlide(){
 
     currentSlide++;
 
-    if(currentSlide>=slides.length){
+    if(currentSlide >= slides.length){
 
-        currentSlide=0;
+        currentSlide = 0;
 
     }
 
@@ -1082,11 +1170,27 @@ function nextSlide(){
 showSlide(0);
 
 
-/* HER 3.5 SANİYEDE OTOMATİK */
+/* HER 3.5 SANİYEDE */
 
 setInterval(
     nextSlide,
     3500
+);
+
+
+/* ESC İLE MODALI KAPAT */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeModal();
+
+        }
+
+    }
 );
 
 
