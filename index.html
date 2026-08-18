@@ -28,7 +28,7 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 7%;
+    padding:16px 7%;
     background:white;
     box-shadow:0 4px 18px rgba(15,23,42,.08);
     position:sticky;
@@ -37,15 +37,22 @@ body{
 }
 
 /* LOGO */
+
 .logo{
     display:flex;
     align-items:center;
 }
 
 .logo img{
-    height:68px;
-    width:auto;
+    width:520px;
+    height:auto;
+    max-width:45vw;
     display:block;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
 }
 
 .nav-links a{
@@ -65,36 +72,27 @@ body{
 ========================= */
 
 .hero{
-    min-height:88vh;
+    min-height:78vh;
     display:grid;
     grid-template-columns:1fr 1.1fr;
     gap:50px;
     align-items:center;
     padding:70px 7% 50px;
-    background:linear-gradient(135deg,#f8fafc,#eef6ff,#ffffff);
-}
-
-.hero-text h1{
-    font-size:68px;
-    line-height:1;
-    margin:0 0 18px;
-    font-weight:900;
-}
-
-.hero-text h2{
-    font-size:28px;
-    margin:0 0 22px;
-    font-weight:900;
-    color:#b8860b;
-    white-space:nowrap;
+    background:linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef6ff,
+        #ffffff
+    );
 }
 
 .hero-text p{
-    font-size:20px;
+    font-size:22px;
     line-height:1.7;
     color:#475569;
     max-width:640px;
-    margin-bottom:34px;
+    margin:0 0 34px 0;
+    font-weight:500;
 }
 
 .buttons{
@@ -146,7 +144,11 @@ body{
     max-width:650px;
     border-radius:30px;
     padding:26px;
-    background:linear-gradient(145deg,#ffffff,#eaf3ff);
+    background:linear-gradient(
+        145deg,
+        #ffffff,
+        #eaf3ff
+    );
     box-shadow:0 30px 70px rgba(15,23,42,.22);
     border:1px solid rgba(184,134,11,.25);
 }
@@ -239,7 +241,11 @@ body{
 ========================= */
 
 .intelligence{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
     color:white;
 }
 
@@ -350,7 +356,30 @@ body{
    RESPONSIVE
 ========================= */
 
+@media(max-width:1100px){
+
+    .logo img{
+        width:420px;
+        max-width:42vw;
+    }
+
+    .nav-links a{
+        margin-left:18px;
+        font-size:14px;
+    }
+}
+
 @media(max-width:1000px){
+
+    .navbar{
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .logo img{
+        width:500px;
+        max-width:85vw;
+    }
 
     .hero{
         grid-template-columns:1fr;
@@ -370,35 +399,41 @@ body{
     .report-grid{
         grid-template-columns:repeat(2,1fr);
     }
-
-    .hero-text h1{
-        font-size:52px;
-    }
 }
 
 @media(max-width:620px){
 
     .logo img{
-        height:58px;
+        width:430px;
+        max-width:92vw;
+        height:auto;
     }
 
     .navbar{
         flex-direction:column;
-        gap:16px;
+        gap:14px;
+        padding:14px 4%;
+    }
+
+    .nav-links{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:8px;
     }
 
     .nav-links a{
-        margin:0 9px;
+        margin:0 8px;
         font-size:14px;
     }
 
-    .hero-text h1{
-        font-size:42px;
+    .hero{
+        padding:50px 6% 40px;
+        min-height:auto;
     }
 
-    .hero-text h2{
-        font-size:20px;
-        white-space:normal;
+    .hero-text p{
+        font-size:18px;
     }
 
     .platform-grid,
@@ -419,14 +454,30 @@ body{
 <nav class="navbar">
 
     <div class="logo">
-        <img src="logo.png" alt="BasinAgentic Logo">
+        <img
+            src="logo.png"
+            alt="BasinAgentic Logo"
+        >
     </div>
 
     <div class="nav-links">
-        <a href="#platform">Platform</a>
-        <a href="#intelligence">Intelligence</a>
-        <a href="#reports">Reports</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#platform">
+            Platform
+        </a>
+
+        <a href="#intelligence">
+            Intelligence
+        </a>
+
+        <a href="#reports">
+            Reports
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
 </nav>
@@ -439,24 +490,25 @@ body{
 
     <div class="hero-text">
 
-        <h1>
-            <span style="color:#0f172a;">BASIN</span><span style="color:#dc2626;">AGENTIC</span>
-        </h1>
-
-        <h2>Autonomous Basin Intelligence Platform</h2>
-
         <p>
-            Agentic AI for induced seismicity forecasting, b-value risk mapping,
-            SWD injection optimization and production intelligence.
+            Agentic AI for induced seismicity forecasting,
+            b-value risk mapping, SWD injection optimization
+            and production intelligence.
         </p>
 
         <div class="buttons">
 
-            <a href="#platform" class="btn btn-primary">
+            <a
+                href="#platform"
+                class="btn btn-primary"
+            >
                 View Platform
             </a>
 
-            <a href="#contact" class="btn btn-secondary">
+            <a
+                href="#contact"
+                class="btn btn-secondary"
+            >
                 Contact Us
             </a>
 
@@ -483,24 +535,38 @@ body{
      PLATFORM
 ========================= -->
 
-<section class="section" id="platform">
+<section
+    class="section"
+    id="platform"
+>
 
-    <h2>Our Platform</h2>
+    <h2>
+        Our Platform
+    </h2>
 
     <p>
-        BasinAgentic integrates seismicity data, basin-scale production data,
-        b-value analytics, Transformer forecasting and reinforcement learning
+        BasinAgentic integrates seismicity data,
+        basin-scale production data,
+        b-value analytics,
+        Transformer forecasting
+        and reinforcement learning
         for safer energy operations.
     </p>
 
     <div class="platform-grid">
 
-        <div class="platform-card" onclick="openImage('seismicity-detail.png')">
+        <div
+            class="platform-card"
+            onclick="openImage('seismicity-detail.png')"
+        >
 
-            <h3>Seismicity Forecasting</h3>
+            <h3>
+                Seismicity Forecasting
+            </h3>
 
             <p>
-                Transformer-based forecasting for daily maximum magnitude
+                Transformer-based forecasting
+                for daily maximum magnitude
                 and future seismic risk.
             </p>
 
@@ -510,12 +576,18 @@ body{
 
         </div>
 
-        <div class="platform-card" onclick="openImage('bvalue-detail.png')">
+        <div
+            class="platform-card"
+            onclick="openImage('bvalue-detail.png')"
+        >
 
-            <h3>b-Value Risk Mapping</h3>
+            <h3>
+                b-Value Risk Mapping
+            </h3>
 
             <p>
-                Spatial identification of low b-value zones linked
+                Spatial identification of
+                low b-value zones linked
                 to elevated seismic hazard.
             </p>
 
@@ -525,13 +597,19 @@ body{
 
         </div>
 
-        <div class="platform-card" onclick="openVideo('SWD.mp4')">
+        <div
+            class="platform-card"
+            onclick="openVideo('SWD.mp4')"
+        >
 
-            <h3>Agentic AI SWD Control</h3>
+            <h3>
+                Agentic AI SWD Control
+            </h3>
 
             <p>
-                Adaptive injection optimization using AI agents
-                and reinforcement learning logic.
+                Adaptive injection optimization
+                using AI agents and
+                reinforcement learning logic.
             </p>
 
             <span class="click-text">
@@ -540,9 +618,14 @@ body{
 
         </div>
 
-        <div class="platform-card" onclick="openProduction()">
+        <div
+            class="platform-card"
+            onclick="openProduction()"
+        >
 
-            <h3>Production Intelligence</h3>
+            <h3>
+                Production Intelligence
+            </h3>
 
             <p>
                 Oil, gas, water and operational analytics
@@ -563,28 +646,38 @@ body{
      INTELLIGENCE
 ========================= -->
 
-<section class="section intelligence" id="intelligence">
+<section
+    class="section intelligence"
+    id="intelligence"
+>
 
     <h2>
         Induced Seismicity Intelligence
     </h2>
 
     <p>
-        Forecast seismic risk, detect low b-value hotspots,
-        and support proactive SWD injection control before
-        elevated-magnitude events occur.
+        Forecast seismic risk,
+        detect low b-value hotspots,
+        and support proactive SWD injection control
+        before elevated-magnitude events occur.
     </p>
 
     <div class="platform-grid">
 
-        <div class="platform-card" onclick="openImage('seismicity-map.png')">
+        <div
+            class="platform-card"
+            onclick="openImage('seismicity-map.png')"
+        >
 
             <i class="fa-solid fa-location-crosshairs"></i>
 
-            <h3>Seismicity Map</h3>
+            <h3>
+                Seismicity Map
+            </h3>
 
             <p>
-                Spatial visualization of earthquake activity
+                Spatial visualization
+                of earthquake activity
                 across the basin.
             </p>
 
@@ -594,14 +687,20 @@ body{
 
         </div>
 
-        <div class="platform-card" onclick="openImage('time-series.png')">
+        <div
+            class="platform-card"
+            onclick="openImage('time-series.png')"
+        >
 
             <i class="fa-solid fa-chart-area"></i>
 
-            <h3>Time Series</h3>
+            <h3>
+                Time Series
+            </h3>
 
             <p>
-                Daily seismicity trends, magnitude evolution
+                Daily seismicity trends,
+                magnitude evolution
                 and energy release.
             </p>
 
@@ -611,14 +710,20 @@ body{
 
         </div>
 
-        <div class="platform-card" onclick="openImage('depth-analysis.png')">
+        <div
+            class="platform-card"
+            onclick="openImage('depth-analysis.png')"
+        >
 
             <i class="fa-solid fa-layer-group"></i>
 
-            <h3>Depth Analysis</h3>
+            <h3>
+                Depth Analysis
+            </h3>
 
             <p>
-                Depth distribution of seismic events
+                Depth distribution
+                of seismic events
                 and subsurface risk patterns.
             </p>
 
@@ -628,15 +733,20 @@ body{
 
         </div>
 
-        <div class="platform-card" onclick="openImage('injection.png')">
+        <div
+            class="platform-card"
+            onclick="openImage('injection.png')"
+        >
 
             <i class="fa-solid fa-droplet"></i>
 
-            <h3>SWD Injection</h3>
+            <h3>
+                SWD Injection
+            </h3>
 
             <p>
-                Shallow and Deep Injection Wells visualization
-                and operational monitoring.
+                Shallow and Deep Injection Wells
+                visualization and operational monitoring.
             </p>
 
             <span class="click-text">
@@ -653,15 +763,19 @@ body{
      REPORTS
 ========================= -->
 
-<section class="section" id="reports">
+<section
+    class="section"
+    id="reports"
+>
 
     <h2>
         Industry Reports
     </h2>
 
     <p>
-        Custom basin intelligence reports for operators,
-        investors, regulators and energy decision makers.
+        Custom basin intelligence reports
+        for operators, investors,
+        regulators and energy decision makers.
     </p>
 
     <div class="report-grid">
@@ -690,14 +804,19 @@ body{
      CONTACT
 ========================= -->
 
-<section class="section" id="contact">
+<section
+    class="section"
+    id="contact"
+>
 
     <h2>
         Contact
     </h2>
 
     <p>
-        For platform access, custom reports or technical collaboration,
+        For platform access,
+        custom reports
+        or technical collaboration,
         contact BasinAgentic.
     </p>
 
@@ -786,47 +905,87 @@ body{
 
 function resetModal(){
 
-    document.getElementById("modalImage").style.display="none";
-    document.getElementById("modalVideo").style.display="none";
-    document.getElementById("productionGallery").style.display="none";
+    document.getElementById(
+        "modalImage"
+    ).style.display="none";
 
-    document.getElementById("modalImage").src="";
+    document.getElementById(
+        "modalVideo"
+    ).style.display="none";
 
-    document.getElementById("modalVideo").pause();
-    document.getElementById("modalVideoSource").src="";
+    document.getElementById(
+        "productionGallery"
+    ).style.display="none";
+
+    document.getElementById(
+        "modalImage"
+    ).src="";
+
+    document.getElementById(
+        "modalVideo"
+    ).pause();
+
+    document.getElementById(
+        "modalVideoSource"
+    ).src="";
 }
 
 function openImage(file){
 
     resetModal();
 
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modalImage").style.display="block";
-    document.getElementById("modalImage").src=file;
+    document.getElementById(
+        "modal"
+    ).style.display="flex";
+
+    document.getElementById(
+        "modalImage"
+    ).style.display="block";
+
+    document.getElementById(
+        "modalImage"
+    ).src=file;
 }
 
 function openVideo(file){
 
     resetModal();
 
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modalVideo").style.display="block";
-    document.getElementById("modalVideoSource").src=file;
+    document.getElementById(
+        "modal"
+    ).style.display="flex";
 
-    document.getElementById("modalVideo").load();
+    document.getElementById(
+        "modalVideo"
+    ).style.display="block";
+
+    document.getElementById(
+        "modalVideoSource"
+    ).src=file;
+
+    document.getElementById(
+        "modalVideo"
+    ).load();
 }
 
 function openProduction(){
 
     resetModal();
 
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("productionGallery").style.display="block";
+    document.getElementById(
+        "modal"
+    ).style.display="flex";
+
+    document.getElementById(
+        "productionGallery"
+    ).style.display="block";
 }
 
 function closeModal(){
 
-    document.getElementById("modal").style.display="none";
+    document.getElementById(
+        "modal"
+    ).style.display="none";
 
     resetModal();
 }
