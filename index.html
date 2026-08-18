@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -42,7 +43,7 @@ body{
 }
 
 .logo img{
-    height:54px;
+    height:68px;
     width:auto;
     display:block;
 }
@@ -378,7 +379,7 @@ body{
 @media(max-width:620px){
 
     .logo img{
-        height:46px;
+        height:58px;
     }
 
     .navbar{
@@ -494,10 +495,7 @@ body{
 
     <div class="platform-grid">
 
-        <div
-            class="platform-card"
-            onclick="openImage('seismicity-detail.png')"
-        >
+        <div class="platform-card" onclick="openImage('seismicity-detail.png')">
 
             <h3>Seismicity Forecasting</h3>
 
@@ -512,10 +510,7 @@ body{
 
         </div>
 
-        <div
-            class="platform-card"
-            onclick="openImage('bvalue-detail.png')"
-        >
+        <div class="platform-card" onclick="openImage('bvalue-detail.png')">
 
             <h3>b-Value Risk Mapping</h3>
 
@@ -530,10 +525,7 @@ body{
 
         </div>
 
-        <div
-            class="platform-card"
-            onclick="openVideo('SWD.mp4')"
-        >
+        <div class="platform-card" onclick="openVideo('SWD.mp4')">
 
             <h3>Agentic AI SWD Control</h3>
 
@@ -548,10 +540,7 @@ body{
 
         </div>
 
-        <div
-            class="platform-card"
-            onclick="openProduction()"
-        >
+        <div class="platform-card" onclick="openProduction()">
 
             <h3>Production Intelligence</h3>
 
@@ -574,10 +563,7 @@ body{
      INTELLIGENCE
 ========================= -->
 
-<section
-    class="section intelligence"
-    id="intelligence"
->
+<section class="section intelligence" id="intelligence">
 
     <h2>
         Induced Seismicity Intelligence
@@ -591,10 +577,7 @@ body{
 
     <div class="platform-grid">
 
-        <div
-            class="platform-card"
-            onclick="openImage('seismicity-map.png')"
-        >
+        <div class="platform-card" onclick="openImage('seismicity-map.png')">
 
             <i class="fa-solid fa-location-crosshairs"></i>
 
@@ -611,10 +594,7 @@ body{
 
         </div>
 
-        <div
-            class="platform-card"
-            onclick="openImage('time-series.png')"
-        >
+        <div class="platform-card" onclick="openImage('time-series.png')">
 
             <i class="fa-solid fa-chart-area"></i>
 
@@ -631,10 +611,7 @@ body{
 
         </div>
 
-        <div
-            class="platform-card"
-            onclick="openImage('depth-analysis.png')"
-        >
+        <div class="platform-card" onclick="openImage('depth-analysis.png')">
 
             <i class="fa-solid fa-layer-group"></i>
 
@@ -651,10 +628,7 @@ body{
 
         </div>
 
-        <div
-            class="platform-card"
-            onclick="openImage('injection.png')"
-        >
+        <div class="platform-card" onclick="openImage('injection.png')">
 
             <i class="fa-solid fa-droplet"></i>
 
@@ -679,10 +653,7 @@ body{
      REPORTS
 ========================= -->
 
-<section
-    class="section"
-    id="reports"
->
+<section class="section" id="reports">
 
     <h2>
         Industry Reports
@@ -719,10 +690,7 @@ body{
      CONTACT
 ========================= -->
 
-<section
-    class="section"
-    id="contact"
->
+<section class="section" id="contact">
 
     <h2>
         Contact
@@ -818,87 +786,47 @@ body{
 
 function resetModal(){
 
-    document.getElementById(
-        "modalImage"
-    ).style.display="none";
+    document.getElementById("modalImage").style.display="none";
+    document.getElementById("modalVideo").style.display="none";
+    document.getElementById("productionGallery").style.display="none";
 
-    document.getElementById(
-        "modalVideo"
-    ).style.display="none";
+    document.getElementById("modalImage").src="";
 
-    document.getElementById(
-        "productionGallery"
-    ).style.display="none";
-
-    document.getElementById(
-        "modalImage"
-    ).src="";
-
-    document.getElementById(
-        "modalVideo"
-    ).pause();
-
-    document.getElementById(
-        "modalVideoSource"
-    ).src="";
+    document.getElementById("modalVideo").pause();
+    document.getElementById("modalVideoSource").src="";
 }
 
 function openImage(file){
 
     resetModal();
 
-    document.getElementById(
-        "modal"
-    ).style.display="flex";
-
-    document.getElementById(
-        "modalImage"
-    ).style.display="block";
-
-    document.getElementById(
-        "modalImage"
-    ).src=file;
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modalImage").style.display="block";
+    document.getElementById("modalImage").src=file;
 }
 
 function openVideo(file){
 
     resetModal();
 
-    document.getElementById(
-        "modal"
-    ).style.display="flex";
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modalVideo").style.display="block";
+    document.getElementById("modalVideoSource").src=file;
 
-    document.getElementById(
-        "modalVideo"
-    ).style.display="block";
-
-    document.getElementById(
-        "modalVideoSource"
-    ).src=file;
-
-    document.getElementById(
-        "modalVideo"
-    ).load();
+    document.getElementById("modalVideo").load();
 }
 
 function openProduction(){
 
     resetModal();
 
-    document.getElementById(
-        "modal"
-    ).style.display="flex";
-
-    document.getElementById(
-        "productionGallery"
-    ).style.display="block";
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("productionGallery").style.display="block";
 }
 
 function closeModal(){
 
-    document.getElementById(
-        "modal"
-    ).style.display="none";
+    document.getElementById("modal").style.display="none";
 
     resetModal();
 }
