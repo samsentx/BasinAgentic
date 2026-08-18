@@ -717,8 +717,9 @@ body{
         </div>
 
 
+        <!-- WORKING AGENTIC VIDEO -->
         <div class="platform-card"
-             onclick="openVideo('SWD.mp4')">
+             onclick="openVideo('agentic_fixed.mp4')">
 
             <h3>Agentic AI SWD Control</h3>
 
@@ -942,7 +943,6 @@ body{
         onclick="event.stopPropagation()"
     >
 
-    <!-- VIDEO -->
     <video
         id="modalVideo"
         controls
@@ -978,7 +978,7 @@ body{
 
 
 /* =========================
-   MODAL RESET
+   RESET MODAL
 ========================= */
 
 function resetModal(){
@@ -1053,34 +1053,19 @@ function openVideo(file){
 
     video.style.display = "block";
 
-
-    /*
-    GitHub Pages için dosya adı:
-
-    SWD.mp4
-
-    index.html ile aynı klasörde olmalı.
-    */
-
     video.src = file;
 
     video.load();
 
 
-    const playPromise = video.play();
+    video.play().catch(function(error){
 
-    if(playPromise !== undefined){
+        console.log(
+            "Autoplay blocked. Press play.",
+            error
+        );
 
-        playPromise.catch(function(error){
-
-            console.log(
-                "Video hazır. Play düğmesine basabilirsiniz.",
-                error
-            );
-
-        });
-
-    }
+    });
 }
 
 
@@ -1092,11 +1077,13 @@ function openProduction(){
 
     resetModal();
 
-    document.getElementById("modal").style.display="flex";
+    document.getElementById(
+        "modal"
+    ).style.display = "flex";
 
     document.getElementById(
         "productionGallery"
-    ).style.display="block";
+    ).style.display = "block";
 }
 
 
@@ -1108,7 +1095,7 @@ function closeModal(){
 
     document.getElementById(
         "modal"
-    ).style.display="none";
+    ).style.display = "none";
 
     resetModal();
 }
@@ -1170,7 +1157,7 @@ function nextSlide(){
 showSlide(0);
 
 
-/* HER 3.5 SANİYEDE */
+/* HER 3.5 SANİYEDE OTOMATİK */
 
 setInterval(
     nextSlide,
