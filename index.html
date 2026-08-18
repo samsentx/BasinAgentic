@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BasinAgentic | Autonomous Basin Intelligence Platform</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+/* =========================
+   GLOBAL
+========================= */
+
 *{
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -20,232 +30,409 @@ body{
     color:#0f172a;
 }
 
+
 /* =========================
    NAVBAR
 ========================= */
 
 .navbar{
+    width:100%;
+    height:130px;
+
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:16px 7%;
-    background:white;
-    box-shadow:0 4px 18px rgba(15,23,42,.08);
+    justify-content:space-between;
+
+    padding:10px 6%;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 4px 18px rgba(15,23,42,.07);
+
     position:sticky;
     top:0;
-    z-index:10;
+    z-index:1000;
 }
+
 
 /* LOGO */
 
 .logo{
     display:flex;
     align-items:center;
+    height:100%;
 }
 
 .logo img{
-    width:520px;
+    width:420px;
     height:auto;
-    max-width:45vw;
+
+    max-height:110px;
+
+    object-fit:contain;
+
     display:block;
 }
+
+
+/* NAV LINKS */
 
 .nav-links{
     display:flex;
     align-items:center;
+    justify-content:flex-end;
+
+    gap:38px;
 }
 
 .nav-links a{
-    margin-left:28px;
+    margin:0;
+
     text-decoration:none;
+
     font-weight:700;
-    color:#334155;
     font-size:15px;
+
+    color:#334155;
+
+    transition:.2s;
 }
 
 .nav-links a:hover{
-    color:#b8860b;
+    color:#d18b00;
 }
+
 
 /* =========================
    HERO
 ========================= */
 
 .hero{
-    min-height:78vh;
+    min-height:calc(100vh - 130px);
+
     display:grid;
-    grid-template-columns:1fr 1.1fr;
-    gap:50px;
+
+    grid-template-columns:
+        minmax(0, .9fr)
+        minmax(0, 1.1fr);
+
     align-items:center;
-    padding:70px 7% 50px;
-    background:linear-gradient(
-        135deg,
-        #f8fafc,
-        #eef6ff,
-        #ffffff
-    );
+
+    gap:70px;
+
+    padding:
+        60px
+        6%
+        70px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #eef6ff 55%,
+            #ffffff 100%
+        );
+}
+
+
+/* HERO TEXT */
+
+.hero-text{
+    max-width:650px;
 }
 
 .hero-text p{
     font-size:22px;
-    line-height:1.7;
+
+    line-height:1.65;
+
     color:#475569;
-    max-width:640px;
-    margin:0 0 34px 0;
-    font-weight:500;
+
+    margin:
+        0
+        0
+        32px;
+
+    max-width:620px;
 }
+
+
+/* BUTTON AREA */
 
 .buttons{
     display:flex;
+
+    align-items:center;
+
     gap:16px;
+
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:15px 26px;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:48px;
+
+    padding:
+        14px
+        27px;
+
     border-radius:999px;
+
     text-decoration:none;
+
     font-weight:900;
+
     font-size:15px;
+
     transition:.25s;
-    display:inline-block;
 }
+
+
+/* PRIMARY BUTTON */
 
 .btn-primary{
     background:#0f172a;
-    color:white;
-    box-shadow:0 12px 28px rgba(15,23,42,.25);
+
+    color:#ffffff;
+
+    box-shadow:
+        0 10px 25px
+        rgba(15,23,42,.20);
 }
 
 .btn-primary:hover{
-    transform:translateY(-3px);
+    transform:translateY(-2px);
+
     background:#1e293b;
 }
 
+
+/* SECONDARY BUTTON */
+
 .btn-secondary{
-    background:white;
+    background:#ffffff;
+
     color:#0f172a;
-    border:2px solid #b8860b;
+
+    border:
+        2px solid
+        #d39a16;
 }
 
 .btn-secondary:hover{
-    transform:translateY(-3px);
-    background:#fff8e1;
+    transform:translateY(-2px);
+
+    background:#fff9e9;
 }
 
+
+/* =========================
+   HERO IMAGE
+========================= */
+
 .hero-visual{
+    width:100%;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
+
+    justify-content:center;
 }
 
 .hero-card{
     width:100%;
-    max-width:650px;
-    border-radius:30px;
-    padding:26px;
-    background:linear-gradient(
-        145deg,
-        #ffffff,
-        #eaf3ff
-    );
-    box-shadow:0 30px 70px rgba(15,23,42,.22);
-    border:1px solid rgba(184,134,11,.25);
+
+    max-width:670px;
+
+    padding:18px;
+
+    border-radius:28px;
+
+    background:
+        rgba(255,255,255,.88);
+
+    border:
+        1px solid
+        rgba(184,134,11,.28);
+
+    box-shadow:
+        0 30px 65px
+        rgba(15,23,42,.18);
 }
 
 .hero-card img{
     width:100%;
+
+    height:auto;
+
     display:block;
-    border-radius:24px;
+
+    border-radius:20px;
 }
 
+
 /* =========================
-   SECTIONS
+   GENERAL SECTIONS
 ========================= */
 
 .section{
-    padding:70px 7%;
+    padding:
+        85px
+        6%;
+
     text-align:center;
 }
 
 .section h2{
     font-size:42px;
-    margin:0 0 16px;
+
+    margin:
+        0
+        0
+        16px;
+
     font-weight:900;
+
+    color:#0f172a;
 }
 
-.section p{
-    max-width:760px;
-    margin:0 auto 38px;
+.section > p{
+    max-width:780px;
+
+    margin:
+        0
+        auto
+        42px;
+
     font-size:18px;
+
     line-height:1.7;
+
     color:#475569;
 }
 
+
+/* =========================
+   PLATFORM GRID
+========================= */
+
 .platform-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:24px;
+
+    max-width:1450px;
+
+    margin:auto;
 }
 
 .platform-card{
-    background:white;
-    border-radius:24px;
-    padding:34px 22px 36px;
-    box-shadow:0 16px 38px rgba(15,23,42,.1);
-    border-top:5px solid #b8860b;
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:
+        34px
+        24px;
+
+    box-shadow:
+        0 14px 35px
+        rgba(15,23,42,.08);
+
+    border-top:
+        5px solid
+        #d39a16;
+
     transition:.25s;
-    overflow:hidden;
+
     cursor:pointer;
-    min-height:250px;
+
+    min-height:245px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
+    align-items:center;
 }
 
 .platform-card:hover{
     transform:translateY(-6px);
-    box-shadow:0 22px 50px rgba(15,23,42,.16);
+
+    box-shadow:
+        0 20px 45px
+        rgba(15,23,42,.15);
 }
 
 .platform-card i{
     font-size:42px;
-    color:#b8860b;
+
+    color:#d39a16;
+
     margin-bottom:20px;
 }
 
 .platform-card h3{
     font-size:21px;
-    margin:0 0 14px;
+
+    margin:
+        0
+        0
+        14px;
+
     font-weight:900;
+
     color:#0f172a;
 }
 
 .platform-card p{
     font-size:15px;
+
     line-height:1.6;
+
     margin:0;
+
     color:#64748b;
 }
 
 .click-text{
     display:inline-block;
+
     margin-top:18px;
+
     font-size:13px;
+
     font-weight:900;
+
     color:#b8860b;
 }
+
 
 /* =========================
    INTELLIGENCE
 ========================= */
 
 .intelligence{
-    background:linear-gradient(
-        135deg,
-        #0f172a,
-        #1e293b
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
     color:white;
 }
 
@@ -253,9 +440,10 @@ body{
     color:white;
 }
 
-.intelligence p{
+.intelligence > p{
     color:#cbd5e1;
 }
+
 
 /* =========================
    REPORTS
@@ -263,18 +451,35 @@ body{
 
 .report-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:22px;
+
+    max-width:1450px;
+
+    margin:auto;
 }
 
 .report-card{
-    padding:28px 20px;
+    padding:
+        32px
+        22px;
+
     border-radius:22px;
+
     background:white;
-    box-shadow:0 14px 35px rgba(15,23,42,.1);
+
+    box-shadow:
+        0 14px 35px
+        rgba(15,23,42,.1);
+
     font-weight:900;
+
     color:#0f172a;
 }
+
 
 /* =========================
    FOOTER
@@ -282,12 +487,20 @@ body{
 
 .footer{
     text-align:center;
-    padding:30px 7%;
+
+    padding:
+        30px
+        7%;
+
     background:#0f172a;
+
     color:#cbd5e1;
+
     font-size:13px;
+
     font-weight:700;
 }
+
 
 /* =========================
    MODAL
@@ -295,99 +508,147 @@ body{
 
 .modal{
     display:none;
+
     position:fixed;
+
     z-index:9999;
+
     left:0;
+
     top:0;
+
     width:100%;
+
     height:100%;
-    background:rgba(0,0,0,.92);
+
+    background:
+        rgba(0,0,0,.92);
+
     justify-content:center;
+
     align-items:center;
+
     padding:30px;
+
     overflow:auto;
 }
 
 .modal img{
     max-width:94%;
+
     max-height:90%;
+
     border-radius:18px;
+
     background:white;
-    box-shadow:0 0 45px rgba(255,255,255,.2);
+
+    box-shadow:
+        0 0 45px
+        rgba(255,255,255,.2);
 }
 
 .modal video{
     max-width:94%;
+
     max-height:90%;
+
     border-radius:18px;
+
     background:black;
-    box-shadow:0 0 45px rgba(255,255,255,.2);
+
+    box-shadow:
+        0 0 45px
+        rgba(255,255,255,.2);
 }
 
 .gallery{
     display:none;
+
     max-width:950px;
+
     width:100%;
+
     margin:auto;
 }
 
 .gallery img{
     width:100%;
+
     max-height:none;
+
     margin-bottom:24px;
+
     border-radius:18px;
+
     background:white;
+
     padding:10px;
+
     display:block;
 }
 
 .close-btn{
     position:absolute;
+
     top:22px;
+
     right:38px;
+
     font-size:52px;
+
     color:white;
+
     font-weight:900;
+
     cursor:pointer;
+
     z-index:10000;
 }
 
+
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
 @media(max-width:1100px){
 
-    .logo img{
-        width:420px;
-        max-width:42vw;
-    }
-
-    .nav-links a{
-        margin-left:18px;
-        font-size:14px;
-    }
-}
-
-@media(max-width:1000px){
-
     .navbar{
-        flex-direction:column;
-        gap:16px;
+        height:auto;
+
+        padding:
+            12px
+            5%;
     }
 
     .logo img{
-        width:500px;
-        max-width:85vw;
+        width:350px;
+    }
+
+    .nav-links{
+        gap:22px;
     }
 
     .hero{
         grid-template-columns:1fr;
+
+        min-height:auto;
+
+        padding:
+            60px
+            7%;
+
+        gap:50px;
+
         text-align:center;
+    }
+
+    .hero-text{
+        margin:auto;
     }
 
     .hero-text p{
         margin-left:auto;
+
         margin-right:auto;
     }
 
@@ -395,45 +656,93 @@ body{
         justify-content:center;
     }
 
+    .hero-card{
+        max-width:700px;
+    }
+
     .platform-grid,
     .report-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
 
-@media(max-width:620px){
 
-    .logo img{
-        width:430px;
-        max-width:92vw;
-        height:auto;
-    }
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
 
     .navbar{
         flex-direction:column;
-        gap:14px;
-        padding:14px 4%;
+
+        justify-content:center;
+
+        gap:10px;
+
+        padding:
+            10px
+            3%;
+    }
+
+    .logo img{
+        width:390px;
+
+        max-width:94vw;
+
+        max-height:none;
     }
 
     .nav-links{
         width:100%;
+
         justify-content:center;
+
+        gap:18px;
+
         flex-wrap:wrap;
-        gap:8px;
+
+        padding-bottom:10px;
     }
 
     .nav-links a{
-        margin:0 8px;
         font-size:14px;
     }
 
     .hero{
-        padding:50px 6% 40px;
-        min-height:auto;
+        padding:
+            45px
+            5%
+            55px;
+
+        gap:38px;
     }
 
     .hero-text p{
         font-size:18px;
+
+        line-height:1.6;
+    }
+
+    .hero-card{
+        padding:10px;
+
+        border-radius:20px;
+    }
+
+    .hero-card img{
+        border-radius:15px;
+    }
+
+    .section{
+        padding:
+            65px
+            5%;
+    }
+
+    .section h2{
+        font-size:34px;
     }
 
     .platform-grid,
@@ -445,7 +754,9 @@ body{
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVBAR
@@ -454,11 +765,14 @@ body{
 <nav class="navbar">
 
     <div class="logo">
+
         <img
             src="logo.png"
             alt="BasinAgentic Logo"
         >
+
     </div>
+
 
     <div class="nav-links">
 
@@ -482,6 +796,8 @@ body{
 
 </nav>
 
+
+
 <!-- =========================
      HERO
 ========================= -->
@@ -496,6 +812,7 @@ body{
             and production intelligence.
         </p>
 
+
         <div class="buttons">
 
             <a
@@ -504,6 +821,7 @@ body{
             >
                 View Platform
             </a>
+
 
             <a
                 href="#contact"
@@ -515,6 +833,7 @@ body{
         </div>
 
     </div>
+
 
     <div class="hero-visual">
 
@@ -531,6 +850,8 @@ body{
 
 </section>
 
+
+
 <!-- =========================
      PLATFORM
 ========================= -->
@@ -544,16 +865,18 @@ body{
         Our Platform
     </h2>
 
+
     <p>
         BasinAgentic integrates seismicity data,
         basin-scale production data,
         b-value analytics,
-        Transformer forecasting
-        and reinforcement learning
+        Transformer forecasting and reinforcement learning
         for safer energy operations.
     </p>
 
+
     <div class="platform-grid">
+
 
         <div
             class="platform-card"
@@ -576,6 +899,7 @@ body{
 
         </div>
 
+
         <div
             class="platform-card"
             onclick="openImage('bvalue-detail.png')"
@@ -586,8 +910,8 @@ body{
             </h3>
 
             <p>
-                Spatial identification of
-                low b-value zones linked
+                Spatial identification
+                of low b-value zones linked
                 to elevated seismic hazard.
             </p>
 
@@ -596,6 +920,7 @@ body{
             </span>
 
         </div>
+
 
         <div
             class="platform-card"
@@ -618,6 +943,7 @@ body{
 
         </div>
 
+
         <div
             class="platform-card"
             onclick="openProduction()"
@@ -638,9 +964,12 @@ body{
 
         </div>
 
+
     </div>
 
 </section>
+
+
 
 <!-- =========================
      INTELLIGENCE
@@ -662,7 +991,9 @@ body{
         before elevated-magnitude events occur.
     </p>
 
+
     <div class="platform-grid">
+
 
         <div
             class="platform-card"
@@ -687,6 +1018,7 @@ body{
 
         </div>
 
+
         <div
             class="platform-card"
             onclick="openImage('time-series.png')"
@@ -709,6 +1041,7 @@ body{
             </span>
 
         </div>
+
 
         <div
             class="platform-card"
@@ -733,6 +1066,7 @@ body{
 
         </div>
 
+
         <div
             class="platform-card"
             onclick="openImage('injection.png')"
@@ -755,9 +1089,12 @@ body{
 
         </div>
 
+
     </div>
 
 </section>
+
+
 
 <!-- =========================
      REPORTS
@@ -772,11 +1109,13 @@ body{
         Industry Reports
     </h2>
 
+
     <p>
         Custom basin intelligence reports
         for operators, investors,
         regulators and energy decision makers.
     </p>
+
 
     <div class="report-grid">
 
@@ -800,6 +1139,8 @@ body{
 
 </section>
 
+
+
 <!-- =========================
      CONTACT
 ========================= -->
@@ -813,12 +1154,13 @@ body{
         Contact
     </h2>
 
+
     <p>
         For platform access,
-        custom reports
-        or technical collaboration,
+        custom reports or technical collaboration,
         contact BasinAgentic.
     </p>
+
 
     <a
         href="mailto:info@basinagentic.com"
@@ -828,6 +1170,8 @@ body{
     </a>
 
 </section>
+
+
 
 <!-- =========================
      FOOTER
@@ -839,6 +1183,8 @@ body{
     Autonomous Basin Intelligence Platform.
 
 </footer>
+
+
 
 <!-- =========================
      MODAL
@@ -854,11 +1200,13 @@ body{
         &times;
     </span>
 
+
     <img
         id="modalImage"
         src=""
         alt=""
     >
+
 
     <video
         id="modalVideo"
@@ -872,6 +1220,7 @@ body{
         >
 
     </video>
+
 
     <div
         id="productionGallery"
@@ -897,11 +1246,14 @@ body{
 
 </div>
 
+
+
 <!-- =========================
      JAVASCRIPT
 ========================= -->
 
 <script>
+
 
 function resetModal(){
 
@@ -930,6 +1282,8 @@ function resetModal(){
     ).src="";
 }
 
+
+
 function openImage(file){
 
     resetModal();
@@ -945,7 +1299,10 @@ function openImage(file){
     document.getElementById(
         "modalImage"
     ).src=file;
+
 }
+
+
 
 function openVideo(file){
 
@@ -966,7 +1323,10 @@ function openVideo(file){
     document.getElementById(
         "modalVideo"
     ).load();
+
 }
+
+
 
 function openProduction(){
 
@@ -979,7 +1339,10 @@ function openProduction(){
     document.getElementById(
         "productionGallery"
     ).style.display="block";
+
 }
+
+
 
 function closeModal(){
 
@@ -988,9 +1351,12 @@ function closeModal(){
     ).style.display="none";
 
     resetModal();
+
 }
 
+
 </script>
+
 
 </body>
 </html>
