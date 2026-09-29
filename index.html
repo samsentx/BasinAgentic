@@ -17,17 +17,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     --blue2:#2563eb;
     --red:#d7190f;
     --orange:#ff4d00;
-    --orange2:#ff6a00;
     --text:#0f172a;
     --muted:#64748b;
-    --border:#dfe6ef;
     --page-max:1600px;
     --page-pad:clamp(20px,3.5vw,58px);
 }
 
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:128px;
+}
 
 body{
     margin:0;
@@ -36,13 +39,18 @@ body{
     background:#f8fafc;
 }
 
-a{text-decoration:none}
+a{
+    text-decoration:none;
+}
 
-button,input{font:inherit}
+button,
+input{
+    font:inherit;
+}
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .navbar{
     position:sticky;
@@ -55,9 +63,12 @@ button,input{font:inherit}
     justify-content:space-between;
     gap:24px;
     padding:10px var(--page-pad);
+
     background:rgba(255,255,255,.97);
     border-bottom:1px solid rgba(7,26,51,.10);
+
     box-shadow:0 8px 28px rgba(7,26,51,.07);
+
     backdrop-filter:blur(18px);
 }
 
@@ -86,15 +97,22 @@ button,input{font:inherit}
 
 .nav-links a{
     min-height:42px;
+
     display:inline-flex;
     align-items:center;
     justify-content:center;
+
     padding:0 14px;
+
     border-radius:10px;
+
     color:var(--navy2);
+
     font-size:13px;
     font-weight:850;
+
     white-space:nowrap;
+
     transition:.2s ease;
 }
 
@@ -104,59 +122,113 @@ button,input{font:inherit}
     transform:translateY(-1px);
 }
 
+/* Contact is NOT permanently red */
+
 .nav-links .nav-contact{
     margin-left:5px;
     padding:0 18px;
-    background:linear-gradient(135deg,var(--red),var(--orange));
-    color:#fff;
-    box-shadow:0 10px 22px rgba(215,25,15,.20);
+
+    color:var(--navy2);
+    background:transparent;
+    box-shadow:none;
 }
 
 .nav-links .nav-contact:hover{
-    color:#fff;
-    background:linear-gradient(135deg,#b9150d,#e94400);
-    transform:translateY(-2px);
+    color:var(--red);
+    background:#fff4ef;
+    transform:translateY(-1px);
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     position:relative;
+
+    scroll-margin-top:128px;
+
     width:100%;
+
     min-height:calc(100vh - 104px);
+
     padding:64px var(--page-pad) 72px;
+
     overflow:hidden;
+
     background:
-        radial-gradient(circle at 8% 12%,rgba(23,78,166,.16),transparent 30%),
-        radial-gradient(circle at 90% 12%,rgba(255,77,0,.13),transparent 28%),
-        radial-gradient(circle at 84% 88%,rgba(215,25,15,.07),transparent 24%),
-        linear-gradient(135deg,#f8fbff 0%,#f2f6fb 48%,#fff8f3 100%);
+        radial-gradient(
+            circle at 8% 12%,
+            rgba(23,78,166,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 12%,
+            rgba(255,77,0,.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 84% 88%,
+            rgba(215,25,15,.07),
+            transparent 24%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #f2f6fb 48%,
+            #fff8f3 100%
+        );
 }
 
 .hero::before{
     content:"";
+
     position:absolute;
     inset:0;
+
     pointer-events:none;
+
     opacity:.26;
+
     background-image:
-        linear-gradient(rgba(7,26,51,.06) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(7,26,51,.06) 1px,transparent 1px);
+        linear-gradient(
+            rgba(7,26,51,.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(7,26,51,.06) 1px,
+            transparent 1px
+        );
+
     background-size:46px 46px;
-    mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 92%);
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.6),
+            transparent 92%
+        );
 }
 
 .hero-inner{
     position:relative;
     z-index:2;
+
     width:100%;
     max-width:var(--page-max);
+
     margin:0 auto;
+
     display:grid;
-    grid-template-columns:minmax(480px,.90fr) minmax(600px,1.10fr);
+
+    grid-template-columns:
+        minmax(480px,.90fr)
+        minmax(600px,1.10fr);
+
     align-items:center;
+
     gap:64px;
 }
 
@@ -168,101 +240,169 @@ button,input{font:inherit}
     display:inline-flex;
     align-items:center;
     gap:9px;
+
     min-height:34px;
+
     padding:0 13px;
+
     margin-bottom:22px;
-    border:1px solid rgba(23,78,166,.18);
+
+    border:
+        1px solid rgba(23,78,166,.18);
+
     border-radius:999px;
-    background:rgba(255,255,255,.90);
+
+    background:
+        rgba(255,255,255,.90);
+
     color:var(--navy2);
+
     font-size:11px;
     font-weight:900;
+
     letter-spacing:.11em;
-    box-shadow:0 8px 22px rgba(15,23,42,.05);
+
+    box-shadow:
+        0 8px 22px rgba(15,23,42,.05);
 }
 
 .hero-kicker span{
     width:8px;
     height:8px;
+
     border-radius:50%;
+
     background:var(--orange);
-    box-shadow:0 0 0 5px rgba(255,77,0,.11);
+
+    box-shadow:
+        0 0 0 5px rgba(255,77,0,.11);
 }
 
+
+/* FIXED HERO TITLE */
+
 .hero h1{
-    margin:0 0 22px;
-    font-size:clamp(50px,5vw,76px);
-    line-height:.98;
-    letter-spacing:-.048em;
+    margin:0 0 24px;
+
+    font-size:clamp(46px,4.7vw,72px);
+
+    line-height:1.08;
+
+    letter-spacing:-.04em;
+
     font-weight:900;
 }
 
 .hero h1 .agentic{
     display:block;
-    background:linear-gradient(
-        90deg,
-        var(--blue) 0%,
-        var(--blue2) 35%,
-        var(--red) 72%,
-        var(--orange) 100%
-    );
+
+    margin-bottom:6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue) 0%,
+            var(--blue2) 35%,
+            var(--red) 72%,
+            var(--orange) 100%
+        );
+
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
 .hero h1 .basin{
     display:block;
+
     color:var(--navy);
+
+    line-height:1.08;
 }
 
 .hero-subtitle{
     max-width:650px;
+
     margin:0 0 24px;
+
     color:#53657c;
+
     font-size:18px;
+
     line-height:1.7;
+
     font-weight:500;
 }
 
+
+/* =========================================================
+   DOMAIN PILLS
+========================================================= */
+
 .domain-pills{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:9px;
+
     margin-bottom:28px;
 }
 
 .domain-pills a{
     display:inline-flex;
+
     align-items:center;
+
     min-height:38px;
+
     padding:0 13px;
+
     border-radius:999px;
-    background:rgba(255,255,255,.92);
+
+    background:
+        rgba(255,255,255,.92);
+
     font-size:11px;
+
     font-weight:900;
-    box-shadow:0 8px 22px rgba(7,26,51,.05);
+
+    box-shadow:
+        0 8px 22px rgba(7,26,51,.05);
+
     transition:.2s ease;
 }
 
-.domain-pills a:hover{transform:translateY(-2px)}
+.domain-pills a:hover{
+    transform:translateY(-2px);
+}
 
 .domain-pills a:nth-child(1){
     color:var(--blue);
-    border:1px solid rgba(23,78,166,.23);
+
+    border:
+        1px solid rgba(23,78,166,.23);
 }
 
 .domain-pills a:nth-child(2){
     color:var(--navy);
-    border:1px solid rgba(7,26,51,.18);
+
+    border:
+        1px solid rgba(7,26,51,.18);
 }
 
 .domain-pills a:nth-child(3){
     color:var(--red);
-    border:1px solid rgba(215,25,15,.22);
+
+    border:
+        1px solid rgba(215,25,15,.22);
 }
 
-/* Hero agent summary */
+
+/* =========================================================
+   HERO AGENTS
+========================================================= */
 
 .hero-agent-summary{
     margin-top:6px;
@@ -270,117 +410,196 @@ button,input{font:inherit}
 
 .hero-agent-summary-title{
     display:flex;
+
     align-items:baseline;
+
     gap:10px;
+
     margin-bottom:13px;
 }
 
 .hero-agent-summary-title strong{
     color:var(--navy);
+
     font-size:15px;
+
     font-weight:900;
 }
 
 .hero-agent-summary-title small{
     color:#7b8ba1;
+
     font-size:10.5px;
+
     font-weight:700;
 }
 
 .hero-agent-panels{
     display:grid;
+
     grid-template-columns:1fr;
+
     gap:10px;
 }
 
 .hero-agent-panel{
     position:relative;
+
     padding:13px 15px 14px 17px;
+
     border-radius:15px;
-    border:1px solid rgba(148,163,184,.16);
-    background:rgba(255,255,255,.80);
-    box-shadow:0 8px 24px rgba(15,23,42,.045);
+
+    border:
+        1px solid rgba(148,163,184,.16);
+
+    background:
+        rgba(255,255,255,.80);
+
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.045);
+
     overflow:hidden;
 }
 
 .hero-agent-panel::before{
     content:"";
+
     position:absolute;
+
     top:0;
     left:0;
     bottom:0;
+
     width:4px;
 }
 
 .hero-agent-panel.production::before{
-    background:linear-gradient(180deg,var(--blue),var(--blue2));
+    background:
+        linear-gradient(
+            180deg,
+            var(--blue),
+            var(--blue2)
+        );
 }
 
 .hero-agent-panel.seismicity::before{
-    background:linear-gradient(180deg,var(--navy),var(--red));
+    background:
+        linear-gradient(
+            180deg,
+            var(--navy),
+            var(--red)
+        );
 }
 
 .hero-agent-panel.swd::before{
-    background:linear-gradient(180deg,var(--red),var(--orange));
+    background:
+        linear-gradient(
+            180deg,
+            var(--red),
+            var(--orange)
+        );
 }
 
 .hero-agent-panel-head{
     display:flex;
+
     align-items:center;
+
     gap:9px;
+
     margin-bottom:6px;
 }
 
 .hero-agent-panel-head i{
     width:24px;
     height:24px;
+
     display:grid;
+
     place-items:center;
+
     border-radius:8px;
+
     color:#fff;
+
     font-size:10px;
 }
 
-.hero-agent-panel.production .hero-agent-panel-head i{
-    background:linear-gradient(135deg,var(--blue),var(--blue2));
+.hero-agent-panel.production
+.hero-agent-panel-head i{
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
 }
 
-.hero-agent-panel.seismicity .hero-agent-panel-head i{
-    background:linear-gradient(135deg,var(--navy),var(--red));
+.hero-agent-panel.seismicity
+.hero-agent-panel-head i{
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--red)
+        );
 }
 
-.hero-agent-panel.swd .hero-agent-panel-head i{
-    background:linear-gradient(135deg,var(--red),var(--orange));
+.hero-agent-panel.swd
+.hero-agent-panel-head i{
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--orange)
+        );
 }
 
 .hero-agent-panel-head strong{
     color:var(--navy);
+
     font-size:11.5px;
 }
 
 .hero-agent-panel p{
     margin:0;
+
     color:#66788f;
+
     font-size:10.5px;
+
     line-height:1.5;
+
     font-weight:650;
 }
 
-/* Slider */
+
+/* =========================================================
+   HERO SLIDER
+========================================================= */
 
 .hero-visual{
     width:100%;
+
     min-width:0;
 }
 
 .hero-slider{
     position:relative;
+
     width:100%;
+
     height:520px;
+
     overflow:hidden;
+
     border-radius:30px;
+
     background:#fff;
-    border:1px solid rgba(7,26,51,.13);
+
+    border:
+        1px solid rgba(7,26,51,.13);
+
     box-shadow:
         0 30px 72px rgba(7,26,51,.14),
         0 0 0 10px rgba(255,255,255,.42);
@@ -388,160 +607,287 @@ button,input{font:inherit}
 
 .slide{
     position:absolute;
+
     inset:0;
+
     opacity:0;
+
     pointer-events:none;
-    transition:opacity 1s ease-in-out;
+
+    transition:
+        opacity 1s ease-in-out;
 }
 
 .slide.active{
     opacity:1;
+
     pointer-events:auto;
 }
 
 .slide img{
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
 }
 
 .slider-dots{
     position:absolute;
+
     left:50%;
+
     bottom:18px;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     display:flex;
+
     gap:9px;
+
     z-index:5;
+
     padding:8px 10px;
+
     border-radius:999px;
-    background:rgba(7,26,51,.58);
-    backdrop-filter:blur(10px);
+
+    background:
+        rgba(7,26,51,.58);
+
+    backdrop-filter:
+        blur(10px);
 }
 
 .dot{
     width:9px;
+
     height:9px;
+
     border-radius:50%;
-    background:rgba(255,255,255,.65);
-    border:1px solid rgba(255,255,255,.85);
+
+    background:
+        rgba(255,255,255,.65);
+
+    border:
+        1px solid rgba(255,255,255,.85);
 }
 
 .dot.active{
     background:var(--orange);
+
     border-color:var(--orange);
 }
 
-/* =========================
+
+/* =========================================================
    INTELLIGENCE SECTIONS
-========================= */
+========================================================= */
 
 .intel-section{
     position:relative;
+
+    scroll-margin-top:128px;
+
     width:100%;
-    padding:96px var(--page-pad) 110px;
+
+    padding:
+        96px var(--page-pad) 110px;
+
     overflow:hidden;
-    border-top:1px solid rgba(148,163,184,.14);
+
+    border-top:
+        1px solid rgba(148,163,184,.14);
 }
 
 #production-intelligence{
     background:
-        radial-gradient(circle at 4% 8%,rgba(23,78,166,.11),transparent 26%),
-        radial-gradient(circle at 96% 88%,rgba(255,77,0,.07),transparent 30%),
-        linear-gradient(180deg,#f8fafc 0%,#eef4fb 100%);
+        radial-gradient(
+            circle at 4% 8%,
+            rgba(23,78,166,.11),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 96% 88%,
+            rgba(255,77,0,.07),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #eef4fb 100%
+        );
 }
 
 #induced-seismicity-intelligence{
     background:
-        radial-gradient(circle at 4% 8%,rgba(7,26,51,.08),transparent 26%),
-        radial-gradient(circle at 96% 88%,rgba(215,25,15,.06),transparent 30%),
-        linear-gradient(180deg,#f9fafb 0%,#f2f5f8 100%);
+        radial-gradient(
+            circle at 4% 8%,
+            rgba(7,26,51,.08),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 96% 88%,
+            rgba(215,25,15,.06),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #f9fafb 0%,
+            #f2f5f8 100%
+        );
 }
 
 #swd-injection-intelligence{
     background:
-        radial-gradient(circle at 4% 8%,rgba(255,77,0,.09),transparent 26%),
-        radial-gradient(circle at 96% 88%,rgba(23,78,166,.06),transparent 30%),
-        linear-gradient(180deg,#fffaf7 0%,#f6f7fb 100%);
+        radial-gradient(
+            circle at 4% 8%,
+            rgba(255,77,0,.09),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 96% 88%,
+            rgba(23,78,166,.06),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #fffaf7 0%,
+            #f6f7fb 100%
+        );
 }
 
 .intel-shell{
     width:100%;
+
     max-width:var(--page-max);
+
     margin:0 auto;
 }
 
 .intel-heading{
     max-width:940px;
+
     margin:0 auto 42px;
+
     text-align:center;
 }
 
 .intel-eyebrow{
     display:inline-flex;
+
     align-items:center;
+
     gap:9px;
+
     padding:9px 15px;
+
     margin-bottom:18px;
+
     border-radius:999px;
+
     font-size:11px;
+
     font-weight:900;
+
     letter-spacing:.11em;
+
     text-transform:uppercase;
-    background:rgba(255,255,255,.86);
-    box-shadow:0 8px 28px rgba(15,23,42,.05);
+
+    background:
+        rgba(255,255,255,.86);
+
+    box-shadow:
+        0 8px 28px rgba(15,23,42,.05);
 }
 
-#production-intelligence .intel-eyebrow{
+#production-intelligence
+.intel-eyebrow{
     color:var(--blue);
-    border:1px solid rgba(23,78,166,.22);
+
+    border:
+        1px solid rgba(23,78,166,.22);
 }
 
-#induced-seismicity-intelligence .intel-eyebrow{
+#induced-seismicity-intelligence
+.intel-eyebrow{
     color:var(--navy2);
-    border:1px solid rgba(15,39,72,.20);
+
+    border:
+        1px solid rgba(15,39,72,.20);
 }
 
-#swd-injection-intelligence .intel-eyebrow{
+#swd-injection-intelligence
+.intel-eyebrow{
     color:var(--red);
-    border:1px solid rgba(215,25,15,.20);
+
+    border:
+        1px solid rgba(215,25,15,.20);
 }
 
 .intel-heading h2{
     margin:0 0 15px;
+
     color:var(--navy);
-    font-size:clamp(40px,4.2vw,60px);
+
+    font-size:
+        clamp(40px,4.2vw,60px);
+
     line-height:1.04;
+
     letter-spacing:-.04em;
 }
 
 .intel-heading p{
     max-width:860px;
+
     margin:0 auto;
+
     color:var(--muted);
+
     font-size:17px;
+
     line-height:1.75;
 }
 
-/* query panel */
+
+/* =========================================================
+   QUERY PANEL
+========================================================= */
 
 .query-panel{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:28px;
+
     width:100%;
+
     max-width:1420px;
+
     margin:0 auto 48px;
+
     padding:26px 28px;
-    border:1px solid rgba(148,163,184,.20);
+
+    border:
+        1px solid rgba(148,163,184,.20);
+
     border-radius:26px;
-    background:rgba(255,255,255,.90);
+
+    background:
+        rgba(255,255,255,.90);
+
     box-shadow:
         0 26px 70px rgba(15,23,42,.09),
         inset 0 1px 0 rgba(255,255,255,.95);
-    backdrop-filter:blur(18px);
+
+    backdrop-filter:
+        blur(18px);
 }
 
 .query-copy{
@@ -550,322 +896,584 @@ button,input{font:inherit}
 
 .query-copy span{
     color:#8c5d00;
+
     font-size:10px;
+
     font-weight:900;
+
     letter-spacing:.13em;
+
     text-transform:uppercase;
 }
 
 .query-copy strong{
     display:block;
+
     margin-top:5px;
+
     color:var(--navy);
+
     font-size:15px;
+
     line-height:1.4;
 }
 
 .query-controls{
     flex:1;
+
     display:grid;
-    grid-template-columns:1fr 1fr auto;
+
+    grid-template-columns:
+        1fr 1fr auto;
+
     gap:12px;
+
     align-items:center;
 }
 
 .input-wrap{
     min-height:56px;
+
     display:flex;
+
     align-items:center;
+
     gap:11px;
+
     padding:0 16px;
-    border:1px solid #dbe3ec;
+
+    border:
+        1px solid #dbe3ec;
+
     border-radius:16px;
+
     background:#f8fafc;
+
     transition:.22s ease;
 }
 
 .input-wrap:focus-within{
     border-color:var(--blue2);
+
     background:#fff;
-    box-shadow:0 0 0 4px rgba(37,99,235,.09);
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,.09);
 }
 
 .input-wrap i{
     color:var(--blue);
+
     font-size:15px;
 }
 
-#swd-injection-intelligence .input-wrap i{color:var(--red)}
+#swd-injection-intelligence
+.input-wrap i{
+    color:var(--red);
+}
 
 .input-wrap input{
     width:100%;
+
     border:0;
+
     outline:0;
+
     background:transparent;
+
     color:var(--text);
+
     font-size:14px;
+
     font-weight:700;
 }
 
 .primary-action{
     min-height:56px;
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:11px;
+
     padding:0 22px;
+
     border:0;
+
     border-radius:16px;
+
     color:#fff;
+
     font-size:13.5px;
+
     font-weight:900;
+
     cursor:pointer;
+
     white-space:nowrap;
+
     transition:.22s ease;
 }
 
-#production-intelligence .primary-action{
-    background:linear-gradient(135deg,var(--blue),var(--blue2));
-    box-shadow:0 14px 30px rgba(23,78,166,.22);
+#production-intelligence
+.primary-action{
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
+
+    box-shadow:
+        0 14px 30px rgba(23,78,166,.22);
 }
 
-#induced-seismicity-intelligence .primary-action{
-    background:linear-gradient(135deg,var(--navy),var(--red));
-    box-shadow:0 14px 30px rgba(7,26,51,.18);
+#induced-seismicity-intelligence
+.primary-action{
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--red)
+        );
+
+    box-shadow:
+        0 14px 30px rgba(7,26,51,.18);
 }
 
-#swd-injection-intelligence .primary-action{
-    background:linear-gradient(135deg,var(--red),var(--orange));
-    box-shadow:0 14px 30px rgba(215,25,15,.18);
+#swd-injection-intelligence
+.primary-action{
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--orange)
+        );
+
+    box-shadow:
+        0 14px 30px rgba(215,25,15,.18);
 }
 
 .primary-action:hover{
     transform:translateY(-2px);
 }
 
-/* workflow */
+
+/* =========================================================
+   AGENT CARDS
+========================================================= */
 
 .workflow-label{
     max-width:1420px;
+
     margin:0 auto 18px;
+
     display:flex;
+
     align-items:center;
+
     gap:14px;
 }
 
 .workflow-label span{
     color:#64748b;
+
     font-size:10px;
+
     font-weight:900;
+
     letter-spacing:.14em;
 }
 
 .workflow-label div{
     height:1px;
+
     flex:1;
-    background:linear-gradient(90deg,rgba(148,163,184,.45),transparent);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(148,163,184,.45),
+            transparent
+        );
 }
 
 .agent-grid{
     width:100%;
+
     max-width:1540px;
+
     margin:0 auto;
+
     display:grid;
-    grid-template-columns:repeat(5,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(5,minmax(0,1fr));
+
     gap:22px;
 }
 
 .agent-card{
     position:relative;
+
     min-height:326px;
+
     display:flex;
+
     flex-direction:column;
+
     padding:26px;
+
     overflow:hidden;
-    border:1px solid rgba(148,163,184,.18);
+
+    border:
+        1px solid rgba(148,163,184,.18);
+
     border-radius:26px;
-    background:rgba(255,255,255,.95);
+
+    background:
+        rgba(255,255,255,.95);
+
     box-shadow:
         0 16px 40px rgba(15,23,42,.07),
         inset 0 1px 0 rgba(255,255,255,.95);
+
     transition:.25s ease;
 }
 
 .agent-card::before{
     content:"";
+
     position:absolute;
+
     top:0;
     left:0;
     right:0;
+
     height:4px;
 }
 
-#production-intelligence .agent-card::before{
-    background:linear-gradient(90deg,var(--blue),var(--blue2));
+#production-intelligence
+.agent-card::before{
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--blue2)
+        );
 }
 
-#induced-seismicity-intelligence .agent-card::before{
-    background:linear-gradient(90deg,var(--navy),var(--red));
+#induced-seismicity-intelligence
+.agent-card::before{
+    background:
+        linear-gradient(
+            90deg,
+            var(--navy),
+            var(--red)
+        );
 }
 
-#swd-injection-intelligence .agent-card::before{
-    background:linear-gradient(90deg,var(--orange),var(--blue));
+#swd-injection-intelligence
+.agent-card::before{
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--blue)
+        );
 }
 
 .agent-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 28px 58px rgba(15,23,42,.13);
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 28px 58px rgba(15,23,42,.13);
 }
 
 .agent-card-top{
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     margin-bottom:24px;
 }
 
 .agent-number{
     min-width:42px;
+
     height:29px;
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     padding:0 10px;
+
     border-radius:999px;
+
     font-size:10px;
+
     font-weight:900;
+
     letter-spacing:.09em;
 }
 
-#production-intelligence .agent-number{
+#production-intelligence
+.agent-number{
     background:#edf3ff;
+
     color:var(--blue);
 }
 
-#induced-seismicity-intelligence .agent-number{
+#induced-seismicity-intelligence
+.agent-number{
     background:#eef2f7;
+
     color:var(--navy2);
 }
 
-#swd-injection-intelligence .agent-number{
+#swd-injection-intelligence
+.agent-number{
     background:#fff1eb;
+
     color:var(--red);
 }
 
 .agent-icon{
     width:48px;
+
     height:48px;
+
     display:grid;
+
     place-items:center;
+
     border-radius:15px;
+
     color:#fff;
+
     font-size:18px;
-    box-shadow:0 11px 24px rgba(15,23,42,.18);
+
+    box-shadow:
+        0 11px 24px rgba(15,23,42,.18);
 }
 
-#production-intelligence .agent-icon{
-    background:linear-gradient(135deg,var(--navy),var(--blue));
+#production-intelligence
+.agent-icon{
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue)
+        );
 }
 
-#induced-seismicity-intelligence .agent-icon{
-    background:linear-gradient(135deg,var(--navy),var(--red));
+#induced-seismicity-intelligence
+.agent-icon{
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--red)
+        );
 }
 
-#swd-injection-intelligence .agent-icon{
-    background:linear-gradient(135deg,var(--orange),var(--red));
+#swd-injection-intelligence
+.agent-icon{
+    background:
+        linear-gradient(
+            135deg,
+            var(--orange),
+            var(--red)
+        );
 }
 
 .agent-card h3{
     margin:0 0 12px;
+
     color:var(--navy);
+
     font-size:18px;
+
     line-height:1.28;
+
     letter-spacing:-.018em;
 }
 
 .agent-card p{
     margin:0;
+
     color:var(--muted);
+
     font-size:13.5px;
+
     line-height:1.72;
 }
 
 .agent-footer{
     margin-top:auto;
+
     padding-top:20px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:10px;
-    border-top:1px solid #edf1f5;
+
+    border-top:
+        1px solid #edf1f5;
+
     font-size:10.5px;
+
     font-weight:900;
 }
 
-#production-intelligence .agent-footer{color:var(--blue)}
-#induced-seismicity-intelligence .agent-footer{color:var(--navy2)}
-#swd-injection-intelligence .agent-footer{color:var(--red)}
+#production-intelligence
+.agent-footer{
+    color:var(--blue);
+}
+
+#induced-seismicity-intelligence
+.agent-footer{
+    color:var(--navy2);
+}
+
+#swd-injection-intelligence
+.agent-footer{
+    color:var(--red);
+}
+
+
+/* =========================================================
+   DOWNLOAD BUTTONS
+========================================================= */
 
 .download-wrap{
     display:flex;
+
     justify-content:center;
+
     margin-top:38px;
 }
 
 .download-btn{
     min-height:62px;
+
     min-width:390px;
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:13px;
+
     padding:0 30px;
+
     border:0;
+
     border-radius:18px;
+
     color:#fff;
+
     font-size:15px;
+
     font-weight:900;
+
     cursor:pointer;
+
     transition:.22s ease;
 }
 
-#production-intelligence .download-btn{
-    background:linear-gradient(135deg,var(--blue),var(--blue2));
-    box-shadow:0 16px 34px rgba(23,78,166,.20);
+#production-intelligence
+.download-btn{
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
+
+    box-shadow:
+        0 16px 34px rgba(23,78,166,.20);
 }
 
-#induced-seismicity-intelligence .download-btn{
-    background:linear-gradient(135deg,var(--navy),var(--red));
-    box-shadow:0 16px 34px rgba(7,26,51,.18);
+#induced-seismicity-intelligence
+.download-btn{
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--red)
+        );
+
+    box-shadow:
+        0 16px 34px rgba(7,26,51,.18);
 }
 
-#swd-injection-intelligence .download-btn{
-    background:linear-gradient(135deg,var(--red),var(--orange));
-    box-shadow:0 16px 34px rgba(215,25,15,.18);
+#swd-injection-intelligence
+.download-btn{
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--orange)
+        );
+
+    box-shadow:
+        0 16px 34px rgba(215,25,15,.18);
 }
 
 .download-btn:hover{
-    transform:translateY(-3px) scale(1.01);
+    transform:
+        translateY(-3px)
+        scale(1.01);
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer{
-    padding:30px var(--page-pad);
+    padding:
+        30px var(--page-pad);
+
     text-align:center;
-    background:linear-gradient(135deg,var(--navy),var(--navy2));
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy2)
+        );
+
     color:#dbe6f5;
+
     font-size:13px;
+
     font-weight:700;
 }
 
-/* =========================
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:1300px){
+
     .logo img{
         width:440px;
         max-width:40vw;
@@ -873,17 +1481,21 @@ button,input{font:inherit}
 
     .hero-inner{
         grid-template-columns:1fr;
+
         gap:46px;
     }
 
     .hero-copy{
         max-width:920px;
+
         margin:0 auto;
+
         text-align:center;
     }
 
     .hero-subtitle{
         margin-left:auto;
+
         margin-right:auto;
     }
 
@@ -893,8 +1505,11 @@ button,input{font:inherit}
 
     .hero-agent-summary{
         max-width:900px;
+
         margin-left:auto;
+
         margin-right:auto;
+
         text-align:left;
     }
 
@@ -904,34 +1519,54 @@ button,input{font:inherit}
 
     .hero-visual{
         max-width:940px;
+
         margin:0 auto;
     }
 
     .agent-grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+            repeat(3,1fr);
     }
 }
 
+
 @media(max-width:1050px){
+
+    html{
+        scroll-padding-top:190px;
+    }
+
+    .hero,
+    .intel-section{
+        scroll-margin-top:190px;
+    }
+
     .navbar{
         flex-direction:column;
+
         min-height:auto;
-        padding:12px var(--page-pad);
+
+        padding:
+            12px var(--page-pad);
     }
 
     .logo img{
         width:420px;
+
         max-width:78vw;
     }
 
     .nav-links{
         width:100%;
+
         justify-content:center;
+
         flex-wrap:wrap;
     }
 
     .query-panel{
         flex-direction:column;
+
         align-items:stretch;
     }
 
@@ -940,17 +1575,22 @@ button,input{font:inherit}
     }
 }
 
+
 @media(max-width:850px){
+
     .query-controls{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .primary-action{
-        grid-column:1/-1;
+        grid-column:
+            1 / -1;
     }
 
     .agent-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .hero-slider{
@@ -958,11 +1598,25 @@ button,input{font:inherit}
     }
 }
 
+
 @media(max-width:620px){
-    :root{--page-pad:18px}
+
+    :root{
+        --page-pad:18px;
+    }
+
+    html{
+        scroll-padding-top:220px;
+    }
+
+    .hero,
+    .intel-section{
+        scroll-margin-top:220px;
+    }
 
     .logo img{
         width:340px;
+
         max-width:88vw;
     }
 
@@ -972,17 +1626,26 @@ button,input{font:inherit}
 
     .nav-links a{
         min-height:36px;
+
         padding:0 10px;
+
         font-size:11px;
     }
 
     .hero{
         padding-top:44px;
+
         padding-bottom:54px;
     }
 
     .hero h1{
         font-size:44px;
+
+        line-height:1.1;
+    }
+
+    .hero h1 .agentic{
+        margin-bottom:8px;
     }
 
     .hero-subtitle{
@@ -991,21 +1654,26 @@ button,input{font:inherit}
 
     .hero-slider{
         height:280px;
+
         border-radius:22px;
     }
 
     .hero-agent-summary-title{
         flex-direction:column;
+
         align-items:center;
+
         gap:4px;
     }
 
     .intel-section{
-        padding:72px var(--page-pad) 82px;
+        padding:
+            72px var(--page-pad) 82px;
     }
 
     .query-panel{
         padding:18px;
+
         border-radius:20px;
     }
 
@@ -1015,691 +1683,1389 @@ button,input{font:inherit}
 
     .primary-action{
         grid-column:auto;
+
         width:100%;
     }
 
     .agent-grid{
         grid-template-columns:1fr;
+
         gap:16px;
     }
 
     .agent-card{
         min-height:auto;
+
         padding:22px;
     }
 
     .download-btn{
         width:100%;
+
         min-width:0;
+
         min-height:58px;
+
         padding:0 18px;
+
         font-size:13px;
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <nav class="navbar">
 
     <div class="logo">
-        <img src="basinagentic_logo.png" alt="BasinAgentic Logo">
+
+        <img
+            src="basinagentic_logo.png"
+            alt="BasinAgentic Logo"
+        >
+
     </div>
 
+
     <div class="nav-links">
-        <a href="#top">Platform</a>
-        <a href="#production-intelligence">Production</a>
-        <a href="#induced-seismicity-intelligence">Seismicity</a>
-        <a href="#swd-injection-intelligence">SWD Injection</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-contact">Contact</a>
+
+        <a href="#top">
+            Platform
+        </a>
+
+        <a href="#production-intelligence">
+            Production
+        </a>
+
+        <a href="#induced-seismicity-intelligence">
+            Seismicity
+        </a>
+
+        <a href="#swd-injection-intelligence">
+            SWD Injection
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a
+            href="contact.html"
+            class="nav-contact"
+        >
+            Contact
+        </a>
+
     </div>
 
 </nav>
 
-<!-- =========================
-     HERO
-========================= -->
 
-<section class="hero" id="top">
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="top"
+>
 
     <div class="hero-inner">
 
+
         <div class="hero-copy">
 
+
             <div class="hero-kicker">
+
                 <span></span>
+
                 AGENTIC AI PLATFORM
+
             </div>
+
 
             <h1>
-                <span class="agentic">Agentic AI</span>
-                <span class="basin">for Basin Intelligence</span>
+
+                <span class="agentic">
+                    Agentic AI
+                </span>
+
+                <span class="basin">
+                    for Basin Intelligence
+                </span>
+
             </h1>
 
+
             <p class="hero-subtitle">
+
                 Transforming basin-scale data into predictive insights,
                 risk-aware decisions, and autonomous operational intelligence.
+
             </p>
 
+
             <div class="domain-pills">
-                <a href="#production-intelligence">Production Intelligence</a>
-                <a href="#induced-seismicity-intelligence">Induced Seismicity Intelligence</a>
-                <a href="#swd-injection-intelligence">SWD Injection Intelligence</a>
+
+                <a href="#production-intelligence">
+                    Production Intelligence
+                </a>
+
+                <a href="#induced-seismicity-intelligence">
+                    Induced Seismicity Intelligence
+                </a>
+
+                <a href="#swd-injection-intelligence">
+                    SWD Injection Intelligence
+                </a>
+
             </div>
+
 
             <div class="hero-agent-summary">
 
+
                 <div class="hero-agent-summary-title">
-                    <strong>15 Specialized AI Agents</strong>
-                    <small>Coordinated across production, seismicity and SWD workflows</small>
+
+                    <strong>
+                        15 Specialized AI Agents
+                    </strong>
+
+                    <small>
+                        Coordinated across production,
+                        seismicity and SWD workflows
+                    </small>
+
                 </div>
+
 
                 <div class="hero-agent-panels">
 
+
                     <div class="hero-agent-panel production">
+
                         <div class="hero-agent-panel-head">
+
                             <i class="fa-solid fa-chart-line"></i>
-                            <strong>Production Agents</strong>
+
+                            <strong>
+                                Production Agents
+                            </strong>
+
                         </div>
+
                         <p>
-                            Spatial / Formation · Analog Selection · Decline-Curve ·
-                            Transformer Forecasting · Ensemble &amp; Uncertainty
+                            Spatial / Formation ·
+                            Analog Selection ·
+                            Decline-Curve ·
+                            Transformer Forecasting ·
+                            Ensemble &amp; Uncertainty
                         </p>
+
                     </div>
+
 
                     <div class="hero-agent-panel seismicity">
+
                         <div class="hero-agent-panel-head">
+
                             <i class="fa-solid fa-wave-square"></i>
-                            <strong>Seismicity Agents</strong>
+
+                            <strong>
+                                Seismicity Agents
+                            </strong>
+
                         </div>
+
                         <p>
-                            Spatial Seismicity · b-Value &amp; Seismic-State ·
-                            Temporal Pattern · Transformer Forecasting · Risk Integration
+                            Spatial Seismicity ·
+                            b-Value &amp; Seismic-State ·
+                            Temporal Pattern ·
+                            Transformer Forecasting ·
+                            Risk Integration
                         </p>
+
                     </div>
 
+
                     <div class="hero-agent-panel swd">
+
                         <div class="hero-agent-panel-head">
+
                             <i class="fa-solid fa-droplet"></i>
-                            <strong>SWD Agents</strong>
+
+                            <strong>
+                                SWD Agents
+                            </strong>
+
                         </div>
+
                         <p>
-                            Injection Performance · Subsurface Connectivity ·
-                            Injection-Seismicity Coupling · Injection Optimization ·
+                            Injection Performance ·
+                            Subsurface Connectivity ·
+                            Injection-Seismicity Coupling ·
+                            Injection Optimization ·
                             Constraint &amp; Decision
                         </p>
+
                     </div>
+
 
                 </div>
 
             </div>
 
+
         </div>
+
 
         <div class="hero-visual">
 
+
             <div class="hero-slider">
 
+
                 <div class="slide active">
-                    <img src="hero1.png" alt="BasinAgentic Visualization 1">
+
+                    <img
+                        src="hero1.png"
+                        alt="BasinAgentic Visualization 1"
+                    >
+
                 </div>
 
-                <div class="slide">
-                    <img src="hero2.png" alt="BasinAgentic Visualization 2">
-                </div>
 
                 <div class="slide">
-                    <img src="hero3.png" alt="BasinAgentic Visualization 3">
+
+                    <img
+                        src="hero2.png"
+                        alt="BasinAgentic Visualization 2"
+                    >
+
                 </div>
+
+
+                <div class="slide">
+
+                    <img
+                        src="hero3.png"
+                        alt="BasinAgentic Visualization 3"
+                    >
+
+                </div>
+
 
                 <div class="slider-dots">
+
                     <span class="dot active"></span>
+
                     <span class="dot"></span>
+
                     <span class="dot"></span>
+
                 </div>
+
 
             </div>
 
+
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
-     PRODUCTION INTELLIGENCE
-========================= -->
 
-<section class="intel-section" id="production-intelligence">
+
+<!-- =========================================================
+     PRODUCTION INTELLIGENCE
+========================================================= -->
+
+<section
+    class="intel-section"
+    id="production-intelligence"
+>
 
     <div class="intel-shell">
 
+
         <div class="intel-heading">
 
+
             <span class="intel-eyebrow">
+
                 <i class="fa-solid fa-gears"></i>
+
                 Agentic Production Forecasting
+
             </span>
 
-            <h2>Production Intelligence</h2>
+
+            <h2>
+                Production Intelligence
+            </h2>
+
 
             <p>
-                Basin-scale oil, gas, water, well-performance and forecasting
-                intelligence transformed into predictive well-level insights.
+
+                Basin-scale oil, gas, water, well-performance
+                and forecasting intelligence transformed into
+                predictive well-level insights.
+
             </p>
 
+
         </div>
+
 
         <div class="query-panel">
 
+
             <div class="query-copy">
-                <span>RUN WELL INTELLIGENCE</span>
-                <strong>Enter a well location to start the production agent workflow</strong>
+
+                <span>
+                    RUN WELL INTELLIGENCE
+                </span>
+
+                <strong>
+                    Enter a well location to start the
+                    production agent workflow
+                </strong>
+
             </div>
+
 
             <div class="query-controls">
 
+
                 <label class="input-wrap">
+
                     <i class="fa-solid fa-location-crosshairs"></i>
-                    <input type="text" placeholder="Well Latitude">
+
+                    <input
+                        type="text"
+                        placeholder="Well Latitude"
+                    >
+
                 </label>
+
 
                 <label class="input-wrap">
+
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" placeholder="Well Longitude">
+
+                    <input
+                        type="text"
+                        placeholder="Well Longitude"
+                    >
+
                 </label>
 
-                <button class="primary-action" type="button">
+
+                <button
+                    class="primary-action"
+                    type="button"
+                >
+
                     Generate Forecast Report
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
+
 
             </div>
 
+
         </div>
 
+
         <div class="workflow-label">
-            <span>5-AGENT WORKFLOW</span>
+
+            <span>
+                5-AGENT WORKFLOW
+            </span>
+
             <div></div>
+
         </div>
+
 
         <div class="agent-grid">
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">01</span>
+
+                    <span class="agent-number">
+                        01
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
+
                 </div>
-                <h3>Spatial / Formation / Geometry Agent</h3>
+
+                <h3>
+                    Spatial / Formation / Geometry Agent
+                </h3>
+
                 <p>
                     Detects local formation, adaptive search radius,
                     depth proxy and lateral-length proxy from nearby wells.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Spatial Intelligence</span>
+
+                    <span>
+                        Spatial Intelligence
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">02</span>
+
+                    <span class="agent-number">
+                        02
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-filter"></i>
                     </div>
+
                 </div>
-                <h3>Analog Selection Agent</h3>
+
+                <h3>
+                    Analog Selection Agent
+                </h3>
+
                 <p>
-                    Selects the most relevant nearby analog wells using
-                    location, formation, geometry and production history.
+                    Selects the most relevant nearby analog wells
+                    using location, formation, geometry and
+                    production history.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Analog Intelligence</span>
+
+                    <span>
+                        Analog Intelligence
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">03</span>
+
+                    <span class="agent-number">
+                        03
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
+
                 </div>
-                <h3>Decline-Curve Agent</h3>
+
+                <h3>
+                    Decline-Curve Agent
+                </h3>
+
                 <p>
-                    Builds decline-curve forecasts and production trajectories
-                    from analog-well history and fitted decline parameters.
+                    Builds decline-curve forecasts and production
+                    trajectories from analog-well history and
+                    fitted decline parameters.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Decline Intelligence</span>
+
+                    <span>
+                        Decline Intelligence
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">04</span>
+
+                    <span class="agent-number">
+                        04
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-brain"></i>
                     </div>
+
                 </div>
-                <h3>Transformer Forecasting Agent</h3>
+
+                <h3>
+                    Transformer Forecasting Agent
+                </h3>
+
                 <p>
-                    Generates a DCA-anchored 60-month production forecast
-                    using Transformer-based sequence modeling.
+                    Generates a DCA-anchored 60-month production
+                    forecast using Transformer-based sequence modeling.
                 </p>
+
                 <div class="agent-footer">
-                    <span>AI Forecasting</span>
+
+                    <span>
+                        AI Forecasting
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">05</span>
+
+                    <span class="agent-number">
+                        05
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-layer-group"></i>
                     </div>
+
                 </div>
-                <h3>Ensemble &amp; Uncertainty Agent</h3>
+
+                <h3>
+                    Ensemble &amp; Uncertainty Agent
+                </h3>
+
                 <p>
-                    Combines forecast signals and quantifies uncertainty
-                    for P10, P50 and P90 production outcomes.
+                    Combines forecast signals and quantifies
+                    uncertainty for P10, P50 and P90
+                    production outcomes.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Risk &amp; Uncertainty</span>
+
+                    <span>
+                        Risk &amp; Uncertainty
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
         </div>
 
+
         <div class="download-wrap">
-            <button class="download-btn" type="button">
+
+            <button
+                class="download-btn"
+                type="button"
+            >
+
                 <i class="fa-regular fa-file-pdf"></i>
+
                 Download Well Production Forecast Report
+
             </button>
+
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
-     INDUCED SEISMICITY INTELLIGENCE
-========================= -->
 
-<section class="intel-section" id="induced-seismicity-intelligence">
+
+<!-- =========================================================
+     INDUCED SEISMICITY INTELLIGENCE
+========================================================= -->
+
+<section
+    class="intel-section"
+    id="induced-seismicity-intelligence"
+>
 
     <div class="intel-shell">
 
+
         <div class="intel-heading">
 
+
             <span class="intel-eyebrow">
+
                 <i class="fa-solid fa-wave-square"></i>
+
                 Agentic Seismicity Intelligence
+
             </span>
 
-            <h2>Induced Seismicity Intelligence</h2>
+
+            <h2>
+                Induced Seismicity Intelligence
+            </h2>
+
 
             <p>
-                Forecast seismic risk, interpret evolving b-value behavior,
-                identify spatial hotspots and transform seismic observations
-                into predictive operational intelligence.
+
+                Forecast seismic risk, interpret evolving b-value
+                behavior, identify spatial hotspots and transform
+                seismic observations into predictive operational
+                intelligence.
+
             </p>
 
+
         </div>
+
 
         <div class="query-panel">
 
+
             <div class="query-copy">
-                <span>RUN SEISMIC RISK INTELLIGENCE</span>
-                <strong>Enter a well location to start the seismicity agent workflow</strong>
+
+                <span>
+                    RUN SEISMIC RISK INTELLIGENCE
+                </span>
+
+                <strong>
+                    Enter a well location to start the
+                    seismicity agent workflow
+                </strong>
+
             </div>
+
 
             <div class="query-controls">
 
+
                 <label class="input-wrap">
+
                     <i class="fa-solid fa-location-crosshairs"></i>
-                    <input type="text" placeholder="Well Latitude">
+
+                    <input
+                        type="text"
+                        placeholder="Well Latitude"
+                    >
+
                 </label>
+
 
                 <label class="input-wrap">
+
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" placeholder="Well Longitude">
+
+                    <input
+                        type="text"
+                        placeholder="Well Longitude"
+                    >
+
                 </label>
 
-                <button class="primary-action" type="button">
+
+                <button
+                    class="primary-action"
+                    type="button"
+                >
+
                     Generate Seismic Risk Report
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
+
 
             </div>
 
+
         </div>
 
+
         <div class="workflow-label">
-            <span>5-AGENT WORKFLOW</span>
+
+            <span>
+                5-AGENT WORKFLOW
+            </span>
+
             <div></div>
+
         </div>
+
 
         <div class="agent-grid">
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">01</span>
+
+                    <span class="agent-number">
+                        01
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
+
                 </div>
-                <h3>Spatial Seismicity Agent</h3>
+
+                <h3>
+                    Spatial Seismicity Agent
+                </h3>
+
                 <p>
-                    Maps nearby seismic events, clusters, active zones and
-                    spatial relationships around the selected well location.
+                    Maps nearby seismic events, clusters,
+                    active zones and spatial relationships
+                    around the selected well location.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Spatial Risk</span>
+
+                    <span>
+                        Spatial Risk
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">02</span>
+
+                    <span class="agent-number">
+                        02
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
+
                 </div>
-                <h3>b-Value &amp; Seismic-State Agent</h3>
+
+                <h3>
+                    b-Value &amp; Seismic-State Agent
+                </h3>
+
                 <p>
-                    Tracks b-value evolution and related seismic-state indicators
-                    to identify changing stress and risk regimes.
+                    Tracks b-value evolution and related
+                    seismic-state indicators to identify
+                    changing stress and risk regimes.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Seismic State</span>
+
+                    <span>
+                        Seismic State
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">03</span>
+
+                    <span class="agent-number">
+                        03
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-clock-rotate-left"></i>
                     </div>
+
                 </div>
-                <h3>Temporal Pattern Agent</h3>
+
+                <h3>
+                    Temporal Pattern Agent
+                </h3>
+
                 <p>
-                    Evaluates event rate, magnitude evolution, clustering,
-                    migration and recent seismicity trends.
+                    Evaluates event rate, magnitude evolution,
+                    clustering, migration and recent
+                    seismicity trends.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Temporal Intelligence</span>
+
+                    <span>
+                        Temporal Intelligence
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">04</span>
+
+                    <span class="agent-number">
+                        04
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-brain"></i>
                     </div>
+
                 </div>
-                <h3>Transformer Seismic Forecasting Agent</h3>
+
+                <h3>
+                    Transformer Seismic Forecasting Agent
+                </h3>
+
                 <p>
-                    Generates short-term seismicity forecasts using
-                    sequence modeling and recent basin-scale seismic context.
+                    Generates short-term seismicity forecasts
+                    using sequence modeling and recent
+                    basin-scale seismic context.
                 </p>
+
                 <div class="agent-footer">
-                    <span>AI Forecasting</span>
+
+                    <span>
+                        AI Forecasting
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">05</span>
+
+                    <span class="agent-number">
+                        05
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
+
                 </div>
-                <h3>Risk Integration Agent</h3>
+
+                <h3>
+                    Risk Integration Agent
+                </h3>
+
                 <p>
-                    Combines spatial, temporal, b-value and forecast signals
-                    into an integrated well-level induced seismicity risk assessment.
+                    Combines spatial, temporal, b-value
+                    and forecast signals into an integrated
+                    well-level induced seismicity risk assessment.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Integrated Risk</span>
+
+                    <span>
+                        Integrated Risk
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
         </div>
 
+
         <div class="download-wrap">
-            <button class="download-btn" type="button">
+
+            <button
+                class="download-btn"
+                type="button"
+            >
+
                 <i class="fa-regular fa-file-pdf"></i>
+
                 Download Well Induced Seismicity Risk Forecast Report
+
             </button>
+
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
-     SWD INJECTION INTELLIGENCE
-========================= -->
 
-<section class="intel-section" id="swd-injection-intelligence">
+
+<!-- =========================================================
+     SWD INJECTION INTELLIGENCE
+========================================================= -->
+
+<section
+    class="intel-section"
+    id="swd-injection-intelligence"
+>
 
     <div class="intel-shell">
 
+
         <div class="intel-heading">
 
+
             <span class="intel-eyebrow">
+
                 <i class="fa-solid fa-droplet"></i>
+
                 Agentic SWD Injection Intelligence
+
             </span>
 
-            <h2>SWD Injection Intelligence</h2>
+
+            <h2>
+                SWD Injection Intelligence
+            </h2>
+
 
             <p>
-                Integrate injection performance, nearby seismicity,
-                operational constraints and AI-driven optimization
-                into a risk-aware SWD decision framework.
+
+                Integrate injection performance,
+                nearby seismicity, operational constraints
+                and AI-driven optimization into a
+                risk-aware SWD decision framework.
+
             </p>
 
+
         </div>
+
 
         <div class="query-panel">
 
+
             <div class="query-copy">
-                <span>RUN SWD INJECTION INTELLIGENCE</span>
-                <strong>Enter a well location to start the SWD agent workflow</strong>
+
+                <span>
+                    RUN SWD INJECTION INTELLIGENCE
+                </span>
+
+                <strong>
+                    Enter a well location to start the
+                    SWD agent workflow
+                </strong>
+
             </div>
+
 
             <div class="query-controls">
 
+
                 <label class="input-wrap">
+
                     <i class="fa-solid fa-location-crosshairs"></i>
-                    <input type="text" placeholder="Well Latitude">
+
+                    <input
+                        type="text"
+                        placeholder="Well Latitude"
+                    >
+
                 </label>
+
 
                 <label class="input-wrap">
+
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" placeholder="Well Longitude">
+
+                    <input
+                        type="text"
+                        placeholder="Well Longitude"
+                    >
+
                 </label>
 
-                <button class="primary-action" type="button">
+
+                <button
+                    class="primary-action"
+                    type="button"
+                >
+
                     Generate SWD Forecast Report
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </button>
+
 
             </div>
 
+
         </div>
 
+
         <div class="workflow-label">
-            <span>5-AGENT WORKFLOW</span>
+
+            <span>
+                5-AGENT WORKFLOW
+            </span>
+
             <div></div>
+
         </div>
+
 
         <div class="agent-grid">
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">01</span>
+
+                    <span class="agent-number">
+                        01
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-water"></i>
                     </div>
+
                 </div>
-                <h3>Injection Performance Agent</h3>
+
+                <h3>
+                    Injection Performance Agent
+                </h3>
+
                 <p>
-                    Evaluates recent injection volume, rate and operating behavior
-                    for the selected SWD well and nearby analog wells.
+                    Evaluates recent injection volume,
+                    rate and operating behavior for the
+                    selected SWD well and nearby analog wells.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Injection Analytics</span>
+
+                    <span>
+                        Injection Analytics
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">02</span>
+
+                    <span class="agent-number">
+                        02
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-layer-group"></i>
                     </div>
+
                 </div>
-                <h3>Subsurface Connectivity Agent</h3>
+
+                <h3>
+                    Subsurface Connectivity Agent
+                </h3>
+
                 <p>
-                    Interprets depth, nearby wells, structural context and
-                    possible connectivity between injection and seismic response.
+                    Interprets depth, nearby wells,
+                    structural context and possible
+                    connectivity between injection
+                    and seismic response.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Subsurface Intelligence</span>
+
+                    <span>
+                        Subsurface Intelligence
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">03</span>
+
+                    <span class="agent-number">
+                        03
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-wave-square"></i>
                     </div>
+
                 </div>
-                <h3>Injection-Seismicity Coupling Agent</h3>
+
+                <h3>
+                    Injection-Seismicity Coupling Agent
+                </h3>
+
                 <p>
-                    Evaluates temporal and spatial relationships between
-                    SWD operations and evolving induced seismicity patterns.
+                    Evaluates temporal and spatial
+                    relationships between SWD operations
+                    and evolving induced seismicity patterns.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Coupled Risk</span>
+
+                    <span>
+                        Coupled Risk
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">04</span>
+
+                    <span class="agent-number">
+                        04
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-robot"></i>
                     </div>
+
                 </div>
-                <h3>Injection Optimization Agent</h3>
+
+                <h3>
+                    Injection Optimization Agent
+                </h3>
+
                 <p>
-                    Tests alternative injection strategies and evaluates
-                    operational scenarios for improved risk-aware performance.
+                    Tests alternative injection strategies
+                    and evaluates operational scenarios
+                    for improved risk-aware performance.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Agentic Optimization</span>
+
+                    <span>
+                        Agentic Optimization
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
             <article class="agent-card">
+
                 <div class="agent-card-top">
-                    <span class="agent-number">05</span>
+
+                    <span class="agent-number">
+                        05
+                    </span>
+
                     <div class="agent-icon">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
+
                 </div>
-                <h3>Constraint &amp; Decision Agent</h3>
+
+                <h3>
+                    Constraint &amp; Decision Agent
+                </h3>
+
                 <p>
-                    Integrates operational limits, seismic-risk signals
-                    and optimization outputs into a final SWD decision-support recommendation.
+                    Integrates operational limits,
+                    seismic-risk signals and optimization
+                    outputs into a final SWD
+                    decision-support recommendation.
                 </p>
+
                 <div class="agent-footer">
-                    <span>Decision Support</span>
+
+                    <span>
+                        Decision Support
+                    </span>
+
                     <i class="fa-solid fa-arrow-right"></i>
+
                 </div>
+
             </article>
 
+
         </div>
 
+
         <div class="download-wrap">
-            <button class="download-btn" type="button">
+
+            <button
+                class="download-btn"
+                type="button"
+            >
+
                 <i class="fa-regular fa-file-pdf"></i>
+
                 Download Well SWD Injection Forecast Report
+
             </button>
+
         </div>
+
 
     </div>
 
 </section>
 
-<!-- =========================
+
+
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer class="footer">
-    © 2026 BasinAgentic — Autonomous Basin Intelligence Platform.
+
+    © 2026 BasinAgentic —
+    Autonomous Basin Intelligence Platform.
+
 </footer>
 
+
+
 <script>
+
+/* =========================================================
+   HERO IMAGE SLIDER
+========================================================= */
+
 let currentSlide = 0;
 
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+const slides =
+    document.querySelectorAll(".slide");
+
+const dots =
+    document.querySelectorAll(".dot");
+
 
 function showSlide(index){
-    slides.forEach((slide,i)=>{
-        slide.classList.toggle("active",i===index);
-    });
 
-    dots.forEach((dot,i)=>{
-        dot.classList.toggle("active",i===index);
-    });
+    slides.forEach(
+        (slide,i)=>{
+
+            slide.classList.toggle(
+                "active",
+                i===index
+            );
+
+        }
+    );
+
+
+    dots.forEach(
+        (dot,i)=>{
+
+            dot.classList.toggle(
+                "active",
+                i===index
+            );
+
+        }
+    );
+
 
     currentSlide=index;
+
 }
 
+
 function nextSlide(){
+
     currentSlide++;
 
     if(currentSlide>=slides.length){
+
         currentSlide=0;
+
     }
 
     showSlide(currentSlide);
+
 }
+
 
 showSlide(0);
 
-setInterval(nextSlide,3500);
+setInterval(
+    nextSlide,
+    3500
+);
+
+
+/* Allow slider dots to be clicked */
+
+dots.forEach(
+    (dot,index)=>{
+
+        dot.addEventListener(
+            "click",
+            ()=>showSlide(index)
+        );
+
+    }
+);
+
 </script>
+
 
 </body>
 </html>
