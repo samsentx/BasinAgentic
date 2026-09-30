@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    BasinAgentic | Online Privacy Policy
+</title>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+<style>
+
+:root{
+    --navy:#071a33;
+    --navy2:#0f2748;
+    --blue:#174ea6;
+    --blue2:#2563eb;
+    --red:#d7190f;
+    --orange:#ff4d00;
+    --text:#0f172a;
+    --muted:#64748b;
+    --line:#dbe3ec;
+    --page-max:1180px;
+    --page-pad:clamp(20px,4vw,54px);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:#f6f8fb;
+}
+
+a{
+    text-decoration:none;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    min-height:92px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:24px;
+
+    padding:10px var(--page-pad);
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:
+        1px solid rgba(7,26,51,.10);
+
+    box-shadow:
+        0 8px 28px rgba(7,26,51,.06);
+
+    backdrop-filter:blur(16px);
+}
+
+.logo img{
+    display:block;
+
+    width:420px;
+    max-width:48vw;
+
+    height:auto;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
+}
+
+.nav a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:44px;
+
+    padding:0 15px;
+
+    border-radius:11px;
+
+    color:var(--navy);
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+.nav a:hover{
+    background:#eef4fb;
+
+    color:var(--blue);
+}
+
+.nav .signin{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue2)
+        );
+}
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        72px
+        var(--page-pad)
+        58px;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(37,99,235,.14),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 88% 15%,
+            rgba(255,77,0,.11),
+            transparent 24%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #f2f6fb 58%,
+            #fff8f3 100%
+        );
+
+    border-bottom:
+        1px solid rgba(148,163,184,.18);
+}
+
+.hero-inner{
+    max-width:var(--page-max);
+
+    margin:0 auto;
+}
+
+.kicker{
+    display:inline-flex;
+    align-items:center;
+
+    min-height:34px;
+
+    padding:0 13px;
+
+    border-radius:999px;
+
+    background:#fff;
+
+    border:
+        1px solid rgba(23,78,166,.16);
+
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+    margin:18px 0 14px;
+
+    color:var(--navy);
+
+    font-size:
+        clamp(40px,5vw,66px);
+
+    line-height:1.04;
+
+    letter-spacing:-.04em;
+}
+
+.hero p{
+    max-width:900px;
+
+    margin:0;
+
+    color:#53657c;
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+.meta{
+    margin-top:22px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.meta span{
+    display:inline-flex;
+    align-items:center;
+
+    min-height:34px;
+
+    padding:0 12px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.9);
+
+    border:
+        1px solid #dfe7ef;
+
+    color:var(--navy2);
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.content{
+    padding:
+        54px
+        var(--page-pad)
+        90px;
+}
+
+.shell{
+    max-width:var(--page-max);
+
+    margin:0 auto;
+}
+
+.notice{
+    padding:18px 20px;
+
+    margin-bottom:28px;
+
+    border-left:
+        4px solid var(--blue2);
+
+    border-radius:14px;
+
+    background:#eef4ff;
+
+    color:#40536d;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+.toc{
+    margin:0 0 34px;
+
+    padding:24px 26px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:18px;
+
+    background:#fff;
+
+    box-shadow:
+        0 10px 28px rgba(15,23,42,.05);
+}
+
+.toc h2{
+    margin:0 0 14px;
+
+    color:var(--navy);
+
+    font-size:20px;
+}
+
+.toc-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:8px 20px;
+}
+
+.toc a{
+    color:var(--blue);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.45;
+}
+
+.legal-section{
+    margin:0 0 20px;
+
+    padding:26px 28px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:18px;
+
+    background:#fff;
+
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.045);
+}
+
+.legal-section h2{
+    margin:0 0 12px;
+
+    color:var(--navy);
+
+    font-size:21px;
+
+    letter-spacing:-.02em;
+}
+
+.legal-section p,
+.legal-section li{
+    color:#53657c;
+
+    font-size:14px;
+
+    line-height:1.75;
+}
+
+.highlight{
+    font-weight:800;
+
+    color:var(--navy);
+}
+
+.footer{
+    padding:
+        28px
+        var(--page-pad);
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy2)
+        );
+
+    color:#dce6f4;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+@media(max-width:800px){
+
+    .topbar{
+        flex-direction:column;
+
+        padding:
+            12px
+            var(--page-pad);
+    }
+
+    .logo img{
+        width:360px;
+
+        max-width:84vw;
+    }
+
+    .nav{
+        justify-content:center;
+    }
+
+    .toc-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:52px;
+    }
+
+    .legal-section{
+        padding:22px 20px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav class="topbar">
+
+
+    <a
+        class="logo"
+        href="index.html"
+    >
+
+        <img
+            src="basinagentic_logo.png"
+            alt="BasinAgentic Logo"
+        >
+
+    </a>
+
+
+    <div class="nav">
+
+        <a href="index.html">
+            Platform
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a
+            class="signin"
+            href="login.html"
+        >
+
+            <i
+                class="fa-solid fa-user-lock"
+                style="margin-right:8px"
+            ></i>
+
+            Client Portal
+
+        </a>
+
+    </div>
+
+
+</nav>
+
+
+<header class="hero">
+
+    <div class="hero-inner">
+
+
+        <div class="kicker">
+            BasinAgentic Privacy
+        </div>
+
+
+        <h1>
+            Online Privacy Policy
+        </h1>
+
+
+        <p>
+
+            This Online Privacy Policy describes how BasinAgentic
+            handles personal information, account information,
+            technical information, and data processed through
+            Production Intelligence, Induced Seismicity Intelligence,
+            SWD Injection Intelligence, and the Client Portal.
+
+        </p>
+
+
+        <div class="meta">
+
+            <span>
+                Effective: September 30, 2026
+            </span>
+
+            <span>
+                BasinAgentic
+            </span>
+
+            <span>
+                Privacy
+            </span>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+<main class="content">
+
+<div class="shell">
+
+
+<div class="notice">
+
+    This web page is intended to present BasinAgentic’s privacy
+    practices in a clear online format.
+    Customer-specific contractual terms may provide additional
+    obligations or protections.
+
+</div>
+
+
+<div class="toc">
+
+<h2>
+    Contents
+</h2>
+
+<div class="toc-grid">
+
+<a href="#s1">1. Scope</a>
+<a href="#s2">2. Information We Collect</a>
+<a href="#s3">3. Contact and Account Information</a>
+<a href="#s4">4. Transaction and Subscription Information</a>
+<a href="#s5">5. Technical and Usage Information</a>
+<a href="#s6">6. Customer Energy and Subsurface Data</a>
+<a href="#s7">7. Cookies and Similar Technologies</a>
+<a href="#s8">8. Location and Well Coordinates</a>
+<a href="#s9">9. Legal Bases for Processing</a>
+<a href="#s10">10. How We Use Information</a>
+<a href="#s11">11. AI and Automated Processing</a>
+<a href="#s12">12. Aggregated and De-Identified Information</a>
+<a href="#s13">13. Data Retention</a>
+<a href="#s14">14. Security</a>
+<a href="#s15">15. How We Share Information</a>
+<a href="#s16">16. Legal Disclosures</a>
+<a href="#s17">17. Corporate Transactions</a>
+<a href="#s18">18. Third-Party and Public Data Sources</a>
+<a href="#s19">19. International Data Transfers</a>
+<a href="#s20">20. Children's Privacy</a>
+<a href="#s21">21. Your Privacy Rights</a>
+<a href="#s22">22. How to Exercise Privacy Rights</a>
+<a href="#s23">23. U.S. State Privacy Disclosures</a>
+<a href="#s24">24. California Privacy Disclosures</a>
+<a href="#s25">25. Sensitive Personal Information</a>
+<a href="#s26">26. Payment Information</a>
+<a href="#s27">27. Confidential Business Information</a>
+<a href="#s28">28. Model Improvement and Service Development</a>
+<a href="#s29">29. Production Intelligence Data</a>
+<a href="#s30">30. Induced Seismicity Intelligence Data</a>
+<a href="#s31">31. SWD Injection Intelligence Data</a>
+<a href="#s32">32. Reports and Download Activity</a>
+<a href="#s33">33. Communications</a>
+<a href="#s34">34. Marketing Communications</a>
+<a href="#s35">35. Do Not Track and Browser Signals</a>
+<a href="#s36">36. External Links</a>
+<a href="#s37">37. Business-to-Business Contacts</a>
+<a href="#s38">38. Data Accuracy</a>
+<a href="#s39">39. Account Security</a>
+<a href="#s40">40. Data Deletion and Account Closure</a>
+<a href="#s41">41. Changes to this Privacy Policy</a>
+<a href="#s42">42. Contact Us</a>
+<a href="#s43">43. Effective Date</a>
+
+</div>
+
+</div>
+
+
+<section
+    class="legal-section"
+    id="s1"
+>
+
+<h2>
+    1. Scope
+</h2>
+
+<p>
+    This Online Privacy Policy explains how BasinAgentic
+    collects, uses, discloses, stores, and protects information
+    when individuals visit our websites, create accounts,
+    use the Client Portal, request reports,
+    communicate with us, or otherwise interact with
+    BasinAgentic services.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s2"
+>
+
+<h2>
+    2. Information We Collect
+</h2>
+
+<p>
+    We may collect information you provide directly,
+    information generated through your use of the Services,
+    information received from your organization,
+    and information from third-party or public sources.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s3"
+>
+
+<h2>
+    3. Contact and Account Information
+</h2>
+
+<p>
+    We may collect names, business contact details,
+    organization names, job titles, usernames,
+    account identifiers, authentication information,
+    and account preferences.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s4"
+>
+
+<h2>
+    4. Transaction and Subscription Information
+</h2>
+
+<p>
+    We may collect subscription plan information,
+    invoices, billing status, report allowances,
+    usage entitlements, payment-related metadata,
+    and related commercial records.
+</p>
+
+<p>
+    Payment-card details may be processed by third-party
+    payment providers rather than stored directly by BasinAgentic.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s5"
+>
+
+<h2>
+    5. Technical and Usage Information
+</h2>
+
+<p>
+    We may collect IP addresses, browser type, device type,
+    operating system, referring URLs, session information,
+    login timestamps, feature usage, page interactions,
+    diagnostic information, and security logs.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s6"
+>
+
+<h2>
+    6. Customer Energy and Subsurface Data
+</h2>
+
+<p>
+    When customers use BasinAgentic workflows,
+    we may process well coordinates,
+    API or well identifiers,
+    production data,
+    injection data,
+    seismicity data,
+    formation information,
+    field attributes,
+    operating parameters,
+    user-selected assumptions,
+    uploaded files,
+    and related subsurface or engineering information.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s7"
+>
+
+<h2>
+    7. Cookies and Similar Technologies
+</h2>
+
+<p>
+    We may use cookies, local storage,
+    session technologies, and similar tools
+    to support authentication, security, preferences,
+    analytics, and website functionality.
+</p>
+
+<p>
+    Browser settings may allow users to restrict certain
+    cookies, although doing so may affect functionality.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s8"
+>
+
+<h2>
+    8. Location and Well Coordinates
+</h2>
+
+<p>
+    BasinAgentic may process geographic coordinates entered
+    by a user, including well latitude and longitude,
+    to perform spatial analysis and generate
+    location-specific intelligence.
+</p>
+
+<p>
+    We do not require precise personal-device geolocation
+    for ordinary report generation unless a feature
+    expressly requests it.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s9"
+>
+
+<h2>
+    9. Legal Bases for Processing
+</h2>
+
+<p>
+    Where required by applicable law,
+    our legal bases may include performance of a contract,
+    legitimate interests,
+    compliance with legal obligations,
+    protection of rights and security,
+    and consent where consent is legally required.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s10"
+>
+
+<h2>
+    10. How We Use Information
+</h2>
+
+<p>
+    We may use information to provide and operate the Services;
+    authenticate users;
+    generate reports and forecasts;
+    administer subscriptions;
+    communicate with customers;
+    provide support;
+    secure accounts and infrastructure;
+    monitor performance;
+    detect fraud or misuse;
+    comply with law;
+    and improve our products and workflows.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s11"
+>
+
+<h2>
+    11. AI and Automated Processing
+</h2>
+
+<p>
+    BasinAgentic may use automated analytical workflows,
+    machine learning,
+    Transformer-based models,
+    physics-informed models,
+    optimization routines,
+    and agentic AI systems to process energy and
+    subsurface data and generate analytical outputs.
+</p>
+
+<p>
+    These outputs are intended to support,
+    not replace, professional judgment.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s12"
+>
+
+<h2>
+    12. Aggregated and De-Identified Information
+</h2>
+
+<p>
+    We may aggregate or de-identify information so that
+    it no longer reasonably identifies an individual
+    or customer.
+</p>
+
+<p>
+    We may use such information for analytics,
+    benchmarking, research, service improvement,
+    and product development,
+    subject to contractual restrictions.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s13"
+>
+
+<h2>
+    13. Data Retention
+</h2>
+
+<p>
+    We retain personal information and Customer Data for
+    as long as reasonably necessary to provide the Services,
+    satisfy contractual obligations,
+    maintain business and security records,
+    comply with legal requirements,
+    resolve disputes,
+    and enforce agreements.
+</p>
+
+<p>
+    Retention periods may vary by data type and
+    customer arrangement.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s14"
+>
+
+<h2>
+    14. Security
+</h2>
+
+<p>
+    We use commercially reasonable administrative,
+    technical, and organizational safeguards designed
+    to protect information against unauthorized access,
+    disclosure, alteration, or destruction.
+</p>
+
+<p>
+    No security system is perfect,
+    and we cannot guarantee absolute security.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s15"
+>
+
+<h2>
+    15. How We Share Information
+</h2>
+
+<p>
+    We may share information with service providers,
+    hosting providers, analytics providers,
+    professional advisers, payment processors,
+    and other vendors that help us operate the Services,
+    subject to appropriate contractual or legal safeguards.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s16"
+>
+
+<h2>
+    16. Legal Disclosures
+</h2>
+
+<p>
+    We may disclose information where required by law,
+    subpoena, court order, governmental request,
+    or other legal process,
+    or where reasonably necessary to protect the rights,
+    safety, security, or property of BasinAgentic,
+    our customers, users, or others.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s17"
+>
+
+<h2>
+    17. Corporate Transactions
+</h2>
+
+<p>
+    Information may be disclosed or transferred in connection
+    with a merger, acquisition, financing, reorganization,
+    sale of assets, bankruptcy,
+    or similar corporate transaction,
+    subject to applicable law and confidentiality protections.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s18"
+>
+
+<h2>
+    18. Third-Party and Public Data Sources
+</h2>
+
+<p>
+    The Services may combine customer-supplied information
+    with data from governmental, regulatory, public,
+    commercial, or licensed sources.
+</p>
+
+<p>
+    This Privacy Policy does not control the independent
+    privacy practices of third-party data providers.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s19"
+>
+
+<h2>
+    19. International Data Transfers
+</h2>
+
+<p>
+    Information may be processed in jurisdictions other than
+    the jurisdiction where a user is located.
+</p>
+
+<p>
+    Where required, we use appropriate legal mechanisms
+    or safeguards for international transfers.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s20"
+>
+
+<h2>
+    20. Children's Privacy
+</h2>
+
+<p>
+    The Services are intended for business and professional
+    users and are not directed to children under 13.
+</p>
+
+<p>
+    We do not knowingly collect personal information
+    from children in violation of applicable law.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s21"
+>
+
+<h2>
+    21. Your Privacy Rights
+</h2>
+
+<p>
+    Depending on location and applicable law,
+    individuals may have rights to request access,
+    correction, deletion, portability,
+    restriction, or objection concerning certain
+    personal information,
+    and to withdraw consent where processing is
+    based on consent.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s22"
+>
+
+<h2>
+    22. How to Exercise Privacy Rights
+</h2>
+
+<p>
+    Privacy requests may be submitted using the contact
+    information provided on the BasinAgentic website.
+</p>
+
+<p>
+    We may need to verify identity or authority before
+    completing a request.
+</p>
+
+<p>
+    Authorized-agent requests may require additional verification.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s23"
+>
+
+<h2>
+    23. U.S. State Privacy Disclosures
+</h2>
+
+<p>
+    Residents of certain U.S. states may have additional rights
+    under applicable state privacy laws.
+</p>
+
+<p>
+    These rights may include access, correction,
+    deletion, portability, and the ability to opt out
+    of certain processing activities where legally applicable.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s24"
+>
+
+<h2>
+    24. California Privacy Disclosures
+</h2>
+
+<p>
+    Where the California Consumer Privacy Act,
+    as amended, applies,
+    California residents may have rights regarding
+    categories of personal information collected,
+    sources, business purposes,
+    categories of recipients,
+    access, correction, deletion,
+    and certain opt-out rights.
+</p>
+
+<p>
+    BasinAgentic does not sell personal information for money.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s25"
+>
+
+<h2>
+    25. Sensitive Personal Information
+</h2>
+
+<p>
+    BasinAgentic does not seek sensitive personal information
+    unrelated to providing the Services.
+</p>
+
+<p>
+    Customers should avoid submitting unnecessary sensitive
+    personal information through report inputs,
+    support requests, or uploads.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s26"
+>
+
+<h2>
+    26. Payment Information
+</h2>
+
+<p>
+    Payment processing may be provided by third-party
+    payment processors.
+</p>
+
+<p>
+    BasinAgentic may receive transaction status,
+    billing contact information,
+    invoice information,
+    and limited payment metadata,
+    but may not receive or store full payment-card credentials.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s27"
+>
+
+<h2>
+    27. Confidential Business Information
+</h2>
+
+<p>
+    Customer operational, engineering,
+    and subsurface information may constitute confidential
+    business information under customer agreements.
+</p>
+
+<p>
+    Such information is handled in accordance with applicable
+    contractual confidentiality obligations in addition
+    to this Privacy Policy.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s28"
+>
+
+<h2>
+    28. Model Improvement and Service Development
+</h2>
+
+<p>
+    Subject to applicable contracts, law,
+    and customer settings,
+    BasinAgentic may use service telemetry,
+    de-identified data, aggregated patterns,
+    and feedback to evaluate and improve system performance,
+    workflows, interfaces, security,
+    and analytical quality.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s29"
+>
+
+<h2>
+    29. Production Intelligence Data
+</h2>
+
+<p>
+    Production Intelligence may process well coordinates,
+    formation information,
+    historical oil, gas, water,
+    or liquid production,
+    analog-well attributes,
+    geometry proxies,
+    decline parameters,
+    and forecast results,
+    including P10, P50, and P90 ranges.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s30"
+>
+
+<h2>
+    30. Induced Seismicity Intelligence Data
+</h2>
+
+<p>
+    Induced Seismicity Intelligence may process earthquake
+    catalogs, event times, locations, magnitudes,
+    b-values, clustering metrics,
+    temporal patterns, risk indicators,
+    and other seismic or geospatial information used to
+    generate risk forecasts and analytical reports.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s31"
+>
+
+<h2>
+    31. SWD Injection Intelligence Data
+</h2>
+
+<p>
+    SWD Injection Intelligence may process injection-well
+    coordinates, injection volumes, rates,
+    depth or formation attributes,
+    operational limits,
+    nearby seismicity,
+    connectivity indicators,
+    optimization scenarios,
+    and other inputs used for risk-aware injection analysis.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s32"
+>
+
+<h2>
+    32. Reports and Download Activity
+</h2>
+
+<p>
+    We may maintain records of reports requested,
+    generated, viewed, or downloaded,
+    including report type,
+    relevant well or location identifiers,
+    timestamps, user account,
+    status, and usage allowance information.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s33"
+>
+
+<h2>
+    33. Communications
+</h2>
+
+<p>
+    We may use contact information to respond to inquiries,
+    provide support,
+    deliver administrative notices,
+    communicate about subscriptions,
+    security, or service changes,
+    and send other business communications permitted by law.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s34"
+>
+
+<h2>
+    34. Marketing Communications
+</h2>
+
+<p>
+    Where permitted by law,
+    we may send product, event, or service information.
+</p>
+
+<p>
+    Recipients may unsubscribe from promotional emails using
+    the instructions included in those messages.
+</p>
+
+<p>
+    Service-related or transactional communications may continue
+    where necessary.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s35"
+>
+
+<h2>
+    35. Do Not Track and Browser Signals
+</h2>
+
+<p>
+    Some browsers offer “Do Not Track” or similar signals.
+</p>
+
+<p>
+    Because standards and legal requirements vary,
+    our response to such signals may depend on applicable law
+    and the technology available.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s36"
+>
+
+<h2>
+    36. External Links
+</h2>
+
+<p>
+    Our websites or Services may contain links to third-party
+    websites or services.
+</p>
+
+<p>
+    BasinAgentic is not responsible for the privacy practices,
+    security, or content of third-party services.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s37"
+>
+
+<h2>
+    37. Business-to-Business Contacts
+</h2>
+
+<p>
+    We may process professional contact information for customer,
+    vendor, partner, academic, technical,
+    and commercial relationships,
+    including communications concerning proposals,
+    demonstrations, subscriptions, support,
+    and project collaboration.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s38"
+>
+
+<h2>
+    38. Data Accuracy
+</h2>
+
+<p>
+    Users are responsible for providing accurate account
+    and business information and for keeping relevant
+    contact and account information current.
+</p>
+
+<p>
+    Analytical results may be affected by incomplete
+    or inaccurate input data.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s39"
+>
+
+<h2>
+    39. Account Security
+</h2>
+
+<p>
+    Users should protect passwords,
+    use unique credentials,
+    avoid sharing accounts,
+    and promptly notify BasinAgentic of suspected unauthorized
+    access or compromise.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s40"
+>
+
+<h2>
+    40. Data Deletion and Account Closure
+</h2>
+
+<p>
+    Subject to contractual, legal, security,
+    and backup-retention requirements,
+    we may delete or de-identify information after account
+    closure or expiration of applicable retention periods.
+</p>
+
+<p>
+    Certain records may be retained where legally
+    or operationally necessary.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s41"
+>
+
+<h2>
+    41. Changes to this Privacy Policy
+</h2>
+
+<p>
+    We may update this Online Privacy Policy periodically.
+</p>
+
+<p>
+    The effective date will be revised when changes are published.
+</p>
+
+<p>
+    Material changes may also be communicated through
+    the website, Client Portal, or email where appropriate.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s42"
+>
+
+<h2>
+    42. Contact Us
+</h2>
+
+<p>
+    Questions, concerns, or privacy requests may be submitted
+    through the contact information published on the
+    BasinAgentic website or through the Client Portal.
+</p>
+
+<p>
+    Please include sufficient information for us to understand
+    and respond to the request.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s43"
+>
+
+<h2>
+    43. Effective Date
+</h2>
+
+<p>
+    This Online Privacy Policy is effective as of
+    <span class="highlight">
+        September 30, 2026
+    </span>.
+</p>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer class="footer">
+
+    © 2026 BasinAgentic.
+    All rights reserved.
+
+    <br>
+
+    <a
+        href="subscription-agreement.html"
+        style="color:#fff"
+    >
+        Main Subscription Agreement
+    </a>
+
+    &nbsp; · &nbsp;
+
+    <a
+        href="privacy.html"
+        style="color:#fff"
+    >
+        Online Privacy Policy
+    </a>
+
+    &nbsp; · &nbsp;
+
+    <a
+        href="login.html"
+        style="color:#fff"
+    >
+        Client Portal
+    </a>
+
+</footer>
+
+
+</body>
+
+</html>
