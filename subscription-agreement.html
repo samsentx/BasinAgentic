@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BasinAgentic | Main Subscription Agreement</title>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+<style>
+:root{
+    --navy:#071a33;
+    --navy2:#0f2748;
+    --blue:#174ea6;
+    --blue2:#2563eb;
+    --red:#d7190f;
+    --orange:#ff4d00;
+    --text:#0f172a;
+    --muted:#64748b;
+    --line:#dbe3ec;
+    --page-max:1180px;
+    --page-pad:clamp(20px,4vw,54px);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:#f6f8fb;
+}
+
+a{
+    text-decoration:none;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    min-height:92px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:24px;
+
+    padding:10px var(--page-pad);
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid rgba(7,26,51,.10);
+
+    box-shadow:0 8px 28px rgba(7,26,51,.06);
+
+    backdrop-filter:blur(16px);
+}
+
+.logo img{
+    display:block;
+
+    width:420px;
+    max-width:48vw;
+
+    height:auto;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    justify-content:flex-end;
+}
+
+.nav a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:44px;
+
+    padding:0 15px;
+
+    border-radius:11px;
+
+    color:var(--navy);
+
+    font-size:14px;
+    font-weight:800;
+}
+
+.nav a:hover{
+    background:#eef4fb;
+    color:var(--blue);
+}
+
+.nav .signin{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue2)
+        );
+}
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        72px
+        var(--page-pad)
+        58px;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(37,99,235,.14),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 88% 15%,
+            rgba(255,77,0,.11),
+            transparent 24%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #f2f6fb 58%,
+            #fff8f3 100%
+        );
+
+    border-bottom:
+        1px solid rgba(148,163,184,.18);
+}
+
+.hero-inner{
+    max-width:var(--page-max);
+
+    margin:0 auto;
+}
+
+.kicker{
+    display:inline-flex;
+    align-items:center;
+
+    min-height:34px;
+
+    padding:0 13px;
+
+    border-radius:999px;
+
+    background:#fff;
+
+    border:
+        1px solid rgba(23,78,166,.16);
+
+    color:var(--blue);
+
+    font-size:11px;
+    font-weight:900;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+    margin:18px 0 14px;
+
+    color:var(--navy);
+
+    font-size:
+        clamp(40px,5vw,66px);
+
+    line-height:1.04;
+
+    letter-spacing:-.04em;
+}
+
+.hero p{
+    max-width:900px;
+
+    margin:0;
+
+    color:#53657c;
+
+    font-size:17px;
+
+    line-height:1.75;
+}
+
+.meta{
+    margin-top:22px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.meta span{
+    display:inline-flex;
+    align-items:center;
+
+    min-height:34px;
+
+    padding:0 12px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.9);
+
+    border:
+        1px solid #dfe7ef;
+
+    color:var(--navy2);
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.content{
+    padding:
+        54px
+        var(--page-pad)
+        90px;
+}
+
+.shell{
+    max-width:var(--page-max);
+
+    margin:0 auto;
+}
+
+.notice{
+    padding:18px 20px;
+
+    margin-bottom:28px;
+
+    border-left:
+        4px solid var(--blue2);
+
+    border-radius:14px;
+
+    background:#eef4ff;
+
+    color:#40536d;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+.toc{
+    margin:0 0 34px;
+
+    padding:24px 26px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:18px;
+
+    background:#fff;
+
+    box-shadow:
+        0 10px 28px rgba(15,23,42,.05);
+}
+
+.toc h2{
+    margin:0 0 14px;
+
+    color:var(--navy);
+
+    font-size:20px;
+}
+
+.toc-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:8px 20px;
+}
+
+.toc a{
+    color:var(--blue);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.45;
+}
+
+.legal-section{
+    margin:0 0 20px;
+
+    padding:26px 28px;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:18px;
+
+    background:#fff;
+
+    box-shadow:
+        0 8px 24px rgba(15,23,42,.045);
+}
+
+.legal-section h2{
+    margin:0 0 12px;
+
+    color:var(--navy);
+
+    font-size:21px;
+
+    letter-spacing:-.02em;
+}
+
+.legal-section p,
+.legal-section li{
+    color:#53657c;
+
+    font-size:14px;
+
+    line-height:1.75;
+}
+
+.highlight{
+    font-weight:800;
+
+    color:var(--navy);
+}
+
+.footer{
+    padding:
+        28px
+        var(--page-pad);
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--navy2)
+        );
+
+    color:#dce6f4;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+@media(max-width:800px){
+
+    .topbar{
+        flex-direction:column;
+
+        padding:
+            12px
+            var(--page-pad);
+    }
+
+    .logo img{
+        width:360px;
+
+        max-width:84vw;
+    }
+
+    .nav{
+        justify-content:center;
+    }
+
+    .toc-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:52px;
+    }
+
+    .legal-section{
+        padding:22px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<nav class="topbar">
+
+    <a
+        class="logo"
+        href="index.html"
+    >
+        <img
+            src="basinagentic_logo.png"
+            alt="BasinAgentic Logo"
+        >
+    </a>
+
+
+    <div class="nav">
+
+        <a href="index.html">
+            Platform
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a
+            class="signin"
+            href="login.html"
+        >
+            <i
+                class="fa-solid fa-user-lock"
+                style="margin-right:8px"
+            ></i>
+
+            Client Portal
+        </a>
+
+    </div>
+
+</nav>
+
+
+<header class="hero">
+
+    <div class="hero-inner">
+
+        <div class="kicker">
+            BasinAgentic Legal
+        </div>
+
+        <h1>
+            Main Subscription Agreement
+        </h1>
+
+        <p>
+            This Main Subscription Agreement governs access to and
+            use of the BasinAgentic platform, Client Portal,
+            subscription services, reports, analytical workflows,
+            and related offerings.
+        </p>
+
+        <div class="meta">
+
+            <span>
+                Effective: September 30, 2026
+            </span>
+
+            <span>
+                BasinAgentic
+            </span>
+
+            <span>
+                Subscription Terms
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="content">
+
+<div class="shell">
+
+
+<div class="notice">
+
+    This web page is intended to present BasinAgentic’s
+    legal terms in a clear online format.
+    Customers should also review any applicable Order Form,
+    signed agreement, or service-specific terms.
+
+</div>
+
+
+<div class="toc">
+
+<h2>
+    Contents
+</h2>
+
+<div class="toc-grid">
+
+<a href="#s1">1. Definitions</a>
+<a href="#s2">2. Services</a>
+<a href="#s3">3. Subscriptions and Authorized Users</a>
+<a href="#s4">4. Acceptable Use</a>
+<a href="#s5">5. Customer Data</a>
+<a href="#s6">6. Aggregated and De-Identified Information</a>
+<a href="#s7">7. AI, Forecasting, and Automated Analysis</a>
+<a href="#s8">8. Engineering and Operational Disclaimer</a>
+<a href="#s9">9. Third-Party and Public Data</a>
+<a href="#s10">10. Fees and Payment</a>
+<a href="#s11">11. Beta, Preview, and Experimental Features</a>
+<a href="#s12">12. Intellectual Property</a>
+<a href="#s13">13. Outputs and Reports</a>
+<a href="#s14">14. Confidentiality</a>
+<a href="#s15">15. Security</a>
+<a href="#s16">16. Availability and Changes to Services</a>
+<a href="#s17">17. Limited Warranties</a>
+<a href="#s18">18. Limitation of Liability</a>
+<a href="#s19">19. High-Risk Decisions</a>
+<a href="#s20">20. Indemnification</a>
+<a href="#s21">21. Term and Renewal</a>
+<a href="#s22">22. Suspension and Termination</a>
+<a href="#s23">23. Effect of Termination</a>
+<a href="#s24">24. Export Controls and Sanctions</a>
+<a href="#s25">25. Compliance with Laws</a>
+<a href="#s26">26. Feedback</a>
+<a href="#s27">27. Publicity</a>
+<a href="#s28">28. Assignment</a>
+<a href="#s29">29. Force Majeure</a>
+<a href="#s30">30. Governing Law and Venue</a>
+<a href="#s31">31. Notices</a>
+<a href="#s32">32. Changes to this Agreement</a>
+<a href="#s33">33. Order of Precedence</a>
+<a href="#s34">34. Entire Agreement</a>
+<a href="#s35">35. Severability</a>
+<a href="#s36">36. Waiver</a>
+<a href="#s37">37. Electronic Acceptance</a>
+
+</div>
+
+</div>
+
+
+<section
+    class="legal-section"
+    id="s1"
+>
+
+<h2>
+    1. Definitions
+</h2>
+
+<p>
+    For purposes of this Main Subscription Agreement
+    (“Agreement”), “BasinAgentic,” “we,” “us,” or “our”
+    means the provider of the BasinAgentic platform and
+    related services.
+    “Customer,” “you,” or “your” means the entity or person
+    purchasing, accessing, or using the Services.
+    “Authorized User” means an individual permitted by Customer
+    to access the Services.
+    “Services” means the BasinAgentic hosted software,
+    data products, reports, analytical workflows, APIs,
+    dashboards, documentation, and related support made
+    available under an Order Form or other written
+    subscription arrangement.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s2"
+>
+
+<h2>
+    2. Services
+</h2>
+
+<p>
+    BasinAgentic provides subscription-based access to
+    energy and subsurface intelligence workflows,
+    including Production Intelligence,
+    Induced Seismicity Intelligence,
+    SWD Injection Intelligence,
+    related report-generation capabilities,
+    and other modules that may be introduced from time to time.
+</p>
+
+<p>
+    The specific modules, usage limits, report allowances,
+    features, support level, term, and fees applicable to
+    Customer are those stated in the applicable Order Form,
+    quotation, subscription page, or other written agreement
+    accepted by the parties.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s3"
+>
+
+<h2>
+    3. Subscriptions and Authorized Users
+</h2>
+
+<p>
+    Customer may permit only its Authorized Users to access
+    the Services.
+    Customer is responsible for maintaining the confidentiality
+    of login credentials and for all activity occurring under
+    Customer accounts.
+    Accounts may not be shared with unauthorized persons or
+    transferred without BasinAgentic’s written consent.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s4"
+>
+
+<h2>
+    4. Acceptable Use
+</h2>
+
+<p>
+    Customer will not, and will not permit any third party to:
+    (a) reverse engineer, decompile, disassemble, scrape,
+    copy, or attempt to derive source code, models, prompts,
+    algorithms, workflows, or non-public data from the Services;
+    (b) bypass usage limits or security controls;
+    (c) use the Services to create or train a directly competing
+    product or service;
+    (d) resell or redistribute the Services except as expressly
+    permitted in writing; or
+    (e) use the Services in violation of applicable law.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s5"
+>
+
+<h2>
+    5. Customer Data
+</h2>
+
+<p>
+    Customer retains its rights in data, files, coordinates,
+    well information, operating information, and other content
+    submitted by or on behalf of Customer (“Customer Data”).
+    Customer grants BasinAgentic a limited right to host,
+    process, transmit, analyze, and display Customer Data as
+    reasonably necessary to provide, secure, support, and improve
+    the Services, subject to this Agreement and the
+    Online Privacy Policy.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s6"
+>
+
+<h2>
+    6. Aggregated and De-Identified Information
+</h2>
+
+<p>
+    BasinAgentic may create and use aggregated, statistical,
+    or de-identified information derived from use of the Services,
+    provided such information does not identify Customer or an
+    individual and cannot reasonably be used to reconstruct
+    Customer Confidential Information.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s7"
+>
+
+<h2>
+    7. AI, Forecasting, and Automated Analysis
+</h2>
+
+<p>
+    The Services may use machine learning,
+    Transformer-based forecasting,
+    physics-informed methods,
+    statistical models,
+    optimization routines,
+    agentic AI workflows,
+    and automated decision-support processes.
+</p>
+
+<p>
+    Outputs may include forecasts,
+    estimated production profiles,
+    uncertainty ranges,
+    seismicity indicators,
+    b-value interpretations,
+    SWD injection assessments,
+    risk classifications,
+    and related analytical results.
+</p>
+
+<p>
+    Customer acknowledges that model outputs are probabilistic
+    and depend on available data, assumptions, model structure,
+    data quality, and changing field conditions.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s8"
+>
+
+<h2>
+    8. Engineering and Operational Disclaimer
+</h2>
+
+<p>
+    The Services provide analytical and decision-support
+    information and are not a substitute for professional
+    engineering judgment, geoscience interpretation,
+    regulatory review, field verification, or site-specific
+    operational analysis.
+</p>
+
+<p>
+    Customer remains solely responsible for operational,
+    engineering, financial, environmental, safety,
+    and regulatory decisions.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s9"
+>
+
+<h2>
+    9. Third-Party and Public Data
+</h2>
+
+<p>
+    The Services may incorporate data obtained from governmental,
+    regulatory, commercial, public, licensed,
+    or third-party sources.
+</p>
+
+<p>
+    BasinAgentic does not warrant that third-party data is
+    complete, current, error-free, or continuously available.
+    Applicable third-party terms may apply to particular datasets.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s10"
+>
+
+<h2>
+    10. Fees and Payment
+</h2>
+
+<p>
+    Customer will pay all fees stated in the applicable
+    Order Form or subscription arrangement.
+</p>
+
+<p>
+    Unless otherwise stated, fees are non-refundable,
+    exclusive of applicable taxes, and due according to the
+    payment terms stated in the applicable commercial document.
+</p>
+
+<p>
+    Late amounts may be subject to lawful interest and
+    collection costs.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s11"
+>
+
+<h2>
+    11. Beta, Preview, and Experimental Features
+</h2>
+
+<p>
+    Features identified as beta, preview, pilot, experimental,
+    research, or evaluation features may be modified,
+    suspended, or discontinued at any time and may have reduced
+    support or service commitments.
+</p>
+
+<p>
+    Such features are provided on an “as available” basis.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s12"
+>
+
+<h2>
+    12. Intellectual Property
+</h2>
+
+<p>
+    BasinAgentic and its licensors retain all right,
+    title, and interest in the Services, software,
+    user interfaces, analytical frameworks, models,
+    algorithms, agent architectures, methods, know-how,
+    databases, documentation, trademarks,
+    and all improvements and derivatives thereof,
+    excluding Customer Data.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s13"
+>
+
+<h2>
+    13. Outputs and Reports
+</h2>
+
+<p>
+    Subject to payment of applicable fees and compliance with
+    this Agreement, Customer may use reports, charts, tables,
+    forecasts, and other outputs generated for Customer’s
+    internal business purposes.
+</p>
+
+<p>
+    Customer may not represent BasinAgentic outputs as
+    independently verified engineering certifications or
+    regulatory determinations unless BasinAgentic expressly
+    agrees in writing.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s14"
+>
+
+<h2>
+    14. Confidentiality
+</h2>
+
+<p>
+    Each party may receive non-public information that is
+    identified as confidential or that reasonably should be
+    understood to be confidential (“Confidential Information”).
+</p>
+
+<p>
+    The receiving party will use reasonable care to protect
+    Confidential Information and will use it only for purposes
+    of the parties’ relationship.
+</p>
+
+<p>
+    Confidentiality obligations do not apply to information
+    that is lawfully public, already known without restriction,
+    independently developed, or rightfully received from a
+    third party without confidentiality duty.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s15"
+>
+
+<h2>
+    15. Security
+</h2>
+
+<p>
+    BasinAgentic will maintain commercially reasonable
+    administrative, technical, and organizational safeguards
+    designed to protect Customer Data and account information.
+</p>
+
+<p>
+    Customer is responsible for implementing appropriate
+    endpoint, credential, access-control,
+    and internal security practices for its users and systems.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s16"
+>
+
+<h2>
+    16. Availability and Changes to Services
+</h2>
+
+<p>
+    BasinAgentic may update, improve, modify, or replace
+    features of the Services from time to time.
+</p>
+
+<p>
+    BasinAgentic will use commercially reasonable efforts
+    to maintain service availability, but does not guarantee
+    uninterrupted or error-free operation unless a separate
+    written service-level commitment expressly applies.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s17"
+>
+
+<h2>
+    17. Limited Warranties
+</h2>
+
+<p>
+    BasinAgentic warrants that it will provide the Services
+    in a professional and commercially reasonable manner.
+</p>
+
+<p>
+    Except for any express warranty stated in this Agreement
+    or an applicable Order Form, the Services are provided
+    “as is” and “as available,” and BasinAgentic disclaims
+    implied warranties to the maximum extent permitted by law,
+    including merchantability, fitness for a particular purpose,
+    non-infringement, and warranties arising from course of
+    dealing or usage of trade.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s18"
+>
+
+<h2>
+    18. Limitation of Liability
+</h2>
+
+<p>
+    To the maximum extent permitted by law,
+    neither party will be liable for indirect, incidental,
+    special, exemplary, punitive, or consequential damages,
+    or for lost profits, lost revenues, lost business
+    opportunities, or loss of goodwill arising from this Agreement,
+    even if advised of the possibility of such damages.
+</p>
+
+<p>
+    Except for liabilities that cannot lawfully be limited,
+    Customer payment obligations, misuse of intellectual property,
+    or breach of confidentiality, each party’s aggregate liability
+    arising out of or relating to this Agreement will not exceed
+    the fees paid or payable by Customer to BasinAgentic for
+    the Services giving rise to the claim during the twelve
+    months preceding the event giving rise to liability.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s19"
+>
+
+<h2>
+    19. High-Risk Decisions
+</h2>
+
+<p>
+    Customer will not rely on the Services as the sole basis
+    for decisions where an error could reasonably be expected
+    to result in death, personal injury, significant environmental
+    harm, or material property damage.
+</p>
+
+<p>
+    Such decisions require appropriate professional review
+    and independent verification.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s20"
+>
+
+<h2>
+    20. Indemnification
+</h2>
+
+<p>
+    Customer will defend and indemnify BasinAgentic and its
+    affiliates from third-party claims arising from Customer’s
+    unlawful use of the Services, Customer Data that infringes
+    third-party rights, or Customer’s material breach of
+    this Agreement.
+</p>
+
+<p>
+    BasinAgentic will reasonably cooperate in the defense
+    at Customer’s expense.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s21"
+>
+
+<h2>
+    21. Term and Renewal
+</h2>
+
+<p>
+    This Agreement begins when Customer first accepts it or
+    accesses paid Services and continues for the applicable
+    subscription term.
+</p>
+
+<p>
+    Renewal terms, if any, are governed by the applicable
+    Order Form, quotation, subscription terms,
+    or other written commercial arrangement.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s22"
+>
+
+<h2>
+    22. Suspension and Termination
+</h2>
+
+<p>
+    BasinAgentic may suspend access where reasonably necessary
+    to address security threats, non-payment, unlawful use,
+    material breach, or risk to the Services or other customers.
+</p>
+
+<p>
+    Either party may terminate for an uncured material breach
+    if the breach is not remedied within a reasonable written
+    cure period, unless immediate termination is permitted
+    by law or the nature of the breach.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s23"
+>
+
+<h2>
+    23. Effect of Termination
+</h2>
+
+<p>
+    Upon termination or expiration,
+    Customer’s right to access the Services ends,
+    except for any rights that expressly survive.
+</p>
+
+<p>
+    Provisions concerning payment, intellectual property,
+    confidentiality, disclaimers, limitations of liability,
+    indemnification, and other provisions that by their nature
+    should survive will remain in effect.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s24"
+>
+
+<h2>
+    24. Export Controls and Sanctions
+</h2>
+
+<p>
+    Customer will comply with applicable export-control,
+    trade-sanctions, and restricted-party laws.
+</p>
+
+<p>
+    Customer will not access or use the Services where
+    prohibited by applicable law.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s25"
+>
+
+<h2>
+    25. Compliance with Laws
+</h2>
+
+<p>
+    Each party will comply with laws applicable to its
+    performance under this Agreement.
+</p>
+
+<p>
+    Customer is responsible for determining and satisfying
+    industry-specific, regulatory, permitting,
+    and operational requirements applicable to
+    Customer’s activities.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s26"
+>
+
+<h2>
+    26. Feedback
+</h2>
+
+<p>
+    If Customer provides suggestions, ideas, comments,
+    or feedback regarding the Services,
+    Customer grants BasinAgentic a perpetual,
+    irrevocable, worldwide, royalty-free right to use such
+    feedback without restriction or obligation,
+    provided BasinAgentic does not publicly identify Customer
+    as the source without permission.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s27"
+>
+
+<h2>
+    27. Publicity
+</h2>
+
+<p>
+    BasinAgentic will not use Customer’s name or logo
+    in public marketing materials without Customer’s permission,
+    except where Customer has expressly agreed otherwise in an
+    Order Form or separate written authorization.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s28"
+>
+
+<h2>
+    28. Assignment
+</h2>
+
+<p>
+    Neither party may assign this Agreement without the other
+    party’s prior written consent, except in connection with
+    a merger, reorganization, change of control,
+    or sale of substantially all relevant assets,
+    provided the assignee assumes the assigning party’s
+    obligations.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s29"
+>
+
+<h2>
+    29. Force Majeure
+</h2>
+
+<p>
+    Neither party will be liable for delay or failure caused
+    by events beyond its reasonable control,
+    including natural disasters, war, civil disturbance,
+    government action, utility or telecommunications failure,
+    cyber incidents not caused by the affected party’s breach
+    of reasonable security obligations,
+    or other force majeure events.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s30"
+>
+
+<h2>
+    30. Governing Law and Venue
+</h2>
+
+<p>
+    This Agreement is governed by the laws of the State of Texas,
+    without regard to conflict-of-law principles.
+</p>
+
+<p>
+    Unless otherwise required by law or agreed in writing,
+    disputes will be brought in a court of competent jurisdiction
+    located in Texas.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s31"
+>
+
+<h2>
+    31. Notices
+</h2>
+
+<p>
+    Legal notices under this Agreement must be provided
+    in writing by email and/or another reasonable written method
+    to the contact information associated with the applicable
+    account or Order Form.
+</p>
+
+<p>
+    Notices to BasinAgentic should be sent to the legal or
+    contact address published by BasinAgentic or otherwise
+    provided in writing.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s32"
+>
+
+<h2>
+    32. Changes to this Agreement
+</h2>
+
+<p>
+    BasinAgentic may update this Agreement from time to time.
+</p>
+
+<p>
+    Material changes will be posted with a revised effective
+    date and, where appropriate, communicated through the
+    Services or by email.
+</p>
+
+<p>
+    Continued use after an effective update constitutes
+    acceptance to the extent permitted by law.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s33"
+>
+
+<h2>
+    33. Order of Precedence
+</h2>
+
+<p>
+    If an Order Form or separately signed written agreement
+    conflicts with this Agreement, the signed document will
+    control to the extent of the conflict.
+</p>
+
+<p>
+    Any data-processing agreement or service-specific terms
+    will control for the matters they expressly address.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s34"
+>
+
+<h2>
+    34. Entire Agreement
+</h2>
+
+<p>
+    This Agreement, together with applicable Order Forms,
+    the Online Privacy Policy, and any incorporated
+    service-specific terms, constitutes the entire agreement
+    between the parties concerning the Services and supersedes
+    prior or contemporaneous understandings on the same subject.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s35"
+>
+
+<h2>
+    35. Severability
+</h2>
+
+<p>
+    If any provision is held invalid or unenforceable,
+    the remaining provisions will remain in effect,
+    and the invalid provision will be interpreted or modified
+    to the minimum extent necessary to make it enforceable
+    where permitted by law.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s36"
+>
+
+<h2>
+    36. Waiver
+</h2>
+
+<p>
+    A failure or delay in exercising a right under this Agreement
+    does not waive that right.
+</p>
+
+<p>
+    A waiver is effective only if made in writing by an
+    authorized representative of the waiving party.
+</p>
+
+</section>
+
+
+<section
+    class="legal-section"
+    id="s37"
+>
+
+<h2>
+    37. Electronic Acceptance
+</h2>
+
+<p>
+    Customer may accept this Agreement electronically,
+    including by clicking an acceptance control,
+    creating or using an account,
+    signing an Order Form that incorporates this Agreement,
+    or otherwise accessing paid Services after being presented
+    with these terms.
+</p>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer class="footer">
+
+    © 2026 BasinAgentic.
+    All rights reserved.
+
+    <br>
+
+    <a
+        href="subscription-agreement.html"
+        style="color:#fff"
+    >
+        Main Subscription Agreement
+    </a>
+
+    &nbsp; · &nbsp;
+
+    <a
+        href="privacy.html"
+        style="color:#fff"
+    >
+        Online Privacy Policy
+    </a>
+
+    &nbsp; · &nbsp;
+
+    <a
+        href="login.html"
+        style="color:#fff"
+    >
+        Client Portal
+    </a>
+
+</footer>
+
+
+</body>
+</html>
