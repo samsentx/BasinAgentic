@@ -248,6 +248,60 @@ input{
 
 
 /* =========================================================
+   CLIENT PORTAL / SIGN IN
+========================================================= */
+
+.nav-links .nav-login{
+    margin-left:8px;
+
+    min-height:48px;
+
+    padding:0 22px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue) 55%,
+            var(--blue2)
+        );
+
+    border:1px solid rgba(23,78,166,.18);
+
+    box-shadow:
+        0 10px 24px rgba(23,78,166,.18);
+}
+
+.nav-links .nav-login::after{
+    display:none;
+}
+
+.nav-links .nav-login:hover{
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2) 62%,
+            var(--orange)
+        );
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(23,78,166,.24);
+}
+
+.nav-links .nav-login i{
+    margin-right:8px;
+    font-size:13px;
+}
+
+
+/* =========================================================
    HERO
 ========================================================= */
 
@@ -1558,6 +1612,7 @@ input{
 
     .logo img{
         width:440px;
+
         max-width:40vw;
     }
 
@@ -1725,6 +1780,16 @@ input{
         padding:0 10px;
     }
 
+    .nav-links .nav-login{
+        margin-left:0;
+
+        min-height:40px;
+
+        padding:0 14px;
+
+        font-size:12.5px;
+    }
+
     .hero{
         padding-top:44px;
 
@@ -1855,6 +1920,14 @@ input{
             class="nav-contact"
         >
             Contact
+        </a>
+
+        <a
+            href="login.html"
+            class="nav-login"
+        >
+            <i class="fa-solid fa-user-lock"></i>
+            Sign In
         </a>
 
     </div>
@@ -3075,7 +3148,7 @@ const slides =
     document.querySelectorAll(".slide");
 
 const dots =
-    document.querySelectorAll(".dot");
+    document.querySelectorAll(".slider-dots .dot");
 
 
 function showSlide(index){
