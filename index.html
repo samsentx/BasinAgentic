@@ -7,8 +7,10 @@
 
 <title>BasinAgentic | Autonomous Basin Intelligence Platform</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
 <style>
 
@@ -79,45 +81,27 @@ input{
         0 8px 30px rgba(7,26,51,.065);
 
     backdrop-filter:blur(18px);
-
-    transition:
-        box-shadow .3s ease,
-        background .3s ease;
 }
-
-
-/* LOGO */
 
 .logo{
     display:flex;
     align-items:center;
-
-    flex:0 1 auto;
-
     min-width:0;
 }
 
 .logo img{
     display:block;
-
     width:520px;
     max-width:44vw;
-
     height:auto;
-
     object-fit:contain;
 }
-
-
-/* NAVIGATION LINKS */
 
 .nav-links{
     display:flex;
     align-items:center;
     justify-content:flex-end;
-
     gap:10px;
-
     flex-wrap:nowrap;
 }
 
@@ -143,15 +127,8 @@ input{
 
     white-space:nowrap;
 
-    transition:
-        color .28s ease,
-        transform .28s ease,
-        background .28s ease,
-        box-shadow .28s ease;
+    transition:.28s ease;
 }
-
-
-/* ANIMATED COLOR LINE */
 
 .nav-links a::after{
     content:"";
@@ -169,24 +146,17 @@ input{
     background:
         linear-gradient(
             90deg,
-            var(--blue) 0%,
-            var(--blue2) 38%,
-            var(--red) 72%,
-            var(--orange) 100%
+            var(--blue),
+            var(--blue2),
+            var(--red),
+            var(--orange)
         );
 
     transform:scaleX(0);
-    transform-origin:center;
-
     opacity:0;
 
-    transition:
-        transform .30s ease,
-        opacity .30s ease;
+    transition:.30s ease;
 }
-
-
-/* NAV HOVER */
 
 .nav-links a:hover{
     color:var(--blue);
@@ -209,52 +179,12 @@ input{
     opacity:1;
 }
 
-.nav-links a:active{
-    transform:
-        translateY(-1px)
-        scale(.98);
-}
-
-
-/* CONTACT */
-
-.nav-links .nav-contact{
-    margin-left:6px;
-
-    padding:0 19px;
-
-    color:var(--navy);
-
-    background:transparent;
-
-    box-shadow:none;
-}
-
 .nav-links .nav-contact:hover{
     color:var(--red);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(215,25,15,.07),
-            rgba(255,77,0,.07)
-        );
-
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 8px 18px rgba(215,25,15,.08);
 }
-
-
-/* =========================================================
-   CLIENT PORTAL / SIGN IN
-========================================================= */
 
 .nav-links .nav-login{
     margin-left:8px;
-
-    min-height:48px;
 
     padding:0 22px;
 
@@ -267,8 +197,6 @@ input{
             var(--blue) 55%,
             var(--blue2)
         );
-
-    border:1px solid rgba(23,78,166,.18);
 
     box-shadow:
         0 10px 24px rgba(23,78,166,.18);
@@ -288,16 +216,10 @@ input{
             var(--blue2) 62%,
             var(--orange)
         );
-
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 14px 28px rgba(23,78,166,.24);
 }
 
-.nav-links .nav-login i{
+.nav-login i{
     margin-right:8px;
-    font-size:13px;
 }
 
 
@@ -308,17 +230,17 @@ input{
 .hero{
     position:relative;
 
-    scroll-margin-top:128px;
-
     width:100%;
 
     min-height:calc(100vh - 104px);
 
-    padding:64px var(--page-pad) 72px;
+    padding:
+        64px var(--page-pad) 72px;
 
     overflow:hidden;
 
     background:
+
         radial-gradient(
             circle at 8% 12%,
             rgba(23,78,166,.16),
@@ -356,6 +278,7 @@ input{
     opacity:.26;
 
     background-image:
+
         linear-gradient(
             rgba(7,26,51,.06) 1px,
             transparent 1px
@@ -368,13 +291,6 @@ input{
         );
 
     background-size:46px 46px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.6),
-            transparent 92%
-        );
 }
 
 .hero-inner{
@@ -413,7 +329,8 @@ input{
 
     margin-bottom:22px;
 
-    border:1px solid rgba(23,78,166,.18);
+    border:
+        1px solid rgba(23,78,166,.18);
 
     border-radius:999px;
 
@@ -442,13 +359,11 @@ input{
         0 0 0 5px rgba(255,77,0,.11);
 }
 
-
-/* HERO TITLE */
-
 .hero h1{
     margin:0 0 24px;
 
-    font-size:clamp(46px,4.7vw,72px);
+    font-size:
+        clamp(46px,4.7vw,72px);
 
     line-height:1.08;
 
@@ -465,10 +380,10 @@ input{
     background:
         linear-gradient(
             90deg,
-            var(--blue) 0%,
+            var(--blue),
             var(--blue2) 35%,
             var(--red) 72%,
-            var(--orange) 100%
+            var(--orange)
         );
 
     -webkit-background-clip:text;
@@ -479,10 +394,7 @@ input{
 
 .hero h1 .basin{
     display:block;
-
     color:var(--navy);
-
-    line-height:1.08;
 }
 
 .hero-subtitle{
@@ -506,17 +418,13 @@ input{
 
 .domain-pills{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:9px;
-
     margin-bottom:28px;
 }
 
 .domain-pills a{
     display:inline-flex;
-
     align-items:center;
 
     min-height:38px;
@@ -528,7 +436,6 @@ input{
     background:rgba(255,255,255,.92);
 
     font-size:11px;
-
     font-weight:900;
 
     box-shadow:
@@ -543,28 +450,22 @@ input{
 
 .domain-pills a:nth-child(1){
     color:var(--blue);
-
-    border:
-        1px solid rgba(23,78,166,.23);
+    border:1px solid rgba(23,78,166,.23);
 }
 
 .domain-pills a:nth-child(2){
     color:var(--navy);
-
-    border:
-        1px solid rgba(7,26,51,.18);
+    border:1px solid rgba(7,26,51,.18);
 }
 
 .domain-pills a:nth-child(3){
     color:var(--red);
-
-    border:
-        1px solid rgba(215,25,15,.22);
+    border:1px solid rgba(215,25,15,.22);
 }
 
 
 /* =========================================================
-   HERO AGENTS
+   HERO AGENT SUMMARY
 ========================================================= */
 
 .hero-agent-summary{
@@ -573,49 +474,42 @@ input{
 
 .hero-agent-summary-title{
     display:flex;
-
     align-items:baseline;
-
     gap:10px;
-
     margin-bottom:13px;
 }
 
 .hero-agent-summary-title strong{
     color:var(--navy);
-
     font-size:15px;
-
     font-weight:900;
 }
 
 .hero-agent-summary-title small{
     color:#7b8ba1;
-
     font-size:10.5px;
-
     font-weight:700;
 }
 
 .hero-agent-panels{
     display:grid;
-
     grid-template-columns:1fr;
-
     gap:10px;
 }
 
 .hero-agent-panel{
     position:relative;
 
-    padding:13px 15px 14px 17px;
+    padding:
+        13px 15px 14px 17px;
 
     border-radius:15px;
 
     border:
         1px solid rgba(148,163,184,.16);
 
-    background:rgba(255,255,255,.80);
+    background:
+        rgba(255,255,255,.80);
 
     box-shadow:
         0 8px 24px rgba(15,23,42,.045);
@@ -638,7 +532,6 @@ input{
 .hero-agent-panel.production::before{
     background:
         linear-gradient(
-            180deg,
             var(--blue),
             var(--blue2)
         );
@@ -647,7 +540,6 @@ input{
 .hero-agent-panel.seismicity::before{
     background:
         linear-gradient(
-            180deg,
             var(--navy),
             var(--red)
         );
@@ -656,7 +548,6 @@ input{
 .hero-agent-panel.swd::before{
     background:
         linear-gradient(
-            180deg,
             var(--red),
             var(--orange)
         );
@@ -664,11 +555,8 @@ input{
 
 .hero-agent-panel-head{
     display:flex;
-
     align-items:center;
-
     gap:9px;
-
     margin-bottom:6px;
 }
 
@@ -677,7 +565,6 @@ input{
     height:24px;
 
     display:grid;
-
     place-items:center;
 
     border-radius:8px;
@@ -687,7 +574,7 @@ input{
     font-size:10px;
 }
 
-.hero-agent-panel.production .hero-agent-panel-head i{
+.hero-agent-panel.production i{
     background:
         linear-gradient(
             135deg,
@@ -696,7 +583,7 @@ input{
         );
 }
 
-.hero-agent-panel.seismicity .hero-agent-panel-head i{
+.hero-agent-panel.seismicity i{
     background:
         linear-gradient(
             135deg,
@@ -705,7 +592,7 @@ input{
         );
 }
 
-.hero-agent-panel.swd .hero-agent-panel-head i{
+.hero-agent-panel.swd i{
     background:
         linear-gradient(
             135deg,
@@ -716,7 +603,6 @@ input{
 
 .hero-agent-panel-head strong{
     color:var(--navy);
-
     font-size:11.5px;
 }
 
@@ -739,15 +625,12 @@ input{
 
 .hero-visual{
     width:100%;
-
-    min-width:0;
 }
 
 .hero-slider{
     position:relative;
 
     width:100%;
-
     height:520px;
 
     overflow:hidden;
@@ -766,7 +649,6 @@ input{
 
 .slide{
     position:absolute;
-
     inset:0;
 
     opacity:0;
@@ -779,17 +661,13 @@ input{
 
 .slide.active{
     opacity:1;
-
     pointer-events:auto;
 }
 
 .slide img{
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     display:block;
 }
 
@@ -797,7 +675,6 @@ input{
     position:absolute;
 
     left:50%;
-
     bottom:18px;
 
     transform:translateX(-50%);
@@ -812,19 +689,18 @@ input{
 
     border-radius:999px;
 
-    background:rgba(7,26,51,.58);
-
-    backdrop-filter:blur(10px);
+    background:
+        rgba(7,26,51,.58);
 }
 
 .dot{
     width:9px;
-
     height:9px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.65);
+    background:
+        rgba(255,255,255,.65);
 
     border:
         1px solid rgba(255,255,255,.85);
@@ -834,7 +710,6 @@ input{
 
 .dot.active{
     background:var(--orange);
-
     border-color:var(--orange);
 }
 
@@ -845,8 +720,6 @@ input{
 
 .intel-section{
     position:relative;
-
-    scroll-margin-top:128px;
 
     width:100%;
 
@@ -861,6 +734,7 @@ input{
 
 #production-intelligence{
     background:
+
         radial-gradient(
             circle at 4% 8%,
             rgba(23,78,166,.11),
@@ -875,13 +749,14 @@ input{
 
         linear-gradient(
             180deg,
-            #f8fafc 0%,
-            #eef4fb 100%
+            #f8fafc,
+            #eef4fb
         );
 }
 
 #induced-seismicity-intelligence{
     background:
+
         radial-gradient(
             circle at 4% 8%,
             rgba(7,26,51,.08),
@@ -896,13 +771,14 @@ input{
 
         linear-gradient(
             180deg,
-            #f9fafb 0%,
-            #f2f5f8 100%
+            #f9fafb,
+            #f2f5f8
         );
 }
 
 #swd-injection-intelligence{
     background:
+
         radial-gradient(
             circle at 4% 8%,
             rgba(255,77,0,.09),
@@ -917,23 +793,22 @@ input{
 
         linear-gradient(
             180deg,
-            #fffaf7 0%,
-            #f6f7fb 100%
+            #fffaf7,
+            #f6f7fb
         );
 }
 
 .intel-shell{
     width:100%;
-
     max-width:var(--page-max);
-
     margin:0 auto;
 }
 
 .intel-heading{
     max-width:940px;
 
-    margin:0 auto 42px;
+    margin:
+        0 auto 42px;
 
     text-align:center;
 }
@@ -945,7 +820,8 @@ input{
 
     gap:9px;
 
-    padding:9px 15px;
+    padding:
+        9px 15px;
 
     margin-bottom:18px;
 
@@ -959,7 +835,8 @@ input{
 
     text-transform:uppercase;
 
-    background:rgba(255,255,255,.86);
+    background:
+        rgba(255,255,255,.86);
 
     box-shadow:
         0 8px 28px rgba(15,23,42,.05);
@@ -967,23 +844,17 @@ input{
 
 #production-intelligence .intel-eyebrow{
     color:var(--blue);
-
-    border:
-        1px solid rgba(23,78,166,.22);
+    border:1px solid rgba(23,78,166,.22);
 }
 
 #induced-seismicity-intelligence .intel-eyebrow{
     color:var(--navy2);
-
-    border:
-        1px solid rgba(15,39,72,.20);
+    border:1px solid rgba(15,39,72,.20);
 }
 
 #swd-injection-intelligence .intel-eyebrow{
     color:var(--red);
-
-    border:
-        1px solid rgba(215,25,15,.20);
+    border:1px solid rgba(215,25,15,.20);
 }
 
 .intel-heading h2{
@@ -1029,22 +900,22 @@ input{
 
     max-width:1420px;
 
-    margin:0 auto 48px;
+    margin:
+        0 auto 48px;
 
-    padding:26px 28px;
+    padding:
+        26px 28px;
 
     border:
         1px solid rgba(148,163,184,.20);
 
     border-radius:26px;
 
-    background:rgba(255,255,255,.90);
+    background:
+        rgba(255,255,255,.90);
 
     box-shadow:
-        0 26px 70px rgba(15,23,42,.09),
-        inset 0 1px 0 rgba(255,255,255,.95);
-
-    backdrop-filter:blur(18px);
+        0 26px 70px rgba(15,23,42,.09);
 }
 
 .query-copy{
@@ -1097,7 +968,8 @@ input{
 
     gap:11px;
 
-    padding:0 16px;
+    padding:
+        0 16px;
 
     border:
         1px solid #dbe3ec;
@@ -1120,8 +992,6 @@ input{
 
 .input-wrap i{
     color:var(--blue);
-
-    font-size:15px;
 }
 
 #swd-injection-intelligence .input-wrap i{
@@ -1155,7 +1025,8 @@ input{
 
     gap:11px;
 
-    padding:0 22px;
+    padding:
+        0 22px;
 
     border:0;
 
@@ -1174,6 +1045,11 @@ input{
     transition:.22s ease;
 }
 
+.primary-action:disabled{
+    opacity:.60;
+    cursor:wait;
+}
+
 #production-intelligence .primary-action{
     background:
         linear-gradient(
@@ -1181,9 +1057,6 @@ input{
             var(--blue),
             var(--blue2)
         );
-
-    box-shadow:
-        0 14px 30px rgba(23,78,166,.22);
 }
 
 #induced-seismicity-intelligence .primary-action{
@@ -1193,9 +1066,6 @@ input{
             var(--navy),
             var(--red)
         );
-
-    box-shadow:
-        0 14px 30px rgba(7,26,51,.18);
 }
 
 #swd-injection-intelligence .primary-action{
@@ -1205,9 +1075,6 @@ input{
             var(--red),
             var(--orange)
         );
-
-    box-shadow:
-        0 14px 30px rgba(215,25,15,.18);
 }
 
 .primary-action:hover{
@@ -1216,13 +1083,14 @@ input{
 
 
 /* =========================================================
-   AGENT CARDS
+   AGENTS
 ========================================================= */
 
 .workflow-label{
     max-width:1420px;
 
-    margin:0 auto 18px;
+    margin:
+        0 auto 18px;
 
     display:flex;
 
@@ -1259,7 +1127,8 @@ input{
 
     max-width:1540px;
 
-    margin:0 auto;
+    margin:
+        0 auto;
 
     display:grid;
 
@@ -1287,11 +1156,11 @@ input{
 
     border-radius:26px;
 
-    background:rgba(255,255,255,.95);
+    background:
+        rgba(255,255,255,.95);
 
     box-shadow:
-        0 16px 40px rgba(15,23,42,.07),
-        inset 0 1px 0 rgba(255,255,255,.95);
+        0 16px 40px rgba(15,23,42,.07);
 
     transition:.25s ease;
 }
@@ -1363,42 +1232,36 @@ input{
 
     justify-content:center;
 
-    padding:0 10px;
+    padding:
+        0 10px;
 
     border-radius:999px;
 
     font-size:10px;
 
     font-weight:900;
-
-    letter-spacing:.09em;
 }
 
 #production-intelligence .agent-number{
     background:#edf3ff;
-
     color:var(--blue);
 }
 
 #induced-seismicity-intelligence .agent-number{
     background:#eef2f7;
-
     color:var(--navy2);
 }
 
 #swd-injection-intelligence .agent-number{
     background:#fff1eb;
-
     color:var(--red);
 }
 
 .agent-icon{
     width:48px;
-
     height:48px;
 
     display:grid;
-
     place-items:center;
 
     border-radius:15px;
@@ -1446,8 +1309,6 @@ input{
     font-size:18px;
 
     line-height:1.28;
-
-    letter-spacing:-.018em;
 }
 
 .agent-card p{
@@ -1495,15 +1356,145 @@ input{
 
 
 /* =========================================================
-   DOWNLOAD BUTTONS
+   API STATUS
+========================================================= */
+
+.api-status-panel{
+    display:none;
+
+    width:100%;
+
+    max-width:1420px;
+
+    margin:
+        -22px auto 42px;
+
+    padding:
+        18px 20px;
+
+    border:
+        1px solid rgba(148,163,184,.22);
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    box-shadow:
+        0 16px 38px rgba(15,23,42,.07);
+}
+
+.api-status-panel.show{
+    display:block;
+}
+
+.api-status-row{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--navy);
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.api-spinner{
+    width:18px;
+    height:18px;
+
+    border:
+        3px solid rgba(37,99,235,.18);
+
+    border-top-color:
+        var(--blue2);
+
+    border-radius:50%;
+
+    animation:
+        apiSpin .85s linear infinite;
+
+    flex:0 0 auto;
+}
+
+.api-spinner.done{
+    animation:none;
+    border:0;
+
+    width:22px;
+    height:22px;
+
+    display:grid;
+    place-items:center;
+
+    background:#eaf8ef;
+    color:#16803a;
+}
+
+.api-spinner.error{
+    animation:none;
+    border:0;
+
+    width:22px;
+    height:22px;
+
+    display:grid;
+    place-items:center;
+
+    background:#fff0ef;
+    color:#c62828;
+}
+
+@keyframes apiSpin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.api-job{
+    margin-top:8px;
+
+    color:#718096;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    word-break:break-all;
+}
+
+
+/* =========================================================
+   DOWNLOADS
 ========================================================= */
 
 .download-wrap{
     display:flex;
+    justify-content:center;
+    margin-top:38px;
+}
+
+.production-downloads{
+    display:none;
 
     justify-content:center;
 
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
     margin-top:38px;
+}
+
+.production-downloads.show{
+    display:flex;
 }
 
 .download-btn{
@@ -1519,7 +1510,8 @@ input{
 
     gap:13px;
 
-    padding:0 30px;
+    padding:
+        0 30px;
 
     border:0;
 
@@ -1543,9 +1535,6 @@ input{
             var(--blue),
             var(--blue2)
         );
-
-    box-shadow:
-        0 16px 34px rgba(23,78,166,.20);
 }
 
 #induced-seismicity-intelligence .download-btn{
@@ -1555,9 +1544,6 @@ input{
             var(--navy),
             var(--red)
         );
-
-    box-shadow:
-        0 16px 34px rgba(7,26,51,.18);
 }
 
 #swd-injection-intelligence .download-btn{
@@ -1567,9 +1553,32 @@ input{
             var(--red),
             var(--orange)
         );
+}
 
-    box-shadow:
-        0 16px 34px rgba(215,25,15,.18);
+.production-downloads .download-btn{
+    min-width:290px;
+}
+
+.production-downloads .secondary{
+    min-width:220px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f2748,
+            #174ea6
+        ) !important;
+}
+
+.production-downloads .package{
+    min-width:230px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d7190f,
+            #ff4d00
+        ) !important;
 }
 
 .download-btn:hover{
@@ -1612,21 +1621,17 @@ input{
 
     .logo img{
         width:440px;
-
         max-width:40vw;
     }
 
     .hero-inner{
         grid-template-columns:1fr;
-
         gap:46px;
     }
 
     .hero-copy{
         max-width:920px;
-
         margin:0 auto;
-
         text-align:center;
     }
 
@@ -1641,10 +1646,8 @@ input{
 
     .hero-agent-summary{
         max-width:900px;
-
         margin-left:auto;
         margin-right:auto;
-
         text-align:left;
     }
 
@@ -1654,7 +1657,6 @@ input{
 
     .hero-visual{
         max-width:940px;
-
         margin:0 auto;
     }
 
@@ -1662,52 +1664,36 @@ input{
         grid-template-columns:
             repeat(3,1fr);
     }
+
 }
 
 
 @media(max-width:1050px){
 
-    html{
-        scroll-padding-top:190px;
-    }
-
-    .hero,
-    .intel-section{
-        scroll-margin-top:190px;
-    }
-
     .navbar{
         flex-direction:column;
-
-        min-height:auto;
-
-        padding:
-            12px var(--page-pad);
     }
 
     .logo img{
         width:420px;
-
         max-width:78vw;
     }
 
     .nav-links{
         width:100%;
-
         justify-content:center;
-
         flex-wrap:wrap;
     }
 
     .query-panel{
         flex-direction:column;
-
         align-items:stretch;
     }
 
     .query-copy{
         min-width:0;
     }
+
 }
 
 
@@ -1731,6 +1717,7 @@ input{
     .hero-slider{
         height:390px;
     }
+
 }
 
 
@@ -1740,18 +1727,8 @@ input{
         --page-pad:18px;
     }
 
-    html{
-        scroll-padding-top:220px;
-    }
-
-    .hero,
-    .intel-section{
-        scroll-margin-top:220px;
-    }
-
     .logo img{
         width:340px;
-
         max-width:88vw;
     }
 
@@ -1761,67 +1738,21 @@ input{
 
     .nav-links a{
         min-height:40px;
-
         padding:0 10px;
-
-        font-size:12.5px;
-    }
-
-    .nav-links a::after{
-        left:10px;
-        right:10px;
-
-        bottom:4px;
-    }
-
-    .nav-links .nav-contact{
-        margin-left:0;
-
-        padding:0 10px;
-    }
-
-    .nav-links .nav-login{
-        margin-left:0;
-
-        min-height:40px;
-
-        padding:0 14px;
-
-        font-size:12.5px;
+        font-size:12px;
     }
 
     .hero{
         padding-top:44px;
-
-        padding-bottom:54px;
     }
 
     .hero h1{
         font-size:44px;
-
-        line-height:1.1;
-    }
-
-    .hero h1 .agentic{
-        margin-bottom:8px;
-    }
-
-    .hero-subtitle{
-        font-size:16px;
     }
 
     .hero-slider{
         height:280px;
-
         border-radius:22px;
-    }
-
-    .hero-agent-summary-title{
-        flex-direction:column;
-
-        align-items:center;
-
-        gap:4px;
     }
 
     .intel-section{
@@ -1831,8 +1762,6 @@ input{
 
     .query-panel{
         padding:18px;
-
-        border-radius:20px;
     }
 
     .query-controls{
@@ -1841,36 +1770,31 @@ input{
 
     .primary-action{
         grid-column:auto;
-
         width:100%;
     }
 
     .agent-grid{
         grid-template-columns:1fr;
-
-        gap:16px;
-    }
-
-    .agent-card{
-        min-height:auto;
-
-        padding:22px;
     }
 
     .download-btn{
         width:100%;
-
         min-width:0;
-
-        min-height:58px;
-
-        padding:0 18px;
-
-        font-size:13px;
     }
+
+    .production-downloads{
+        flex-direction:column;
+    }
+
+    .production-downloads .download-btn{
+        width:100%;
+        min-width:0;
+    }
+
 }
 
 </style>
+
 </head>
 
 
@@ -1926,13 +1850,17 @@ input{
             href="login.html"
             class="nav-login"
         >
+
             <i class="fa-solid fa-user-lock"></i>
+
             Sign In
+
         </a>
 
     </div>
 
 </nav>
+
 
 
 <!-- =========================================================
@@ -2029,6 +1957,7 @@ input{
 
                         </div>
 
+
                         <p>
                             Spatial / Formation ·
                             Analog Selection ·
@@ -2051,6 +1980,7 @@ input{
                             </strong>
 
                         </div>
+
 
                         <p>
                             Spatial Seismicity ·
@@ -2075,6 +2005,7 @@ input{
 
                         </div>
 
+
                         <p>
                             Injection Performance ·
                             Subsurface Connectivity ·
@@ -2094,6 +2025,7 @@ input{
         </div>
 
 
+
         <div class="hero-visual">
 
             <div class="hero-slider">
@@ -2103,7 +2035,7 @@ input{
 
                     <img
                         src="hero1.png"
-                        alt="BasinAgentic Visualization 1"
+                        alt="BasinAgentic Production Intelligence"
                     >
 
                 </div>
@@ -2113,7 +2045,7 @@ input{
 
                     <img
                         src="hero2.png"
-                        alt="BasinAgentic Visualization 2"
+                        alt="BasinAgentic Seismicity Intelligence"
                     >
 
                 </div>
@@ -2123,7 +2055,7 @@ input{
 
                     <img
                         src="hero3.png"
-                        alt="BasinAgentic Visualization 3"
+                        alt="BasinAgentic SWD Intelligence"
                     >
 
                 </div>
@@ -2178,14 +2110,18 @@ input{
 
 
             <p>
-                Basin-scale oil, gas, water, well-performance
-                and forecasting intelligence transformed into
-                predictive well-level insights.
-            </p>
 
+                Basin-scale oil, gas, water,
+                well-performance and forecasting intelligence
+                transformed into predictive well-level insights.
+
+            </p>
 
         </div>
 
+
+
+        <!-- LATITUDE / LONGITUDE -->
 
         <div class="query-panel">
 
@@ -2212,7 +2148,10 @@ input{
                     <i class="fa-solid fa-location-crosshairs"></i>
 
                     <input
-                        type="text"
+                        id="production-latitude"
+                        type="number"
+                        step="any"
+                        inputmode="decimal"
                         placeholder="Well Latitude"
                     >
 
@@ -2224,7 +2163,10 @@ input{
                     <i class="fa-solid fa-location-dot"></i>
 
                     <input
-                        type="text"
+                        id="production-longitude"
+                        type="number"
+                        step="any"
+                        inputmode="decimal"
                         placeholder="Well Longitude"
                     >
 
@@ -2232,6 +2174,7 @@ input{
 
 
                 <button
+                    id="production-generate-btn"
                     class="primary-action"
                     type="button"
                 >
@@ -2245,8 +2188,40 @@ input{
 
             </div>
 
+        </div>
+
+
+
+        <!-- FORECAST STATUS -->
+
+        <div
+            id="production-api-status"
+            class="api-status-panel"
+            aria-live="polite"
+        >
+
+            <div class="api-status-row">
+
+                <div
+                    id="production-status-icon"
+                    class="api-spinner"
+                ></div>
+
+
+                <div id="production-status-text">
+                    Preparing production forecast...
+                </div>
+
+            </div>
+
+
+            <div
+                id="production-job-text"
+                class="api-job"
+            ></div>
 
         </div>
+
 
 
         <div class="workflow-label">
@@ -2260,8 +2235,11 @@ input{
         </div>
 
 
+
         <div class="agent-grid">
 
+
+            <!-- PRODUCTION AGENT 1 -->
 
             <article class="agent-card">
 
@@ -2272,19 +2250,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-location-dot"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Spatial / Formation / Geometry Agent
                 </h3>
 
+
                 <p>
-                    Detects local formation, adaptive search radius,
-                    depth proxy and lateral-length proxy from nearby wells.
+
+                    Detects local formation,
+                    adaptive search radius,
+                    depth proxy and lateral-length
+                    proxy from nearby wells.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2299,6 +2286,9 @@ input{
             </article>
 
 
+
+            <!-- PRODUCTION AGENT 2 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2308,20 +2298,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-filter"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Analog Selection Agent
                 </h3>
 
+
                 <p>
-                    Selects the most relevant nearby analog wells
-                    using location, formation, geometry and
+
+                    Selects the most relevant nearby
+                    analog wells using location,
+                    formation, geometry and
                     production history.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2336,6 +2334,9 @@ input{
             </article>
 
 
+
+            <!-- PRODUCTION AGENT 3 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2345,20 +2346,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-chart-line"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Decline-Curve Agent
                 </h3>
 
+
                 <p>
-                    Builds decline-curve forecasts and production
-                    trajectories from analog-well history and
+
+                    Builds decline-curve forecasts
+                    and production trajectories
+                    from analog-well history and
                     fitted decline parameters.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2373,6 +2382,9 @@ input{
             </article>
 
 
+
+            <!-- PRODUCTION AGENT 4 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2382,19 +2394,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-brain"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Transformer Forecasting Agent
                 </h3>
 
+
                 <p>
-                    Generates a DCA-anchored 60-month production
-                    forecast using Transformer-based sequence modeling.
+
+                    Generates a DCA-anchored
+                    60-month production forecast
+                    using Transformer-based
+                    sequence modeling.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2409,6 +2430,9 @@ input{
             </article>
 
 
+
+            <!-- PRODUCTION AGENT 5 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2418,20 +2442,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-layer-group"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Ensemble &amp; Uncertainty Agent
                 </h3>
 
+
                 <p>
-                    Combines forecast signals and quantifies
-                    uncertainty for P10, P50 and P90
+
+                    Combines forecast signals
+                    and quantifies uncertainty
+                    for P10, P50 and P90
                     production outcomes.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2449,9 +2481,17 @@ input{
         </div>
 
 
-        <div class="download-wrap">
+
+        <!-- DOWNLOADS -->
+
+        <div
+            id="production-downloads"
+            class="production-downloads"
+        >
+
 
             <button
+                id="production-pdf-btn"
                 class="download-btn"
                 type="button"
             >
@@ -2461,6 +2501,33 @@ input{
                 Download Well Production Forecast Report
 
             </button>
+
+
+            <button
+                id="production-csv-btn"
+                class="download-btn secondary"
+                type="button"
+            >
+
+                <i class="fa-solid fa-table"></i>
+
+                Download Forecast CSV
+
+            </button>
+
+
+            <button
+                id="production-package-btn"
+                class="download-btn package"
+                type="button"
+            >
+
+                <i class="fa-solid fa-file-zipper"></i>
+
+                Download Full Package
+
+            </button>
+
 
         </div>
 
@@ -2500,14 +2567,17 @@ input{
 
 
             <p>
-                Forecast seismic risk, interpret evolving b-value
-                behavior, identify spatial hotspots and transform
-                seismic observations into predictive operational
-                intelligence.
+
+                Forecast seismic risk,
+                interpret evolving b-value behavior,
+                identify spatial hotspots and transform
+                seismic observations into predictive
+                operational intelligence.
+
             </p>
 
-
         </div>
+
 
 
         <div class="query-panel">
@@ -2535,7 +2605,8 @@ input{
                     <i class="fa-solid fa-location-crosshairs"></i>
 
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         placeholder="Well Latitude"
                     >
 
@@ -2547,7 +2618,8 @@ input{
                     <i class="fa-solid fa-location-dot"></i>
 
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         placeholder="Well Longitude"
                     >
 
@@ -2568,8 +2640,8 @@ input{
 
             </div>
 
-
         </div>
+
 
 
         <div class="workflow-label">
@@ -2583,8 +2655,11 @@ input{
         </div>
 
 
+
         <div class="agent-grid">
 
+
+            <!-- SEISMIC AGENT 1 -->
 
             <article class="agent-card">
 
@@ -2595,20 +2670,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-map-location-dot"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Spatial Seismicity Agent
                 </h3>
 
+
                 <p>
-                    Maps nearby seismic events, clusters,
-                    active zones and spatial relationships
-                    around the selected well location.
+
+                    Maps nearby seismic events,
+                    clusters, active zones and
+                    spatial relationships around
+                    the selected well location.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2623,6 +2706,9 @@ input{
             </article>
 
 
+
+            <!-- SEISMIC AGENT 2 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2632,20 +2718,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-chart-line"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     b-Value &amp; Seismic-State Agent
                 </h3>
 
+
                 <p>
-                    Tracks b-value evolution and related
-                    seismic-state indicators to identify
+
+                    Tracks b-value evolution
+                    and related seismic-state
+                    indicators to identify
                     changing stress and risk regimes.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2660,6 +2754,9 @@ input{
             </article>
 
 
+
+            <!-- SEISMIC AGENT 3 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2669,20 +2766,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-clock-rotate-left"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Temporal Pattern Agent
                 </h3>
 
+
                 <p>
-                    Evaluates event rate, magnitude evolution,
-                    clustering, migration and recent
-                    seismicity trends.
+
+                    Evaluates event rate,
+                    magnitude evolution,
+                    clustering, migration
+                    and recent seismicity trends.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2697,6 +2802,9 @@ input{
             </article>
 
 
+
+            <!-- SEISMIC AGENT 4 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2706,20 +2814,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-brain"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Transformer Seismic Forecasting Agent
                 </h3>
 
+
                 <p>
-                    Generates short-term seismicity forecasts
-                    using sequence modeling and recent
+
+                    Generates short-term
+                    seismicity forecasts using
+                    sequence modeling and recent
                     basin-scale seismic context.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2734,6 +2850,9 @@ input{
             </article>
 
 
+
+            <!-- SEISMIC AGENT 5 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2743,20 +2862,29 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-triangle-exclamation"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Risk Integration Agent
                 </h3>
 
+
                 <p>
-                    Combines spatial, temporal, b-value
-                    and forecast signals into an integrated
-                    well-level induced seismicity risk assessment.
+
+                    Combines spatial,
+                    temporal, b-value and forecast
+                    signals into an integrated
+                    well-level induced seismicity
+                    risk assessment.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2772,6 +2900,7 @@ input{
 
 
         </div>
+
 
 
         <div class="download-wrap">
@@ -2825,14 +2954,17 @@ input{
 
 
             <p>
+
                 Integrate injection performance,
-                nearby seismicity, operational constraints
-                and AI-driven optimization into a
-                risk-aware SWD decision framework.
+                nearby seismicity,
+                operational constraints and
+                AI-driven optimization into
+                a risk-aware SWD decision framework.
+
             </p>
 
-
         </div>
+
 
 
         <div class="query-panel">
@@ -2845,8 +2977,8 @@ input{
                 </span>
 
                 <strong>
-                    Enter a well location to start the
-                    SWD agent workflow
+                    Enter a well location to start
+                    the SWD agent workflow
                 </strong>
 
             </div>
@@ -2860,7 +2992,8 @@ input{
                     <i class="fa-solid fa-location-crosshairs"></i>
 
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         placeholder="Well Latitude"
                     >
 
@@ -2872,7 +3005,8 @@ input{
                     <i class="fa-solid fa-location-dot"></i>
 
                     <input
-                        type="text"
+                        type="number"
+                        step="any"
                         placeholder="Well Longitude"
                     >
 
@@ -2893,8 +3027,8 @@ input{
 
             </div>
 
-
         </div>
+
 
 
         <div class="workflow-label">
@@ -2908,8 +3042,11 @@ input{
         </div>
 
 
+
         <div class="agent-grid">
 
+
+            <!-- SWD AGENT 1 -->
 
             <article class="agent-card">
 
@@ -2920,20 +3057,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-water"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Injection Performance Agent
                 </h3>
 
+
                 <p>
-                    Evaluates recent injection volume,
-                    rate and operating behavior for the
-                    selected SWD well and nearby analog wells.
+
+                    Evaluates recent injection
+                    volume, rate and operating
+                    behavior for the selected SWD
+                    well and nearby analog wells.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2948,6 +3093,9 @@ input{
             </article>
 
 
+
+            <!-- SWD AGENT 2 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2957,21 +3105,29 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-layer-group"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Subsurface Connectivity Agent
                 </h3>
 
+
                 <p>
-                    Interprets depth, nearby wells,
-                    structural context and possible
-                    connectivity between injection
-                    and seismic response.
+
+                    Interprets depth,
+                    nearby wells,
+                    structural context and
+                    possible connectivity between
+                    injection and seismic response.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -2986,6 +3142,9 @@ input{
             </article>
 
 
+
+            <!-- SWD AGENT 3 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -2995,20 +3154,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-wave-square"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Injection-Seismicity Coupling Agent
                 </h3>
 
+
                 <p>
+
                     Evaluates temporal and spatial
-                    relationships between SWD operations
-                    and evolving induced seismicity patterns.
+                    relationships between SWD
+                    operations and evolving
+                    induced seismicity patterns.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -3023,6 +3190,9 @@ input{
             </article>
 
 
+
+            <!-- SWD AGENT 4 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -3032,20 +3202,28 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-robot"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Injection Optimization Agent
                 </h3>
 
+
                 <p>
-                    Tests alternative injection strategies
-                    and evaluates operational scenarios
-                    for improved risk-aware performance.
+
+                    Tests alternative injection
+                    strategies and evaluates
+                    operational scenarios for
+                    improved risk-aware performance.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -3060,6 +3238,9 @@ input{
             </article>
 
 
+
+            <!-- SWD AGENT 5 -->
+
             <article class="agent-card">
 
                 <div class="agent-card-top">
@@ -3069,21 +3250,29 @@ input{
                     </span>
 
                     <div class="agent-icon">
+
                         <i class="fa-solid fa-shield-halved"></i>
+
                     </div>
 
                 </div>
+
 
                 <h3>
                     Constraint &amp; Decision Agent
                 </h3>
 
+
                 <p>
+
                     Integrates operational limits,
-                    seismic-risk signals and optimization
-                    outputs into a final SWD
-                    decision-support recommendation.
+                    seismic-risk signals and
+                    optimization outputs into
+                    a final SWD decision-support
+                    recommendation.
+
                 </p>
+
 
                 <div class="agent-footer">
 
@@ -3099,6 +3288,7 @@ input{
 
 
         </div>
+
 
 
         <div class="download-wrap">
@@ -3148,7 +3338,9 @@ const slides =
     document.querySelectorAll(".slide");
 
 const dots =
-    document.querySelectorAll(".slider-dots .dot");
+    document.querySelectorAll(
+        ".slider-dots .dot"
+    );
 
 
 function showSlide(index){
@@ -3158,24 +3350,27 @@ function showSlide(index){
 
             slide.classList.toggle(
                 "active",
-                i===index
+                i === index
             );
 
         }
     );
+
 
     dots.forEach(
         (dot,i)=>{
 
             dot.classList.toggle(
                 "active",
-                i===index
+                i === index
             );
 
         }
     );
 
-    currentSlide=index;
+
+    currentSlide = index;
+
 }
 
 
@@ -3183,24 +3378,34 @@ function nextSlide(){
 
     currentSlide++;
 
-    if(currentSlide>=slides.length){
-        currentSlide=0;
+    if(
+        currentSlide >= slides.length
+    ){
+
+        currentSlide = 0;
+
     }
 
-    showSlide(currentSlide);
+    showSlide(
+        currentSlide
+    );
+
 }
 
 
-showSlide(0);
+if(
+    slides.length > 0
+){
 
+    showSlide(0);
 
-setInterval(
-    nextSlide,
-    3500
-);
+    setInterval(
+        nextSlide,
+        3500
+    );
 
+}
 
-/* Allow slider dots to be clicked */
 
 dots.forEach(
     (dot,index)=>{
@@ -3213,8 +3418,762 @@ dots.forEach(
     }
 );
 
+
+
+/* =========================================================
+   BASINAGENTIC PRODUCTION API
+========================================================= */
+
+/*
+    CURRENT LIVE QUICK TUNNEL
+
+    When Colab is restarted this URL
+    may change.
+
+    Production target later:
+
+    https://api.basinagentic.com
+*/
+
+const BASINAGENTIC_API_BASE =
+    "https://behavioral-revealed-marie-exceed.trycloudflare.com";
+
+
+
+/* =========================================================
+   PRODUCTION VARIABLES
+========================================================= */
+
+let productionJobId = null;
+
+let productionPollTimer = null;
+
+
+const productionLat =
+    document.getElementById(
+        "production-latitude"
+    );
+
+
+const productionLon =
+    document.getElementById(
+        "production-longitude"
+    );
+
+
+const productionGenerateBtn =
+    document.getElementById(
+        "production-generate-btn"
+    );
+
+
+const productionStatusPanel =
+    document.getElementById(
+        "production-api-status"
+    );
+
+
+const productionStatusIcon =
+    document.getElementById(
+        "production-status-icon"
+    );
+
+
+const productionStatusText =
+    document.getElementById(
+        "production-status-text"
+    );
+
+
+const productionJobText =
+    document.getElementById(
+        "production-job-text"
+    );
+
+
+const productionDownloads =
+    document.getElementById(
+        "production-downloads"
+    );
+
+
+const productionPdfBtn =
+    document.getElementById(
+        "production-pdf-btn"
+    );
+
+
+const productionCsvBtn =
+    document.getElementById(
+        "production-csv-btn"
+    );
+
+
+const productionPackageBtn =
+    document.getElementById(
+        "production-package-btn"
+    );
+
+
+
+/* =========================================================
+   STATUS DISPLAY
+========================================================= */
+
+function setProductionStatus(
+    type,
+    message,
+    jobText = ""
+){
+
+    productionStatusPanel
+        .classList
+        .add("show");
+
+
+    productionStatusIcon.className =
+        "api-spinner";
+
+
+    if(
+        type === "done"
+    ){
+
+        productionStatusIcon
+            .classList
+            .add("done");
+
+
+        productionStatusIcon.innerHTML =
+            '<i class="fa-solid fa-check"></i>';
+
+    }
+
+
+    else if(
+        type === "error"
+    ){
+
+        productionStatusIcon
+            .classList
+            .add("error");
+
+
+        productionStatusIcon.innerHTML =
+            '<i class="fa-solid fa-xmark"></i>';
+
+    }
+
+
+    else{
+
+        productionStatusIcon.innerHTML = "";
+
+    }
+
+
+    productionStatusText.textContent =
+        message;
+
+
+    productionJobText.textContent =
+        jobText;
+
+}
+
+
+
+/* =========================================================
+   COORDINATE VALIDATION
+========================================================= */
+
+function validateProductionCoordinates(
+    lat,
+    lon
+){
+
+    if(
+        !Number.isFinite(lat) ||
+        !Number.isFinite(lon)
+    ){
+
+        throw new Error(
+            "Please enter valid latitude and longitude values."
+        );
+
+    }
+
+
+    if(
+        lat < -90 ||
+        lat > 90
+    ){
+
+        throw new Error(
+            "Latitude must be between -90 and 90."
+        );
+
+    }
+
+
+    if(
+        lon < -180 ||
+        lon > 180
+    ){
+
+        throw new Error(
+            "Longitude must be between -180 and 180."
+        );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   START PRODUCTION FORECAST
+========================================================= */
+
+async function generateProductionForecast(){
+
+    const lat =
+        Number(
+            productionLat.value
+        );
+
+
+    const lon =
+        Number(
+            productionLon.value
+        );
+
+
+    try{
+
+
+        validateProductionCoordinates(
+            lat,
+            lon
+        );
+
+
+        if(
+            productionPollTimer
+        ){
+
+            clearTimeout(
+                productionPollTimer
+            );
+
+
+            productionPollTimer =
+                null;
+
+        }
+
+
+        productionJobId =
+            null;
+
+
+        productionDownloads
+            .classList
+            .remove("show");
+
+
+        productionGenerateBtn.disabled =
+            true;
+
+
+        productionGenerateBtn.innerHTML =
+
+            '<i class="fa-solid fa-spinner fa-spin"></i> Starting Forecast';
+
+
+        setProductionStatus(
+
+            "running",
+
+            "Connecting to BasinAgentic Production Intelligence API..."
+
+        );
+
+
+
+        const response =
+            await fetch(
+
+                `${BASINAGENTIC_API_BASE}/forecast`,
+
+                {
+
+                    method:"POST",
+
+                    headers:{
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            latitude:lat,
+
+                            longitude:lon
+
+                        })
+
+                }
+
+            );
+
+
+
+        if(
+            !response.ok
+        ){
+
+            const errorText =
+                await response.text();
+
+
+            throw new Error(
+
+                `Forecast request failed (${response.status}). ${errorText}`
+
+            );
+
+        }
+
+
+
+        const data =
+            await response.json();
+
+
+
+        if(
+            !data.job_id
+        ){
+
+            throw new Error(
+                "API did not return a job_id."
+            );
+
+        }
+
+
+
+        productionJobId =
+            data.job_id;
+
+
+
+        setProductionStatus(
+
+            "running",
+
+            "Forecast job accepted. BasinAgentic agents are running...",
+
+            `Job ID: ${productionJobId}`
+
+        );
+
+
+
+        pollProductionStatus();
+
+
+    }
+
+    catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        setProductionStatus(
+
+            "error",
+
+            error.message ||
+            "Unable to start forecast."
+
+        );
+
+
+        productionGenerateBtn.disabled =
+            false;
+
+
+        productionGenerateBtn.innerHTML =
+
+            'Generate Forecast Report <i class="fa-solid fa-arrow-right"></i>';
+
+    }
+
+}
+
+
+
+/* =========================================================
+   POLL STATUS
+========================================================= */
+
+async function pollProductionStatus(){
+
+
+    if(
+        !productionJobId
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+
+        const response =
+            await fetch(
+
+                `${BASINAGENTIC_API_BASE}/status/${productionJobId}`,
+
+                {
+
+                    method:"GET",
+
+                    cache:"no-store"
+
+                }
+
+            );
+
+
+
+        if(
+            !response.ok
+        ){
+
+            throw new Error(
+
+                `Status check failed (${response.status}).`
+
+            );
+
+        }
+
+
+
+        const data =
+            await response.json();
+
+
+
+        const status =
+            String(
+                data.status || ""
+            )
+            .toLowerCase();
+
+
+
+        /* =====================================================
+           FORECAST COMPLETE
+        ===================================================== */
+
+        if(
+            status === "complete" ||
+            status === "completed" ||
+            status === "done" ||
+            status === "success"
+        ){
+
+
+            setProductionStatus(
+
+                "done",
+
+                "Forecast complete. Your report is ready.",
+
+                `Job ID: ${productionJobId}`
+
+            );
+
+
+            productionDownloads
+                .classList
+                .add("show");
+
+
+
+            /* PDF */
+
+            productionPdfBtn.onclick =
+                ()=>{
+
+                    window.open(
+
+                        `${BASINAGENTIC_API_BASE}/download-report/${productionJobId}`,
+
+                        "_blank"
+
+                    );
+
+                };
+
+
+
+            /* CSV */
+
+            productionCsvBtn.onclick =
+                ()=>{
+
+                    window.location.href =
+
+                        `${BASINAGENTIC_API_BASE}/download-csv/${productionJobId}`;
+
+                };
+
+
+
+            /* FULL PACKAGE */
+
+            productionPackageBtn.onclick =
+                ()=>{
+
+                    window.location.href =
+
+                        `${BASINAGENTIC_API_BASE}/download-package/${productionJobId}`;
+
+                };
+
+
+
+            productionGenerateBtn.disabled =
+                false;
+
+
+            productionGenerateBtn.innerHTML =
+
+                'Generate Another Forecast <i class="fa-solid fa-rotate"></i>';
+
+
+
+            productionPollTimer =
+                null;
+
+
+            return;
+
+        }
+
+
+
+        /* =====================================================
+           FORECAST FAILED
+        ===================================================== */
+
+        if(
+            status === "error" ||
+            status === "failed" ||
+            status === "failure"
+        ){
+
+
+            throw new Error(
+
+                data.error ||
+                data.message ||
+                "Forecast job failed."
+
+            );
+
+        }
+
+
+
+        /* =====================================================
+           FORECAST STILL RUNNING
+        ===================================================== */
+
+        let statusLabel =
+
+            "Production agents are running. Building the complete forecast report...";
+
+
+        if(
+            status === "queued"
+        ){
+
+            statusLabel =
+
+                "Forecast queued. Waiting for compute...";
+
+        }
+
+
+        else if(
+            status === "running"
+        ){
+
+            statusLabel =
+
+                "Production agents are running. Analog selection, DCA and Transformer forecasting are in progress...";
+
+        }
+
+
+        else if(
+            status === "reporting"
+        ){
+
+            statusLabel =
+
+                "Forecast finished. Building sensitivity analysis, 3D visualizations and full report package...";
+
+        }
+
+
+
+        setProductionStatus(
+
+            "running",
+
+            statusLabel,
+
+            `Job ID: ${productionJobId} · Status: ${status || "running"}`
+
+        );
+
+
+
+        productionPollTimer =
+            setTimeout(
+
+                pollProductionStatus,
+
+                5000
+
+            );
+
+
+    }
+
+    catch(error){
+
+
+        console.error(
+            error
+        );
+
+
+        setProductionStatus(
+
+            "error",
+
+            error.message ||
+            "Unable to check forecast status.",
+
+            productionJobId
+                ? `Job ID: ${productionJobId}`
+                : ""
+
+        );
+
+
+        productionGenerateBtn.disabled =
+            false;
+
+
+        productionGenerateBtn.innerHTML =
+
+            'Try Again <i class="fa-solid fa-rotate-right"></i>';
+
+
+
+        productionPollTimer =
+            null;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   GENERATE BUTTON
+========================================================= */
+
+if(
+    productionGenerateBtn
+){
+
+    productionGenerateBtn
+        .addEventListener(
+
+            "click",
+
+            generateProductionForecast
+
+        );
+
+}
+
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+[
+    productionLat,
+    productionLon
+]
+.forEach(
+
+    input=>{
+
+        if(
+            !input
+        ){
+
+            return;
+
+        }
+
+
+        input.addEventListener(
+
+            "keydown",
+
+            event=>{
+
+                if(
+                    event.key === "Enter"
+                ){
+
+                    generateProductionForecast();
+
+                }
+
+            }
+
+        );
+
+    }
+
+);
+
 </script>
 
 
 </body>
+
 </html>
