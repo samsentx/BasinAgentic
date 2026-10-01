@@ -3,9 +3,15 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BasinAgentic | Autonomous Basin Intelligence Platform</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    BasinAgentic | Autonomous Basin Intelligence Platform
+</title>
 
 <link
     rel="stylesheet"
@@ -14,38 +20,64 @@
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 :root{
+
     --navy:#071a33;
     --navy2:#0f2748;
+
     --blue:#174ea6;
     --blue2:#2563eb;
+
     --red:#d7190f;
     --orange:#ff4d00;
+
     --text:#0f172a;
     --muted:#64748b;
+
     --page-max:1600px;
-    --page-pad:clamp(20px,3.5vw,58px);
+
+    --page-pad:
+        clamp(20px,3.5vw,58px);
+
 }
+
 
 *{
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
+
     scroll-padding-top:128px;
 }
 
+
 body{
+
     margin:0;
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color:var(--text);
+
     background:#f8fafc;
+
 }
+
 
 a{
     text-decoration:none;
 }
+
 
 button,
 input{
@@ -53,90 +85,139 @@ input{
 }
 
 
+
 /* =========================================================
    NAVBAR
 ========================================================= */
 
 .navbar{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
     width:100%;
+
     min-height:104px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:24px;
 
-    padding:10px var(--page-pad);
+    padding:
+        10px var(--page-pad);
 
-    background:rgba(255,255,255,.97);
+    background:
+        rgba(255,255,255,.97);
 
-    border-bottom:1px solid rgba(7,26,51,.10);
+    border-bottom:
+        1px solid
+        rgba(7,26,51,.10);
 
     box-shadow:
-        0 8px 30px rgba(7,26,51,.065);
+        0 8px 30px
+        rgba(7,26,51,.065);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
+
 }
+
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     min-width:0;
+
 }
+
 
 .logo img{
+
     display:block;
+
     width:520px;
+
     max-width:44vw;
+
     height:auto;
+
     object-fit:contain;
+
 }
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
+
     justify-content:flex-end;
+
     gap:10px;
+
     flex-wrap:nowrap;
+
 }
 
+
 .nav-links a{
+
     position:relative;
 
     min-height:48px;
 
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:0 17px;
+    padding:
+        0 17px;
 
     border-radius:12px;
 
-    color:var(--navy);
+    color:
+        var(--navy);
 
     font-size:15.5px;
+
     font-weight:800;
 
     letter-spacing:.015em;
 
     white-space:nowrap;
 
-    transition:.28s ease;
+    transition:
+        .28s ease;
+
 }
 
+
 .nav-links a::after{
+
     content:"";
 
     position:absolute;
 
     left:17px;
     right:17px;
+
     bottom:7px;
 
     height:3px;
@@ -152,14 +233,21 @@ input{
             var(--orange)
         );
 
-    transform:scaleX(0);
+    transform:
+        scaleX(0);
+
     opacity:0;
 
-    transition:.30s ease;
+    transition:
+        .30s ease;
+
 }
 
+
 .nav-links a:hover{
-    color:var(--blue);
+
+    color:
+        var(--blue);
 
     background:
         linear-gradient(
@@ -168,25 +256,40 @@ input{
             rgba(255,77,0,.045)
         );
 
-    transform:translateY(-3px);
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 8px 18px rgba(7,26,51,.07);
+        0 8px 18px
+        rgba(7,26,51,.07);
+
 }
+
 
 .nav-links a:hover::after{
-    transform:scaleX(1);
+
+    transform:
+        scaleX(1);
+
     opacity:1;
+
 }
+
 
 .nav-links .nav-contact:hover{
-    color:var(--red);
+
+    color:
+        var(--red);
+
 }
 
+
 .nav-links .nav-login{
+
     margin-left:8px;
 
-    padding:0 22px;
+    padding:
+        0 22px;
 
     color:#fff;
 
@@ -199,14 +302,19 @@ input{
         );
 
     box-shadow:
-        0 10px 24px rgba(23,78,166,.18);
+        0 10px 24px
+        rgba(23,78,166,.18);
+
 }
+
 
 .nav-links .nav-login::after{
     display:none;
 }
 
+
 .nav-links .nav-login:hover{
+
     color:#fff;
 
     background:
@@ -216,11 +324,88 @@ input{
             var(--blue2) 62%,
             var(--orange)
         );
+
 }
+
 
 .nav-login i{
     margin-right:8px;
 }
+
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-btn{
+
+    display:none;
+
+    width:48px;
+    height:48px;
+
+    flex:0 0 48px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy) 0%,
+            var(--blue) 52%,
+            var(--blue2) 100%
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(23,78,166,.22);
+
+    transition:
+        transform .22s ease,
+        background .22s ease,
+        box-shadow .22s ease;
+
+}
+
+
+.mobile-menu-btn:hover{
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.mobile-menu-btn.active{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--orange)
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(215,25,15,.20);
+
+}
+
 
 
 /* =========================================================
@@ -228,14 +413,18 @@ input{
 ========================================================= */
 
 .hero{
+
     position:relative;
 
     width:100%;
 
-    min-height:calc(100vh - 104px);
+    min-height:
+        calc(100vh - 104px);
 
     padding:
-        64px var(--page-pad) 72px;
+        64px
+        var(--page-pad)
+        72px;
 
     overflow:hidden;
 
@@ -265,12 +454,16 @@ input{
             #f2f6fb 48%,
             #fff8f3 100%
         );
+
 }
 
+
 .hero::before{
+
     content:"";
 
     position:absolute;
+
     inset:0;
 
     pointer-events:none;
@@ -290,17 +483,25 @@ input{
             transparent 1px
         );
 
-    background-size:46px 46px;
+    background-size:
+        46px 46px;
+
 }
 
+
 .hero-inner{
+
     position:relative;
+
     z-index:2;
 
     width:100%;
-    max-width:var(--page-max);
 
-    margin:0 auto;
+    max-width:
+        var(--page-max);
+
+    margin:
+        0 auto;
 
     display:grid;
 
@@ -311,56 +512,77 @@ input{
     align-items:center;
 
     gap:64px;
+
 }
+
 
 .hero-copy{
     max-width:760px;
 }
 
+
 .hero-kicker{
+
     display:inline-flex;
+
     align-items:center;
 
     gap:9px;
 
     min-height:34px;
 
-    padding:0 13px;
+    padding:
+        0 13px;
 
     margin-bottom:22px;
 
     border:
-        1px solid rgba(23,78,166,.18);
+        1px solid
+        rgba(23,78,166,.18);
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.90);
+    background:
+        rgba(255,255,255,.90);
 
-    color:var(--navy2);
+    color:
+        var(--navy2);
 
     font-size:11px;
+
     font-weight:900;
 
     letter-spacing:.11em;
 
     box-shadow:
-        0 8px 22px rgba(15,23,42,.05);
+        0 8px 22px
+        rgba(15,23,42,.05);
+
 }
 
+
 .hero-kicker span{
+
     width:8px;
+
     height:8px;
 
     border-radius:50%;
 
-    background:var(--orange);
+    background:
+        var(--orange);
 
     box-shadow:
-        0 0 0 5px rgba(255,77,0,.11);
+        0 0 0 5px
+        rgba(255,77,0,.11);
+
 }
 
+
 .hero h1{
-    margin:0 0 24px;
+
+    margin:
+        0 0 24px;
 
     font-size:
         clamp(46px,4.7vw,72px);
@@ -370,9 +592,12 @@ input{
     letter-spacing:-.04em;
 
     font-weight:900;
+
 }
 
+
 .hero h1 .agentic{
+
     display:block;
 
     margin-bottom:6px;
@@ -387,20 +612,30 @@ input{
         );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
+
 }
+
 
 .hero h1 .basin{
+
     display:block;
-    color:var(--navy);
+
+    color:
+        var(--navy);
+
 }
 
+
 .hero-subtitle{
+
     max-width:650px;
 
-    margin:0 0 24px;
+    margin:
+        0 0 24px;
 
     color:#53657c;
 
@@ -409,7 +644,9 @@ input{
     line-height:1.7;
 
     font-weight:500;
+
 }
+
 
 
 /* =========================================================
@@ -417,51 +654,91 @@ input{
 ========================================================= */
 
 .domain-pills{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:9px;
+
     margin-bottom:28px;
+
 }
 
+
 .domain-pills a{
+
     display:inline-flex;
+
     align-items:center;
 
     min-height:38px;
 
-    padding:0 13px;
+    padding:
+        0 13px;
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.92);
+    background:
+        rgba(255,255,255,.92);
 
     font-size:11px;
+
     font-weight:900;
 
     box-shadow:
-        0 8px 22px rgba(7,26,51,.05);
+        0 8px 22px
+        rgba(7,26,51,.05);
 
-    transition:.2s ease;
+    transition:
+        .2s ease;
+
 }
+
 
 .domain-pills a:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-2px);
+
 }
+
 
 .domain-pills a:nth-child(1){
-    color:var(--blue);
-    border:1px solid rgba(23,78,166,.23);
+
+    color:
+        var(--blue);
+
+    border:
+        1px solid
+        rgba(23,78,166,.23);
+
 }
+
 
 .domain-pills a:nth-child(2){
-    color:var(--navy);
-    border:1px solid rgba(7,26,51,.18);
+
+    color:
+        var(--navy);
+
+    border:
+        1px solid
+        rgba(7,26,51,.18);
+
 }
 
+
 .domain-pills a:nth-child(3){
-    color:var(--red);
-    border:1px solid rgba(215,25,15,.22);
+
+    color:
+        var(--red);
+
+    border:
+        1px solid
+        rgba(215,25,15,.22);
+
 }
+
 
 
 /* =========================================================
@@ -472,52 +749,82 @@ input{
     margin-top:6px;
 }
 
+
 .hero-agent-summary-title{
+
     display:flex;
+
     align-items:baseline;
+
     gap:10px;
+
     margin-bottom:13px;
+
 }
+
 
 .hero-agent-summary-title strong{
-    color:var(--navy);
+
+    color:
+        var(--navy);
+
     font-size:15px;
+
     font-weight:900;
+
 }
+
 
 .hero-agent-summary-title small{
+
     color:#7b8ba1;
+
     font-size:10.5px;
+
     font-weight:700;
+
 }
+
 
 .hero-agent-panels{
+
     display:grid;
+
     grid-template-columns:1fr;
+
     gap:10px;
+
 }
 
+
 .hero-agent-panel{
+
     position:relative;
 
     padding:
-        13px 15px 14px 17px;
+        13px 15px
+        14px 17px;
 
     border-radius:15px;
 
     border:
-        1px solid rgba(148,163,184,.16);
+        1px solid
+        rgba(148,163,184,.16);
 
     background:
         rgba(255,255,255,.80);
 
     box-shadow:
-        0 8px 24px rgba(15,23,42,.045);
+        0 8px 24px
+        rgba(15,23,42,.045);
 
     overflow:hidden;
+
 }
 
+
 .hero-agent-panel::before{
+
     content:"";
 
     position:absolute;
@@ -527,44 +834,64 @@ input{
     bottom:0;
 
     width:4px;
+
 }
 
+
 .hero-agent-panel.production::before{
+
     background:
         linear-gradient(
             var(--blue),
             var(--blue2)
         );
+
 }
 
+
 .hero-agent-panel.seismicity::before{
+
     background:
         linear-gradient(
             var(--navy),
             var(--red)
         );
+
 }
 
+
 .hero-agent-panel.swd::before{
+
     background:
         linear-gradient(
             var(--red),
             var(--orange)
         );
+
 }
+
 
 .hero-agent-panel-head{
+
     display:flex;
+
     align-items:center;
+
     gap:9px;
+
     margin-bottom:6px;
+
 }
 
+
 .hero-agent-panel-head i{
+
     width:24px;
+
     height:24px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:8px;
@@ -572,41 +899,58 @@ input{
     color:#fff;
 
     font-size:10px;
+
 }
 
+
 .hero-agent-panel.production i{
+
     background:
         linear-gradient(
             135deg,
             var(--blue),
             var(--blue2)
         );
+
 }
 
+
 .hero-agent-panel.seismicity i{
+
     background:
         linear-gradient(
             135deg,
             var(--navy),
             var(--red)
         );
+
 }
 
+
 .hero-agent-panel.swd i{
+
     background:
         linear-gradient(
             135deg,
             var(--red),
             var(--orange)
         );
+
 }
+
 
 .hero-agent-panel-head strong{
-    color:var(--navy);
+
+    color:
+        var(--navy);
+
     font-size:11.5px;
+
 }
 
+
 .hero-agent-panel p{
+
     margin:0;
 
     color:#66788f;
@@ -616,7 +960,9 @@ input{
     line-height:1.5;
 
     font-weight:650;
+
 }
+
 
 
 /* =========================================================
@@ -627,10 +973,13 @@ input{
     width:100%;
 }
 
+
 .hero-slider{
+
     position:relative;
 
     width:100%;
+
     height:520px;
 
     overflow:hidden;
@@ -640,15 +989,23 @@ input{
     background:#fff;
 
     border:
-        1px solid rgba(7,26,51,.13);
+        1px solid
+        rgba(7,26,51,.13);
 
     box-shadow:
-        0 30px 72px rgba(7,26,51,.14),
-        0 0 0 10px rgba(255,255,255,.42);
+        0 30px 72px
+        rgba(7,26,51,.14),
+
+        0 0 0 10px
+        rgba(255,255,255,.42);
+
 }
 
+
 .slide{
+
     position:absolute;
+
     inset:0;
 
     opacity:0;
@@ -657,27 +1014,42 @@ input{
 
     transition:
         opacity 1s ease-in-out;
+
 }
+
 
 .slide.active{
+
     opacity:1;
+
     pointer-events:auto;
+
 }
+
 
 .slide img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
+
 }
 
+
 .slider-dots{
+
     position:absolute;
 
     left:50%;
+
     bottom:18px;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display:flex;
 
@@ -685,16 +1057,21 @@ input{
 
     z-index:5;
 
-    padding:8px 10px;
+    padding:
+        8px 10px;
 
     border-radius:999px;
 
     background:
         rgba(7,26,51,.58);
+
 }
 
+
 .dot{
+
     width:9px;
+
     height:9px;
 
     border-radius:50%;
@@ -703,15 +1080,24 @@ input{
         rgba(255,255,255,.65);
 
     border:
-        1px solid rgba(255,255,255,.85);
+        1px solid
+        rgba(255,255,255,.85);
 
     cursor:pointer;
+
 }
 
+
 .dot.active{
-    background:var(--orange);
-    border-color:var(--orange);
+
+    background:
+        var(--orange);
+
+    border-color:
+        var(--orange);
+
 }
+
 
 
 /* =========================================================
@@ -719,20 +1105,27 @@ input{
 ========================================================= */
 
 .intel-section{
+
     position:relative;
 
     width:100%;
 
     padding:
-        96px var(--page-pad) 110px;
+        96px
+        var(--page-pad)
+        110px;
 
     overflow:hidden;
 
     border-top:
-        1px solid rgba(148,163,184,.14);
+        1px solid
+        rgba(148,163,184,.14);
+
 }
 
+
 #production-intelligence{
+
     background:
 
         radial-gradient(
@@ -752,9 +1145,12 @@ input{
             #f8fafc,
             #eef4fb
         );
+
 }
 
+
 #induced-seismicity-intelligence{
+
     background:
 
         radial-gradient(
@@ -774,9 +1170,12 @@ input{
             #f9fafb,
             #f2f5f8
         );
+
 }
 
+
 #swd-injection-intelligence{
+
     background:
 
         radial-gradient(
@@ -796,24 +1195,37 @@ input{
             #fffaf7,
             #f6f7fb
         );
+
 }
+
 
 .intel-shell{
+
     width:100%;
-    max-width:var(--page-max);
-    margin:0 auto;
+
+    max-width:
+        var(--page-max);
+
+    margin:
+        0 auto;
+
 }
 
+
 .intel-heading{
+
     max-width:940px;
 
     margin:
         0 auto 42px;
 
     text-align:center;
+
 }
 
+
 .intel-eyebrow{
+
     display:inline-flex;
 
     align-items:center;
@@ -839,28 +1251,58 @@ input{
         rgba(255,255,255,.86);
 
     box-shadow:
-        0 8px 28px rgba(15,23,42,.05);
+        0 8px 28px
+        rgba(15,23,42,.05);
+
 }
 
-#production-intelligence .intel-eyebrow{
-    color:var(--blue);
-    border:1px solid rgba(23,78,166,.22);
+
+#production-intelligence
+.intel-eyebrow{
+
+    color:
+        var(--blue);
+
+    border:
+        1px solid
+        rgba(23,78,166,.22);
+
 }
 
-#induced-seismicity-intelligence .intel-eyebrow{
-    color:var(--navy2);
-    border:1px solid rgba(15,39,72,.20);
+
+#induced-seismicity-intelligence
+.intel-eyebrow{
+
+    color:
+        var(--navy2);
+
+    border:
+        1px solid
+        rgba(15,39,72,.20);
+
 }
 
-#swd-injection-intelligence .intel-eyebrow{
-    color:var(--red);
-    border:1px solid rgba(215,25,15,.20);
+
+#swd-injection-intelligence
+.intel-eyebrow{
+
+    color:
+        var(--red);
+
+    border:
+        1px solid
+        rgba(215,25,15,.20);
+
 }
+
 
 .intel-heading h2{
-    margin:0 0 15px;
 
-    color:var(--navy);
+    margin:
+        0 0 15px;
+
+    color:
+        var(--navy);
 
     font-size:
         clamp(40px,4.2vw,60px);
@@ -868,19 +1310,26 @@ input{
     line-height:1.04;
 
     letter-spacing:-.04em;
+
 }
 
+
 .intel-heading p{
+
     max-width:860px;
 
-    margin:0 auto;
+    margin:
+        0 auto;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
     font-size:17px;
 
     line-height:1.75;
+
 }
+
 
 
 /* =========================================================
@@ -888,6 +1337,7 @@ input{
 ========================================================= */
 
 .query-panel{
+
     display:flex;
 
     align-items:center;
@@ -907,7 +1357,8 @@ input{
         26px 28px;
 
     border:
-        1px solid rgba(148,163,184,.20);
+        1px solid
+        rgba(148,163,184,.20);
 
     border-radius:26px;
 
@@ -915,14 +1366,19 @@ input{
         rgba(255,255,255,.90);
 
     box-shadow:
-        0 26px 70px rgba(15,23,42,.09);
+        0 26px 70px
+        rgba(15,23,42,.09);
+
 }
+
 
 .query-copy{
     min-width:270px;
 }
 
+
 .query-copy span{
+
     color:#8c5d00;
 
     font-size:10px;
@@ -932,35 +1388,52 @@ input{
     letter-spacing:.13em;
 
     text-transform:uppercase;
+
 }
 
+
 .query-copy strong{
+
     display:block;
 
     margin-top:5px;
 
-    color:var(--navy);
+    color:
+        var(--navy);
 
     font-size:15px;
 
     line-height:1.4;
+
 }
 
+
 .query-controls{
+
     flex:1;
 
     display:grid;
 
     grid-template-columns:
-        1fr 1fr auto;
+        1fr
+        1fr
+        auto;
 
     gap:12px;
 
     align-items:center;
+
 }
 
+
+
+/* =========================================================
+   COORDINATE INPUTS
+========================================================= */
+
 .input-wrap{
-    min-height:56px;
+
+    min-height:64px;
 
     display:flex;
 
@@ -969,7 +1442,7 @@ input{
     gap:11px;
 
     padding:
-        0 16px;
+        8px 15px;
 
     border:
         1px solid #dbe3ec;
@@ -978,28 +1451,122 @@ input{
 
     background:#f8fafc;
 
-    transition:.22s ease;
+    transition:
+        .22s ease;
+
 }
 
+
 .input-wrap:focus-within{
-    border-color:var(--blue2);
+
+    border-color:
+        var(--blue2);
 
     background:#fff;
 
     box-shadow:
-        0 0 0 4px rgba(37,99,235,.09);
+        0 0 0 4px
+        rgba(37,99,235,.09);
+
 }
 
-.input-wrap i{
-    color:var(--blue);
+
+.coordinate-input > i{
+
+    width:38px;
+
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    flex:
+        0 0 38px;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    font-size:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--blue2)
+        );
+
+    box-shadow:
+        0 7px 18px
+        rgba(23,78,166,.18);
+
 }
 
-#swd-injection-intelligence .input-wrap i{
-    color:var(--red);
+
+#induced-seismicity-intelligence
+.coordinate-input > i{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy),
+            var(--red)
+        );
+
 }
 
-.input-wrap input{
+
+#swd-injection-intelligence
+.coordinate-input > i{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--red),
+            var(--orange)
+        );
+
+}
+
+
+.coordinate-field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
     width:100%;
+
+    min-width:0;
+
+}
+
+
+.coordinate-field span{
+
+    display:block;
+
+    margin-bottom:3px;
+
+    color:#718096;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.12em;
+
+}
+
+
+.coordinate-field input{
+
+    width:100%;
+
+    padding:0;
 
     border:0;
 
@@ -1007,14 +1574,36 @@ input{
 
     background:transparent;
 
-    color:var(--text);
+    color:
+        var(--navy);
 
-    font-size:14px;
+    font-size:16px;
 
-    font-weight:700;
+    font-weight:800;
+
+    letter-spacing:.015em;
+
 }
 
+
+.coordinate-field input::placeholder{
+
+    color:#9aa9ba;
+
+    opacity:1;
+
+    font-weight:600;
+
+}
+
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
 .primary-action{
+
     min-height:56px;
 
     display:inline-flex;
@@ -1042,44 +1631,67 @@ input{
 
     white-space:nowrap;
 
-    transition:.22s ease;
+    transition:
+        .22s ease;
+
 }
+
 
 .primary-action:disabled{
+
     opacity:.60;
+
     cursor:wait;
+
 }
 
-#production-intelligence .primary-action{
+
+#production-intelligence
+.primary-action{
+
     background:
         linear-gradient(
             135deg,
             var(--blue),
             var(--blue2)
         );
+
 }
 
-#induced-seismicity-intelligence .primary-action{
+
+#induced-seismicity-intelligence
+.primary-action{
+
     background:
         linear-gradient(
             135deg,
             var(--navy),
             var(--red)
         );
+
 }
 
-#swd-injection-intelligence .primary-action{
+
+#swd-injection-intelligence
+.primary-action{
+
     background:
         linear-gradient(
             135deg,
             var(--red),
             var(--orange)
         );
+
 }
 
+
 .primary-action:hover{
-    transform:translateY(-2px);
+
+    transform:
+        translateY(-2px);
+
 }
+
 
 
 /* =========================================================
@@ -1087,6 +1699,7 @@ input{
 ========================================================= */
 
 .workflow-label{
+
     max-width:1420px;
 
     margin:
@@ -1097,9 +1710,12 @@ input{
     align-items:center;
 
     gap:14px;
+
 }
 
+
 .workflow-label span{
+
     color:#64748b;
 
     font-size:10px;
@@ -1107,9 +1723,12 @@ input{
     font-weight:900;
 
     letter-spacing:.14em;
+
 }
 
+
 .workflow-label div{
+
     height:1px;
 
     flex:1;
@@ -1120,9 +1739,12 @@ input{
             rgba(148,163,184,.45),
             transparent
         );
+
 }
 
+
 .agent-grid{
+
     width:100%;
 
     max-width:1540px;
@@ -1133,12 +1755,18 @@ input{
     display:grid;
 
     grid-template-columns:
-        repeat(5,minmax(0,1fr));
+        repeat(
+            5,
+            minmax(0,1fr)
+        );
 
     gap:22px;
+
 }
 
+
 .agent-card{
+
     position:relative;
 
     min-height:326px;
@@ -1152,7 +1780,8 @@ input{
     overflow:hidden;
 
     border:
-        1px solid rgba(148,163,184,.18);
+        1px solid
+        rgba(148,163,184,.18);
 
     border-radius:26px;
 
@@ -1160,12 +1789,17 @@ input{
         rgba(255,255,255,.95);
 
     box-shadow:
-        0 16px 40px rgba(15,23,42,.07);
+        0 16px 40px
+        rgba(15,23,42,.07);
 
-    transition:.25s ease;
+    transition:
+        .25s ease;
+
 }
 
+
 .agent-card::before{
+
     content:"";
 
     position:absolute;
@@ -1175,43 +1809,63 @@ input{
     right:0;
 
     height:4px;
+
 }
 
-#production-intelligence .agent-card::before{
+
+#production-intelligence
+.agent-card::before{
+
     background:
         linear-gradient(
             90deg,
             var(--blue),
             var(--blue2)
         );
+
 }
 
-#induced-seismicity-intelligence .agent-card::before{
+
+#induced-seismicity-intelligence
+.agent-card::before{
+
     background:
         linear-gradient(
             90deg,
             var(--navy),
             var(--red)
         );
+
 }
 
-#swd-injection-intelligence .agent-card::before{
+
+#swd-injection-intelligence
+.agent-card::before{
+
     background:
         linear-gradient(
             90deg,
             var(--orange),
             var(--blue)
         );
+
 }
+
 
 .agent-card:hover{
-    transform:translateY(-8px);
+
+    transform:
+        translateY(-8px);
 
     box-shadow:
-        0 28px 58px rgba(15,23,42,.13);
+        0 28px 58px
+        rgba(15,23,42,.13);
+
 }
 
+
 .agent-card-top{
+
     display:flex;
 
     align-items:center;
@@ -1219,9 +1873,12 @@ input{
     justify-content:space-between;
 
     margin-bottom:24px;
+
 }
 
+
 .agent-number{
+
     min-width:42px;
 
     height:29px;
@@ -1240,28 +1897,51 @@ input{
     font-size:10px;
 
     font-weight:900;
+
 }
 
-#production-intelligence .agent-number{
+
+#production-intelligence
+.agent-number{
+
     background:#edf3ff;
-    color:var(--blue);
+
+    color:
+        var(--blue);
+
 }
 
-#induced-seismicity-intelligence .agent-number{
+
+#induced-seismicity-intelligence
+.agent-number{
+
     background:#eef2f7;
-    color:var(--navy2);
+
+    color:
+        var(--navy2);
+
 }
 
-#swd-injection-intelligence .agent-number{
+
+#swd-injection-intelligence
+.agent-number{
+
     background:#fff1eb;
-    color:var(--red);
+
+    color:
+        var(--red);
+
 }
+
 
 .agent-icon{
+
     width:48px;
+
     height:48px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:15px;
@@ -1271,57 +1951,82 @@ input{
     font-size:18px;
 
     box-shadow:
-        0 11px 24px rgba(15,23,42,.18);
+        0 11px 24px
+        rgba(15,23,42,.18);
+
 }
 
-#production-intelligence .agent-icon{
+
+#production-intelligence
+.agent-icon{
+
     background:
         linear-gradient(
             135deg,
             var(--navy),
             var(--blue)
         );
+
 }
 
-#induced-seismicity-intelligence .agent-icon{
+
+#induced-seismicity-intelligence
+.agent-icon{
+
     background:
         linear-gradient(
             135deg,
             var(--navy),
             var(--red)
         );
+
 }
 
-#swd-injection-intelligence .agent-icon{
+
+#swd-injection-intelligence
+.agent-icon{
+
     background:
         linear-gradient(
             135deg,
             var(--orange),
             var(--red)
         );
+
 }
 
-.agent-card h3{
-    margin:0 0 12px;
 
-    color:var(--navy);
+.agent-card h3{
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--navy);
 
     font-size:18px;
 
     line-height:1.28;
+
 }
 
+
 .agent-card p{
+
     margin:0;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
     font-size:13.5px;
 
     line-height:1.72;
+
 }
 
+
 .agent-footer{
+
     margin-top:auto;
 
     padding-top:20px;
@@ -1335,24 +2040,42 @@ input{
     gap:10px;
 
     border-top:
-        1px solid #edf1f5;
+        1px solid
+        #edf1f5;
 
     font-size:10.5px;
 
     font-weight:900;
+
 }
 
-#production-intelligence .agent-footer{
-    color:var(--blue);
+
+#production-intelligence
+.agent-footer{
+
+    color:
+        var(--blue);
+
 }
 
-#induced-seismicity-intelligence .agent-footer{
-    color:var(--navy2);
+
+#induced-seismicity-intelligence
+.agent-footer{
+
+    color:
+        var(--navy2);
+
 }
 
-#swd-injection-intelligence .agent-footer{
-    color:var(--red);
+
+#swd-injection-intelligence
+.agent-footer{
+
+    color:
+        var(--red);
+
 }
+
 
 
 /* =========================================================
@@ -1360,6 +2083,7 @@ input{
 ========================================================= */
 
 .api-status-panel{
+
     display:none;
 
     width:100%;
@@ -1373,7 +2097,8 @@ input{
         18px 20px;
 
     border:
-        1px solid rgba(148,163,184,.22);
+        1px solid
+        rgba(148,163,184,.22);
 
     border-radius:18px;
 
@@ -1381,33 +2106,44 @@ input{
         rgba(255,255,255,.94);
 
     box-shadow:
-        0 16px 38px rgba(15,23,42,.07);
+        0 16px 38px
+        rgba(15,23,42,.07);
+
 }
+
 
 .api-status-panel.show{
     display:block;
 }
 
+
 .api-status-row{
+
     display:flex;
 
     align-items:center;
 
     gap:12px;
 
-    color:var(--navy);
+    color:
+        var(--navy);
 
     font-size:13px;
 
     font-weight:800;
+
 }
 
+
 .api-spinner{
+
     width:18px;
+
     height:18px;
 
     border:
-        3px solid rgba(37,99,235,.18);
+        3px solid
+        rgba(37,99,235,.18);
 
     border-top-color:
         var(--blue2);
@@ -1415,48 +2151,69 @@ input{
     border-radius:50%;
 
     animation:
-        apiSpin .85s linear infinite;
+        apiSpin .85s
+        linear infinite;
 
-    flex:0 0 auto;
+    flex:
+        0 0 auto;
+
 }
 
+
 .api-spinner.done{
+
     animation:none;
+
     border:0;
 
     width:22px;
+
     height:22px;
 
     display:grid;
+
     place-items:center;
 
     background:#eaf8ef;
+
     color:#16803a;
+
 }
 
+
 .api-spinner.error{
+
     animation:none;
+
     border:0;
 
     width:22px;
+
     height:22px;
 
     display:grid;
+
     place-items:center;
 
     background:#fff0ef;
+
     color:#c62828;
+
 }
+
 
 @keyframes apiSpin{
 
     to{
-        transform:rotate(360deg);
+        transform:
+            rotate(360deg);
     }
 
 }
 
+
 .api-job{
+
     margin-top:8px;
 
     color:#718096;
@@ -1466,7 +2223,9 @@ input{
     font-weight:700;
 
     word-break:break-all;
+
 }
+
 
 
 /* =========================================================
@@ -1474,12 +2233,18 @@ input{
 ========================================================= */
 
 .download-wrap{
+
     display:flex;
+
     justify-content:center;
+
     margin-top:38px;
+
 }
 
+
 .production-downloads{
+
     display:none;
 
     justify-content:center;
@@ -1491,13 +2256,17 @@ input{
     gap:12px;
 
     margin-top:38px;
+
 }
+
 
 .production-downloads.show{
     display:flex;
 }
 
+
 .download-btn{
+
     min-height:62px;
 
     min-width:390px;
@@ -1525,41 +2294,62 @@ input{
 
     cursor:pointer;
 
-    transition:.22s ease;
+    transition:
+        .22s ease;
+
 }
 
-#production-intelligence .download-btn{
+
+#production-intelligence
+.download-btn{
+
     background:
         linear-gradient(
             135deg,
             var(--blue),
             var(--blue2)
         );
+
 }
 
-#induced-seismicity-intelligence .download-btn{
+
+#induced-seismicity-intelligence
+.download-btn{
+
     background:
         linear-gradient(
             135deg,
             var(--navy),
             var(--red)
         );
+
 }
 
-#swd-injection-intelligence .download-btn{
+
+#swd-injection-intelligence
+.download-btn{
+
     background:
         linear-gradient(
             135deg,
             var(--red),
             var(--orange)
         );
+
 }
 
-.production-downloads .download-btn{
+
+.production-downloads
+.download-btn{
+
     min-width:290px;
+
 }
 
-.production-downloads .secondary{
+
+.production-downloads
+.secondary{
+
     min-width:220px;
 
     background:
@@ -1568,9 +2358,13 @@ input{
             #0f2748,
             #174ea6
         ) !important;
+
 }
 
-.production-downloads .package{
+
+.production-downloads
+.package{
+
     min-width:230px;
 
     background:
@@ -1579,13 +2373,18 @@ input{
             #d7190f,
             #ff4d00
         ) !important;
+
 }
 
+
 .download-btn:hover{
+
     transform:
         translateY(-3px)
         scale(1.01);
+
 }
+
 
 
 /* =========================================================
@@ -1593,8 +2392,10 @@ input{
 ========================================================= */
 
 .footer{
+
     padding:
-        30px var(--page-pad);
+        30px
+        var(--page-pad);
 
     text-align:center;
 
@@ -1610,85 +2411,146 @@ input{
     font-size:13px;
 
     font-weight:700;
+
 }
 
 
+
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE - LARGE TABLET
 ========================================================= */
 
 @media(max-width:1300px){
 
     .logo img{
+
         width:440px;
+
         max-width:40vw;
+
     }
+
 
     .hero-inner{
+
         grid-template-columns:1fr;
+
         gap:46px;
+
     }
+
 
     .hero-copy{
+
         max-width:920px;
-        margin:0 auto;
+
+        margin:
+            0 auto;
+
         text-align:center;
+
     }
+
 
     .hero-subtitle{
+
         margin-left:auto;
+
         margin-right:auto;
+
     }
+
 
     .domain-pills{
+
         justify-content:center;
+
     }
+
 
     .hero-agent-summary{
+
         max-width:900px;
+
         margin-left:auto;
+
         margin-right:auto;
+
         text-align:left;
+
     }
+
 
     .hero-agent-summary-title{
+
         justify-content:center;
+
     }
+
 
     .hero-visual{
+
         max-width:940px;
-        margin:0 auto;
+
+        margin:
+            0 auto;
+
     }
 
+
     .agent-grid{
+
         grid-template-columns:
             repeat(3,1fr);
+
     }
 
 }
 
 
-@media(max-width:1050px){
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media(max-width:1050px)
+and (min-width:621px){
 
     .navbar{
+
         flex-direction:column;
+
     }
+
 
     .logo img{
+
         width:420px;
+
         max-width:78vw;
+
     }
+
 
     .nav-links{
+
         width:100%;
+
         justify-content:center;
+
         flex-wrap:wrap;
+
     }
 
+
     .query-panel{
+
         flex-direction:column;
+
         align-items:stretch;
+
     }
+
 
     .query-copy{
         min-width:0;
@@ -1697,98 +2559,979 @@ input{
 }
 
 
-@media(max-width:850px){
+
+/* =========================================================
+   RESPONSIVE - SMALL TABLET
+========================================================= */
+
+@media(max-width:850px)
+and (min-width:621px){
 
     .query-controls{
+
         grid-template-columns:
             1fr 1fr;
+
     }
+
 
     .primary-action{
+
         grid-column:
             1 / -1;
+
     }
+
 
     .agent-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
+
     .hero-slider{
+
         height:390px;
+
     }
 
 }
 
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:620px){
 
     :root{
-        --page-pad:18px;
+
+        --page-pad:16px;
+
     }
+
+
+    html{
+
+        scroll-padding-top:86px;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE NAVBAR
+    ===================================================== */
+
+    .navbar{
+
+        position:sticky;
+
+        top:0;
+
+        width:100%;
+
+        min-height:78px;
+
+        display:grid;
+
+        grid-template-columns:
+            minmax(0,1fr)
+            auto;
+
+        align-items:center;
+
+        gap:12px;
+
+        padding:
+            8px 14px;
+
+        background:
+            rgba(255,255,255,.98);
+
+        border-bottom:
+            1px solid
+            rgba(7,26,51,.08);
+
+        box-shadow:
+            0 8px 26px
+            rgba(7,26,51,.09);
+
+        backdrop-filter:
+            blur(20px);
+
+    }
+
+
+    .logo{
+
+        width:100%;
+
+        min-width:0;
+
+        justify-content:flex-start;
+
+    }
+
 
     .logo img{
-        width:340px;
-        max-width:88vw;
+
+        display:block;
+
+        width:min(290px,74vw);
+
+        max-width:100%;
+
+        height:auto;
+
     }
+
+
+    .mobile-menu-btn{
+
+        display:flex;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE DROP-DOWN MENU
+    ===================================================== */
 
     .nav-links{
-        gap:4px;
+
+        position:absolute;
+
+        top:
+            calc(100% + 8px);
+
+        left:12px;
+
+        right:12px;
+
+        width:auto;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        justify-content:flex-start;
+
+        gap:7px;
+
+        padding:12px;
+
+        border:
+            1px solid
+            rgba(7,26,51,.09);
+
+        border-radius:22px;
+
+        background:
+            rgba(255,255,255,.985);
+
+        box-shadow:
+            0 24px 60px
+            rgba(7,26,51,.19);
+
+        backdrop-filter:
+            blur(24px);
+
+        opacity:0;
+
+        visibility:hidden;
+
+        pointer-events:none;
+
+        transform:
+            translateY(-12px)
+            scale(.975);
+
+        transform-origin:
+            top right;
+
+        transition:
+            opacity .22s ease,
+            transform .22s ease,
+            visibility .22s ease;
+
     }
+
+
+    .nav-links.open{
+
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
 
     .nav-links a{
-        min-height:40px;
-        padding:0 10px;
-        font-size:12px;
+
+        position:relative;
+
+        width:100%;
+
+        min-height:48px;
+
+        display:flex;
+
+        justify-content:flex-start;
+
+        align-items:center;
+
+        padding:
+            0 17px;
+
+        border-radius:13px;
+
+        color:
+            var(--navy);
+
+        font-size:13px;
+
+        font-weight:850;
+
+        letter-spacing:.01em;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(23,78,166,.045),
+                rgba(255,77,0,.018)
+            );
+
+        border:
+            1px solid
+            rgba(7,26,51,.055);
+
+        box-shadow:none;
+
+        white-space:nowrap;
+
     }
+
+
+    .nav-links a::after{
+
+        display:none;
+
+    }
+
+
+    .nav-links a:hover,
+    .nav-links a:active{
+
+        color:
+            var(--blue);
+
+        transform:none;
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(23,78,166,.11),
+                rgba(37,99,235,.05)
+            );
+
+    }
+
+
+    .nav-links .nav-contact{
+
+        color:
+            var(--red);
+
+    }
+
+
+    .nav-links .nav-login{
+
+        width:100%;
+
+        min-height:51px;
+
+        margin:
+            3px 0 0;
+
+        justify-content:center;
+
+        padding:
+            0 18px;
+
+        color:#fff;
+
+        border:0;
+
+        border-radius:14px;
+
+        background:
+            linear-gradient(
+                105deg,
+                var(--navy) 0%,
+                var(--blue) 46%,
+                var(--blue2) 72%,
+                var(--red) 135%
+            );
+
+        box-shadow:
+            0 10px 24px
+            rgba(23,78,166,.20);
+
+    }
+
+
+    .nav-links .nav-login:hover,
+    .nav-links .nav-login:active{
+
+        color:#fff;
+
+        background:
+            linear-gradient(
+                105deg,
+                var(--blue),
+                var(--blue2) 55%,
+                var(--red)
+            );
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE HERO
+    ===================================================== */
 
     .hero{
-        padding-top:44px;
+
+        min-height:auto;
+
+        padding:
+            32px
+            16px
+            50px;
+
     }
+
+
+    .hero-inner{
+
+        grid-template-columns:1fr;
+
+        gap:32px;
+
+    }
+
+
+    .hero-copy{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+
+    .hero-kicker{
+
+        min-height:32px;
+
+        padding:
+            0 12px;
+
+        margin-bottom:19px;
+
+        font-size:9px;
+
+        letter-spacing:.12em;
+
+    }
+
+
+    .hero-kicker span{
+
+        width:7px;
+
+        height:7px;
+
+    }
+
 
     .hero h1{
-        font-size:44px;
+
+        margin:
+            0 0 18px;
+
+        font-size:
+            clamp(
+                39px,
+                11vw,
+                50px
+            );
+
+        line-height:1.02;
+
+        letter-spacing:-.045em;
+
     }
+
+
+    .hero h1 .agentic{
+
+        margin-bottom:8px;
+
+    }
+
+
+    .hero-subtitle{
+
+        max-width:360px;
+
+        margin:
+            0 auto 22px;
+
+        padding:
+            0 4px;
+
+        font-size:14px;
+
+        line-height:1.62;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE DOMAIN BUTTONS
+    ===================================================== */
+
+    .domain-pills{
+
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:7px;
+
+        margin:
+            0 auto 25px;
+
+        max-width:360px;
+
+    }
+
+
+    .domain-pills a{
+
+        min-height:41px;
+
+        justify-content:center;
+
+        padding:
+            0 12px;
+
+        border-radius:12px;
+
+        font-size:10.5px;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE AGENT SUMMARY
+    ===================================================== */
+
+    .hero-agent-summary{
+
+        width:100%;
+
+        text-align:left;
+
+    }
+
+
+    .hero-agent-summary-title{
+
+        display:block;
+
+        text-align:center;
+
+        margin-bottom:13px;
+
+    }
+
+
+    .hero-agent-summary-title strong{
+
+        display:block;
+
+        margin-bottom:4px;
+
+        font-size:14px;
+
+    }
+
+
+    .hero-agent-summary-title small{
+
+        display:block;
+
+        font-size:9px;
+
+        line-height:1.4;
+
+    }
+
+
+    .hero-agent-panels{
+
+        gap:8px;
+
+    }
+
+
+    .hero-agent-panel{
+
+        padding:
+            12px 13px
+            13px 15px;
+
+        border-radius:13px;
+
+    }
+
+
+    .hero-agent-panel-head{
+
+        margin-bottom:5px;
+
+    }
+
+
+    .hero-agent-panel p{
+
+        font-size:9.5px;
+
+        line-height:1.45;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE HERO SLIDER
+    ===================================================== */
 
     .hero-slider{
-        height:280px;
-        border-radius:22px;
+
+        height:270px;
+
+        border-radius:20px;
+
+        box-shadow:
+
+            0 18px 38px
+            rgba(7,26,51,.12),
+
+            0 0 0 5px
+            rgba(255,255,255,.38);
+
     }
+
+
+    .slider-dots{
+
+        bottom:12px;
+
+        padding:
+            7px 9px;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE SECTIONS
+    ===================================================== */
 
     .intel-section{
+
         padding:
-            72px var(--page-pad) 82px;
+            66px
+            16px
+            78px;
+
     }
+
+
+    .intel-heading{
+
+        margin-bottom:30px;
+
+    }
+
+
+    .intel-eyebrow{
+
+        padding:
+            8px 12px;
+
+        margin-bottom:15px;
+
+        font-size:9px;
+
+    }
+
+
+    .intel-heading h2{
+
+        margin-bottom:14px;
+
+        font-size:
+            clamp(
+                34px,
+                9vw,
+                44px
+            );
+
+        line-height:1.05;
+
+    }
+
+
+    .intel-heading p{
+
+        font-size:14px;
+
+        line-height:1.62;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE QUERY PANEL
+    ===================================================== */
 
     .query-panel{
-        padding:18px;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:17px;
+
+        padding:17px;
+
+        margin:
+            0 auto 34px;
+
+        border-radius:21px;
+
+        box-shadow:
+            0 18px 45px
+            rgba(15,23,42,.08);
+
     }
+
+
+    .query-copy{
+
+        min-width:0;
+
+        text-align:center;
+
+    }
+
+
+    .query-copy span{
+
+        font-size:9px;
+
+    }
+
+
+    .query-copy strong{
+
+        margin-top:5px;
+
+        font-size:13px;
+
+        line-height:1.45;
+
+    }
+
 
     .query-controls{
+
+        width:100%;
+
+        display:grid;
+
         grid-template-columns:1fr;
+
+        gap:9px;
+
     }
+
+
+
+    /* =====================================================
+       MOBILE COORDINATE INPUTS
+    ===================================================== */
+
+    .input-wrap{
+
+        width:100%;
+
+        min-height:64px;
+
+        padding:
+            8px 13px;
+
+        border-radius:14px;
+
+        background:#fff;
+
+    }
+
+
+    .coordinate-input > i{
+
+        width:40px;
+
+        height:40px;
+
+        flex:
+            0 0 40px;
+
+        border-radius:12px;
+
+        font-size:14px;
+
+    }
+
+
+    .coordinate-field span{
+
+        font-size:8.5px;
+
+        letter-spacing:.11em;
+
+    }
+
+
+    .coordinate-field input{
+
+        min-width:0;
+
+        font-size:17px;
+
+        line-height:1.3;
+
+    }
+
 
     .primary-action{
+
         grid-column:auto;
+
         width:100%;
+
+        min-height:56px;
+
+        margin-top:3px;
+
+        padding:
+            0 14px;
+
+        border-radius:14px;
+
+        font-size:12px;
+
+        white-space:normal;
+
+        text-align:center;
+
+        box-shadow:
+            0 10px 22px
+            rgba(23,78,166,.17);
+
     }
+
+
+
+    /* =====================================================
+       MOBILE AGENT CARDS
+    ===================================================== */
 
     .agent-grid{
+
         grid-template-columns:1fr;
+
+        gap:14px;
+
     }
+
+
+    .agent-card{
+
+        min-height:auto;
+
+        padding:21px;
+
+        border-radius:20px;
+
+    }
+
+
+    .agent-card-top{
+
+        margin-bottom:16px;
+
+    }
+
+
+    .agent-card h3{
+
+        font-size:17px;
+
+    }
+
+
+    .agent-card p{
+
+        font-size:12.5px;
+
+        line-height:1.65;
+
+    }
+
+
+
+    /* =====================================================
+       MOBILE DOWNLOAD BUTTONS
+    ===================================================== */
 
     .download-btn{
+
         width:100%;
+
         min-width:0;
+
+        min-height:58px;
+
+        padding:
+            0 16px;
+
+        border-radius:15px;
+
+        font-size:12.5px;
+
+        line-height:1.35;
+
+        white-space:normal;
+
     }
+
 
     .production-downloads{
+
         flex-direction:column;
+
     }
 
-    .production-downloads .download-btn{
+
+    .production-downloads
+    .download-btn{
+
         width:100%;
+
         min-width:0;
+
+    }
+
+
+    .api-status-panel{
+
+        margin:
+            -10px auto 30px;
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+    .navbar{
+
+        padding:
+            8px 10px;
+
+        gap:8px;
+
+    }
+
+
+    .logo img{
+
+        width:min(
+            265px,
+            72vw
+        );
+
+    }
+
+
+    .mobile-menu-btn{
+
+        width:44px;
+
+        height:44px;
+
+        flex:
+            0 0 44px;
+
+        border-radius:13px;
+
+    }
+
+
+    .nav-links{
+
+        left:10px;
+
+        right:10px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:
+            38px;
+
     }
 
 }
@@ -1801,11 +3544,13 @@ input{
 <body>
 
 
+
 <!-- =========================================================
      NAVIGATION
 ========================================================= -->
 
 <nav class="navbar">
+
 
     <div class="logo">
 
@@ -1817,34 +3562,61 @@ input{
     </div>
 
 
-    <div class="nav-links">
+
+    <button
+        class="mobile-menu-btn"
+        id="mobile-menu-btn"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+    >
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+
+    <div
+        class="nav-links"
+        id="nav-links"
+    >
+
 
         <a href="#top">
             Platform
         </a>
 
+
         <a href="#production-intelligence">
             Production
         </a>
+
 
         <a href="#induced-seismicity-intelligence">
             Seismicity
         </a>
 
+
         <a href="#swd-injection-intelligence">
             SWD Injection
         </a>
+
 
         <a href="about.html">
             About
         </a>
 
+
         <a
             href="contact.html"
             class="nav-contact"
         >
+
             Contact
+
         </a>
+
 
         <a
             href="login.html"
@@ -1857,7 +3629,9 @@ input{
 
         </a>
 
+
     </div>
+
 
 </nav>
 
@@ -1871,6 +3645,7 @@ input{
     class="hero"
     id="top"
 >
+
 
     <div class="hero-inner">
 
@@ -1910,19 +3685,30 @@ input{
 
             <div class="domain-pills">
 
+
                 <a href="#production-intelligence">
+
                     Production Intelligence
+
                 </a>
+
 
                 <a href="#induced-seismicity-intelligence">
+
                     Induced Seismicity Intelligence
+
                 </a>
+
 
                 <a href="#swd-injection-intelligence">
+
                     SWD Injection Intelligence
+
                 </a>
 
+
             </div>
+
 
 
             <div class="hero-agent-summary">
@@ -1935,17 +3721,21 @@ input{
                     </strong>
 
                     <small>
+
                         Coordinated across production,
                         seismicity and SWD workflows
+
                     </small>
 
                 </div>
+
 
 
                 <div class="hero-agent-panels">
 
 
                     <div class="hero-agent-panel production">
+
 
                         <div class="hero-agent-panel-head">
 
@@ -1959,17 +3749,22 @@ input{
 
 
                         <p>
+
                             Spatial / Formation ·
                             Analog Selection ·
                             Decline-Curve ·
                             Transformer Forecasting ·
                             Ensemble &amp; Uncertainty
+
                         </p>
+
 
                     </div>
 
 
+
                     <div class="hero-agent-panel seismicity">
+
 
                         <div class="hero-agent-panel-head">
 
@@ -1983,17 +3778,22 @@ input{
 
 
                         <p>
+
                             Spatial Seismicity ·
                             b-Value &amp; Seismic-State ·
                             Temporal Pattern ·
                             Transformer Forecasting ·
                             Risk Integration
+
                         </p>
+
 
                     </div>
 
 
+
                     <div class="hero-agent-panel swd">
+
 
                         <div class="hero-agent-panel-head">
 
@@ -2007,17 +3807,21 @@ input{
 
 
                         <p>
+
                             Injection Performance ·
                             Subsurface Connectivity ·
                             Injection-Seismicity Coupling ·
                             Injection Optimization ·
                             Constraint &amp; Decision
+
                         </p>
+
 
                     </div>
 
 
                 </div>
+
 
             </div>
 
@@ -2027,6 +3831,7 @@ input{
 
 
         <div class="hero-visual">
+
 
             <div class="hero-slider">
 
@@ -2061,10 +3866,13 @@ input{
                 </div>
 
 
+
                 <div class="slider-dots">
 
                     <span class="dot active"></span>
+
                     <span class="dot"></span>
+
                     <span class="dot"></span>
 
                 </div>
@@ -2072,10 +3880,12 @@ input{
 
             </div>
 
+
         </div>
 
 
     </div>
+
 
 </section>
 
@@ -2090,10 +3900,13 @@ input{
     id="production-intelligence"
 >
 
+
     <div class="intel-shell">
 
 
+
         <div class="intel-heading">
+
 
             <span class="intel-eyebrow">
 
@@ -2117,60 +3930,100 @@ input{
 
             </p>
 
+
         </div>
 
 
 
-        <!-- LATITUDE / LONGITUDE -->
+        <!-- =====================================================
+             LATITUDE / LONGITUDE
+        ===================================================== -->
 
         <div class="query-panel">
 
 
             <div class="query-copy">
 
+
                 <span>
                     RUN WELL INTELLIGENCE
                 </span>
 
+
                 <strong>
+
                     Enter a well location to start the
                     production agent workflow
+
                 </strong>
 
+
             </div>
+
 
 
             <div class="query-controls">
 
 
-                <label class="input-wrap">
+
+                <label class="input-wrap coordinate-input">
+
 
                     <i class="fa-solid fa-location-crosshairs"></i>
 
-                    <input
-                        id="production-latitude"
-                        type="number"
-                        step="any"
-                        inputmode="decimal"
-                        placeholder="Well Latitude"
-                    >
+
+                    <div class="coordinate-field">
+
+                        <span>
+                            LATITUDE
+                        </span>
+
+
+                        <input
+                            id="production-latitude"
+                            type="text"
+                            inputmode="text"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="31.9686"
+                        >
+
+                    </div>
+
 
                 </label>
 
 
-                <label class="input-wrap">
+
+                <label class="input-wrap coordinate-input">
+
 
                     <i class="fa-solid fa-location-dot"></i>
 
-                    <input
-                        id="production-longitude"
-                        type="number"
-                        step="any"
-                        inputmode="decimal"
-                        placeholder="Well Longitude"
-                    >
+
+                    <div class="coordinate-field">
+
+                        <span>
+                            LONGITUDE
+                        </span>
+
+
+                        <input
+                            id="production-longitude"
+                            type="text"
+                            inputmode="text"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="-102.0779"
+                        >
+
+                    </div>
+
 
                 </label>
+
 
 
                 <button
@@ -2188,11 +4041,14 @@ input{
 
             </div>
 
+
         </div>
 
 
 
-        <!-- FORECAST STATUS -->
+        <!-- =====================================================
+             FORECAST STATUS
+        ===================================================== -->
 
         <div
             id="production-api-status"
@@ -2200,7 +4056,9 @@ input{
             aria-live="polite"
         >
 
+
             <div class="api-status-row">
+
 
                 <div
                     id="production-status-icon"
@@ -2209,8 +4067,11 @@ input{
 
 
                 <div id="production-status-text">
+
                     Preparing production forecast...
+
                 </div>
+
 
             </div>
 
@@ -2219,6 +4080,7 @@ input{
                 id="production-job-text"
                 class="api-job"
             ></div>
+
 
         </div>
 
@@ -2239,9 +4101,11 @@ input{
         <div class="agent-grid">
 
 
-            <!-- PRODUCTION AGENT 1 -->
+
+            <!-- AGENT 1 -->
 
             <article class="agent-card">
+
 
                 <div class="agent-card-top">
 
@@ -2249,17 +4113,21 @@ input{
                         01
                     </span>
 
+
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-location-dot"></i>
 
                     </div>
 
+
                 </div>
 
 
                 <h3>
+
                     Spatial / Formation / Geometry Agent
+
                 </h3>
 
 
@@ -2283,13 +4151,15 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- PRODUCTION AGENT 2 -->
+            <!-- AGENT 2 -->
 
             <article class="agent-card">
+
 
                 <div class="agent-card-top">
 
@@ -2297,11 +4167,13 @@ input{
                         02
                     </span>
 
+
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-filter"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2331,13 +4203,15 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- PRODUCTION AGENT 3 -->
+            <!-- AGENT 3 -->
 
             <article class="agent-card">
+
 
                 <div class="agent-card-top">
 
@@ -2345,11 +4219,13 @@ input{
                         03
                     </span>
 
+
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-chart-line"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2379,13 +4255,15 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- PRODUCTION AGENT 4 -->
+            <!-- AGENT 4 -->
 
             <article class="agent-card">
+
 
                 <div class="agent-card-top">
 
@@ -2393,11 +4271,13 @@ input{
                         04
                     </span>
 
+
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-brain"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2427,13 +4307,15 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- PRODUCTION AGENT 5 -->
+            <!-- AGENT 5 -->
 
             <article class="agent-card">
+
 
                 <div class="agent-card-top">
 
@@ -2441,11 +4323,13 @@ input{
                         05
                     </span>
 
+
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-layer-group"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2475,6 +4359,7 @@ input{
 
                 </div>
 
+
             </article>
 
 
@@ -2482,7 +4367,9 @@ input{
 
 
 
-        <!-- DOWNLOADS -->
+        <!-- =====================================================
+             DOWNLOADS
+        ===================================================== -->
 
         <div
             id="production-downloads"
@@ -2503,6 +4390,7 @@ input{
             </button>
 
 
+
             <button
                 id="production-csv-btn"
                 class="download-btn secondary"
@@ -2514,6 +4402,7 @@ input{
                 Download Forecast CSV
 
             </button>
+
 
 
             <button
@@ -2534,6 +4423,7 @@ input{
 
     </div>
 
+
 </section>
 
 
@@ -2547,10 +4437,13 @@ input{
     id="induced-seismicity-intelligence"
 >
 
+
     <div class="intel-shell">
 
 
+
         <div class="intel-heading">
+
 
             <span class="intel-eyebrow">
 
@@ -2576,6 +4469,7 @@ input{
 
             </p>
 
+
         </div>
 
 
@@ -2585,45 +4479,84 @@ input{
 
             <div class="query-copy">
 
+
                 <span>
                     RUN SEISMIC RISK INTELLIGENCE
                 </span>
 
+
                 <strong>
+
                     Enter a well location to start the
                     seismicity agent workflow
+
                 </strong>
 
+
             </div>
+
 
 
             <div class="query-controls">
 
 
-                <label class="input-wrap">
+
+                <label class="input-wrap coordinate-input">
+
 
                     <i class="fa-solid fa-location-crosshairs"></i>
 
-                    <input
-                        type="number"
-                        step="any"
-                        placeholder="Well Latitude"
-                    >
+
+                    <div class="coordinate-field">
+
+                        <span>
+                            LATITUDE
+                        </span>
+
+
+                        <input
+                            type="text"
+                            inputmode="text"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="31.9686"
+                        >
+
+                    </div>
+
 
                 </label>
 
 
-                <label class="input-wrap">
+
+                <label class="input-wrap coordinate-input">
+
 
                     <i class="fa-solid fa-location-dot"></i>
 
-                    <input
-                        type="number"
-                        step="any"
-                        placeholder="Well Longitude"
-                    >
+
+                    <div class="coordinate-field">
+
+                        <span>
+                            LONGITUDE
+                        </span>
+
+
+                        <input
+                            type="text"
+                            inputmode="text"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="-102.0779"
+                        >
+
+                    </div>
+
 
                 </label>
+
 
 
                 <button
@@ -2639,6 +4572,7 @@ input{
 
 
             </div>
+
 
         </div>
 
@@ -2659,21 +4593,24 @@ input{
         <div class="agent-grid">
 
 
-            <!-- SEISMIC AGENT 1 -->
 
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         01
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-map-location-dot"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2703,25 +4640,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SEISMIC AGENT 2 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         02
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-chart-line"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2751,25 +4691,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SEISMIC AGENT 3 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         03
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-clock-rotate-left"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2799,25 +4742,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SEISMIC AGENT 4 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         04
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-brain"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2847,25 +4793,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SEISMIC AGENT 5 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         05
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-triangle-exclamation"></i>
 
                     </div>
+
 
                 </div>
 
@@ -2896,6 +4845,7 @@ input{
 
                 </div>
 
+
             </article>
 
 
@@ -2904,6 +4854,7 @@ input{
 
 
         <div class="download-wrap">
+
 
             <button
                 class="download-btn"
@@ -2916,10 +4867,12 @@ input{
 
             </button>
 
+
         </div>
 
 
     </div>
+
 
 </section>
 
@@ -2934,10 +4887,13 @@ input{
     id="swd-injection-intelligence"
 >
 
+
     <div class="intel-shell">
 
 
+
         <div class="intel-heading">
+
 
             <span class="intel-eyebrow">
 
@@ -2963,6 +4919,7 @@ input{
 
             </p>
 
+
         </div>
 
 
@@ -2972,45 +4929,84 @@ input{
 
             <div class="query-copy">
 
+
                 <span>
                     RUN SWD INJECTION INTELLIGENCE
                 </span>
 
+
                 <strong>
+
                     Enter a well location to start
                     the SWD agent workflow
+
                 </strong>
 
+
             </div>
+
 
 
             <div class="query-controls">
 
 
-                <label class="input-wrap">
+
+                <label class="input-wrap coordinate-input">
+
 
                     <i class="fa-solid fa-location-crosshairs"></i>
 
-                    <input
-                        type="number"
-                        step="any"
-                        placeholder="Well Latitude"
-                    >
+
+                    <div class="coordinate-field">
+
+                        <span>
+                            LATITUDE
+                        </span>
+
+
+                        <input
+                            type="text"
+                            inputmode="text"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="31.9686"
+                        >
+
+                    </div>
+
 
                 </label>
 
 
-                <label class="input-wrap">
+
+                <label class="input-wrap coordinate-input">
+
 
                     <i class="fa-solid fa-location-dot"></i>
 
-                    <input
-                        type="number"
-                        step="any"
-                        placeholder="Well Longitude"
-                    >
+
+                    <div class="coordinate-field">
+
+                        <span>
+                            LONGITUDE
+                        </span>
+
+
+                        <input
+                            type="text"
+                            inputmode="text"
+                            autocomplete="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                            placeholder="-102.0779"
+                        >
+
+                    </div>
+
 
                 </label>
+
 
 
                 <button
@@ -3026,6 +5022,7 @@ input{
 
 
             </div>
+
 
         </div>
 
@@ -3046,21 +5043,24 @@ input{
         <div class="agent-grid">
 
 
-            <!-- SWD AGENT 1 -->
 
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         01
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-water"></i>
 
                     </div>
+
 
                 </div>
 
@@ -3090,25 +5090,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SWD AGENT 2 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         02
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-layer-group"></i>
 
                     </div>
+
 
                 </div>
 
@@ -3139,25 +5142,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SWD AGENT 3 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         03
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-wave-square"></i>
 
                     </div>
+
 
                 </div>
 
@@ -3187,25 +5193,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SWD AGENT 4 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         04
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-robot"></i>
 
                     </div>
+
 
                 </div>
 
@@ -3235,25 +5244,28 @@ input{
 
                 </div>
 
+
             </article>
 
 
 
-            <!-- SWD AGENT 5 -->
-
             <article class="agent-card">
 
+
                 <div class="agent-card-top">
+
 
                     <span class="agent-number">
                         05
                     </span>
+
 
                     <div class="agent-icon">
 
                         <i class="fa-solid fa-shield-halved"></i>
 
                     </div>
+
 
                 </div>
 
@@ -3284,6 +5296,7 @@ input{
 
                 </div>
 
+
             </article>
 
 
@@ -3292,6 +5305,7 @@ input{
 
 
         <div class="download-wrap">
+
 
             <button
                 class="download-btn"
@@ -3304,10 +5318,12 @@ input{
 
             </button>
 
+
         </div>
 
 
     </div>
+
 
 </section>
 
@@ -3328,14 +5344,177 @@ input{
 
 <script>
 
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const mobileMenuBtn =
+    document.getElementById(
+        "mobile-menu-btn"
+    );
+
+
+const navLinks =
+    document.getElementById(
+        "nav-links"
+    );
+
+
+function closeMobileMenu(){
+
+    if(
+        !mobileMenuBtn ||
+        !navLinks
+    ){
+        return;
+    }
+
+
+    navLinks
+        .classList
+        .remove("open");
+
+
+    mobileMenuBtn
+        .classList
+        .remove("active");
+
+
+    mobileMenuBtn
+        .setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+    mobileMenuBtn.innerHTML =
+        '<i class="fa-solid fa-bars"></i>';
+
+}
+
+
+if(
+    mobileMenuBtn &&
+    navLinks
+){
+
+    mobileMenuBtn
+        .addEventListener(
+            "click",
+            event=>{
+
+                event.stopPropagation();
+
+
+                const isOpen =
+                    navLinks
+                    .classList
+                    .toggle("open");
+
+
+                mobileMenuBtn
+                    .classList
+                    .toggle(
+                        "active",
+                        isOpen
+                    );
+
+
+                mobileMenuBtn
+                    .setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+
+
+                mobileMenuBtn.innerHTML =
+                    isOpen
+
+                    ? '<i class="fa-solid fa-xmark"></i>'
+
+                    : '<i class="fa-solid fa-bars"></i>';
+
+            }
+        );
+
+
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach(
+
+            link=>{
+
+                link.addEventListener(
+                    "click",
+                    closeMobileMenu
+                );
+
+            }
+
+        );
+
+
+
+    document
+        .addEventListener(
+            "click",
+            event=>{
+
+                if(
+                    window.innerWidth > 620
+                ){
+                    return;
+                }
+
+
+                if(
+                    !navLinks.contains(event.target) &&
+                    !mobileMenuBtn.contains(event.target)
+                ){
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+
+
+    window
+        .addEventListener(
+            "resize",
+            ()=>{
+
+                if(
+                    window.innerWidth > 620
+                ){
+
+                    closeMobileMenu();
+
+                }
+
+            }
+        );
+
+}
+
+
+
 /* =========================================================
    HERO IMAGE SLIDER
 ========================================================= */
 
 let currentSlide = 0;
 
+
 const slides =
-    document.querySelectorAll(".slide");
+    document.querySelectorAll(
+        ".slide"
+    );
+
 
 const dots =
     document.querySelectorAll(
@@ -3345,46 +5524,60 @@ const dots =
 
 function showSlide(index){
 
+
     slides.forEach(
+
         (slide,i)=>{
 
-            slide.classList.toggle(
-                "active",
-                i === index
-            );
+            slide
+                .classList
+                .toggle(
+                    "active",
+                    i === index
+                );
 
         }
+
     );
 
 
     dots.forEach(
+
         (dot,i)=>{
 
-            dot.classList.toggle(
-                "active",
-                i === index
-            );
+            dot
+                .classList
+                .toggle(
+                    "active",
+                    i === index
+                );
 
         }
+
     );
 
 
-    currentSlide = index;
+    currentSlide =
+        index;
 
 }
 
 
 function nextSlide(){
 
+
     currentSlide++;
 
+
     if(
-        currentSlide >= slides.length
+        currentSlide >=
+        slides.length
     ){
 
         currentSlide = 0;
 
     }
+
 
     showSlide(
         currentSlide
@@ -3399,23 +5592,32 @@ if(
 
     showSlide(0);
 
+
     setInterval(
+
         nextSlide,
+
         3500
+
     );
 
 }
 
 
 dots.forEach(
+
     (dot,index)=>{
 
         dot.addEventListener(
+
             "click",
+
             ()=>showSlide(index)
+
         );
 
     }
+
 );
 
 
@@ -3425,17 +5627,20 @@ dots.forEach(
 ========================================================= */
 
 /*
+
     CURRENT LIVE QUICK TUNNEL
 
-    When Colab is restarted this URL
-    may change.
+    When Colab is restarted
+    this URL may change.
 
-    Production target later:
+    Future production target:
 
     https://api.basinagentic.com
+
 */
 
 const BASINAGENTIC_API_BASE =
+
     "https://excitement-data-chairman-follow.trycloudflare.com";
 
 
@@ -3444,72 +5649,87 @@ const BASINAGENTIC_API_BASE =
    PRODUCTION VARIABLES
 ========================================================= */
 
-let productionJobId = null;
+let productionJobId =
+    null;
 
-let productionPollTimer = null;
+
+let productionPollTimer =
+    null;
+
 
 
 const productionLat =
+
     document.getElementById(
         "production-latitude"
     );
 
 
 const productionLon =
+
     document.getElementById(
         "production-longitude"
     );
 
 
 const productionGenerateBtn =
+
     document.getElementById(
         "production-generate-btn"
     );
 
 
 const productionStatusPanel =
+
     document.getElementById(
         "production-api-status"
     );
 
 
 const productionStatusIcon =
+
     document.getElementById(
         "production-status-icon"
     );
 
 
 const productionStatusText =
+
     document.getElementById(
         "production-status-text"
     );
 
 
 const productionJobText =
+
     document.getElementById(
         "production-job-text"
     );
 
 
 const productionDownloads =
+
     document.getElementById(
         "production-downloads"
     );
 
 
 const productionPdfBtn =
+
     document.getElementById(
         "production-pdf-btn"
     );
 
 
 const productionCsvBtn =
+
     document.getElementById(
         "production-csv-btn"
     );
 
 
 const productionPackageBtn =
+
     document.getElementById(
         "production-package-btn"
     );
@@ -3525,6 +5745,7 @@ function setProductionStatus(
     message,
     jobText = ""
 ){
+
 
     productionStatusPanel
         .classList
@@ -3545,6 +5766,7 @@ function setProductionStatus(
 
 
         productionStatusIcon.innerHTML =
+
             '<i class="fa-solid fa-check"></i>';
 
     }
@@ -3560,6 +5782,7 @@ function setProductionStatus(
 
 
         productionStatusIcon.innerHTML =
+
             '<i class="fa-solid fa-xmark"></i>';
 
     }
@@ -3567,7 +5790,8 @@ function setProductionStatus(
 
     else{
 
-        productionStatusIcon.innerHTML = "";
+        productionStatusIcon.innerHTML =
+            "";
 
     }
 
@@ -3584,6 +5808,80 @@ function setProductionStatus(
 
 
 /* =========================================================
+   MOBILE-SAFE COORDINATE PARSER
+========================================================= */
+
+function parseCoordinate(value){
+
+
+    if(
+        value === undefined ||
+        value === null
+    ){
+
+        return NaN;
+
+    }
+
+
+    let cleaned =
+        String(value)
+        .trim()
+
+        /*
+            Allow users to enter
+            comma or dot decimals.
+        */
+
+        .replace(
+            /,/g,
+            "."
+        )
+
+        /*
+            Convert common mobile
+            minus characters to normal -
+        */
+
+        .replace(
+            /[−–—]/g,
+            "-"
+        )
+
+        /*
+            Remove spaces.
+        */
+
+        .replace(
+            /\s+/g,
+            ""
+        );
+
+
+    /*
+        A coordinate should contain:
+        optional -
+        numbers
+        optional decimal
+    */
+
+    if(
+        !/^-?\d+(\.\d+)?$/
+        .test(cleaned)
+    ){
+
+        return NaN;
+
+    }
+
+
+    return Number(cleaned);
+
+}
+
+
+
+/* =========================================================
    COORDINATE VALIDATION
 ========================================================= */
 
@@ -3592,13 +5890,16 @@ function validateProductionCoordinates(
     lon
 ){
 
+
     if(
         !Number.isFinite(lat) ||
         !Number.isFinite(lon)
     ){
 
         throw new Error(
+
             "Please enter valid latitude and longitude values."
+
         );
 
     }
@@ -3610,7 +5911,9 @@ function validateProductionCoordinates(
     ){
 
         throw new Error(
+
             "Latitude must be between -90 and 90."
+
         );
 
     }
@@ -3622,7 +5925,9 @@ function validateProductionCoordinates(
     ){
 
         throw new Error(
+
             "Longitude must be between -180 and 180."
+
         );
 
     }
@@ -3637,14 +5942,15 @@ function validateProductionCoordinates(
 
 async function generateProductionForecast(){
 
+
     const lat =
-        Number(
+        parseCoordinate(
             productionLat.value
         );
 
 
     const lon =
-        Number(
+        parseCoordinate(
             productionLon.value
         );
 
@@ -3656,6 +5962,21 @@ async function generateProductionForecast(){
             lat,
             lon
         );
+
+
+
+        /*
+            Normalize values in the inputs
+            after validation.
+        */
+
+        productionLat.value =
+            lat;
+
+
+        productionLon.value =
+            lon;
+
 
 
         if(
@@ -3673,8 +5994,10 @@ async function generateProductionForecast(){
         }
 
 
+
         productionJobId =
             null;
+
 
 
         productionDownloads
@@ -3682,13 +6005,16 @@ async function generateProductionForecast(){
             .remove("show");
 
 
+
         productionGenerateBtn.disabled =
             true;
+
 
 
         productionGenerateBtn.innerHTML =
 
             '<i class="fa-solid fa-spinner fa-spin"></i> Starting Forecast';
+
 
 
         setProductionStatus(
@@ -3760,7 +6086,9 @@ async function generateProductionForecast(){
         ){
 
             throw new Error(
+
                 "API did not return a job_id."
+
             );
 
         }
@@ -4008,6 +6336,7 @@ async function pollProductionStatus(){
             "Production agents are running. Building the complete forecast report...";
 
 
+
         if(
             status === "queued"
         ){
@@ -4170,6 +6499,7 @@ if(
     }
 
 );
+
 
 </script>
 
