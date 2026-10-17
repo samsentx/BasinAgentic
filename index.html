@@ -6,13 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="BasinAgentic Autonomous Basin Intelligence Platform">
 <title>BasinAgentic | Autonomous Basin Intelligence Platform</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-/* =====================================================
-   GLOBAL
-===================================================== */
+/* ================= GLOBAL ================= */
 :root {
   --navy:#071a33;
   --blue:#174ea6;
@@ -23,34 +20,26 @@
   --muted:#334761;
   --pad:clamp(16px,3vw,52px);
 }
-
 * { box-sizing:border-box; }
-
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:94px;
-}
-
+html { scroll-behavior:smooth;scroll-padding-top:134px; }
 body {
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:#eef4ff;
   color:var(--ink);
 }
-
 a { text-decoration:none; }
 button,input { font:inherit; }
 button { cursor:pointer; }
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* ================= NAVIGATION ================= */
 .navbar {
-  height:84px;
+  height:auto;
+  min-height:124px;
   position:sticky;
   top:0;
   z-index:1000;
-  padding:6px var(--pad);
+  padding:12px var(--pad);
   background:#fff;
   box-shadow:0 7px 25px #09234417;
   display:flex;
@@ -58,21 +47,26 @@ button { cursor:pointer; }
   justify-content:space-between;
   gap:20px;
 }
-
+.logo {
+  display:flex;
+  align-items:center;
+  min-width:0;
+  flex-shrink:0;
+}
 .logo img {
   display:block;
   width:390px;
   max-width:29vw;
+  max-height:100px;
   height:auto;
+  object-fit:contain;
 }
-
 .nav-links {
   display:flex;
   align-items:center;
   justify-content:flex-end;
   gap:5px;
 }
-
 .nav-links a {
   color:var(--navy);
   padding:13px 11px;
@@ -82,16 +76,11 @@ button { cursor:pointer; }
   white-space:nowrap;
   transition:.2s;
 }
-
 .nav-links a:hover {
   background:#e9f1ff;
   color:#174ea6;
 }
-
-.nav-links .nav-contact:hover {
-  color:#d7190f;
-}
-
+.nav-links .nav-contact:hover { color:#d7190f; }
 .nav-links .nav-login {
   margin-left:4px;
   padding:14px 19px;
@@ -99,9 +88,7 @@ button { cursor:pointer; }
   background:linear-gradient(120deg,#071a33,#2563eb);
   box-shadow:0 6px 20px #174ea62b;
 }
-
 .nav-login i { margin-right:8px; }
-
 .mobile-menu-btn {
   display:none;
   flex:0 0 46px;
@@ -114,45 +101,25 @@ button { cursor:pointer; }
   font-size:20px;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 .hero {
   position:relative;
   overflow:hidden;
   padding:28px var(--pad) 38px;
   background:
-    radial-gradient(
-      circle at 7% 15%,
-      #2563eb38,
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 96% 16%,
-      #ff551a35,
-      transparent 38%
-    ),
-    linear-gradient(
-      105deg,
-      #e6f0ff,
-      #fff 47%,
-      #fff0e7
-    );
+    radial-gradient(circle at 7% 15%,#2563eb38,transparent 38%),
+    radial-gradient(circle at 96% 16%,#ff551a35,transparent 38%),
+    linear-gradient(105deg,#e6f0ff,#fff 47%,#fff0e7);
 }
-
 .hero-inner {
   max-width:1820px;
   margin:auto;
   display:grid;
-  grid-template-columns:
-    minmax(0,.96fr)
-    minmax(0,1.16fr);
+  grid-template-columns:minmax(0,.96fr) minmax(0,1.16fr);
   gap:clamp(25px,3vw,56px);
   align-items:center;
 }
-
 .hero-copy { min-width:0; }
-
 .hero-kicker {
   display:inline-flex;
   align-items:center;
@@ -165,7 +132,6 @@ button { cursor:pointer; }
   font-weight:900;
   letter-spacing:.08em;
 }
-
 .hero-kicker span {
   height:9px;
   width:9px;
@@ -173,7 +139,6 @@ button { cursor:pointer; }
   border-radius:50%;
   box-shadow:0 0 0 4px #ff4d0027;
 }
-
 .hero h1 {
   font-size:clamp(50px,4.7vw,78px);
   line-height:1.03;
@@ -181,27 +146,18 @@ button { cursor:pointer; }
   margin:18px 0 16px;
   font-weight:900;
 }
-
 .hero h1 .agentic {
   display:block;
-  background:linear-gradient(
-    90deg,
-    #174ea6 0%,
-    #2563eb 40%,
-    #d7190f 78%,
-    #ff4d00
-  );
+  background:linear-gradient(90deg,#174ea6 0%,#2563eb 40%,#d7190f 78%,#ff4d00);
   color:transparent;
   background-clip:text;
   -webkit-background-clip:text;
 }
-
 .hero h1 .basin {
   display:block;
   font-size:.87em;
   color:#071a33;
 }
-
 .hero-subtitle {
   font-size:clamp(18px,1.2vw,22px);
   line-height:1.5;
@@ -209,14 +165,12 @@ button { cursor:pointer; }
   margin:0 0 17px;
   max-width:760px;
 }
-
 .domain-pills {
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   margin-bottom:20px;
 }
-
 .domain-pills a {
   display:inline-flex;
   align-items:center;
@@ -230,15 +184,12 @@ button { cursor:pointer; }
   color:var(--blue);
   border:1px solid #c5d7fa;
 }
-
 .domain-pills a:nth-child(2) {
   color:var(--red);
   border-color:#ffc6b7;
 }
 
-/* =====================================================
-   HERO AGENT SUMMARY
-===================================================== */
+/* ================= HERO AGENTS ================= */
 .hero-agent-summary-title {
   display:flex;
   align-items:baseline;
@@ -246,23 +197,19 @@ button { cursor:pointer; }
   gap:7px 10px;
   margin-bottom:10px;
 }
-
 .hero-agent-summary-title strong {
   font-size:18px;
   font-weight:900;
 }
-
 .hero-agent-summary-title small {
   font-size:12.5px;
   color:#54647d;
   font-weight:650;
 }
-
 .hero-agent-panels {
   display:grid;
   gap:9px;
 }
-
 .hero-agent-panel {
   position:relative;
   overflow:hidden;
@@ -272,7 +219,6 @@ button { cursor:pointer; }
   padding:13px 17px 13px 19px;
   box-shadow:0 9px 23px #0923440b;
 }
-
 .hero-agent-panel:before {
   content:"";
   position:absolute;
@@ -280,18 +226,15 @@ button { cursor:pointer; }
   width:5px;
   background:linear-gradient(#174ea6,#2563eb);
 }
-
 .hero-agent-panel.swd:before {
   background:linear-gradient(#d7190f,#ff4d00);
 }
-
 .hero-agent-panel-head {
   display:flex;
   align-items:center;
   gap:10px;
   margin-bottom:5px;
 }
-
 .hero-agent-panel-head i {
   height:29px;
   width:29px;
@@ -302,16 +245,13 @@ button { cursor:pointer; }
   font-size:13px;
   color:white;
 }
-
 .hero-agent-panel.swd i {
   background:linear-gradient(135deg,#d7190f,#ff4d00);
 }
-
 .hero-agent-panel-head strong {
   font-size:14px;
   color:var(--navy);
 }
-
 .hero-agent-panel p {
   margin:0;
   font-size:12.6px;
@@ -320,9 +260,7 @@ button { cursor:pointer; }
   font-weight:600;
 }
 
-/* =====================================================
-   HERO SLIDER
-===================================================== */
+/* ================= HERO SLIDER ================= */
 .hero-slider {
   position:relative;
   width:100%;
@@ -331,11 +269,8 @@ button { cursor:pointer; }
   overflow:hidden;
   background:#fff;
   border:1px solid #071a3329;
-  box-shadow:
-    0 23px 58px #071a332b,
-    0 0 0 7px #ffffff7a;
+  box-shadow:0 23px 58px #071a332b,0 0 0 7px #ffffff7a;
 }
-
 .slide {
   position:absolute;
   inset:0;
@@ -343,19 +278,13 @@ button { cursor:pointer; }
   pointer-events:none;
   transition:opacity 1s ease;
 }
-
-.slide.active {
-  opacity:1;
-  pointer-events:auto;
-}
-
+.slide.active { opacity:1;pointer-events:auto; }
 .slide img {
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
-
 .slider-dots {
   position:absolute;
   z-index:5;
@@ -368,7 +297,6 @@ button { cursor:pointer; }
   border-radius:30px;
   background:#071a33a8;
 }
-
 .dot {
   height:12px;
   width:12px;
@@ -377,82 +305,37 @@ button { cursor:pointer; }
   border:1px solid #fff;
   background:#ffffffa0;
 }
-
 .dot.active {
   background:var(--orange);
   border-color:var(--orange);
 }
 
-/* =====================================================
-   INTELLIGENCE SECTIONS
-===================================================== */
-.intel-section {
-  padding:35px var(--pad) 49px;
-}
-
+/* ================= INTELLIGENCE SECTIONS ================= */
+.intel-section { padding:35px var(--pad) 49px; }
 #production-intelligence {
   background:
-    radial-gradient(
-      circle at 3% 3%,
-      #0089ff3e,
-      transparent 36%
-    ),
-    linear-gradient(
-      135deg,
-      #e1f1ff,
-      #f4f8ff 46%,
-      #e4e9ff
-    );
+    radial-gradient(circle at 3% 3%,#0089ff3e,transparent 36%),
+    linear-gradient(135deg,#e1f1ff,#f4f8ff 46%,#e4e9ff);
 }
-
 #swd-injection-intelligence {
   background:
-    radial-gradient(
-      circle at 4% 6%,
-      #ff582447,
-      transparent 38%
-    ),
-    linear-gradient(
-      130deg,
-      #fff0e9,
-      #fff9f3 50%,
-      #ffe8dc
-    );
+    radial-gradient(circle at 4% 6%,#ff582447,transparent 38%),
+    linear-gradient(130deg,#fff0e9,#fff9f3 50%,#ffe8dc);
 }
-
-.intel-shell {
-  max-width:1820px;
-  margin:0 auto;
-}
-
-/* =====================================================
-   SECTION HEADERS
-===================================================== */
+.intel-shell { max-width:1820px;margin:0 auto; }
 .intel-heading {
   position:relative;
   overflow:hidden;
   margin:0 0 17px;
   padding:25px clamp(25px,3vw,55px) 23px;
   border-radius:27px;
-  background:linear-gradient(
-    108deg,
-    #071a33,
-    #1247b3 63%,
-    #2685ee
-  );
+  background:linear-gradient(108deg,#071a33,#1247b3 63%,#2685ee);
   box-shadow:0 14px 36px #091c4124;
   color:white;
 }
-
 #swd-injection-intelligence .intel-heading {
-  background:linear-gradient(
-    108deg,
-    #6c1525,
-    #d52618 52%,
-    #ff742b
-  );
+  background:linear-gradient(108deg,#6c1525,#d52618 52%,#ff742b);
 }
-
 .intel-heading:after {
   content:"";
   position:absolute;
@@ -462,12 +345,9 @@ button { cursor:pointer; }
   width:390px;
   border:1px solid #ffffff45;
   border-radius:50%;
-  box-shadow:
-    0 0 0 54px #ffffff0e,
-    0 0 0 120px #ffffff09;
+  box-shadow:0 0 0 54px #ffffff0e,0 0 0 120px #ffffff09;
   pointer-events:none;
 }
-
 .intel-eyebrow {
   position:relative;
   z-index:1;
@@ -483,7 +363,6 @@ button { cursor:pointer; }
   font-weight:900;
   letter-spacing:.07em;
 }
-
 .intel-heading h2 {
   position:relative;
   z-index:1;
@@ -494,11 +373,9 @@ button { cursor:pointer; }
   font-weight:900;
   text-wrap:balance;
 }
-
 #swd-injection-intelligence .intel-heading h2 {
   font-size:clamp(34px,3vw,57px);
 }
-
 .intel-heading p {
   position:relative;
   z-index:1;
@@ -510,9 +387,7 @@ button { cursor:pointer; }
   margin:0;
 }
 
-/* =====================================================
-   QUERY PANEL
-===================================================== */
+/* ================= QUERY PANEL ================= */
 .query-panel {
   display:flex;
   align-items:center;
@@ -525,16 +400,8 @@ button { cursor:pointer; }
   background:#fff;
   box-shadow:0 11px 32px #0c254e21;
 }
-
-#swd-injection-intelligence .query-panel {
-  border-color:#ec572b4d;
-}
-
-.query-copy {
-  flex:0 1 34%;
-  min-width:250px;
-}
-
+#swd-injection-intelligence .query-panel { border-color:#ec572b4d; }
+.query-copy { flex:0 1 34%;min-width:250px; }
 .query-copy>span {
   color:#bc5915;
   font-size:clamp(12px,.8vw,14px);
@@ -542,7 +409,6 @@ button { cursor:pointer; }
   font-weight:900;
   display:block;
 }
-
 .query-copy strong {
   display:block;
   margin-top:5px;
@@ -550,19 +416,14 @@ button { cursor:pointer; }
   font-size:clamp(16px,1vw,19px);
   line-height:1.35;
 }
-
 .query-controls {
   flex:1;
   min-width:0;
   display:grid;
-  grid-template-columns:
-    minmax(115px,1fr)
-    minmax(115px,1fr)
-    auto;
+  grid-template-columns:minmax(115px,1fr) minmax(115px,1fr) auto;
   gap:11px;
   align-items:center;
 }
-
 .input-wrap {
   min-width:0;
   min-height:62px;
@@ -574,17 +435,14 @@ button { cursor:pointer; }
   border-radius:15px;
   background:#f3f8ff;
 }
-
 #swd-injection-intelligence .input-wrap {
   border-color:#ffd5c7;
   background:#fff7f3;
 }
-
 .input-wrap:focus-within {
   border-color:var(--blue2);
   box-shadow:0 0 0 3px #2563eb1e;
 }
-
 .coordinate-input>i {
   height:42px;
   width:42px;
@@ -596,25 +454,21 @@ button { cursor:pointer; }
   color:white;
   font-size:18px;
 }
-
 #swd-injection-intelligence .coordinate-input>i {
   background:linear-gradient(135deg,#d7190f,#ff4d00);
 }
-
 .coordinate-field {
   min-width:0;
   display:flex;
   flex-direction:column;
   width:100%;
 }
-
 .coordinate-field span {
   font-size:clamp(11px,.72vw,13px);
   color:#52647d;
   font-weight:900;
   letter-spacing:.07em;
 }
-
 .coordinate-field input {
   width:100%;
   border:0;
@@ -624,14 +478,9 @@ button { cursor:pointer; }
   font-size:clamp(19px,1.1vw,22px);
   font-weight:800;
 }
+.coordinate-field input::placeholder { color:#879bb4; }
 
-.coordinate-field input::placeholder {
-  color:#879bb4;
-}
-
-/* =====================================================
-   ACTION BUTTONS
-===================================================== */
+/* ================= BUTTONS ================= */
 .primary-action {
   min-height:62px;
   border:0;
@@ -649,24 +498,14 @@ button { cursor:pointer; }
   box-shadow:0 9px 20px #14489a2b;
   transition:transform .2s;
 }
-
 #swd-injection-intelligence .primary-action {
   background:linear-gradient(135deg,#d7190f,#ff4d00);
   box-shadow:0 9px 20px #c439133b;
 }
+.primary-action:hover:not(:disabled) { transform:translateY(-2px); }
+.primary-action:disabled { opacity:.65;cursor:wait; }
 
-.primary-action:hover:not(:disabled) {
-  transform:translateY(-2px);
-}
-
-.primary-action:disabled {
-  opacity:.65;
-  cursor:wait;
-}
-
-/* =====================================================
-   API STATUS
-===================================================== */
+/* ================= API STATUS ================= */
 .api-status-panel {
   display:none;
   margin:0 0 15px;
@@ -675,9 +514,7 @@ button { cursor:pointer; }
   border:2px solid #bdd7ff;
   background:white;
 }
-
 .api-status-panel.show { display:block; }
-
 .api-status-row {
   display:flex;
   align-items:center;
@@ -685,7 +522,6 @@ button { cursor:pointer; }
   font-size:16px;
   font-weight:800;
 }
-
 .api-spinner {
   width:20px;
   height:20px;
@@ -695,13 +531,8 @@ button { cursor:pointer; }
   border-radius:50%;
   animation:spin .8s linear infinite;
 }
-
-@keyframes spin {
-  to { transform:rotate(360deg); }
-}
-
-.api-spinner.done,
-.api-spinner.error {
+@keyframes spin { to { transform:rotate(360deg); } }
+.api-spinner.done,.api-spinner.error {
   border:0;
   animation:none;
   display:grid;
@@ -709,17 +540,8 @@ button { cursor:pointer; }
   width:22px;
   height:22px;
 }
-
-.api-spinner.done {
-  color:#188044;
-  background:#dcfce7;
-}
-
-.api-spinner.error {
-  color:#b91c1c;
-  background:#fee2e2;
-}
-
+.api-spinner.done { color:#188044;background:#dcfce7; }
+.api-spinner.error { color:#b91c1c;background:#fee2e2; }
 .api-job {
   margin-top:7px;
   color:#52647d;
@@ -727,16 +549,13 @@ button { cursor:pointer; }
   overflow-wrap:anywhere;
 }
 
-/* =====================================================
-   AGENT WORKFLOW
-===================================================== */
+/* ================= AGENT CARDS ================= */
 .workflow-label {
   display:flex;
   align-items:center;
   gap:12px;
   margin-bottom:11px;
 }
-
 .workflow-label span {
   font-size:13px;
   font-weight:900;
@@ -746,23 +565,17 @@ button { cursor:pointer; }
   border-radius:25px;
   padding:10px 14px;
 }
-
-#swd-injection-intelligence .workflow-label span {
-  background:#b62922;
-}
-
+#swd-injection-intelligence .workflow-label span { background:#b62922; }
 .workflow-label div {
   height:1px;
   flex:1;
   background:linear-gradient(90deg,#0f428566,transparent);
 }
-
 .agent-grid {
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:15px;
 }
-
 .agent-card {
   --accent:#225add;
   --tint:#e2edff;
@@ -775,15 +588,10 @@ button { cursor:pointer; }
   padding:21px 19px 17px;
   border-radius:20px;
   border:2px solid color-mix(in srgb,var(--accent) 24%,white);
-  background:linear-gradient(
-    165deg,
-    var(--tint),
-    #fff 43%
-  );
+  background:linear-gradient(165deg,var(--tint),#fff 43%);
   box-shadow:0 12px 25px #091c411a;
   transition:transform .2s,box-shadow .2s;
 }
-
 .agent-card::before {
   content:"";
   position:absolute;
@@ -793,71 +601,37 @@ button { cursor:pointer; }
   height:7px;
   background:var(--accent);
 }
+.agent-card:nth-child(1) { --accent:#225add;--tint:#e2edff; }
+.agent-card:nth-child(2) { --accent:#008c97;--tint:#def9fa; }
+.agent-card:nth-child(3) { --accent:#7b42cb;--tint:#f1e7ff; }
+.agent-card:nth-child(4) { --accent:#cd7412;--tint:#fff1d9; }
+.agent-card:nth-child(5) { --accent:#d02a57;--tint:#ffe5ee; }
 
-/* Production agent colors */
-.agent-card:nth-child(1) {
-  --accent:#225add;
-  --tint:#e2edff;
-}
-
-.agent-card:nth-child(2) {
-  --accent:#008c97;
-  --tint:#def9fa;
-}
-
-.agent-card:nth-child(3) {
-  --accent:#7b42cb;
-  --tint:#f1e7ff;
-}
-
-.agent-card:nth-child(4) {
-  --accent:#cd7412;
-  --tint:#fff1d9;
-}
-
-.agent-card:nth-child(5) {
-  --accent:#d02a57;
-  --tint:#ffe5ee;
-}
-
-/* SWD agent colors */
 #swd-injection-intelligence .agent-card:nth-child(1) {
-  --accent:#ce3142;
-  --tint:#ffe6eb;
+  --accent:#ce3142;--tint:#ffe6eb;
 }
-
 #swd-injection-intelligence .agent-card:nth-child(2) {
-  --accent:#e45b14;
-  --tint:#ffeadc;
+  --accent:#e45b14;--tint:#ffeadc;
 }
-
 #swd-injection-intelligence .agent-card:nth-child(3) {
-  --accent:#7b42cb;
-  --tint:#f0e7ff;
+  --accent:#7b42cb;--tint:#f0e7ff;
 }
-
 #swd-injection-intelligence .agent-card:nth-child(4) {
-  --accent:#1667b9;
-  --tint:#e2efff;
+  --accent:#1667b9;--tint:#e2efff;
 }
-
 #swd-injection-intelligence .agent-card:nth-child(5) {
-  --accent:#087d74;
-  --tint:#dffaf1;
+  --accent:#087d74;--tint:#dffaf1;
 }
-
 .agent-card:hover {
   transform:translateY(-5px);
   box-shadow:0 20px 38px #091c412b;
 }
-
 .agent-card-top {
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:14px;
 }
-
 .agent-number {
   display:grid;
   place-items:center;
@@ -870,7 +644,6 @@ button { cursor:pointer; }
   font-size:13px;
   font-weight:900;
 }
-
 .agent-icon {
   height:50px;
   width:50px;
@@ -882,7 +655,6 @@ button { cursor:pointer; }
   font-size:21px;
   box-shadow:0 9px 17px color-mix(in srgb,var(--accent) 23%,transparent);
 }
-
 .agent-card h3 {
   font-size:clamp(19px,1.24vw,24px);
   line-height:1.23;
@@ -890,7 +662,6 @@ button { cursor:pointer; }
   font-weight:900;
   color:#071a33;
 }
-
 .agent-card p {
   margin:0 0 13px;
   color:#334761;
@@ -898,7 +669,6 @@ button { cursor:pointer; }
   font-size:clamp(15.5px,1vw,18px);
   line-height:1.5;
 }
-
 .agent-footer {
   display:flex;
   align-items:center;
@@ -912,21 +682,16 @@ button { cursor:pointer; }
   font-size:clamp(12px,.83vw,15px);
 }
 
-/* =====================================================
-   DOWNLOAD BUTTONS
-===================================================== */
-.download-wrap,
-.production-downloads {
+/* ================= DOWNLOAD BUTTONS ================= */
+.download-wrap,.production-downloads {
   display:flex;
   justify-content:center;
   gap:12px;
   flex-wrap:wrap;
   margin-top:20px;
 }
-
 .production-downloads { display:none; }
 .production-downloads.show { display:flex; }
-
 .download-btn {
   display:inline-flex;
   align-items:center;
@@ -941,23 +706,16 @@ button { cursor:pointer; }
   font-size:clamp(15px,.96vw,18px);
   font-weight:900;
 }
-
 #swd-injection-intelligence .download-btn {
   background:linear-gradient(135deg,#d7190f,#ff4d00);
   box-shadow:0 13px 23px #ca43183d;
 }
-
 .production-downloads .secondary {
   background:linear-gradient(135deg,#0f2748,#174ea6);
 }
-
 .production-downloads .package {
   background:linear-gradient(135deg,#d7190f,#ff4d00);
 }
-
-/* =====================================================
-   FOOTER
-===================================================== */
 .footer {
   padding:19px var(--pad);
   text-align:center;
@@ -967,14 +725,9 @@ button { cursor:pointer; }
   font-weight:700;
 }
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* ================= RESPONSIVE ================= */
 @media(max-width:1450px) {
-  .agent-grid {
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
+  .agent-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
   .agent-card { min-height:275px; }
   .agent-card h3 { font-size:21px; }
   .agent-card p { font-size:16.5px; }
@@ -983,99 +736,52 @@ button { cursor:pointer; }
 
 @media(max-width:1300px) {
   .hero-inner { grid-template-columns:1fr; }
-
-  .hero-copy {
-    max-width:960px;
-    margin:auto;
-    text-align:center;
-  }
-
-  .hero-subtitle {
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .domain-pills,
-  .hero-agent-summary-title {
-    justify-content:center;
-  }
-
-  .hero-agent-summary {
-    text-align:left;
-    max-width:950px;
-    margin:auto;
-  }
-
-  .hero-visual {
-    width:100%;
-    max-width:1050px;
-    margin:auto;
-  }
-
-  .hero-slider {
-    height:clamp(390px,52vw,620px);
-  }
+  .hero-copy { max-width:960px;margin:auto;text-align:center; }
+  .hero-subtitle { margin-left:auto;margin-right:auto; }
+  .domain-pills,.hero-agent-summary-title { justify-content:center; }
+  .hero-agent-summary { text-align:left;max-width:950px;margin:auto; }
+  .hero-visual { width:100%;max-width:1050px;margin:auto; }
+  .hero-slider { height:clamp(390px,52vw,620px); }
 }
 
 @media(max-width:1100px) {
   .navbar {
     height:auto;
-    min-height:84px;
+    min-height:110px;
     flex-wrap:wrap;
     justify-content:center;
+    padding:12px var(--pad);
   }
-
   .logo img {
     max-width:370px;
+    max-height:94px;
     width:60vw;
   }
-
-  .nav-links {
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .query-panel {
-    flex-direction:column;
-    align-items:stretch;
-    gap:12px;
-  }
-
-  .query-copy {
-    min-width:0;
-    flex:auto;
-  }
-
+  .nav-links { flex-wrap:wrap;justify-content:center; }
+  .query-panel { flex-direction:column;align-items:stretch;gap:12px; }
+  .query-copy { min-width:0;flex:auto; }
   .query-controls { width:100%; }
-
   .intel-heading { text-align:center; }
-
   .intel-heading p { margin:auto; }
-
-  .agent-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+  .agent-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 
 @media(max-width:720px) {
-  html { scroll-padding-top:84px; }
-
+  html { scroll-padding-top:100px; }
   .navbar {
-    height:77px;
-    min-height:77px;
+    height:auto;
+    min-height:92px;
     display:grid;
     grid-template-columns:minmax(0,1fr) auto;
     gap:10px;
-    padding:8px 14px;
+    padding:11px 14px;
   }
-
   .logo img {
     width:min(290px,70vw);
     max-width:100%;
+    max-height:70px;
   }
-
   .mobile-menu-btn { display:block; }
-
   .nav-links {
     position:absolute;
     top:calc(100% + 7px);
@@ -1096,14 +802,12 @@ button { cursor:pointer; }
     transform:translateY(-9px);
     transition:.2s;
   }
-
   .nav-links.open {
     visibility:visible;
     opacity:1;
     pointer-events:auto;
     transform:translateY(0);
   }
-
   .nav-links a {
     width:100%;
     min-height:45px;
@@ -1111,76 +815,37 @@ button { cursor:pointer; }
     white-space:normal;
     background:#f1f6ff;
   }
-
   .nav-links .nav-login {
     margin:0;
     text-align:center;
     background:linear-gradient(120deg,#071a33,#2563eb);
   }
-
   .hero { padding:24px 16px 29px; }
-
-  .hero h1 {
-    font-size:clamp(38px,10vw,54px);
-  }
-
+  .hero h1 { font-size:clamp(38px,10vw,54px); }
   .hero-subtitle { font-size:17px; }
-
-  .hero-slider {
-    height:clamp(250px,64vw,380px);
-  }
-
+  .hero-slider { height:clamp(250px,64vw,380px); }
   .intel-section { padding:24px 14px 35px; }
-
   .intel-heading {
     padding:22px 18px;
     margin-bottom:13px;
     border-radius:19px;
   }
-
   .intel-heading h2,
   #swd-injection-intelligence .intel-heading h2 {
     font-size:clamp(29px,6.5vw,42px);
   }
-
   .intel-heading p { font-size:16px; }
-
-  .intel-eyebrow {
-    font-size:10px;
-    line-height:1.3;
-  }
-
+  .intel-eyebrow { font-size:10px;line-height:1.3; }
   .query-panel { padding:15px; }
-
-  .query-controls {
-    grid-template-columns:1fr;
-  }
-
-  .primary-action {
-    width:100%;
-    white-space:normal;
-  }
-
+  .query-controls { grid-template-columns:1fr; }
+  .primary-action { width:100%;white-space:normal; }
   .workflow-label span { font-size:11px; }
-
-  .agent-grid {
-    grid-template-columns:1fr;
-    gap:12px;
-  }
-
-  .agent-card {
-    min-height:0;
-    padding:19px;
-  }
-
+  .agent-grid { grid-template-columns:1fr;gap:12px; }
+  .agent-card { min-height:0;padding:19px; }
   .agent-card h3 { font-size:21px; }
   .agent-card p { font-size:16px; }
   .agent-footer { font-size:13px; }
-
-  .download-btn {
-    width:100%;
-    font-size:15px;
-  }
+  .download-btn { width:100%;font-size:15px; }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -1195,15 +860,11 @@ button { cursor:pointer; }
 
 <body>
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<!-- ================= NAVIGATION ================= -->
 <nav class="navbar" aria-label="Main navigation">
-
   <div class="logo">
     <img src="basinagentic_logo.png" alt="BasinAgentic Logo">
   </div>
-
   <button
     class="mobile-menu-btn"
     id="mobile-menu-btn"
@@ -1213,7 +874,6 @@ button { cursor:pointer; }
   >
     <i class="fa-solid fa-bars"></i>
   </button>
-
   <div class="nav-links" id="nav-links">
     <a href="#top">Platform</a>
     <a href="#production-intelligence">Production</a>
@@ -1221,83 +881,61 @@ button { cursor:pointer; }
     <a href="about.html">About</a>
     <a href="contact.html" class="nav-contact">Contact</a>
     <a href="login.html" class="nav-login">
-      <i class="fa-solid fa-user-lock"></i>
-      Sign In
+      <i class="fa-solid fa-user-lock"></i>Sign In
     </a>
   </div>
 </nav>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 <section class="hero" id="top">
 <div class="hero-inner">
-
   <div class="hero-copy">
-
     <div class="hero-kicker">
-      <span></span>
-      AGENTIC AI PLATFORM
+      <span></span>AGENTIC AI PLATFORM
     </div>
-
     <h1>
       <span class="agentic">AGENTIC AI</span>
       <span class="basin">FOR BASIN INTELLIGENCE</span>
     </h1>
-
     <p class="hero-subtitle">
       Transforming basin-scale data into predictive insights,
       risk-aware decisions, and autonomous operational intelligence.
     </p>
-
     <div class="domain-pills">
-      <a href="#production-intelligence">
-        Production Intelligence
-      </a>
+      <a href="#production-intelligence">Production Intelligence</a>
       <a href="#swd-injection-intelligence">
         SWD Injection &amp; Induced Seismicity Intelligence
       </a>
     </div>
-
     <div class="hero-agent-summary">
-
       <div class="hero-agent-summary-title">
         <strong>10 Specialized AI Agents</strong>
         <small>
-          Coordinated across production, SWD injection
-          and induced seismicity workflows
+          Coordinated across production, SWD injection and
+          induced seismicity workflows
         </small>
       </div>
-
       <div class="hero-agent-panels">
-
         <div class="hero-agent-panel production">
           <div class="hero-agent-panel-head">
             <i class="fa-solid fa-chart-line"></i>
             <strong>Production Agents</strong>
           </div>
           <p>
-            Spatial / Formation · Analog Selection ·
-            Decline-Curve · Transformer Forecasting ·
-            Ensemble &amp; Uncertainty
+            Spatial / Formation · Analog Selection · Decline-Curve ·
+            Transformer Forecasting · Ensemble &amp; Uncertainty
           </p>
         </div>
-
         <div class="hero-agent-panel swd">
           <div class="hero-agent-panel-head">
             <i class="fa-solid fa-droplet"></i>
-            <strong>
-              SWD Injection &amp; Induced Seismicity Agents
-            </strong>
+            <strong>SWD Injection &amp; Induced Seismicity Agents</strong>
           </div>
           <p>
-            Seismicity &amp; Faults · Injection ·
-            Geology &amp; Subsurface ·
-            Geomechanics &amp; Pressure ·
-            RRC Regulatory Compliance
+            Seismicity &amp; Faults · Injection · Geology &amp; Subsurface ·
+            Geomechanics &amp; Pressure · RRC Regulatory Compliance
           </p>
         </div>
-
       </div>
     </div>
   </div>
@@ -1305,35 +943,25 @@ button { cursor:pointer; }
   <!-- FIVE HERO IMAGES -->
   <div class="hero-visual">
     <div class="hero-slider" aria-label="BasinAgentic platform showcase">
-
       <div class="slide active">
         <img src="hero1.png" alt="Production Intelligence">
       </div>
-
       <div class="slide">
         <img src="hero2.png" alt="Seismicity Intelligence">
       </div>
-
       <div class="slide">
         <img src="hero3.png" alt="SWD and Induced Seismicity Intelligence">
       </div>
-
       <div class="slide">
-        <img
-          src="hero4.png"
-          onerror="this.onerror=null;this.src='hero1.png'"
-          alt="Platform image 4"
-        >
+        <img src="hero4.png"
+             onerror="this.onerror=null;this.src='hero1.png'"
+             alt="Platform image 4">
       </div>
-
       <div class="slide">
-        <img
-          src="hero5.png"
-          onerror="this.onerror=null;this.src='hero2.png'"
-          alt="Platform image 5"
-        >
+        <img src="hero5.png"
+             onerror="this.onerror=null;this.src='hero2.png'"
+             alt="Platform image 5">
       </div>
-
       <div class="slider-dots">
         <button class="dot active" aria-label="Slide 1"></button>
         <button class="dot" aria-label="Slide 2"></button>
@@ -1341,19 +969,14 @@ button { cursor:pointer; }
         <button class="dot" aria-label="Slide 4"></button>
         <button class="dot" aria-label="Slide 5"></button>
       </div>
-
     </div>
   </div>
-
 </div>
 </section>
 
-<!-- =====================================================
-     PRODUCTION INTELLIGENCE
-===================================================== -->
+<!-- ================= PRODUCTION INTELLIGENCE ================= -->
 <section class="intel-section" id="production-intelligence">
 <div class="intel-shell">
-
   <div class="intel-heading">
     <span class="intel-eyebrow">
       <i class="fa-solid fa-gears"></i>
@@ -1361,68 +984,47 @@ button { cursor:pointer; }
     </span>
     <h2>PRODUCTION INTELLIGENCE</h2>
     <p>
-      Basin-scale oil, gas, water, well-performance and
-      forecasting intelligence transformed into predictive
-      well-level insights.
+      Basin-scale oil, gas, water, well-performance and forecasting
+      intelligence transformed into predictive well-level insights.
     </p>
   </div>
-
   <div class="query-panel">
-
     <div class="query-copy">
       <span>RUN WELL INTELLIGENCE</span>
       <strong>
         Enter a well location to start the production agent workflow
       </strong>
     </div>
-
     <div class="query-controls">
-
       <label class="input-wrap coordinate-input">
         <i class="fa-solid fa-location-crosshairs"></i>
         <span class="coordinate-field">
           <span>LATITUDE</span>
-          <input
-            id="production-latitude"
-            type="text"
-            inputmode="text"
-            autocomplete="off"
-            placeholder="31.9686"
-          >
+          <input id="production-latitude" type="text"
+                 inputmode="text" autocomplete="off"
+                 placeholder="31.9686">
         </span>
       </label>
-
       <label class="input-wrap coordinate-input">
         <i class="fa-solid fa-location-dot"></i>
         <span class="coordinate-field">
           <span>LONGITUDE</span>
-          <input
-            id="production-longitude"
-            type="text"
-            inputmode="text"
-            autocomplete="off"
-            placeholder="-102.0779"
-          >
+          <input id="production-longitude" type="text"
+                 inputmode="text" autocomplete="off"
+                 placeholder="-102.0779">
         </span>
       </label>
-
-      <button
-        class="primary-action"
-        id="production-generate-btn"
-        type="button"
-      >
+      <button class="primary-action"
+              id="production-generate-btn" type="button">
         Generate Forecast Report
         <i class="fa-solid fa-arrow-right"></i>
       </button>
-
     </div>
   </div>
 
-  <div
-    class="api-status-panel"
-    id="production-api-status"
-    aria-live="polite"
-  >
+  <div class="api-status-panel"
+       id="production-api-status"
+       aria-live="polite">
     <div class="api-status-row">
       <div class="api-spinner" id="production-status-icon"></div>
       <div id="production-status-text">
@@ -1433,13 +1035,11 @@ button { cursor:pointer; }
   </div>
 
   <div class="workflow-label">
-    <span>5-AGENT WORKFLOW</span>
-    <div></div>
+    <span>5-AGENT WORKFLOW</span><div></div>
   </div>
 
   <div class="agent-grid">
-
-    <!-- PRODUCTION AGENT 1 -->
+    <!-- AGENT 1 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">01</span>
@@ -1458,7 +1058,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- PRODUCTION AGENT 2 -->
+    <!-- AGENT 2 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">02</span>
@@ -1477,7 +1077,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- PRODUCTION AGENT 3 -->
+    <!-- AGENT 3 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">03</span>
@@ -1488,8 +1088,8 @@ button { cursor:pointer; }
       <h3>Decline-Curve Agent</h3>
       <p>
         Builds decline-curve forecasts and production
-        trajectories from analog-well history and
-        fitted decline parameters.
+        trajectories from analog-well history and fitted
+        decline parameters.
       </p>
       <div class="agent-footer">
         <span>Decline Intelligence</span>
@@ -1497,7 +1097,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- PRODUCTION AGENT 4 -->
+    <!-- AGENT 4 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">04</span>
@@ -1516,7 +1116,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- PRODUCTION AGENT 5 -->
+    <!-- AGENT 5 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">05</span>
@@ -1534,57 +1134,41 @@ button { cursor:pointer; }
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
-
   </div>
 
   <div class="production-downloads" id="production-downloads">
-
     <button class="download-btn" id="production-pdf-btn">
       <i class="fa-regular fa-file-pdf"></i>
       Download Well Production Forecast Report
     </button>
-
     <button class="download-btn secondary" id="production-csv-btn">
-      <i class="fa-solid fa-table"></i>
-      Download Forecast CSV
+      <i class="fa-solid fa-table"></i>Download Forecast CSV
     </button>
-
     <button class="download-btn package" id="production-package-btn">
-      <i class="fa-solid fa-file-zipper"></i>
-      Download Full Package
+      <i class="fa-solid fa-file-zipper"></i>Download Full Package
     </button>
-
   </div>
-
 </div>
 </section>
 
-<!-- =====================================================
-     SWD INJECTION & INDUCED SEISMICITY
-===================================================== -->
+<!-- ================= SWD & SEISMICITY ================= -->
 <section class="intel-section" id="swd-injection-intelligence">
 <div class="intel-shell">
-
   <div class="intel-heading">
-
     <span class="intel-eyebrow">
       <i class="fa-solid fa-droplet"></i>
       AGENTIC SWD INJECTION &amp; INDUCED SEISMICITY INTELLIGENCE
     </span>
-
     <h2>SWD INJECTION &amp; INDUCED SEISMICITY INTELLIGENCE</h2>
-
     <p>
       Integrate SWD injection performance, nearby seismicity,
-      subsurface connectivity, operational constraints and
-      AI-driven optimization into a unified, risk-aware
-      injection and induced seismicity decision framework.
+      subsurface connectivity, operational constraints and AI-driven
+      optimization into a unified, risk-aware injection and
+      induced seismicity decision framework.
     </p>
-
   </div>
 
   <div class="query-panel">
-
     <div class="query-copy">
       <span>RUN SWD INJECTION &amp; SEISMICITY INTELLIGENCE</span>
       <strong>
@@ -1592,57 +1176,39 @@ button { cursor:pointer; }
         and induced seismicity agent workflow
       </strong>
     </div>
-
     <div class="query-controls">
-
       <label class="input-wrap coordinate-input">
         <i class="fa-solid fa-location-crosshairs"></i>
         <span class="coordinate-field">
           <span>LATITUDE</span>
-          <input
-            id="swd-latitude"
-            type="text"
-            inputmode="text"
-            autocomplete="off"
-            placeholder="31.9686"
-          >
+          <input id="swd-latitude" type="text"
+                 inputmode="text" autocomplete="off"
+                 placeholder="31.9686">
         </span>
       </label>
-
       <label class="input-wrap coordinate-input">
         <i class="fa-solid fa-location-dot"></i>
         <span class="coordinate-field">
           <span>LONGITUDE</span>
-          <input
-            id="swd-longitude"
-            type="text"
-            inputmode="text"
-            autocomplete="off"
-            placeholder="-102.0779"
-          >
+          <input id="swd-longitude" type="text"
+                 inputmode="text" autocomplete="off"
+                 placeholder="-102.0779">
         </span>
       </label>
-
-      <button
-        class="primary-action"
-        id="swd-generate-btn"
-        type="button"
-      >
+      <button class="primary-action" id="swd-generate-btn"
+              type="button">
         Generate SWD &amp; Seismicity Report
         <i class="fa-solid fa-arrow-right"></i>
       </button>
-
     </div>
   </div>
 
   <div class="workflow-label">
-    <span>5-AGENT WORKFLOW</span>
-    <div></div>
+    <span>5-AGENT WORKFLOW</span><div></div>
   </div>
 
   <div class="agent-grid">
-
-    <!-- SWD AGENT 1 -->
+    <!-- AGENT 1 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">01</span>
@@ -1650,22 +1216,19 @@ button { cursor:pointer; }
           <i class="fa-solid fa-earth-americas"></i>
         </div>
       </div>
-
       <h3>Seismicity and Fault Intelligence Agent</h3>
-
       <p>
-        Maps nearby seismic events, fault systems,
-        event clustering and seismicity trends to assess
-        seismic exposure and potential injection-related risk.
+        Maps nearby seismic events, fault systems, event clustering
+        and seismicity trends to assess seismic exposure and
+        potential injection-related risk.
       </p>
-
       <div class="agent-footer">
         <span>Seismicity &amp; Fault Intelligence</span>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
 
-    <!-- SWD AGENT 2 -->
+    <!-- AGENT 2 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">02</span>
@@ -1673,23 +1236,19 @@ button { cursor:pointer; }
           <i class="fa-solid fa-droplet"></i>
         </div>
       </div>
-
       <h3>Injection Intelligence Agent</h3>
-
       <p>
-        Analyzes injection-well locations, disposal
-        and other relevant injection volumes,
-        injection rates and pressure records
+        Analyzes injection-well locations, disposal and other relevant
+        injection volumes, injection rates and pressure records
         around the selected location.
       </p>
-
       <div class="agent-footer">
         <span>Injection Analytics</span>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
 
-    <!-- SWD AGENT 3 -->
+    <!-- AGENT 3 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">03</span>
@@ -1697,23 +1256,19 @@ button { cursor:pointer; }
           <i class="fa-solid fa-layer-group"></i>
         </div>
       </div>
-
       <h3>Geology and Subsurface Intelligence Agent</h3>
-
       <p>
-        Evaluates basin setting, geologic formations,
-        injection intervals, subsurface geometry and
-        possible pathways between injection zones
-        and nearby faults.
+        Evaluates basin setting, geologic formations, injection
+        intervals, subsurface geometry and possible pathways between
+        injection zones and nearby faults.
       </p>
-
       <div class="agent-footer">
         <span>Geologic &amp; Subsurface Context</span>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
 
-    <!-- SWD AGENT 4 -->
+    <!-- AGENT 4 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">04</span>
@@ -1721,23 +1276,19 @@ button { cursor:pointer; }
           <i class="fa-solid fa-gauge-high"></i>
         </div>
       </div>
-
       <h3>Geomechanics and Pressure Intelligence Agent</h3>
-
       <p>
-        Evaluates injection-pressure behavior,
-        pressure-communication indicators,
-        geomechanical constraints and potential
+        Evaluates injection-pressure behavior, pressure-communication
+        indicators, geomechanical constraints and potential
         fault-reactivation conditions.
       </p>
-
       <div class="agent-footer">
         <span>Pressure &amp; Geomechanical Risk</span>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
 
-    <!-- SWD AGENT 5 -->
+    <!-- AGENT 5 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">05</span>
@@ -1745,31 +1296,26 @@ button { cursor:pointer; }
           <i class="fa-solid fa-clipboard-check"></i>
         </div>
       </div>
-
       <h3>RRC Regulatory Compliance Agent</h3>
-
       <p>
-        Reviews applicable Texas RRC reporting
-        requirements, permit conditions and
-        injection limits to flag potential
-        regulatory-compliance issues.
+        Reviews applicable Texas RRC reporting requirements,
+        permit conditions and injection limits to flag
+        potential regulatory-compliance issues.
       </p>
-
       <div class="agent-footer">
         <span>RRC Regulatory Screening</span>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
-
   </div>
 
   <div class="download-wrap">
-    <button class="download-btn" id="swd-download-btn" type="button">
+    <button class="download-btn"
+            id="swd-download-btn" type="button">
       <i class="fa-regular fa-file-pdf"></i>
       Download SWD Injection &amp; Induced Seismicity Forecast Report
     </button>
   </div>
-
 </div>
 </section>
 
@@ -1778,223 +1324,144 @@ button { cursor:pointer; }
 </footer>
 
 <script>
-/* =====================================================
-   MOBILE NAVIGATION
-===================================================== */
-
-const mobileMenuBtn =
-  document.getElementById('mobile-menu-btn');
-
-const navLinks =
-  document.getElementById('nav-links');
+/* ================= MOBILE NAVIGATION ================= */
+const mobileMenuBtn=document.getElementById('mobile-menu-btn');
+const navLinks=document.getElementById('nav-links');
 
 function closeMobileMenu() {
   navLinks.classList.remove('open');
   mobileMenuBtn.classList.remove('active');
   mobileMenuBtn.setAttribute('aria-expanded','false');
-  mobileMenuBtn.innerHTML =
-    '<i class="fa-solid fa-bars"></i>';
+  mobileMenuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';
 }
 
-mobileMenuBtn.addEventListener('click', e => {
+mobileMenuBtn.addEventListener('click',e=>{
   e.stopPropagation();
-
-  const open = navLinks.classList.toggle('open');
-
+  const open=navLinks.classList.toggle('open');
   mobileMenuBtn.classList.toggle('active',open);
   mobileMenuBtn.setAttribute('aria-expanded',String(open));
-
-  mobileMenuBtn.innerHTML = open
+  mobileMenuBtn.innerHTML=open
     ? '<i class="fa-solid fa-xmark"></i>'
     : '<i class="fa-solid fa-bars"></i>';
 });
 
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click',closeMobileMenu);
-});
+navLinks.querySelectorAll('a').forEach(a=>
+  a.addEventListener('click',closeMobileMenu)
+);
 
-document.addEventListener('click',e => {
-  if (
-    window.innerWidth <= 720 &&
-    !navLinks.contains(e.target) &&
-    !mobileMenuBtn.contains(e.target)
-  ) {
+document.addEventListener('click',e=>{
+  if(window.innerWidth<=720 &&
+     !navLinks.contains(e.target) &&
+     !mobileMenuBtn.contains(e.target)) {
     closeMobileMenu();
   }
 });
 
-window.addEventListener('resize',() => {
-  if (window.innerWidth > 720) closeMobileMenu();
+window.addEventListener('resize',()=>{
+  if(window.innerWidth>720) closeMobileMenu();
 });
 
-/* =====================================================
-   FIVE HERO SLIDES
-===================================================== */
-
-let currentSlide = 0;
-
-const slides = [
-  ...document.querySelectorAll('.slide')
-];
-
-const dots = [
-  ...document.querySelectorAll('.slider-dots .dot')
-];
+/* ================= FIVE HERO SLIDES ================= */
+let currentSlide=0;
+const slides=[...document.querySelectorAll('.slide')];
+const dots=[...document.querySelectorAll('.slider-dots .dot')];
 
 function showSlide(index) {
-  currentSlide = index;
-
-  slides.forEach((s,i) => {
-    s.classList.toggle('active',i === index);
-  });
-
-  dots.forEach((d,i) => {
-    d.classList.toggle('active',i === index);
-    d.setAttribute('aria-current',String(i === index));
+  currentSlide=index;
+  slides.forEach((s,i)=>s.classList.toggle('active',i===index));
+  dots.forEach((d,i)=>{
+    d.classList.toggle('active',i===index);
+    d.setAttribute('aria-current',String(i===index));
   });
 }
 
-if (slides.length) {
+if(slides.length) {
   showSlide(0);
-
-  if (slides.length > 1) {
-    setInterval(() => {
-      showSlide((currentSlide + 1) % slides.length);
+  if(slides.length>1) {
+    setInterval(()=>{
+      showSlide((currentSlide+1)%slides.length);
     },3500);
   }
 }
 
-dots.forEach((d,i) => {
-  d.addEventListener('click',() => showSlide(i));
-});
+dots.forEach((d,i)=>
+  d.addEventListener('click',()=>showSlide(i))
+);
 
-/* =====================================================
-   PRODUCTION API CONFIGURATION
-===================================================== */
+/* ================= PRODUCTION API ================= */
+const BASINAGENTIC_API_BASE='https://api.basinagentic.com';
 
-const BASINAGENTIC_API_BASE =
-  'https://api.basinagentic.com';
+let productionJobId=null;
+let productionPollTimer=null;
 
-let productionJobId = null;
-let productionPollTimer = null;
-
-const productionLat =
-  document.getElementById('production-latitude');
-
-const productionLon =
-  document.getElementById('production-longitude');
-
-const productionGenerateBtn =
-  document.getElementById('production-generate-btn');
-
-const productionStatusPanel =
-  document.getElementById('production-api-status');
-
-const productionStatusIcon =
-  document.getElementById('production-status-icon');
-
-const productionStatusText =
-  document.getElementById('production-status-text');
-
-const productionJobText =
-  document.getElementById('production-job-text');
-
-const productionDownloads =
-  document.getElementById('production-downloads');
-
-const productionPdfBtn =
-  document.getElementById('production-pdf-btn');
-
-const productionCsvBtn =
-  document.getElementById('production-csv-btn');
-
-const productionPackageBtn =
-  document.getElementById('production-package-btn');
-
-/* =====================================================
-   PRODUCTION STATUS DISPLAY
-===================================================== */
+const productionLat=document.getElementById('production-latitude');
+const productionLon=document.getElementById('production-longitude');
+const productionGenerateBtn=document.getElementById('production-generate-btn');
+const productionStatusPanel=document.getElementById('production-api-status');
+const productionStatusIcon=document.getElementById('production-status-icon');
+const productionStatusText=document.getElementById('production-status-text');
+const productionJobText=document.getElementById('production-job-text');
+const productionDownloads=document.getElementById('production-downloads');
+const productionPdfBtn=document.getElementById('production-pdf-btn');
+const productionCsvBtn=document.getElementById('production-csv-btn');
+const productionPackageBtn=document.getElementById('production-package-btn');
 
 function setProductionStatus(type,message,jobText='') {
   productionStatusPanel.classList.add('show');
-  productionStatusIcon.className = 'api-spinner';
-  productionStatusIcon.innerHTML = '';
+  productionStatusIcon.className='api-spinner';
+  productionStatusIcon.innerHTML='';
 
-  if (type === 'done') {
+  if(type==='done') {
     productionStatusIcon.classList.add('done');
-    productionStatusIcon.innerHTML =
-      '<i class="fa-solid fa-check"></i>';
+    productionStatusIcon.innerHTML='<i class="fa-solid fa-check"></i>';
   }
-
-  if (type === 'error') {
+  if(type==='error') {
     productionStatusIcon.classList.add('error');
-    productionStatusIcon.innerHTML =
-      '<i class="fa-solid fa-xmark"></i>';
+    productionStatusIcon.innerHTML='<i class="fa-solid fa-xmark"></i>';
   }
-
-  productionStatusText.textContent = message;
-  productionJobText.textContent = jobText;
+  productionStatusText.textContent=message;
+  productionJobText.textContent=jobText;
 }
 
-/* =====================================================
-   COORDINATE PARSER
-===================================================== */
-
 function parseCoordinate(value) {
-  if (value == null) return NaN;
-
-  const s = String(value)
-    .trim()
+  if(value==null) return NaN;
+  const s=String(value).trim()
     .replace(/,/g,'.')
     .replace(/[−–—]/g,'-')
     .replace(/\s+/g,'');
-
-  return /^-?\d+(\.\d+)?$/.test(s)
-    ? Number(s)
-    : NaN;
+  return /^-?\d+(\.\d+)?$/.test(s)?Number(s):NaN;
 }
 
 function validateProductionCoordinates(lat,lon) {
-  if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
-    throw Error(
-      'Please enter valid latitude and longitude values.'
-    );
+  if(!Number.isFinite(lat)||!Number.isFinite(lon)) {
+    throw Error('Please enter valid latitude and longitude values.');
   }
-
-  if (lat < -90 || lat > 90) {
+  if(lat < -90||lat > 90) {
     throw Error('Latitude must be between -90 and 90.');
   }
-
-  if (lon < -180 || lon > 180) {
+  if(lon < -180||lon > 180) {
     throw Error('Longitude must be between -180 and 180.');
   }
 }
 
-/* =====================================================
-   GENERATE PRODUCTION FORECAST
-===================================================== */
-
 async function generateProductionForecast() {
-  const lat = parseCoordinate(productionLat.value);
-  const lon = parseCoordinate(productionLon.value);
+  const lat=parseCoordinate(productionLat.value);
+  const lon=parseCoordinate(productionLon.value);
 
   try {
     validateProductionCoordinates(lat,lon);
+    productionLat.value=lat;
+    productionLon.value=lon;
 
-    productionLat.value = lat;
-    productionLon.value = lon;
-
-    if (productionPollTimer) {
+    if(productionPollTimer) {
       clearTimeout(productionPollTimer);
-      productionPollTimer = null;
+      productionPollTimer=null;
     }
 
-    productionJobId = null;
-
+    productionJobId=null;
     productionDownloads.classList.remove('show');
-    productionGenerateBtn.disabled = true;
-
-    productionGenerateBtn.innerHTML =
+    productionGenerateBtn.disabled=true;
+    productionGenerateBtn.innerHTML=
       '<i class="fa-solid fa-spinner fa-spin"></i> Starting Forecast';
 
     setProductionStatus(
@@ -2002,34 +1469,25 @@ async function generateProductionForecast() {
       'Connecting to BasinAgentic Production Intelligence API...'
     );
 
-    const response = await fetch(
+    const response=await fetch(
       `${BASINAGENTIC_API_BASE}/forecast`,
       {
         method:'POST',
-        headers:{
-          'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-          latitude:lat,
-          longitude:lon
-        })
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({latitude:lat,longitude:lon})
       }
     );
 
-    if (!response.ok) {
+    if(!response.ok) {
       throw Error(
         `Forecast request failed (${response.status}). ${await response.text()}`
       );
     }
 
-    const data = await response.json();
+    const data=await response.json();
+    if(!data.job_id) throw Error('API did not return a job_id.');
 
-    if (!data.job_id) {
-      throw Error('API did not return a job_id.');
-    }
-
-    productionJobId = data.job_id;
-
+    productionJobId=data.job_id;
     setProductionStatus(
       'running',
       'Forecast job accepted. BasinAgentic agents are running...',
@@ -2040,165 +1498,112 @@ async function generateProductionForecast() {
 
   } catch(error) {
     console.error(error);
-
     setProductionStatus(
       'error',
-      error.message || 'Unable to start forecast.'
+      error.message||'Unable to start forecast.'
     );
-
-    productionGenerateBtn.disabled = false;
-
-    productionGenerateBtn.innerHTML =
+    productionGenerateBtn.disabled=false;
+    productionGenerateBtn.innerHTML=
       'Generate Forecast Report <i class="fa-solid fa-arrow-right"></i>';
   }
 }
 
-/* =====================================================
-   POLL PRODUCTION FORECAST STATUS
-===================================================== */
-
 async function pollProductionStatus() {
-  if (!productionJobId) return;
+  if(!productionJobId) return;
 
   try {
-    const response = await fetch(
+    const response=await fetch(
       `${BASINAGENTIC_API_BASE}/status/${encodeURIComponent(productionJobId)}`,
-      {
-        method:'GET',
-        cache:'no-store'
-      }
+      {method:'GET',cache:'no-store'}
     );
 
-    if (!response.ok) {
-      throw Error(
-        `Status check failed (${response.status}).`
-      );
+    if(!response.ok) {
+      throw Error(`Status check failed (${response.status}).`);
     }
 
-    const data = await response.json();
+    const data=await response.json();
+    const status=String(data.status||'').toLowerCase();
 
-    const status = String(
-      data.status || ''
-    ).toLowerCase();
-
-    if (
-      ['complete','completed','done','success'].includes(status)
-    ) {
+    if(['complete','completed','done','success'].includes(status)) {
       setProductionStatus(
         'done',
         'Forecast complete. Your report is ready.',
         `Job ID: ${productionJobId}`
       );
-
       productionDownloads.classList.add('show');
 
-      const id = encodeURIComponent(productionJobId);
+      const id=encodeURIComponent(productionJobId);
 
-      productionPdfBtn.onclick = () => {
-        window.open(
-          `${BASINAGENTIC_API_BASE}/download-report/${id}`,
-          '_blank',
-          'noopener'
-        );
-      };
-
-      productionCsvBtn.onclick = () => {
-        window.location.href =
+      productionPdfBtn.onclick=()=>window.open(
+        `${BASINAGENTIC_API_BASE}/download-report/${id}`,
+        '_blank','noopener'
+      );
+      productionCsvBtn.onclick=()=>{
+        window.location.href=
           `${BASINAGENTIC_API_BASE}/download-csv/${id}`;
       };
-
-      productionPackageBtn.onclick = () => {
-        window.location.href =
+      productionPackageBtn.onclick=()=>{
+        window.location.href=
           `${BASINAGENTIC_API_BASE}/download-package/${id}`;
       };
 
-      productionGenerateBtn.disabled = false;
-
-      productionGenerateBtn.innerHTML =
+      productionGenerateBtn.disabled=false;
+      productionGenerateBtn.innerHTML=
         'Generate Another Forecast <i class="fa-solid fa-rotate"></i>';
-
-      productionPollTimer = null;
+      productionPollTimer=null;
       return;
     }
 
-    if (
-      ['error','failed','failure'].includes(status)
-    ) {
-      throw Error(
-        data.error ||
-        data.message ||
-        'Forecast job failed.'
-      );
+    if(['error','failed','failure'].includes(status)) {
+      throw Error(data.error||data.message||'Forecast job failed.');
     }
 
-    let label =
+    let label=
       'Production agents are running. Building the complete forecast report...';
 
-    if (status === 'queued') {
-      label = 'Forecast queued. Waiting for compute...';
-    }
-
-    else if (status === 'running') {
-      label =
-        'Production agents are running. Analog selection, DCA and Transformer forecasting are in progress...';
-    }
-
-    else if (status === 'reporting') {
-      label =
-        'Forecast finished. Building sensitivity analysis, 3D visualizations and full report package...';
+    if(status==='queued') {
+      label='Forecast queued. Waiting for compute...';
+    } else if(status==='running') {
+      label='Production agents are running. Analog selection, DCA and Transformer forecasting are in progress...';
+    } else if(status==='reporting') {
+      label='Forecast finished. Building sensitivity analysis, 3D visualizations and full report package...';
     }
 
     setProductionStatus(
       'running',
       label,
-      `Job ID: ${productionJobId} · Status: ${status || 'running'}`
+      `Job ID: ${productionJobId} · Status: ${status||'running'}`
     );
-
-    productionPollTimer = setTimeout(
-      pollProductionStatus,
-      5000
-    );
+    productionPollTimer=setTimeout(pollProductionStatus,5000);
 
   } catch(error) {
     console.error(error);
-
     setProductionStatus(
       'error',
-      error.message || 'Unable to check forecast status.',
-      productionJobId ? `Job ID: ${productionJobId}` : ''
+      error.message||'Unable to check forecast status.',
+      productionJobId?`Job ID: ${productionJobId}`:''
     );
-
-    productionGenerateBtn.disabled = false;
-
-    productionGenerateBtn.innerHTML =
+    productionGenerateBtn.disabled=false;
+    productionGenerateBtn.innerHTML=
       'Try Again <i class="fa-solid fa-rotate-right"></i>';
-
-    productionPollTimer = null;
+    productionPollTimer=null;
   }
 }
 
-/* =====================================================
-   PRODUCTION EVENTS
-===================================================== */
-
 productionGenerateBtn.addEventListener(
-  'click',
-  generateProductionForecast
+  'click',generateProductionForecast
 );
 
-[productionLat,productionLon].forEach(input => {
-  input.addEventListener('keydown',e => {
-    if (e.key === 'Enter') {
-      generateProductionForecast();
-    }
+[productionLat,productionLon].forEach(input=>{
+  input.addEventListener('keydown',e=>{
+    if(e.key==='Enter') generateProductionForecast();
   });
 });
 
 /*
-  SWD backend bağlantısı henüz tanımlı değil.
-  SWD rapor butonları arayüzde korunmaktadır.
+  SWD arayüzü korunmuştur.
+  SWD backend bağlantısı henüz tanımlı değildir.
 */
-
 </script>
 </body>
 </html>
