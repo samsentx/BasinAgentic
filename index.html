@@ -10,429 +10,330 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-/* =========================================================
+/* =====================================================
    GLOBAL
-========================================================= */
+===================================================== */
 :root {
   --navy:#071a33;
-  --navy2:#0f2748;
   --blue:#174ea6;
   --blue2:#2563eb;
   --red:#d7190f;
   --orange:#ff4d00;
-  --text:#0f172a;
-  --muted:#64748b;
-  --page-max:1600px;
-  --page-pad:clamp(20px,3.5vw,58px);
+  --ink:#092344;
+  --muted:#334761;
+  --pad:clamp(16px,3vw,52px);
 }
 
 * { box-sizing:border-box; }
 
 html {
   scroll-behavior:smooth;
-  scroll-padding-top:128px;
+  scroll-padding-top:94px;
 }
 
 body {
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:#f8fafc;
+  background:#eef4ff;
+  color:var(--ink);
 }
 
 a { text-decoration:none; }
 button,input { font:inherit; }
+button { cursor:pointer; }
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
 .navbar {
+  height:84px;
   position:sticky;
   top:0;
   z-index:1000;
-  width:100%;
-  min-height:104px;
+  padding:6px var(--pad);
+  background:#fff;
+  box-shadow:0 7px 25px #09234417;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:24px;
-  padding:10px var(--page-pad);
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid rgba(7,26,51,.10);
-  box-shadow:0 8px 30px rgba(7,26,51,.065);
-  backdrop-filter:blur(18px);
-}
-
-.logo {
-  display:flex;
-  align-items:center;
-  min-width:0;
+  gap:20px;
 }
 
 .logo img {
   display:block;
-  width:520px;
-  max-width:44vw;
+  width:390px;
+  max-width:29vw;
   height:auto;
-  object-fit:contain;
 }
 
 .nav-links {
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:10px;
-  flex-wrap:nowrap;
+  gap:5px;
 }
 
 .nav-links a {
-  position:relative;
-  min-height:48px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:0 17px;
-  border-radius:12px;
   color:var(--navy);
-  font-size:15.5px;
-  font-weight:800;
-  letter-spacing:.015em;
+  padding:13px 11px;
+  border-radius:11px;
+  font-size:clamp(14px,1.03vw,18px);
+  font-weight:850;
   white-space:nowrap;
-  transition:.28s ease;
-}
-
-.nav-links a::after {
-  content:"";
-  position:absolute;
-  left:17px;
-  right:17px;
-  bottom:7px;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(
-    90deg,var(--blue),var(--blue2),
-    var(--red),var(--orange)
-  );
-  transform:scaleX(0);
-  opacity:0;
-  transition:.30s ease;
+  transition:.2s;
 }
 
 .nav-links a:hover {
-  color:var(--blue);
-  background:linear-gradient(
-    135deg,rgba(23,78,166,.07),
-    rgba(255,77,0,.045)
-  );
-  transform:translateY(-3px);
-  box-shadow:0 8px 18px rgba(7,26,51,.07);
+  background:#e9f1ff;
+  color:#174ea6;
 }
 
-.nav-links a:hover::after {
-  transform:scaleX(1);
-  opacity:1;
+.nav-links .nav-contact:hover {
+  color:#d7190f;
 }
-
-.nav-links .nav-contact:hover { color:var(--red); }
 
 .nav-links .nav-login {
-  margin-left:8px;
-  padding:0 22px;
+  margin-left:4px;
+  padding:14px 19px;
   color:#fff;
-  background:linear-gradient(
-    135deg,var(--navy),var(--blue) 55%,var(--blue2)
-  );
-  box-shadow:0 10px 24px rgba(23,78,166,.18);
-}
-
-.nav-links .nav-login::after { display:none; }
-
-.nav-links .nav-login:hover {
-  color:#fff;
-  background:linear-gradient(
-    135deg,var(--blue),var(--blue2) 62%,var(--orange)
-  );
+  background:linear-gradient(120deg,#071a33,#2563eb);
+  box-shadow:0 6px 20px #174ea62b;
 }
 
 .nav-login i { margin-right:8px; }
 
 .mobile-menu-btn {
   display:none;
-  width:48px;
-  height:48px;
-  flex:0 0 48px;
-  align-items:center;
-  justify-content:center;
-  padding:0;
+  flex:0 0 46px;
+  width:46px;
+  height:46px;
   border:0;
-  border-radius:14px;
-  color:#fff;
+  border-radius:13px;
+  background:linear-gradient(130deg,#071a33,#2563eb);
+  color:white;
   font-size:20px;
-  cursor:pointer;
-  background:linear-gradient(
-    135deg,var(--navy),var(--blue) 52%,var(--blue2)
-  );
-  box-shadow:0 9px 22px rgba(23,78,166,.22);
-  transition:.22s ease;
 }
 
-.mobile-menu-btn:hover { transform:translateY(-2px); }
-
-.mobile-menu-btn.active {
-  background:linear-gradient(135deg,var(--red),var(--orange));
-}
-
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 .hero {
   position:relative;
-  width:100%;
-  min-height:calc(100vh - 104px);
-  padding:64px var(--page-pad) 72px;
   overflow:hidden;
+  padding:28px var(--pad) 38px;
   background:
-    radial-gradient(circle at 8% 12%,
-      rgba(23,78,166,.16),transparent 30%),
-    radial-gradient(circle at 90% 12%,
-      rgba(255,77,0,.13),transparent 28%),
-    radial-gradient(circle at 84% 88%,
-      rgba(215,25,15,.07),transparent 24%),
-    linear-gradient(135deg,#f8fbff 0%,#f2f6fb 48%,#fff8f3 100%);
-}
-
-.hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.26;
-  background-image:
-    linear-gradient(rgba(7,26,51,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(7,26,51,.06) 1px,transparent 1px);
-  background-size:46px 46px;
+    radial-gradient(
+      circle at 7% 15%,
+      #2563eb38,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 96% 16%,
+      #ff551a35,
+      transparent 38%
+    ),
+    linear-gradient(
+      105deg,
+      #e6f0ff,
+      #fff 47%,
+      #fff0e7
+    );
 }
 
 .hero-inner {
-  position:relative;
-  z-index:2;
-  width:100%;
-  max-width:var(--page-max);
-  margin:0 auto;
+  max-width:1820px;
+  margin:auto;
   display:grid;
-  grid-template-columns:minmax(480px,.90fr) minmax(600px,1.10fr);
+  grid-template-columns:
+    minmax(0,.96fr)
+    minmax(0,1.16fr);
+  gap:clamp(25px,3vw,56px);
   align-items:center;
-  gap:64px;
 }
 
-.hero-copy { max-width:760px; }
+.hero-copy { min-width:0; }
 
 .hero-kicker {
   display:inline-flex;
   align-items:center;
   gap:9px;
-  min-height:34px;
-  padding:0 13px;
-  margin-bottom:22px;
-  border:1px solid rgba(23,78,166,.18);
-  border-radius:999px;
-  background:rgba(255,255,255,.90);
-  color:var(--navy2);
-  font-size:11px;
+  border:1px solid #bed3fa;
+  border-radius:30px;
+  background:#fff;
+  padding:10px 14px;
+  font-size:13px;
   font-weight:900;
-  letter-spacing:.11em;
-  box-shadow:0 8px 22px rgba(15,23,42,.05);
+  letter-spacing:.08em;
 }
 
 .hero-kicker span {
-  width:8px;
-  height:8px;
-  border-radius:50%;
+  height:9px;
+  width:9px;
   background:var(--orange);
-  box-shadow:0 0 0 5px rgba(255,77,0,.11);
+  border-radius:50%;
+  box-shadow:0 0 0 4px #ff4d0027;
 }
 
 .hero h1 {
-  margin:0 0 24px;
-  font-size:clamp(46px,4.7vw,72px);
-  line-height:1.08;
-  letter-spacing:-.04em;
+  font-size:clamp(50px,4.7vw,78px);
+  line-height:1.03;
+  letter-spacing:-.045em;
+  margin:18px 0 16px;
   font-weight:900;
 }
 
 .hero h1 .agentic {
   display:block;
-  margin-bottom:6px;
   background:linear-gradient(
-    90deg,var(--blue),var(--blue2) 35%,
-    var(--red) 72%,var(--orange)
+    90deg,
+    #174ea6 0%,
+    #2563eb 40%,
+    #d7190f 78%,
+    #ff4d00
   );
-  -webkit-background-clip:text;
-  background-clip:text;
   color:transparent;
+  background-clip:text;
+  -webkit-background-clip:text;
 }
 
 .hero h1 .basin {
   display:block;
-  color:var(--navy);
-  font-size:.89em;
+  font-size:.87em;
+  color:#071a33;
 }
 
 .hero-subtitle {
-  max-width:650px;
-  margin:0 0 24px;
-  color:#53657c;
-  font-size:18px;
-  line-height:1.7;
-  font-weight:500;
+  font-size:clamp(18px,1.2vw,22px);
+  line-height:1.5;
+  color:#344b6b;
+  margin:0 0 17px;
+  max-width:760px;
 }
 
-/* =========================================================
-   DOMAIN BUTTONS
-========================================================= */
 .domain-pills {
   display:flex;
   flex-wrap:wrap;
-  gap:9px;
-  margin-bottom:28px;
+  gap:10px;
+  margin-bottom:20px;
 }
 
 .domain-pills a {
   display:inline-flex;
   align-items:center;
-  min-height:38px;
-  padding:0 13px;
-  border-radius:999px;
-  background:rgba(255,255,255,.92);
-  font-size:11px;
+  min-height:43px;
+  padding:9px 14px;
+  border-radius:24px;
+  background:white;
+  box-shadow:0 5px 13px #071a330c;
+  font-size:13px;
   font-weight:900;
-  box-shadow:0 8px 22px rgba(7,26,51,.05);
-  transition:.2s ease;
-}
-
-.domain-pills a:hover { transform:translateY(-2px); }
-
-.domain-pills a:nth-child(1) {
   color:var(--blue);
-  border:1px solid rgba(23,78,166,.23);
+  border:1px solid #c5d7fa;
 }
 
 .domain-pills a:nth-child(2) {
   color:var(--red);
-  border:1px solid rgba(215,25,15,.22);
+  border-color:#ffc6b7;
 }
 
-/* =========================================================
+/* =====================================================
    HERO AGENT SUMMARY
-========================================================= */
-.hero-agent-summary { margin-top:6px; }
-
+===================================================== */
 .hero-agent-summary-title {
   display:flex;
   align-items:baseline;
-  gap:10px;
-  margin-bottom:13px;
+  flex-wrap:wrap;
+  gap:7px 10px;
+  margin-bottom:10px;
 }
 
 .hero-agent-summary-title strong {
-  color:var(--navy);
-  font-size:15px;
+  font-size:18px;
   font-weight:900;
 }
 
 .hero-agent-summary-title small {
-  color:#7b8ba1;
-  font-size:10.5px;
-  font-weight:700;
+  font-size:12.5px;
+  color:#54647d;
+  font-weight:650;
 }
 
 .hero-agent-panels {
   display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
+  gap:9px;
 }
 
 .hero-agent-panel {
   position:relative;
-  padding:13px 15px 14px 17px;
-  border-radius:15px;
-  border:1px solid rgba(148,163,184,.16);
-  background:rgba(255,255,255,.80);
-  box-shadow:0 8px 24px rgba(15,23,42,.045);
   overflow:hidden;
+  background:#fffffff0;
+  border:1px solid #d9e1ee;
+  border-radius:14px;
+  padding:13px 17px 13px 19px;
+  box-shadow:0 9px 23px #0923440b;
 }
 
-.hero-agent-panel::before {
+.hero-agent-panel:before {
   content:"";
   position:absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  width:4px;
+  inset:0 auto 0 0;
+  width:5px;
+  background:linear-gradient(#174ea6,#2563eb);
 }
 
-.hero-agent-panel.production::before {
-  background:linear-gradient(var(--blue),var(--blue2));
-}
-
-.hero-agent-panel.swd::before {
-  background:linear-gradient(var(--red),var(--orange));
+.hero-agent-panel.swd:before {
+  background:linear-gradient(#d7190f,#ff4d00);
 }
 
 .hero-agent-panel-head {
   display:flex;
   align-items:center;
-  gap:9px;
-  margin-bottom:6px;
+  gap:10px;
+  margin-bottom:5px;
 }
 
 .hero-agent-panel-head i {
-  width:24px;
-  height:24px;
+  height:29px;
+  width:29px;
   display:grid;
   place-items:center;
   border-radius:8px;
-  color:#fff;
-  font-size:10px;
-}
-
-.hero-agent-panel.production i {
-  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  background:linear-gradient(135deg,#174ea6,#2563eb);
+  font-size:13px;
+  color:white;
 }
 
 .hero-agent-panel.swd i {
-  background:linear-gradient(135deg,var(--red),var(--orange));
+  background:linear-gradient(135deg,#d7190f,#ff4d00);
 }
 
 .hero-agent-panel-head strong {
+  font-size:14px;
   color:var(--navy);
-  font-size:11.5px;
 }
 
 .hero-agent-panel p {
   margin:0;
-  color:#66788f;
-  font-size:10.5px;
+  font-size:12.6px;
   line-height:1.5;
-  font-weight:650;
+  color:#445b79;
+  font-weight:600;
 }
 
-/* =========================================================
-   HERO IMAGE SLIDER
-========================================================= */
-.hero-visual { width:100%; }
-
+/* =====================================================
+   HERO SLIDER
+===================================================== */
 .hero-slider {
   position:relative;
   width:100%;
-  height:520px;
+  height:clamp(440px,32vw,565px);
+  border-radius:25px;
   overflow:hidden;
-  border-radius:30px;
   background:#fff;
-  border:1px solid rgba(7,26,51,.13);
+  border:1px solid #071a3329;
   box-shadow:
-    0 30px 72px rgba(7,26,51,.14),
-    0 0 0 10px rgba(255,255,255,.42);
+    0 23px 58px #071a332b,
+    0 0 0 7px #ffffff7a;
 }
 
 .slide {
@@ -440,7 +341,7 @@ button,input { font:inherit; }
   inset:0;
   opacity:0;
   pointer-events:none;
-  transition:opacity 1s ease-in-out;
+  transition:opacity 1s ease;
 }
 
 .slide.active {
@@ -457,25 +358,24 @@ button,input { font:inherit; }
 
 .slider-dots {
   position:absolute;
+  z-index:5;
   left:50%;
-  bottom:18px;
+  bottom:16px;
   transform:translateX(-50%);
   display:flex;
-  gap:9px;
-  z-index:5;
-  padding:8px 10px;
-  border-radius:999px;
-  background:rgba(7,26,51,.58);
+  gap:10px;
+  padding:10px 14px;
+  border-radius:30px;
+  background:#071a33a8;
 }
 
 .dot {
-  width:10px;
-  height:10px;
+  height:12px;
+  width:12px;
   padding:0;
   border-radius:50%;
-  background:rgba(255,255,255,.65);
-  border:1px solid rgba(255,255,255,.85);
-  cursor:pointer;
+  border:1px solid #fff;
+  background:#ffffffa0;
 }
 
 .dot.active {
@@ -483,407 +383,297 @@ button,input { font:inherit; }
   border-color:var(--orange);
 }
 
-/* =========================================================
+/* =====================================================
    INTELLIGENCE SECTIONS
-========================================================= */
+===================================================== */
 .intel-section {
-  position:relative;
-  width:100%;
-  padding:96px var(--page-pad) 110px;
-  overflow:hidden;
-  border-top:1px solid rgba(148,163,184,.14);
+  padding:35px var(--pad) 49px;
 }
 
 #production-intelligence {
   background:
-    radial-gradient(circle at 4% 8%,
-      rgba(23,78,166,.11),transparent 26%),
-    radial-gradient(circle at 96% 88%,
-      rgba(255,77,0,.07),transparent 30%),
-    linear-gradient(180deg,#f8fafc,#eef4fb);
+    radial-gradient(
+      circle at 3% 3%,
+      #0089ff3e,
+      transparent 36%
+    ),
+    linear-gradient(
+      135deg,
+      #e1f1ff,
+      #f4f8ff 46%,
+      #e4e9ff
+    );
 }
 
 #swd-injection-intelligence {
   background:
-    radial-gradient(circle at 4% 8%,
-      rgba(255,77,0,.09),transparent 26%),
-    radial-gradient(circle at 96% 88%,
-      rgba(23,78,166,.06),transparent 30%),
-    linear-gradient(180deg,#fffaf7,#f6f7fb);
+    radial-gradient(
+      circle at 4% 6%,
+      #ff582447,
+      transparent 38%
+    ),
+    linear-gradient(
+      130deg,
+      #fff0e9,
+      #fff9f3 50%,
+      #ffe8dc
+    );
 }
 
 .intel-shell {
-  width:100%;
-  max-width:var(--page-max);
+  max-width:1820px;
   margin:0 auto;
 }
 
+/* =====================================================
+   SECTION HEADERS
+===================================================== */
 .intel-heading {
-  max-width:940px;
-  margin:0 auto 42px;
-  text-align:center;
+  position:relative;
+  overflow:hidden;
+  margin:0 0 17px;
+  padding:25px clamp(25px,3vw,55px) 23px;
+  border-radius:27px;
+  background:linear-gradient(
+    108deg,
+    #071a33,
+    #1247b3 63%,
+    #2685ee
+  );
+  box-shadow:0 14px 36px #091c4124;
+  color:white;
+}
+
+#swd-injection-intelligence .intel-heading {
+  background:linear-gradient(
+    108deg,
+    #6c1525,
+    #d52618 52%,
+    #ff742b
+  );
+}
+
+.intel-heading:after {
+  content:"";
+  position:absolute;
+  right:-115px;
+  top:-210px;
+  height:390px;
+  width:390px;
+  border:1px solid #ffffff45;
+  border-radius:50%;
+  box-shadow:
+    0 0 0 54px #ffffff0e,
+    0 0 0 120px #ffffff09;
+  pointer-events:none;
 }
 
 .intel-eyebrow {
+  position:relative;
+  z-index:1;
   display:inline-flex;
   align-items:center;
   gap:9px;
-  padding:9px 15px;
-  margin-bottom:18px;
-  border-radius:999px;
-  font-size:11px;
+  margin-bottom:10px;
+  border-radius:24px;
+  border:1px solid #ffffff70;
+  background:#ffffff2e;
+  padding:7px 12px;
+  font-size:clamp(12px,.83vw,15px);
   font-weight:900;
-  letter-spacing:.11em;
-  text-transform:none;
-  background:rgba(255,255,255,.86);
-  box-shadow:0 8px 28px rgba(15,23,42,.05);
-}
-
-#production-intelligence .intel-eyebrow {
-  color:var(--blue);
-  border:1px solid rgba(23,78,166,.22);
-}
-
-#swd-injection-intelligence .intel-eyebrow {
-  color:var(--red);
-  border:1px solid rgba(215,25,15,.20);
+  letter-spacing:.07em;
 }
 
 .intel-heading h2 {
-  margin:0 0 15px;
-  color:var(--navy);
-  font-size:clamp(40px,4.2vw,60px);
-  line-height:1.04;
-  letter-spacing:-.04em;
+  position:relative;
+  z-index:1;
+  font-size:clamp(36px,3.35vw,64px);
+  line-height:1.08;
+  letter-spacing:-.03em;
+  margin:0 0 8px;
+  font-weight:900;
+  text-wrap:balance;
 }
 
 #swd-injection-intelligence .intel-heading h2 {
-  font-size:clamp(31px,3.35vw,52px);
+  font-size:clamp(34px,3vw,57px);
 }
 
 .intel-heading p {
-  max-width:860px;
-  margin:0 auto;
-  color:var(--muted);
-  font-size:17px;
-  line-height:1.75;
+  position:relative;
+  z-index:1;
+  color:#f3f7ff;
+  max-width:1390px;
+  font-weight:600;
+  font-size:clamp(17px,1.2vw,21px);
+  line-height:1.48;
+  margin:0;
 }
 
-/* =========================================================
+/* =====================================================
    QUERY PANEL
-========================================================= */
+===================================================== */
 .query-panel {
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:28px;
-  width:100%;
-  max-width:1420px;
-  margin:0 auto 48px;
-  padding:26px 28px;
-  border:1px solid rgba(148,163,184,.20);
-  border-radius:26px;
-  background:rgba(255,255,255,.90);
-  box-shadow:0 26px 70px rgba(15,23,42,.09);
+  gap:22px;
+  min-height:91px;
+  padding:15px 20px;
+  margin:0 0 16px;
+  border:2px solid #1e55a92e;
+  border-radius:21px;
+  background:#fff;
+  box-shadow:0 11px 32px #0c254e21;
 }
 
-.query-copy { min-width:270px; }
+#swd-injection-intelligence .query-panel {
+  border-color:#ec572b4d;
+}
 
-.query-copy span {
-  color:#8c5d00;
-  font-size:10px;
+.query-copy {
+  flex:0 1 34%;
+  min-width:250px;
+}
+
+.query-copy>span {
+  color:#bc5915;
+  font-size:clamp(12px,.8vw,14px);
+  letter-spacing:.08em;
   font-weight:900;
-  letter-spacing:.13em;
-  text-transform:uppercase;
+  display:block;
 }
 
 .query-copy strong {
   display:block;
   margin-top:5px;
-  color:var(--navy);
-  font-size:15px;
-  line-height:1.4;
+  color:#0a2749;
+  font-size:clamp(16px,1vw,19px);
+  line-height:1.35;
 }
 
 .query-controls {
   flex:1;
+  min-width:0;
   display:grid;
-  grid-template-columns:1fr 1fr auto;
-  gap:12px;
+  grid-template-columns:
+    minmax(115px,1fr)
+    minmax(115px,1fr)
+    auto;
+  gap:11px;
   align-items:center;
 }
 
-/* =========================================================
-   COORDINATE INPUTS
-========================================================= */
 .input-wrap {
-  min-height:64px;
+  min-width:0;
+  min-height:62px;
   display:flex;
   align-items:center;
-  gap:11px;
-  padding:8px 15px;
-  border:1px solid #dbe3ec;
-  border-radius:16px;
-  background:#f8fafc;
-  transition:.22s ease;
+  gap:10px;
+  padding:8px 12px;
+  border:2px solid #c9d9ef;
+  border-radius:15px;
+  background:#f3f8ff;
+}
+
+#swd-injection-intelligence .input-wrap {
+  border-color:#ffd5c7;
+  background:#fff7f3;
 }
 
 .input-wrap:focus-within {
   border-color:var(--blue2);
-  background:#fff;
-  box-shadow:0 0 0 4px rgba(37,99,235,.09);
+  box-shadow:0 0 0 3px #2563eb1e;
 }
 
-.coordinate-input > i {
-  width:38px;
-  height:38px;
+.coordinate-input>i {
+  height:42px;
+  width:42px;
+  flex:0 0 42px;
   display:grid;
   place-items:center;
-  flex:0 0 38px;
   border-radius:12px;
-  color:#fff;
-  font-size:14px;
-  background:linear-gradient(135deg,var(--navy),var(--blue2));
-  box-shadow:0 7px 18px rgba(23,78,166,.18);
+  background:linear-gradient(135deg,#071a33,#2563eb);
+  color:white;
+  font-size:18px;
 }
 
-#swd-injection-intelligence .coordinate-input > i {
-  background:linear-gradient(135deg,var(--red),var(--orange));
+#swd-injection-intelligence .coordinate-input>i {
+  background:linear-gradient(135deg,#d7190f,#ff4d00);
 }
 
 .coordinate-field {
+  min-width:0;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   width:100%;
-  min-width:0;
 }
 
 .coordinate-field span {
-  display:block;
-  margin-bottom:3px;
-  color:#718096;
-  font-size:9px;
+  font-size:clamp(11px,.72vw,13px);
+  color:#52647d;
   font-weight:900;
-  letter-spacing:.12em;
+  letter-spacing:.07em;
 }
 
 .coordinate-field input {
   width:100%;
-  padding:0;
   border:0;
   outline:0;
   background:transparent;
-  color:var(--navy);
-  font-size:16px;
+  color:#092444;
+  font-size:clamp(19px,1.1vw,22px);
   font-weight:800;
-  letter-spacing:.015em;
 }
 
 .coordinate-field input::placeholder {
-  color:#9aa9ba;
-  opacity:1;
-  font-weight:600;
+  color:#879bb4;
 }
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
 .primary-action {
-  min-height:56px;
+  min-height:62px;
+  border:0;
+  border-radius:14px;
+  padding:0 21px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:11px;
-  padding:0 22px;
-  border:0;
-  border-radius:16px;
-  color:#fff;
-  font-size:13.5px;
-  font-weight:900;
-  cursor:pointer;
+  gap:9px;
   white-space:nowrap;
-  transition:.22s ease;
-}
-
-.primary-action:disabled {
-  opacity:.60;
-  cursor:wait;
-}
-
-#production-intelligence .primary-action {
-  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:white;
+  font-size:clamp(15px,.96vw,18px);
+  font-weight:900;
+  background:linear-gradient(135deg,#174ea6,#2563eb);
+  box-shadow:0 9px 20px #14489a2b;
+  transition:transform .2s;
 }
 
 #swd-injection-intelligence .primary-action {
-  background:linear-gradient(135deg,var(--red),var(--orange));
+  background:linear-gradient(135deg,#d7190f,#ff4d00);
+  box-shadow:0 9px 20px #c439133b;
 }
 
-.primary-action:not(:disabled):hover {
+.primary-action:hover:not(:disabled) {
   transform:translateY(-2px);
 }
 
-/* =========================================================
-   AGENT CARDS
-========================================================= */
-.workflow-label {
-  max-width:1420px;
-  margin:0 auto 18px;
-  display:flex;
-  align-items:center;
-  gap:14px;
+.primary-action:disabled {
+  opacity:.65;
+  cursor:wait;
 }
 
-.workflow-label span {
-  color:#64748b;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.14em;
-}
-
-.workflow-label div {
-  height:1px;
-  flex:1;
-  background:linear-gradient(
-    90deg,rgba(148,163,184,.45),transparent
-  );
-}
-
-.agent-grid {
-  width:100%;
-  max-width:1540px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:22px;
-}
-
-.agent-card {
-  position:relative;
-  min-height:326px;
-  display:flex;
-  flex-direction:column;
-  padding:26px;
-  overflow:hidden;
-  border:1px solid rgba(148,163,184,.18);
-  border-radius:26px;
-  background:rgba(255,255,255,.95);
-  box-shadow:0 16px 40px rgba(15,23,42,.07);
-  transition:.25s ease;
-}
-
-.agent-card::before {
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-}
-
-#production-intelligence .agent-card::before {
-  background:linear-gradient(90deg,var(--blue),var(--blue2));
-}
-
-#swd-injection-intelligence .agent-card::before {
-  background:linear-gradient(90deg,var(--orange),var(--blue));
-}
-
-.agent-card:hover {
-  transform:translateY(-8px);
-  box-shadow:0 28px 58px rgba(15,23,42,.13);
-}
-
-.agent-card-top {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:24px;
-}
-
-.agent-number {
-  min-width:42px;
-  height:29px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:0 10px;
-  border-radius:999px;
-  font-size:10px;
-  font-weight:900;
-}
-
-#production-intelligence .agent-number {
-  background:#edf3ff;
-  color:var(--blue);
-}
-
-#swd-injection-intelligence .agent-number {
-  background:#fff1eb;
-  color:var(--red);
-}
-
-.agent-icon {
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  border-radius:15px;
-  color:#fff;
-  font-size:18px;
-  box-shadow:0 11px 24px rgba(15,23,42,.18);
-}
-
-#production-intelligence .agent-icon {
-  background:linear-gradient(135deg,var(--navy),var(--blue));
-}
-
-#swd-injection-intelligence .agent-icon {
-  background:linear-gradient(135deg,var(--orange),var(--red));
-}
-
-.agent-card h3 {
-  margin:0 0 12px;
-  color:var(--navy);
-  font-size:18px;
-  line-height:1.28;
-}
-
-.agent-card p {
-  margin:0;
-  color:var(--muted);
-  font-size:13.5px;
-  line-height:1.72;
-}
-
-.agent-footer {
-  margin-top:auto;
-  padding-top:20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  border-top:1px solid #edf1f5;
-  font-size:10.5px;
-  font-weight:900;
-}
-
-#production-intelligence .agent-footer { color:var(--blue); }
-#swd-injection-intelligence .agent-footer { color:var(--red); }
-
-/* =========================================================
-   PRODUCTION API STATUS
-========================================================= */
+/* =====================================================
+   API STATUS
+===================================================== */
 .api-status-panel {
   display:none;
-  width:100%;
-  max-width:1420px;
-  margin:-22px auto 42px;
-  padding:18px 20px;
-  border:1px solid rgba(148,163,184,.22);
-  border-radius:18px;
-  background:rgba(255,255,255,.94);
-  box-shadow:0 16px 38px rgba(15,23,42,.07);
+  margin:0 0 15px;
+  padding:15px 20px;
+  border-radius:16px;
+  border:2px solid #bdd7ff;
+  background:white;
 }
 
 .api-status-panel.show { display:block; }
@@ -891,147 +681,312 @@ button,input { font:inherit; }
 .api-status-row {
   display:flex;
   align-items:center;
-  gap:12px;
-  color:var(--navy);
-  font-size:13px;
+  gap:11px;
+  font-size:16px;
   font-weight:800;
 }
 
 .api-spinner {
-  width:18px;
-  height:18px;
-  border:3px solid rgba(37,99,235,.18);
-  border-top-color:var(--blue2);
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  border:3px solid #2563eb33;
+  border-top-color:#2563eb;
   border-radius:50%;
-  animation:apiSpin .85s linear infinite;
-  flex:0 0 auto;
+  animation:spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform:rotate(360deg); }
 }
 
 .api-spinner.done,
 .api-spinner.error {
-  animation:none;
   border:0;
-  width:22px;
-  height:22px;
+  animation:none;
   display:grid;
   place-items:center;
+  width:22px;
+  height:22px;
 }
 
 .api-spinner.done {
-  background:#eaf8ef;
-  color:#16803a;
+  color:#188044;
+  background:#dcfce7;
 }
 
 .api-spinner.error {
-  background:#fff0ef;
-  color:#c62828;
-}
-
-@keyframes apiSpin {
-  to { transform:rotate(360deg); }
+  color:#b91c1c;
+  background:#fee2e2;
 }
 
 .api-job {
-  margin-top:8px;
-  color:#718096;
-  font-size:11px;
-  font-weight:700;
-  word-break:break-all;
+  margin-top:7px;
+  color:#52647d;
+  font-size:13px;
+  overflow-wrap:anywhere;
 }
 
-/* =========================================================
-   REPORT DOWNLOADS
-========================================================= */
-.download-wrap {
+/* =====================================================
+   AGENT WORKFLOW
+===================================================== */
+.workflow-label {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:11px;
+}
+
+.workflow-label span {
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  background:#122d57;
+  color:#fff;
+  border-radius:25px;
+  padding:10px 14px;
+}
+
+#swd-injection-intelligence .workflow-label span {
+  background:#b62922;
+}
+
+.workflow-label div {
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,#0f428566,transparent);
+}
+
+.agent-grid {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:15px;
+}
+
+.agent-card {
+  --accent:#225add;
+  --tint:#e2edff;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-height:335px;
+  overflow:hidden;
+  padding:21px 19px 17px;
+  border-radius:20px;
+  border:2px solid color-mix(in srgb,var(--accent) 24%,white);
+  background:linear-gradient(
+    165deg,
+    var(--tint),
+    #fff 43%
+  );
+  box-shadow:0 12px 25px #091c411a;
+  transition:transform .2s,box-shadow .2s;
+}
+
+.agent-card::before {
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:7px;
+  background:var(--accent);
+}
+
+/* Production agent colors */
+.agent-card:nth-child(1) {
+  --accent:#225add;
+  --tint:#e2edff;
+}
+
+.agent-card:nth-child(2) {
+  --accent:#008c97;
+  --tint:#def9fa;
+}
+
+.agent-card:nth-child(3) {
+  --accent:#7b42cb;
+  --tint:#f1e7ff;
+}
+
+.agent-card:nth-child(4) {
+  --accent:#cd7412;
+  --tint:#fff1d9;
+}
+
+.agent-card:nth-child(5) {
+  --accent:#d02a57;
+  --tint:#ffe5ee;
+}
+
+/* SWD agent colors */
+#swd-injection-intelligence .agent-card:nth-child(1) {
+  --accent:#ce3142;
+  --tint:#ffe6eb;
+}
+
+#swd-injection-intelligence .agent-card:nth-child(2) {
+  --accent:#e45b14;
+  --tint:#ffeadc;
+}
+
+#swd-injection-intelligence .agent-card:nth-child(3) {
+  --accent:#7b42cb;
+  --tint:#f0e7ff;
+}
+
+#swd-injection-intelligence .agent-card:nth-child(4) {
+  --accent:#1667b9;
+  --tint:#e2efff;
+}
+
+#swd-injection-intelligence .agent-card:nth-child(5) {
+  --accent:#087d74;
+  --tint:#dffaf1;
+}
+
+.agent-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 20px 38px #091c412b;
+}
+
+.agent-card-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.agent-number {
+  display:grid;
+  place-items:center;
+  min-width:44px;
+  height:32px;
+  border-radius:25px;
+  background:var(--tint);
+  color:var(--accent);
+  border:1px solid color-mix(in srgb,var(--accent) 23%,white);
+  font-size:13px;
+  font-weight:900;
+}
+
+.agent-icon {
+  height:50px;
+  width:50px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:var(--accent);
+  color:white;
+  font-size:21px;
+  box-shadow:0 9px 17px color-mix(in srgb,var(--accent) 23%,transparent);
+}
+
+.agent-card h3 {
+  font-size:clamp(19px,1.24vw,24px);
+  line-height:1.23;
+  margin:0 0 11px;
+  font-weight:900;
+  color:#071a33;
+}
+
+.agent-card p {
+  margin:0 0 13px;
+  color:#334761;
+  font-weight:500;
+  font-size:clamp(15.5px,1vw,18px);
+  line-height:1.5;
+}
+
+.agent-footer {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:auto;
+  padding-top:13px;
+  border-top:1px solid #dce4ee;
+  font-weight:900;
+  color:var(--accent);
+  font-size:clamp(12px,.83vw,15px);
+}
+
+/* =====================================================
+   DOWNLOAD BUTTONS
+===================================================== */
+.download-wrap,
+.production-downloads {
   display:flex;
   justify-content:center;
-  margin-top:38px;
-}
-
-.production-downloads {
-  display:none;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
   gap:12px;
-  margin-top:38px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
 
+.production-downloads { display:none; }
 .production-downloads.show { display:flex; }
 
 .download-btn {
-  min-height:62px;
-  min-width:390px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:13px;
-  padding:0 30px;
+  gap:11px;
+  min-height:58px;
+  padding:10px 25px;
   border:0;
-  border-radius:18px;
-  color:#fff;
-  font-size:15px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#174ea6,#2563eb);
+  color:white;
+  font-size:clamp(15px,.96vw,18px);
   font-weight:900;
-  cursor:pointer;
-  transition:.22s ease;
-}
-
-#production-intelligence .download-btn {
-  background:linear-gradient(135deg,var(--blue),var(--blue2));
 }
 
 #swd-injection-intelligence .download-btn {
-  background:linear-gradient(135deg,var(--red),var(--orange));
+  background:linear-gradient(135deg,#d7190f,#ff4d00);
+  box-shadow:0 13px 23px #ca43183d;
 }
 
-.production-downloads .download-btn { min-width:290px; }
-
 .production-downloads .secondary {
-  min-width:220px;
-  background:linear-gradient(135deg,#0f2748,#174ea6) !important;
+  background:linear-gradient(135deg,#0f2748,#174ea6);
 }
 
 .production-downloads .package {
-  min-width:230px;
-  background:linear-gradient(135deg,#d7190f,#ff4d00) !important;
+  background:linear-gradient(135deg,#d7190f,#ff4d00);
 }
 
-.download-btn:hover {
-  transform:translateY(-3px) scale(1.01);
-}
-
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 .footer {
-  padding:30px var(--page-pad);
+  padding:19px var(--pad);
   text-align:center;
-  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  background:linear-gradient(135deg,#071a33,#0f2748);
   color:#dbe6f5;
-  font-size:13px;
+  font-size:15px;
   font-weight:700;
 }
 
-/* =========================================================
-   RESPONSIVE DESKTOP
-========================================================= */
-@media(max-width:1520px) and (min-width:1051px) {
-  .nav-links { gap:3px; }
-  .nav-links a { padding:0 10px; font-size:13px; }
-  .logo img { max-width:32vw; }
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media(max-width:1450px) {
+  .agent-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .agent-card { min-height:275px; }
+  .agent-card h3 { font-size:21px; }
+  .agent-card p { font-size:16.5px; }
+  .hero-inner { gap:24px; }
 }
 
 @media(max-width:1300px) {
-  .logo img { width:440px; max-width:40vw; }
-
-  .hero-inner {
-    grid-template-columns:1fr;
-    gap:46px;
-  }
+  .hero-inner { grid-template-columns:1fr; }
 
   .hero-copy {
-    max-width:920px;
-    margin:0 auto;
+    max-width:960px;
+    margin:auto;
     text-align:center;
   }
 
@@ -1040,443 +995,199 @@ button,input { font:inherit; }
     margin-right:auto;
   }
 
-  .domain-pills { justify-content:center; }
-
-  .hero-agent-summary {
-    max-width:900px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:left;
+  .domain-pills,
+  .hero-agent-summary-title {
+    justify-content:center;
   }
 
-  .hero-agent-summary-title { justify-content:center; }
+  .hero-agent-summary {
+    text-align:left;
+    max-width:950px;
+    margin:auto;
+  }
 
   .hero-visual {
-    max-width:940px;
-    margin:0 auto;
-  }
-
-  .agent-grid { grid-template-columns:repeat(3,1fr); }
-}
-
-@media(max-width:1050px) and (min-width:621px) {
-  .navbar { flex-direction:column; }
-  .logo img { width:420px; max-width:78vw; }
-
-  .nav-links {
     width:100%;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-
-  .query-panel {
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .query-copy { min-width:0; }
-}
-
-@media(max-width:850px) and (min-width:621px) {
-  .query-controls { grid-template-columns:1fr 1fr; }
-  .primary-action { grid-column:1 / -1; }
-  .agent-grid { grid-template-columns:repeat(2,1fr); }
-  .hero-slider { height:390px; }
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-@media(max-width:620px) {
-  :root { --page-pad:16px; }
-
-  html { scroll-padding-top:86px; }
-
-  .navbar {
-    position:sticky;
-    top:0;
-    width:100%;
-    min-height:78px;
-    display:grid;
-    grid-template-columns:minmax(0,1fr) auto;
-    align-items:center;
-    gap:12px;
-    padding:8px 14px;
-    background:rgba(255,255,255,.98);
-    border-bottom:1px solid rgba(7,26,51,.08);
-    box-shadow:0 8px 26px rgba(7,26,51,.09);
-    backdrop-filter:blur(20px);
-  }
-
-  .logo {
-    width:100%;
-    min-width:0;
-    justify-content:flex-start;
-  }
-
-  .logo img {
-    width:min(290px,74vw);
-    max-width:100%;
-    height:auto;
-  }
-
-  .mobile-menu-btn { display:flex; }
-
-  .nav-links {
-    position:absolute;
-    top:calc(100% + 8px);
-    left:12px;
-    right:12px;
-    width:auto;
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    justify-content:flex-start;
-    gap:7px;
-    padding:12px;
-    border:1px solid rgba(7,26,51,.09);
-    border-radius:22px;
-    background:rgba(255,255,255,.985);
-    box-shadow:0 24px 60px rgba(7,26,51,.19);
-    backdrop-filter:blur(24px);
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transform:translateY(-12px) scale(.975);
-    transform-origin:top right;
-    transition:opacity .22s ease,
-               transform .22s ease,
-               visibility .22s ease;
-  }
-
-  .nav-links.open {
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-    transform:translateY(0) scale(1);
-  }
-
-  .nav-links a {
-    position:relative;
-    width:100%;
-    min-height:48px;
-    display:flex;
-    justify-content:flex-start;
-    align-items:center;
-    padding:0 17px;
-    border-radius:13px;
-    color:var(--navy);
-    font-size:13px;
-    font-weight:850;
-    letter-spacing:.01em;
-    background:linear-gradient(
-      135deg,rgba(23,78,166,.045),rgba(255,77,0,.018)
-    );
-    border:1px solid rgba(7,26,51,.055);
-    box-shadow:none;
-    white-space:normal;
-  }
-
-  .nav-links a::after { display:none; }
-
-  .nav-links a:hover,
-  .nav-links a:active {
-    color:var(--blue);
-    transform:none;
-    background:linear-gradient(
-      135deg,rgba(23,78,166,.11),rgba(37,99,235,.05)
-    );
-  }
-
-  .nav-links .nav-contact { color:var(--red); }
-
-  .nav-links .nav-login {
-    width:100%;
-    min-height:51px;
-    margin:3px 0 0;
-    justify-content:center;
-    padding:0 18px;
-    color:#fff;
-    border:0;
-    border-radius:14px;
-    background:linear-gradient(
-      105deg,var(--navy) 0%,var(--blue) 46%,
-      var(--blue2) 72%,var(--red) 135%
-    );
-    box-shadow:0 10px 24px rgba(23,78,166,.20);
-  }
-
-  .nav-links .nav-login:hover,
-  .nav-links .nav-login:active {
-    color:#fff;
-    background:linear-gradient(
-      105deg,var(--blue),var(--blue2) 55%,var(--red)
-    );
-  }
-
-  .hero {
-    min-height:auto;
-    padding:32px 16px 50px;
-  }
-
-  .hero-inner {
-    grid-template-columns:1fr;
-    gap:32px;
-  }
-
-  .hero-copy {
-    width:100%;
-    text-align:center;
-  }
-
-  .hero-kicker {
-    min-height:32px;
-    padding:0 12px;
-    margin-bottom:19px;
-    font-size:9px;
-    letter-spacing:.12em;
-  }
-
-  .hero-kicker span { width:7px; height:7px; }
-
-  .hero h1 {
-    margin:0 0 18px;
-    font-size:clamp(39px,11vw,50px);
-    line-height:1.02;
-    letter-spacing:-.045em;
-  }
-
-  .hero h1 .agentic { margin-bottom:8px; }
-  .hero h1 .basin { font-size:.80em; }
-
-  .hero-subtitle {
-    max-width:360px;
-    margin:0 auto 22px;
-    padding:0 4px;
-    font-size:14px;
-    line-height:1.62;
-  }
-
-  .domain-pills {
-    display:grid;
-    grid-template-columns:1fr;
-    gap:7px;
-    margin:0 auto 25px;
-    max-width:360px;
-  }
-
-  .domain-pills a {
-    min-height:41px;
-    justify-content:center;
-    padding:0 12px;
-    border-radius:12px;
-    font-size:10.5px;
-  }
-
-  .hero-agent-summary {
-    width:100%;
-    text-align:left;
-  }
-
-  .hero-agent-summary-title {
-    display:block;
-    text-align:center;
-    margin-bottom:13px;
-  }
-
-  .hero-agent-summary-title strong {
-    display:block;
-    margin-bottom:4px;
-    font-size:14px;
-  }
-
-  .hero-agent-summary-title small {
-    display:block;
-    font-size:9px;
-    line-height:1.4;
-  }
-
-  .hero-agent-panels { gap:8px; }
-
-  .hero-agent-panel {
-    padding:12px 13px 13px 15px;
-    border-radius:13px;
-  }
-
-  .hero-agent-panel-head { margin-bottom:5px; }
-
-  .hero-agent-panel p {
-    font-size:9.5px;
-    line-height:1.45;
+    max-width:1050px;
+    margin:auto;
   }
 
   .hero-slider {
-    height:270px;
-    border-radius:20px;
-    box-shadow:
-      0 18px 38px rgba(7,26,51,.12),
-      0 0 0 5px rgba(255,255,255,.38);
+    height:clamp(390px,52vw,620px);
+  }
+}
+
+@media(max-width:1100px) {
+  .navbar {
+    height:auto;
+    min-height:84px;
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
-  .slider-dots {
-    bottom:12px;
-    padding:7px 9px;
+  .logo img {
+    max-width:370px;
+    width:60vw;
   }
 
-  .intel-section { padding:66px 16px 78px; }
-  .intel-heading { margin-bottom:30px; }
-
-  .intel-eyebrow {
-    padding:8px 12px;
-    margin-bottom:15px;
-    font-size:9px;
-  }
-
-  .intel-heading h2 {
-    margin-bottom:14px;
-    font-size:clamp(34px,9vw,44px);
-    line-height:1.05;
-  }
-
-  #swd-injection-intelligence .intel-heading h2 {
-    font-size:clamp(28px,7.4vw,37px);
-  }
-
-  .intel-heading p {
-    font-size:14px;
-    line-height:1.62;
+  .nav-links {
+    flex-wrap:wrap;
+    justify-content:center;
   }
 
   .query-panel {
     flex-direction:column;
     align-items:stretch;
-    gap:17px;
-    padding:17px;
-    margin:0 auto 34px;
-    border-radius:21px;
-    box-shadow:0 18px 45px rgba(15,23,42,.08);
+    gap:12px;
   }
 
   .query-copy {
     min-width:0;
-    text-align:center;
+    flex:auto;
   }
 
-  .query-copy span { font-size:9px; }
+  .query-controls { width:100%; }
 
-  .query-copy strong {
-    margin-top:5px;
-    font-size:13px;
-    line-height:1.45;
+  .intel-heading { text-align:center; }
+
+  .intel-heading p { margin:auto; }
+
+  .agent-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
+}
 
-  .query-controls {
-    width:100%;
+@media(max-width:720px) {
+  html { scroll-padding-top:84px; }
+
+  .navbar {
+    height:77px;
+    min-height:77px;
     display:grid;
-    grid-template-columns:1fr;
-    gap:9px;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:10px;
+    padding:8px 14px;
   }
 
-  .input-wrap {
-    width:100%;
-    min-height:64px;
-    padding:8px 13px;
-    border-radius:14px;
+  .logo img {
+    width:min(290px,70vw);
+    max-width:100%;
+  }
+
+  .mobile-menu-btn { display:block; }
+
+  .nav-links {
+    position:absolute;
+    top:calc(100% + 7px);
+    left:12px;
+    right:12px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:6px;
+    padding:12px;
+    border:1px solid #d5e1f4;
+    border-radius:19px;
     background:#fff;
+    box-shadow:0 20px 45px #071a3338;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(-9px);
+    transition:.2s;
   }
 
-  .coordinate-input > i {
-    width:40px;
-    height:40px;
-    flex:0 0 40px;
-    border-radius:12px;
-    font-size:14px;
+  .nav-links.open {
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
   }
 
-  .coordinate-field span {
-    font-size:8.5px;
-    letter-spacing:.11em;
+  .nav-links a {
+    width:100%;
+    min-height:45px;
+    padding:12px 15px;
+    white-space:normal;
+    background:#f1f6ff;
   }
 
-  .coordinate-field input {
-    min-width:0;
-    font-size:17px;
+  .nav-links .nav-login {
+    margin:0;
+    text-align:center;
+    background:linear-gradient(120deg,#071a33,#2563eb);
+  }
+
+  .hero { padding:24px 16px 29px; }
+
+  .hero h1 {
+    font-size:clamp(38px,10vw,54px);
+  }
+
+  .hero-subtitle { font-size:17px; }
+
+  .hero-slider {
+    height:clamp(250px,64vw,380px);
+  }
+
+  .intel-section { padding:24px 14px 35px; }
+
+  .intel-heading {
+    padding:22px 18px;
+    margin-bottom:13px;
+    border-radius:19px;
+  }
+
+  .intel-heading h2,
+  #swd-injection-intelligence .intel-heading h2 {
+    font-size:clamp(29px,6.5vw,42px);
+  }
+
+  .intel-heading p { font-size:16px; }
+
+  .intel-eyebrow {
+    font-size:10px;
     line-height:1.3;
   }
 
-  .primary-action {
-    grid-column:auto;
-    width:100%;
-    min-height:56px;
-    margin-top:3px;
-    padding:0 14px;
-    border-radius:14px;
-    font-size:12px;
-    white-space:normal;
-    text-align:center;
-    box-shadow:0 10px 22px rgba(23,78,166,.17);
+  .query-panel { padding:15px; }
+
+  .query-controls {
+    grid-template-columns:1fr;
   }
+
+  .primary-action {
+    width:100%;
+    white-space:normal;
+  }
+
+  .workflow-label span { font-size:11px; }
 
   .agent-grid {
     grid-template-columns:1fr;
-    gap:14px;
+    gap:12px;
   }
 
   .agent-card {
-    min-height:auto;
-    padding:21px;
-    border-radius:20px;
+    min-height:0;
+    padding:19px;
   }
 
-  .agent-card-top { margin-bottom:16px; }
-  .agent-card h3 { font-size:17px; }
-
-  .agent-card p {
-    font-size:12.5px;
-    line-height:1.65;
-  }
+  .agent-card h3 { font-size:21px; }
+  .agent-card p { font-size:16px; }
+  .agent-footer { font-size:13px; }
 
   .download-btn {
     width:100%;
-    min-width:0;
-    min-height:58px;
-    padding:0 16px;
-    border-radius:15px;
-    font-size:12.5px;
-    line-height:1.35;
-    white-space:normal;
+    font-size:15px;
   }
-
-  .production-downloads { flex-direction:column; }
-
-  .production-downloads .download-btn {
-    width:100%;
-    min-width:0;
-  }
-
-  .api-status-panel { margin:-10px auto 30px; }
-}
-
-@media(max-width:390px) {
-  .navbar { padding:8px 10px; gap:8px; }
-  .logo img { width:min(265px,72vw); }
-
-  .mobile-menu-btn {
-    width:44px;
-    height:44px;
-    flex:0 0 44px;
-    border-radius:13px;
-  }
-
-  .nav-links { left:10px; right:10px; }
-  .hero h1 { font-size:38px; }
 }
 
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {
-    scroll-behavior:auto !important;
-    animation-duration:.01ms !important;
-    transition-duration:.01ms !important;
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
   }
 }
 </style>
@@ -1484,10 +1195,11 @@ button,input { font:inherit; }
 
 <body>
 
-<!-- =========================================================
+<!-- =====================================================
      NAVIGATION
-========================================================= -->
+===================================================== -->
 <nav class="navbar" aria-label="Main navigation">
+
   <div class="logo">
     <img src="basinagentic_logo.png" alt="BasinAgentic Logo">
   </div>
@@ -1498,7 +1210,6 @@ button,input { font:inherit; }
     type="button"
     aria-label="Open navigation menu"
     aria-expanded="false"
-    aria-controls="nav-links"
   >
     <i class="fa-solid fa-bars"></i>
   </button>
@@ -1510,645 +1221,637 @@ button,input { font:inherit; }
     <a href="about.html">About</a>
     <a href="contact.html" class="nav-contact">Contact</a>
     <a href="login.html" class="nav-login">
-      <i class="fa-solid fa-user-lock"></i>Sign In
+      <i class="fa-solid fa-user-lock"></i>
+      Sign In
     </a>
   </div>
 </nav>
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 <section class="hero" id="top">
-  <div class="hero-inner">
+<div class="hero-inner">
 
-    <div class="hero-copy">
+  <div class="hero-copy">
 
-      <div class="hero-kicker">
-        <span></span>AGENTIC AI PLATFORM
-      </div>
-
-      <h1>
-        <span class="agentic">AGENTIC AI</span>
-        <span class="basin">FOR BASIN INTELLIGENCE</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Transforming basin-scale data into predictive insights,
-        risk-aware decisions, and autonomous operational intelligence.
-      </p>
-
-      <div class="domain-pills">
-        <a href="#production-intelligence">
-          Production Intelligence
-        </a>
-        <a href="#swd-injection-intelligence">
-          SWD Injection &amp; Induced Seismicity Intelligence
-        </a>
-      </div>
-
-      <div class="hero-agent-summary">
-        <div class="hero-agent-summary-title">
-          <strong>10 Specialized AI Agents</strong>
-          <small>
-            Coordinated across production, SWD injection
-            and induced seismicity workflows
-          </small>
-        </div>
-
-        <div class="hero-agent-panels">
-
-          <div class="hero-agent-panel production">
-            <div class="hero-agent-panel-head">
-              <i class="fa-solid fa-chart-line"></i>
-              <strong>Production Agents</strong>
-            </div>
-            <p>
-              Spatial / Formation · Analog Selection ·
-              Decline-Curve · Transformer Forecasting ·
-              Ensemble &amp; Uncertainty
-            </p>
-          </div>
-
-          <div class="hero-agent-panel swd">
-            <div class="hero-agent-panel-head">
-              <i class="fa-solid fa-droplet"></i>
-              <strong>SWD Injection &amp; Induced Seismicity Agents</strong>
-            </div>
-            <p>
-              Seismicity &amp; Faults · Injection ·
-              Geology &amp; Subsurface · Geomechanics &amp; Pressure ·
-              RRC Regulatory Compliance
-            </p>
-          </div>
-
-        </div>
-      </div>
-
+    <div class="hero-kicker">
+      <span></span>
+      AGENTIC AI PLATFORM
     </div>
 
-    <!-- ALL THREE HERO IMAGES PRESERVED -->
-    <div class="hero-visual">
-      <div class="hero-slider" aria-label="BasinAgentic platform showcase">
+    <h1>
+      <span class="agentic">AGENTIC AI</span>
+      <span class="basin">FOR BASIN INTELLIGENCE</span>
+    </h1>
 
-        <div class="slide active">
-          <img src="hero1.png"
-               alt="BasinAgentic Production Intelligence">
-        </div>
+    <p class="hero-subtitle">
+      Transforming basin-scale data into predictive insights,
+      risk-aware decisions, and autonomous operational intelligence.
+    </p>
 
-        <div class="slide">
-          <img src="hero2.png"
-               alt="BasinAgentic Seismicity Intelligence showcase">
-        </div>
-
-        <div class="slide">
-          <img src="hero3.png"
-               alt="BasinAgentic SWD Injection and Induced Seismicity Intelligence">
-        </div>
-
-        <div class="slider-dots" aria-label="Choose showcase image">
-          <button type="button" class="dot active"
-                  aria-label="Production slide"></button>
-          <button type="button" class="dot"
-                  aria-label="Seismicity showcase slide"></button>
-          <button type="button" class="dot"
-                  aria-label="SWD and induced seismicity slide"></button>
-        </div>
-
-      </div>
+    <div class="domain-pills">
+      <a href="#production-intelligence">
+        Production Intelligence
+      </a>
+      <a href="#swd-injection-intelligence">
+        SWD Injection &amp; Induced Seismicity Intelligence
+      </a>
     </div>
 
-  </div>
-</section>
+    <div class="hero-agent-summary">
 
-<!-- =========================================================
-     PRODUCTION INTELLIGENCE: FIVE AGENTS
-========================================================= -->
-<section class="intel-section" id="production-intelligence">
-  <div class="intel-shell">
-
-    <div class="intel-heading">
-      <span class="intel-eyebrow">
-        <i class="fa-solid fa-gears"></i>
-        AGENTIC PRODUCTION FORECASTING
-      </span>
-
-      <h2>PRODUCTION INTELLIGENCE</h2>
-
-      <p>
-        Basin-scale oil, gas, water, well-performance and
-        forecasting intelligence transformed into predictive
-        well-level insights.
-      </p>
-    </div>
-
-    <div class="query-panel">
-
-      <div class="query-copy">
-        <span>RUN WELL INTELLIGENCE</span>
-        <strong>
-          Enter a well location to start
-          the production agent workflow
-        </strong>
+      <div class="hero-agent-summary-title">
+        <strong>10 Specialized AI Agents</strong>
+        <small>
+          Coordinated across production, SWD injection
+          and induced seismicity workflows
+        </small>
       </div>
 
-      <div class="query-controls">
+      <div class="hero-agent-panels">
 
-        <label class="input-wrap coordinate-input">
-          <i class="fa-solid fa-location-crosshairs"></i>
-          <span class="coordinate-field">
-            <span>LATITUDE</span>
-            <input
-              id="production-latitude"
-              type="text"
-              inputmode="text"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="false"
-              placeholder="31.9686"
-            >
-          </span>
-        </label>
-
-        <label class="input-wrap coordinate-input">
-          <i class="fa-solid fa-location-dot"></i>
-          <span class="coordinate-field">
-            <span>LONGITUDE</span>
-            <input
-              id="production-longitude"
-              type="text"
-              inputmode="text"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="false"
-              placeholder="-102.0779"
-            >
-          </span>
-        </label>
-
-        <button
-          id="production-generate-btn"
-          class="primary-action"
-          type="button"
-        >
-          Generate Forecast Report
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-
-      </div>
-    </div>
-
-    <div
-      id="production-api-status"
-      class="api-status-panel"
-      aria-live="polite"
-    >
-      <div class="api-status-row">
-        <div id="production-status-icon" class="api-spinner"></div>
-        <div id="production-status-text">
-          Preparing production forecast...
-        </div>
-      </div>
-      <div id="production-job-text" class="api-job"></div>
-    </div>
-
-    <div class="workflow-label">
-      <span>5-AGENT WORKFLOW</span>
-      <div></div>
-    </div>
-
-    <div class="agent-grid">
-
-      <!-- PRODUCTION AGENT 1 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">01</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-        </div>
-        <h3>Spatial / Formation / Geometry Agent</h3>
-        <p>
-          Detects local formation, adaptive search radius,
-          depth proxy and lateral-length proxy from nearby wells.
-        </p>
-        <div class="agent-footer">
-          <span>Spatial Intelligence</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-      <!-- PRODUCTION AGENT 2 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">02</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-filter"></i>
-          </div>
-        </div>
-        <h3>Analog Selection Agent</h3>
-        <p>
-          Selects the most relevant nearby analog wells
-          using location, formation, geometry and production history.
-        </p>
-        <div class="agent-footer">
-          <span>Analog Intelligence</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-      <!-- PRODUCTION AGENT 3 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">03</span>
-          <div class="agent-icon">
+        <div class="hero-agent-panel production">
+          <div class="hero-agent-panel-head">
             <i class="fa-solid fa-chart-line"></i>
+            <strong>Production Agents</strong>
           </div>
+          <p>
+            Spatial / Formation · Analog Selection ·
+            Decline-Curve · Transformer Forecasting ·
+            Ensemble &amp; Uncertainty
+          </p>
         </div>
-        <h3>Decline-Curve Agent</h3>
-        <p>
-          Builds decline-curve forecasts and production
-          trajectories from analog-well history and fitted
-          decline parameters.
-        </p>
-        <div class="agent-footer">
-          <span>Decline Intelligence</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
 
-      <!-- PRODUCTION AGENT 4 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">04</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-brain"></i>
+        <div class="hero-agent-panel swd">
+          <div class="hero-agent-panel-head">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>
+              SWD Injection &amp; Induced Seismicity Agents
+            </strong>
           </div>
+          <p>
+            Seismicity &amp; Faults · Injection ·
+            Geology &amp; Subsurface ·
+            Geomechanics &amp; Pressure ·
+            RRC Regulatory Compliance
+          </p>
         </div>
-        <h3>Transformer Forecasting Agent</h3>
-        <p>
-          Generates a DCA-anchored 60-month production
-          forecast using Transformer-based sequence modeling.
-        </p>
-        <div class="agent-footer">
-          <span>AI Forecasting</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
 
-      <!-- PRODUCTION AGENT 5 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">05</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-layer-group"></i>
-          </div>
-        </div>
-        <h3>Ensemble &amp; Uncertainty Agent</h3>
-        <p>
-          Combines forecast signals and quantifies
-          uncertainty for P10, P50 and P90 production outcomes.
-        </p>
-        <div class="agent-footer">
-          <span>Risk &amp; Uncertainty</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
+      </div>
     </div>
-
-    <div id="production-downloads" class="production-downloads">
-
-      <button id="production-pdf-btn"
-              class="download-btn" type="button">
-        <i class="fa-regular fa-file-pdf"></i>
-        Download Well Production Forecast Report
-      </button>
-
-      <button id="production-csv-btn"
-              class="download-btn secondary" type="button">
-        <i class="fa-solid fa-table"></i>
-        Download Forecast CSV
-      </button>
-
-      <button id="production-package-btn"
-              class="download-btn package" type="button">
-        <i class="fa-solid fa-file-zipper"></i>
-        Download Full Package
-      </button>
-
-    </div>
-
   </div>
+
+  <!-- FIVE HERO IMAGES -->
+  <div class="hero-visual">
+    <div class="hero-slider" aria-label="BasinAgentic platform showcase">
+
+      <div class="slide active">
+        <img src="hero1.png" alt="Production Intelligence">
+      </div>
+
+      <div class="slide">
+        <img src="hero2.png" alt="Seismicity Intelligence">
+      </div>
+
+      <div class="slide">
+        <img src="hero3.png" alt="SWD and Induced Seismicity Intelligence">
+      </div>
+
+      <div class="slide">
+        <img
+          src="hero4.png"
+          onerror="this.onerror=null;this.src='hero1.png'"
+          alt="Platform image 4"
+        >
+      </div>
+
+      <div class="slide">
+        <img
+          src="hero5.png"
+          onerror="this.onerror=null;this.src='hero2.png'"
+          alt="Platform image 5"
+        >
+      </div>
+
+      <div class="slider-dots">
+        <button class="dot active" aria-label="Slide 1"></button>
+        <button class="dot" aria-label="Slide 2"></button>
+        <button class="dot" aria-label="Slide 3"></button>
+        <button class="dot" aria-label="Slide 4"></button>
+        <button class="dot" aria-label="Slide 5"></button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 </section>
 
-<!-- =========================================================
-     SWD INJECTION & INDUCED SEISMICITY INTELLIGENCE
-     NEW FIVE AGENTS
-========================================================= -->
-<section class="intel-section" id="swd-injection-intelligence">
-  <div class="intel-shell">
+<!-- =====================================================
+     PRODUCTION INTELLIGENCE
+===================================================== -->
+<section class="intel-section" id="production-intelligence">
+<div class="intel-shell">
 
-    <div class="intel-heading">
+  <div class="intel-heading">
+    <span class="intel-eyebrow">
+      <i class="fa-solid fa-gears"></i>
+      AGENTIC PRODUCTION FORECASTING
+    </span>
+    <h2>PRODUCTION INTELLIGENCE</h2>
+    <p>
+      Basin-scale oil, gas, water, well-performance and
+      forecasting intelligence transformed into predictive
+      well-level insights.
+    </p>
+  </div>
 
-      <span class="intel-eyebrow">
-        <i class="fa-solid fa-droplet"></i>
-        AGENTIC SWD INJECTION &amp; INDUCED SEISMICITY INTELLIGENCE
-      </span>
+  <div class="query-panel">
 
-      <h2>
-        SWD INJECTION &amp; INDUCED SEISMICITY INTELLIGENCE
-      </h2>
-
-      <p>
-        Integrate SWD injection performance, nearby seismicity,
-        subsurface connectivity, operational constraints and
-        AI-driven optimization into a unified, risk-aware
-        injection and induced seismicity decision framework.
-      </p>
-
+    <div class="query-copy">
+      <span>RUN WELL INTELLIGENCE</span>
+      <strong>
+        Enter a well location to start the production agent workflow
+      </strong>
     </div>
 
-    <div class="query-panel">
+    <div class="query-controls">
 
-      <div class="query-copy">
-        <span>RUN SWD INJECTION &amp; SEISMICITY INTELLIGENCE</span>
-        <strong>
-          Enter a well location to start the SWD injection
-          and induced seismicity agent workflow
-        </strong>
-      </div>
+      <label class="input-wrap coordinate-input">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        <span class="coordinate-field">
+          <span>LATITUDE</span>
+          <input
+            id="production-latitude"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="31.9686"
+          >
+        </span>
+      </label>
 
-      <div class="query-controls">
+      <label class="input-wrap coordinate-input">
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="coordinate-field">
+          <span>LONGITUDE</span>
+          <input
+            id="production-longitude"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="-102.0779"
+          >
+        </span>
+      </label>
 
-        <label class="input-wrap coordinate-input">
-          <i class="fa-solid fa-location-crosshairs"></i>
-          <span class="coordinate-field">
-            <span>LATITUDE</span>
-            <input
-              id="swd-latitude"
-              type="text"
-              inputmode="text"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="false"
-              placeholder="31.9686"
-            >
-          </span>
-        </label>
-
-        <label class="input-wrap coordinate-input">
-          <i class="fa-solid fa-location-dot"></i>
-          <span class="coordinate-field">
-            <span>LONGITUDE</span>
-            <input
-              id="swd-longitude"
-              type="text"
-              inputmode="text"
-              autocomplete="off"
-              autocapitalize="off"
-              spellcheck="false"
-              placeholder="-102.0779"
-            >
-          </span>
-        </label>
-
-        <button
-          class="primary-action"
-          id="swd-generate-btn"
-          type="button"
-        >
-          Generate SWD &amp; Seismicity Report
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
-
-      </div>
-    </div>
-
-    <div class="workflow-label">
-      <span>5-AGENT WORKFLOW</span>
-      <div></div>
-    </div>
-
-    <div class="agent-grid">
-
-      <!-- SWD AGENT 1 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">01</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-earth-americas"></i>
-          </div>
-        </div>
-
-        <h3>Seismicity and Fault Intelligence Agent</h3>
-
-        <p>
-          Maps nearby seismic events, fault systems,
-          event clustering and seismicity trends to
-          assess seismic exposure and potential
-          injection-related risk.
-        </p>
-
-        <div class="agent-footer">
-          <span>Seismicity &amp; Fault Intelligence</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-      <!-- SWD AGENT 2 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">02</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-droplet"></i>
-          </div>
-        </div>
-
-        <h3>Injection Intelligence Agent</h3>
-
-        <p>
-          Analyzes injection-well locations,
-          disposal and other relevant injection volumes,
-          injection rates and pressure records
-          around the selected location.
-        </p>
-
-        <div class="agent-footer">
-          <span>Injection Analytics</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-      <!-- SWD AGENT 3 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">03</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-layer-group"></i>
-          </div>
-        </div>
-
-        <h3>Geology and Subsurface Intelligence Agent</h3>
-
-        <p>
-          Evaluates basin setting, geologic formations,
-          injection intervals, subsurface geometry
-          and possible pathways between injection zones
-          and nearby faults.
-        </p>
-
-        <div class="agent-footer">
-          <span>Geologic &amp; Subsurface Context</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-      <!-- SWD AGENT 4 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">04</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-gauge-high"></i>
-          </div>
-        </div>
-
-        <h3>Geomechanics and Pressure Intelligence Agent</h3>
-
-        <p>
-          Evaluates injection-pressure behavior,
-          pressure-communication indicators,
-          geomechanical constraints and potential
-          fault-reactivation conditions.
-        </p>
-
-        <div class="agent-footer">
-          <span>Pressure &amp; Geomechanical Risk</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-      <!-- SWD AGENT 5 -->
-      <article class="agent-card">
-        <div class="agent-card-top">
-          <span class="agent-number">05</span>
-          <div class="agent-icon">
-            <i class="fa-solid fa-clipboard-check"></i>
-          </div>
-        </div>
-
-        <h3>RRC Regulatory Compliance Agent</h3>
-
-        <p>
-          Reviews applicable Texas RRC reporting
-          requirements, permit conditions and injection
-          limits to flag potential regulatory-compliance issues.
-        </p>
-
-        <div class="agent-footer">
-          <span>RRC Regulatory Screening</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="download-wrap">
       <button
-        class="download-btn"
-        id="swd-download-btn"
+        class="primary-action"
+        id="production-generate-btn"
         type="button"
       >
-        <i class="fa-regular fa-file-pdf"></i>
-        Download SWD Injection &amp; Induced Seismicity Forecast Report
+        Generate Forecast Report
+        <i class="fa-solid fa-arrow-right"></i>
       </button>
+
     </div>
+  </div>
+
+  <div
+    class="api-status-panel"
+    id="production-api-status"
+    aria-live="polite"
+  >
+    <div class="api-status-row">
+      <div class="api-spinner" id="production-status-icon"></div>
+      <div id="production-status-text">
+        Preparing production forecast...
+      </div>
+    </div>
+    <div class="api-job" id="production-job-text"></div>
+  </div>
+
+  <div class="workflow-label">
+    <span>5-AGENT WORKFLOW</span>
+    <div></div>
+  </div>
+
+  <div class="agent-grid">
+
+    <!-- PRODUCTION AGENT 1 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">01</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+      </div>
+      <h3>Spatial / Formation / Geometry Agent</h3>
+      <p>
+        Detects local formation, adaptive search radius,
+        depth proxy and lateral-length proxy from nearby wells.
+      </p>
+      <div class="agent-footer">
+        <span>Spatial Intelligence</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- PRODUCTION AGENT 2 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">02</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-filter"></i>
+        </div>
+      </div>
+      <h3>Analog Selection Agent</h3>
+      <p>
+        Selects the most relevant nearby analog wells
+        using location, formation, geometry and production history.
+      </p>
+      <div class="agent-footer">
+        <span>Analog Intelligence</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- PRODUCTION AGENT 3 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">03</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+      </div>
+      <h3>Decline-Curve Agent</h3>
+      <p>
+        Builds decline-curve forecasts and production
+        trajectories from analog-well history and
+        fitted decline parameters.
+      </p>
+      <div class="agent-footer">
+        <span>Decline Intelligence</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- PRODUCTION AGENT 4 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">04</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+      </div>
+      <h3>Transformer Forecasting Agent</h3>
+      <p>
+        Generates a DCA-anchored 60-month production
+        forecast using Transformer-based sequence modeling.
+      </p>
+      <div class="agent-footer">
+        <span>AI Forecasting</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- PRODUCTION AGENT 5 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">05</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+      </div>
+      <h3>Ensemble &amp; Uncertainty Agent</h3>
+      <p>
+        Combines forecast signals and quantifies
+        uncertainty for P10, P50 and P90 production outcomes.
+      </p>
+      <div class="agent-footer">
+        <span>Risk &amp; Uncertainty</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
 
   </div>
+
+  <div class="production-downloads" id="production-downloads">
+
+    <button class="download-btn" id="production-pdf-btn">
+      <i class="fa-regular fa-file-pdf"></i>
+      Download Well Production Forecast Report
+    </button>
+
+    <button class="download-btn secondary" id="production-csv-btn">
+      <i class="fa-solid fa-table"></i>
+      Download Forecast CSV
+    </button>
+
+    <button class="download-btn package" id="production-package-btn">
+      <i class="fa-solid fa-file-zipper"></i>
+      Download Full Package
+    </button>
+
+  </div>
+
+</div>
 </section>
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- =====================================================
+     SWD INJECTION & INDUCED SEISMICITY
+===================================================== -->
+<section class="intel-section" id="swd-injection-intelligence">
+<div class="intel-shell">
+
+  <div class="intel-heading">
+
+    <span class="intel-eyebrow">
+      <i class="fa-solid fa-droplet"></i>
+      AGENTIC SWD INJECTION &amp; INDUCED SEISMICITY INTELLIGENCE
+    </span>
+
+    <h2>SWD INJECTION &amp; INDUCED SEISMICITY INTELLIGENCE</h2>
+
+    <p>
+      Integrate SWD injection performance, nearby seismicity,
+      subsurface connectivity, operational constraints and
+      AI-driven optimization into a unified, risk-aware
+      injection and induced seismicity decision framework.
+    </p>
+
+  </div>
+
+  <div class="query-panel">
+
+    <div class="query-copy">
+      <span>RUN SWD INJECTION &amp; SEISMICITY INTELLIGENCE</span>
+      <strong>
+        Enter a well location to start the SWD injection
+        and induced seismicity agent workflow
+      </strong>
+    </div>
+
+    <div class="query-controls">
+
+      <label class="input-wrap coordinate-input">
+        <i class="fa-solid fa-location-crosshairs"></i>
+        <span class="coordinate-field">
+          <span>LATITUDE</span>
+          <input
+            id="swd-latitude"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="31.9686"
+          >
+        </span>
+      </label>
+
+      <label class="input-wrap coordinate-input">
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="coordinate-field">
+          <span>LONGITUDE</span>
+          <input
+            id="swd-longitude"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="-102.0779"
+          >
+        </span>
+      </label>
+
+      <button
+        class="primary-action"
+        id="swd-generate-btn"
+        type="button"
+      >
+        Generate SWD &amp; Seismicity Report
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="workflow-label">
+    <span>5-AGENT WORKFLOW</span>
+    <div></div>
+  </div>
+
+  <div class="agent-grid">
+
+    <!-- SWD AGENT 1 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">01</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+      </div>
+
+      <h3>Seismicity and Fault Intelligence Agent</h3>
+
+      <p>
+        Maps nearby seismic events, fault systems,
+        event clustering and seismicity trends to assess
+        seismic exposure and potential injection-related risk.
+      </p>
+
+      <div class="agent-footer">
+        <span>Seismicity &amp; Fault Intelligence</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- SWD AGENT 2 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">02</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-droplet"></i>
+        </div>
+      </div>
+
+      <h3>Injection Intelligence Agent</h3>
+
+      <p>
+        Analyzes injection-well locations, disposal
+        and other relevant injection volumes,
+        injection rates and pressure records
+        around the selected location.
+      </p>
+
+      <div class="agent-footer">
+        <span>Injection Analytics</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- SWD AGENT 3 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">03</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+      </div>
+
+      <h3>Geology and Subsurface Intelligence Agent</h3>
+
+      <p>
+        Evaluates basin setting, geologic formations,
+        injection intervals, subsurface geometry and
+        possible pathways between injection zones
+        and nearby faults.
+      </p>
+
+      <div class="agent-footer">
+        <span>Geologic &amp; Subsurface Context</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- SWD AGENT 4 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">04</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-gauge-high"></i>
+        </div>
+      </div>
+
+      <h3>Geomechanics and Pressure Intelligence Agent</h3>
+
+      <p>
+        Evaluates injection-pressure behavior,
+        pressure-communication indicators,
+        geomechanical constraints and potential
+        fault-reactivation conditions.
+      </p>
+
+      <div class="agent-footer">
+        <span>Pressure &amp; Geomechanical Risk</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+    <!-- SWD AGENT 5 -->
+    <article class="agent-card">
+      <div class="agent-card-top">
+        <span class="agent-number">05</span>
+        <div class="agent-icon">
+          <i class="fa-solid fa-clipboard-check"></i>
+        </div>
+      </div>
+
+      <h3>RRC Regulatory Compliance Agent</h3>
+
+      <p>
+        Reviews applicable Texas RRC reporting
+        requirements, permit conditions and
+        injection limits to flag potential
+        regulatory-compliance issues.
+      </p>
+
+      <div class="agent-footer">
+        <span>RRC Regulatory Screening</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="download-wrap">
+    <button class="download-btn" id="swd-download-btn" type="button">
+      <i class="fa-regular fa-file-pdf"></i>
+      Download SWD Injection &amp; Induced Seismicity Forecast Report
+    </button>
+  </div>
+
+</div>
+</section>
+
 <footer class="footer">
   © 2026 BasinAgentic — Autonomous Basin Intelligence Platform.
 </footer>
 
 <script>
-/* =========================================================
+/* =====================================================
    MOBILE NAVIGATION
-========================================================= */
+===================================================== */
+
 const mobileMenuBtn =
-  document.getElementById("mobile-menu-btn");
+  document.getElementById('mobile-menu-btn');
 
 const navLinks =
-  document.getElementById("nav-links");
+  document.getElementById('nav-links');
 
 function closeMobileMenu() {
-  if (!mobileMenuBtn || !navLinks) return;
-
-  navLinks.classList.remove("open");
-  mobileMenuBtn.classList.remove("active");
-  mobileMenuBtn.setAttribute("aria-expanded","false");
+  navLinks.classList.remove('open');
+  mobileMenuBtn.classList.remove('active');
+  mobileMenuBtn.setAttribute('aria-expanded','false');
   mobileMenuBtn.innerHTML =
     '<i class="fa-solid fa-bars"></i>';
 }
 
-if (mobileMenuBtn && navLinks) {
-  mobileMenuBtn.addEventListener("click", event => {
-    event.stopPropagation();
+mobileMenuBtn.addEventListener('click', e => {
+  e.stopPropagation();
 
-    const isOpen = navLinks.classList.toggle("open");
+  const open = navLinks.classList.toggle('open');
 
-    mobileMenuBtn.classList.toggle("active",isOpen);
-    mobileMenuBtn.setAttribute("aria-expanded",String(isOpen));
+  mobileMenuBtn.classList.toggle('active',open);
+  mobileMenuBtn.setAttribute('aria-expanded',String(open));
 
-    mobileMenuBtn.innerHTML = isOpen
-      ? '<i class="fa-solid fa-xmark"></i>'
-      : '<i class="fa-solid fa-bars"></i>';
-  });
+  mobileMenuBtn.innerHTML = open
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
 
-  navLinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click",closeMobileMenu);
-  });
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click',closeMobileMenu);
+});
 
-  document.addEventListener("click", event => {
-    if (window.innerWidth > 620) return;
+document.addEventListener('click',e => {
+  if (
+    window.innerWidth <= 720 &&
+    !navLinks.contains(e.target) &&
+    !mobileMenuBtn.contains(e.target)
+  ) {
+    closeMobileMenu();
+  }
+});
 
-    if (
-      !navLinks.contains(event.target) &&
-      !mobileMenuBtn.contains(event.target)
-    ) {
-      closeMobileMenu();
-    }
-  });
+window.addEventListener('resize',() => {
+  if (window.innerWidth > 720) closeMobileMenu();
+});
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 620) closeMobileMenu();
-  });
-}
+/* =====================================================
+   FIVE HERO SLIDES
+===================================================== */
 
-/* =========================================================
-   HERO SLIDER — THREE IMAGES
-========================================================= */
 let currentSlide = 0;
 
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".slider-dots .dot");
+const slides = [
+  ...document.querySelectorAll('.slide')
+];
+
+const dots = [
+  ...document.querySelectorAll('.slider-dots .dot')
+];
 
 function showSlide(index) {
-  slides.forEach((slide,i) => {
-    slide.classList.toggle("active",i === index);
-  });
-
-  dots.forEach((dot,i) => {
-    dot.classList.toggle("active",i === index);
-    dot.setAttribute(
-      "aria-current",
-      i === index ? "true" : "false"
-    );
-  });
-
   currentSlide = index;
+
+  slides.forEach((s,i) => {
+    s.classList.toggle('active',i === index);
+  });
+
+  dots.forEach((d,i) => {
+    d.classList.toggle('active',i === index);
+    d.setAttribute('aria-current',String(i === index));
+  });
 }
 
 if (slides.length) {
@@ -2161,119 +1864,116 @@ if (slides.length) {
   }
 }
 
-dots.forEach((dot,index) => {
-  dot.addEventListener("click",() => showSlide(index));
+dots.forEach((d,i) => {
+  d.addEventListener('click',() => showSlide(i));
 });
 
-/* =========================================================
-   BASINAGENTIC PRODUCTION API
-========================================================= */
+/* =====================================================
+   PRODUCTION API CONFIGURATION
+===================================================== */
+
 const BASINAGENTIC_API_BASE =
-  "https://api.basinagentic.com";
+  'https://api.basinagentic.com';
 
 let productionJobId = null;
 let productionPollTimer = null;
 
 const productionLat =
-  document.getElementById("production-latitude");
+  document.getElementById('production-latitude');
 
 const productionLon =
-  document.getElementById("production-longitude");
+  document.getElementById('production-longitude');
 
 const productionGenerateBtn =
-  document.getElementById("production-generate-btn");
+  document.getElementById('production-generate-btn');
 
 const productionStatusPanel =
-  document.getElementById("production-api-status");
+  document.getElementById('production-api-status');
 
 const productionStatusIcon =
-  document.getElementById("production-status-icon");
+  document.getElementById('production-status-icon');
 
 const productionStatusText =
-  document.getElementById("production-status-text");
+  document.getElementById('production-status-text');
 
 const productionJobText =
-  document.getElementById("production-job-text");
+  document.getElementById('production-job-text');
 
 const productionDownloads =
-  document.getElementById("production-downloads");
+  document.getElementById('production-downloads');
 
 const productionPdfBtn =
-  document.getElementById("production-pdf-btn");
+  document.getElementById('production-pdf-btn');
 
 const productionCsvBtn =
-  document.getElementById("production-csv-btn");
+  document.getElementById('production-csv-btn');
 
 const productionPackageBtn =
-  document.getElementById("production-package-btn");
+  document.getElementById('production-package-btn');
 
-/* =========================================================
-   PRODUCTION STATUS
-========================================================= */
-function setProductionStatus(type,message,jobText="") {
-  productionStatusPanel.classList.add("show");
-  productionStatusIcon.className = "api-spinner";
+/* =====================================================
+   PRODUCTION STATUS DISPLAY
+===================================================== */
 
-  if (type === "done") {
-    productionStatusIcon.classList.add("done");
+function setProductionStatus(type,message,jobText='') {
+  productionStatusPanel.classList.add('show');
+  productionStatusIcon.className = 'api-spinner';
+  productionStatusIcon.innerHTML = '';
+
+  if (type === 'done') {
+    productionStatusIcon.classList.add('done');
     productionStatusIcon.innerHTML =
       '<i class="fa-solid fa-check"></i>';
   }
-  else if (type === "error") {
-    productionStatusIcon.classList.add("error");
+
+  if (type === 'error') {
+    productionStatusIcon.classList.add('error');
     productionStatusIcon.innerHTML =
       '<i class="fa-solid fa-xmark"></i>';
-  }
-  else {
-    productionStatusIcon.innerHTML = "";
   }
 
   productionStatusText.textContent = message;
   productionJobText.textContent = jobText;
 }
 
-/* =========================================================
+/* =====================================================
    COORDINATE PARSER
-========================================================= */
+===================================================== */
+
 function parseCoordinate(value) {
-  if (value === undefined || value === null) return NaN;
+  if (value == null) return NaN;
 
-  const cleaned = String(value)
+  const s = String(value)
     .trim()
-    .replace(/,/g,".")
-    .replace(/[−–—]/g,"-")
-    .replace(/\s+/g,"");
+    .replace(/,/g,'.')
+    .replace(/[−–—]/g,'-')
+    .replace(/\s+/g,'');
 
-  if (!/^-?\d+(\.\d+)?$/.test(cleaned)) {
-    return NaN;
-  }
-
-  return Number(cleaned);
+  return /^-?\d+(\.\d+)?$/.test(s)
+    ? Number(s)
+    : NaN;
 }
 
 function validateProductionCoordinates(lat,lon) {
   if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
-    throw new Error(
-      "Please enter valid latitude and longitude values."
+    throw Error(
+      'Please enter valid latitude and longitude values.'
     );
   }
 
   if (lat < -90 || lat > 90) {
-    throw new Error(
-      "Latitude must be between -90 and 90."
-    );
+    throw Error('Latitude must be between -90 and 90.');
   }
 
   if (lon < -180 || lon > 180) {
-    throw new Error(
-      "Longitude must be between -180 and 180."
-    );
+    throw Error('Longitude must be between -180 and 180.');
   }
 }
 
-/* =========================================================
+/* =====================================================
    GENERATE PRODUCTION FORECAST
-========================================================= */
+===================================================== */
+
 async function generateProductionForecast() {
   const lat = parseCoordinate(productionLat.value);
   const lon = parseCoordinate(productionLon.value);
@@ -2290,23 +1990,24 @@ async function generateProductionForecast() {
     }
 
     productionJobId = null;
-    productionDownloads.classList.remove("show");
+
+    productionDownloads.classList.remove('show');
     productionGenerateBtn.disabled = true;
 
     productionGenerateBtn.innerHTML =
       '<i class="fa-solid fa-spinner fa-spin"></i> Starting Forecast';
 
     setProductionStatus(
-      "running",
-      "Connecting to BasinAgentic Production Intelligence API..."
+      'running',
+      'Connecting to BasinAgentic Production Intelligence API...'
     );
 
     const response = await fetch(
       `${BASINAGENTIC_API_BASE}/forecast`,
       {
-        method:"POST",
+        method:'POST',
         headers:{
-          "Content-Type":"application/json"
+          'Content-Type':'application/json'
         },
         body:JSON.stringify({
           latitude:lat,
@@ -2316,46 +2017,46 @@ async function generateProductionForecast() {
     );
 
     if (!response.ok) {
-      const errorText = await response.text();
-
-      throw new Error(
-        `Forecast request failed (${response.status}). ${errorText}`
+      throw Error(
+        `Forecast request failed (${response.status}). ${await response.text()}`
       );
     }
 
     const data = await response.json();
 
     if (!data.job_id) {
-      throw new Error("API did not return a job_id.");
+      throw Error('API did not return a job_id.');
     }
 
     productionJobId = data.job_id;
 
     setProductionStatus(
-      "running",
-      "Forecast job accepted. BasinAgentic agents are running...",
+      'running',
+      'Forecast job accepted. BasinAgentic agents are running...',
       `Job ID: ${productionJobId}`
     );
 
     pollProductionStatus();
-  }
-  catch(error) {
+
+  } catch(error) {
     console.error(error);
 
     setProductionStatus(
-      "error",
-      error.message || "Unable to start forecast."
+      'error',
+      error.message || 'Unable to start forecast.'
     );
 
     productionGenerateBtn.disabled = false;
+
     productionGenerateBtn.innerHTML =
       'Generate Forecast Report <i class="fa-solid fa-arrow-right"></i>';
   }
 }
 
-/* =========================================================
-   POLL PRODUCTION STATUS
-========================================================= */
+/* =====================================================
+   POLL PRODUCTION FORECAST STATUS
+===================================================== */
+
 async function pollProductionStatus() {
   if (!productionJobId) return;
 
@@ -2363,13 +2064,13 @@ async function pollProductionStatus() {
     const response = await fetch(
       `${BASINAGENTIC_API_BASE}/status/${encodeURIComponent(productionJobId)}`,
       {
-        method:"GET",
-        cache:"no-store"
+        method:'GET',
+        cache:'no-store'
       }
     );
 
     if (!response.ok) {
-      throw new Error(
+      throw Error(
         `Status check failed (${response.status}).`
       );
     }
@@ -2377,38 +2078,38 @@ async function pollProductionStatus() {
     const data = await response.json();
 
     const status = String(
-      data.status || ""
+      data.status || ''
     ).toLowerCase();
 
     if (
-      ["complete","completed","done","success"].includes(status)
+      ['complete','completed','done','success'].includes(status)
     ) {
       setProductionStatus(
-        "done",
-        "Forecast complete. Your report is ready.",
+        'done',
+        'Forecast complete. Your report is ready.',
         `Job ID: ${productionJobId}`
       );
 
-      productionDownloads.classList.add("show");
+      productionDownloads.classList.add('show');
 
-      const jobUrlId = encodeURIComponent(productionJobId);
+      const id = encodeURIComponent(productionJobId);
 
       productionPdfBtn.onclick = () => {
         window.open(
-          `${BASINAGENTIC_API_BASE}/download-report/${jobUrlId}`,
-          "_blank",
-          "noopener"
+          `${BASINAGENTIC_API_BASE}/download-report/${id}`,
+          '_blank',
+          'noopener'
         );
       };
 
       productionCsvBtn.onclick = () => {
         window.location.href =
-          `${BASINAGENTIC_API_BASE}/download-csv/${jobUrlId}`;
+          `${BASINAGENTIC_API_BASE}/download-csv/${id}`;
       };
 
       productionPackageBtn.onclick = () => {
         window.location.href =
-          `${BASINAGENTIC_API_BASE}/download-package/${jobUrlId}`;
+          `${BASINAGENTIC_API_BASE}/download-package/${id}`;
       };
 
       productionGenerateBtn.disabled = false;
@@ -2421,47 +2122,50 @@ async function pollProductionStatus() {
     }
 
     if (
-      ["error","failed","failure"].includes(status)
+      ['error','failed','failure'].includes(status)
     ) {
-      throw new Error(
-        data.error || data.message || "Forecast job failed."
+      throw Error(
+        data.error ||
+        data.message ||
+        'Forecast job failed.'
       );
     }
 
-    let statusLabel =
-      "Production agents are running. Building the complete forecast report...";
+    let label =
+      'Production agents are running. Building the complete forecast report...';
 
-    if (status === "queued") {
-      statusLabel =
-        "Forecast queued. Waiting for compute...";
+    if (status === 'queued') {
+      label = 'Forecast queued. Waiting for compute...';
     }
-    else if (status === "running") {
-      statusLabel =
-        "Production agents are running. Analog selection, DCA and Transformer forecasting are in progress...";
+
+    else if (status === 'running') {
+      label =
+        'Production agents are running. Analog selection, DCA and Transformer forecasting are in progress...';
     }
-    else if (status === "reporting") {
-      statusLabel =
-        "Forecast finished. Building sensitivity analysis, 3D visualizations and full report package...";
+
+    else if (status === 'reporting') {
+      label =
+        'Forecast finished. Building sensitivity analysis, 3D visualizations and full report package...';
     }
 
     setProductionStatus(
-      "running",
-      statusLabel,
-      `Job ID: ${productionJobId} · Status: ${status || "running"}`
+      'running',
+      label,
+      `Job ID: ${productionJobId} · Status: ${status || 'running'}`
     );
 
     productionPollTimer = setTimeout(
       pollProductionStatus,
       5000
     );
-  }
-  catch(error) {
+
+  } catch(error) {
     console.error(error);
 
     setProductionStatus(
-      "error",
-      error.message || "Unable to check forecast status.",
-      productionJobId ? `Job ID: ${productionJobId}` : ""
+      'error',
+      error.message || 'Unable to check forecast status.',
+      productionJobId ? `Job ID: ${productionJobId}` : ''
     );
 
     productionGenerateBtn.disabled = false;
@@ -2473,30 +2177,27 @@ async function pollProductionStatus() {
   }
 }
 
-/* =========================================================
-   PRODUCTION BUTTON EVENTS
-========================================================= */
-if (productionGenerateBtn) {
-  productionGenerateBtn.addEventListener(
-    "click",
-    generateProductionForecast
-  );
-}
+/* =====================================================
+   PRODUCTION EVENTS
+===================================================== */
+
+productionGenerateBtn.addEventListener(
+  'click',
+  generateProductionForecast
+);
 
 [productionLat,productionLon].forEach(input => {
-  if (!input) return;
-
-  input.addEventListener("keydown", event => {
-    if (event.key === "Enter") {
+  input.addEventListener('keydown',e => {
+    if (e.key === 'Enter') {
       generateProductionForecast();
     }
   });
 });
 
-/* =========================================================
-   SWD BACKEND
-   NOT CONNECTED IN ORIGINAL IMPLEMENTATION
-========================================================= */
+/*
+  SWD backend bağlantısı henüz tanımlı değil.
+  SWD rapor butonları arayüzde korunmaktadır.
+*/
 
 </script>
 </body>
