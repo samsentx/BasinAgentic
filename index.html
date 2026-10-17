@@ -21,7 +21,7 @@
   --pad:clamp(16px,3vw,52px);
 }
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth;scroll-padding-top:134px; }
+html { scroll-behavior:smooth;scroll-padding-top:148px; }
 body {
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
@@ -35,7 +35,7 @@ button { cursor:pointer; }
 /* ================= NAVIGATION ================= */
 .navbar {
   height:auto;
-  min-height:124px;
+  min-height:138px;
   position:sticky;
   top:0;
   z-index:1000;
@@ -55,9 +55,9 @@ button { cursor:pointer; }
 }
 .logo img {
   display:block;
-  width:390px;
-  max-width:29vw;
-  max-height:100px;
+  width:520px;
+  max-width:38vw;
+  max-height:128px;
   height:auto;
   object-fit:contain;
 }
@@ -747,15 +747,15 @@ button { cursor:pointer; }
 @media(max-width:1100px) {
   .navbar {
     height:auto;
-    min-height:110px;
+    min-height:120px;
     flex-wrap:wrap;
     justify-content:center;
     padding:12px var(--pad);
   }
   .logo img {
-    max-width:370px;
-    max-height:94px;
-    width:60vw;
+    width:460px;
+    max-width:65vw;
+    max-height:118px;
   }
   .nav-links { flex-wrap:wrap;justify-content:center; }
   .query-panel { flex-direction:column;align-items:stretch;gap:12px; }
@@ -767,19 +767,19 @@ button { cursor:pointer; }
 }
 
 @media(max-width:720px) {
-  html { scroll-padding-top:100px; }
+  html { scroll-padding-top:108px; }
   .navbar {
     height:auto;
-    min-height:92px;
+    min-height:98px;
     display:grid;
     grid-template-columns:minmax(0,1fr) auto;
     gap:10px;
     padding:11px 14px;
   }
   .logo img {
-    width:min(290px,70vw);
+    width:min(340px,78vw);
     max-width:100%;
-    max-height:70px;
+    max-height:82px;
   }
   .mobile-menu-btn { display:block; }
   .nav-links {
@@ -865,19 +865,19 @@ button { cursor:pointer; }
   <div class="logo">
     <img src="basinagentic_logo.png" alt="BasinAgentic Logo">
   </div>
-  <button
-    class="mobile-menu-btn"
-    id="mobile-menu-btn"
-    type="button"
-    aria-label="Open navigation menu"
-    aria-expanded="false"
-  >
+
+  <button class="mobile-menu-btn" id="mobile-menu-btn"
+          type="button" aria-label="Open navigation menu"
+          aria-expanded="false">
     <i class="fa-solid fa-bars"></i>
   </button>
+
   <div class="nav-links" id="nav-links">
     <a href="#top">Platform</a>
     <a href="#production-intelligence">Production</a>
-    <a href="#swd-injection-intelligence">SWD Injection &amp; Induced Seismicity</a>
+    <a href="#swd-injection-intelligence">
+      SWD Injection &amp; Induced Seismicity
+    </a>
     <a href="about.html">About</a>
     <a href="contact.html" class="nav-contact">Contact</a>
     <a href="login.html" class="nav-login">
@@ -889,32 +889,38 @@ button { cursor:pointer; }
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
 <div class="hero-inner">
+
   <div class="hero-copy">
     <div class="hero-kicker">
       <span></span>AGENTIC AI PLATFORM
     </div>
+
     <h1>
       <span class="agentic">AGENTIC AI</span>
       <span class="basin">FOR BASIN INTELLIGENCE</span>
     </h1>
+
     <p class="hero-subtitle">
       Transforming basin-scale data into predictive insights,
       risk-aware decisions, and autonomous operational intelligence.
     </p>
+
     <div class="domain-pills">
       <a href="#production-intelligence">Production Intelligence</a>
       <a href="#swd-injection-intelligence">
         SWD Injection &amp; Induced Seismicity Intelligence
       </a>
     </div>
+
     <div class="hero-agent-summary">
       <div class="hero-agent-summary-title">
         <strong>10 Specialized AI Agents</strong>
         <small>
-          Coordinated across production, SWD injection and
-          induced seismicity workflows
+          Coordinated across production, SWD injection
+          and induced seismicity workflows
         </small>
       </div>
+
       <div class="hero-agent-panels">
         <div class="hero-agent-panel production">
           <div class="hero-agent-panel-head">
@@ -922,18 +928,23 @@ button { cursor:pointer; }
             <strong>Production Agents</strong>
           </div>
           <p>
-            Spatial / Formation · Analog Selection · Decline-Curve ·
-            Transformer Forecasting · Ensemble &amp; Uncertainty
+            Spatial / Formation · Analog Selection ·
+            Decline-Curve · Transformer Forecasting ·
+            Ensemble &amp; Uncertainty
           </p>
         </div>
+
         <div class="hero-agent-panel swd">
           <div class="hero-agent-panel-head">
             <i class="fa-solid fa-droplet"></i>
-            <strong>SWD Injection &amp; Induced Seismicity Agents</strong>
+            <strong>
+              SWD Injection &amp; Induced Seismicity Agents
+            </strong>
           </div>
           <p>
-            Seismicity &amp; Faults · Injection · Geology &amp; Subsurface ·
-            Geomechanics &amp; Pressure · RRC Regulatory Compliance
+            Seismicity &amp; Faults · Injection ·
+            Geology &amp; Subsurface · Geomechanics &amp; Pressure ·
+            RRC Regulatory Compliance
           </p>
         </div>
       </div>
@@ -943,25 +954,32 @@ button { cursor:pointer; }
   <!-- FIVE HERO IMAGES -->
   <div class="hero-visual">
     <div class="hero-slider" aria-label="BasinAgentic platform showcase">
+
       <div class="slide active">
         <img src="hero1.png" alt="Production Intelligence">
       </div>
+
       <div class="slide">
         <img src="hero2.png" alt="Seismicity Intelligence">
       </div>
+
       <div class="slide">
-        <img src="hero3.png" alt="SWD and Induced Seismicity Intelligence">
+        <img src="hero3.png"
+             alt="SWD and Induced Seismicity Intelligence">
       </div>
+
       <div class="slide">
         <img src="hero4.png"
              onerror="this.onerror=null;this.src='hero1.png'"
              alt="Platform image 4">
       </div>
+
       <div class="slide">
         <img src="hero5.png"
              onerror="this.onerror=null;this.src='hero2.png'"
              alt="Platform image 5">
       </div>
+
       <div class="slider-dots">
         <button class="dot active" aria-label="Slide 1"></button>
         <button class="dot" aria-label="Slide 2"></button>
@@ -969,14 +987,17 @@ button { cursor:pointer; }
         <button class="dot" aria-label="Slide 4"></button>
         <button class="dot" aria-label="Slide 5"></button>
       </div>
+
     </div>
   </div>
+
 </div>
 </section>
 
 <!-- ================= PRODUCTION INTELLIGENCE ================= -->
 <section class="intel-section" id="production-intelligence">
 <div class="intel-shell">
+
   <div class="intel-heading">
     <span class="intel-eyebrow">
       <i class="fa-solid fa-gears"></i>
@@ -988,6 +1009,7 @@ button { cursor:pointer; }
       intelligence transformed into predictive well-level insights.
     </p>
   </div>
+
   <div class="query-panel">
     <div class="query-copy">
       <span>RUN WELL INTELLIGENCE</span>
@@ -995,6 +1017,7 @@ button { cursor:pointer; }
         Enter a well location to start the production agent workflow
       </strong>
     </div>
+
     <div class="query-controls">
       <label class="input-wrap coordinate-input">
         <i class="fa-solid fa-location-crosshairs"></i>
@@ -1005,6 +1028,7 @@ button { cursor:pointer; }
                  placeholder="31.9686">
         </span>
       </label>
+
       <label class="input-wrap coordinate-input">
         <i class="fa-solid fa-location-dot"></i>
         <span class="coordinate-field">
@@ -1014,6 +1038,7 @@ button { cursor:pointer; }
                  placeholder="-102.0779">
         </span>
       </label>
+
       <button class="primary-action"
               id="production-generate-btn" type="button">
         Generate Forecast Report
@@ -1039,7 +1064,8 @@ button { cursor:pointer; }
   </div>
 
   <div class="agent-grid">
-    <!-- AGENT 1 -->
+
+    <!-- PRODUCTION AGENT 1 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">01</span>
@@ -1058,7 +1084,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 2 -->
+    <!-- PRODUCTION AGENT 2 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">02</span>
@@ -1077,7 +1103,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 3 -->
+    <!-- PRODUCTION AGENT 3 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">03</span>
@@ -1097,7 +1123,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 4 -->
+    <!-- PRODUCTION AGENT 4 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">04</span>
@@ -1116,7 +1142,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 5 -->
+    <!-- PRODUCTION AGENT 5 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">05</span>
@@ -1134,6 +1160,7 @@ button { cursor:pointer; }
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
+
   </div>
 
   <div class="production-downloads" id="production-downloads">
@@ -1142,18 +1169,22 @@ button { cursor:pointer; }
       Download Well Production Forecast Report
     </button>
     <button class="download-btn secondary" id="production-csv-btn">
-      <i class="fa-solid fa-table"></i>Download Forecast CSV
+      <i class="fa-solid fa-table"></i>
+      Download Forecast CSV
     </button>
     <button class="download-btn package" id="production-package-btn">
-      <i class="fa-solid fa-file-zipper"></i>Download Full Package
+      <i class="fa-solid fa-file-zipper"></i>
+      Download Full Package
     </button>
   </div>
+
 </div>
 </section>
 
 <!-- ================= SWD & SEISMICITY ================= -->
 <section class="intel-section" id="swd-injection-intelligence">
 <div class="intel-shell">
+
   <div class="intel-heading">
     <span class="intel-eyebrow">
       <i class="fa-solid fa-droplet"></i>
@@ -1208,7 +1239,8 @@ button { cursor:pointer; }
   </div>
 
   <div class="agent-grid">
-    <!-- AGENT 1 -->
+
+    <!-- SWD AGENT 1 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">01</span>
@@ -1228,7 +1260,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 2 -->
+    <!-- SWD AGENT 2 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">02</span>
@@ -1248,7 +1280,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 3 -->
+    <!-- SWD AGENT 3 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">03</span>
@@ -1268,7 +1300,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 4 -->
+    <!-- SWD AGENT 4 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">04</span>
@@ -1288,7 +1320,7 @@ button { cursor:pointer; }
       </div>
     </article>
 
-    <!-- AGENT 5 -->
+    <!-- SWD AGENT 5 -->
     <article class="agent-card">
       <div class="agent-card-top">
         <span class="agent-number">05</span>
@@ -1307,6 +1339,7 @@ button { cursor:pointer; }
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </article>
+
   </div>
 
   <div class="download-wrap">
@@ -1316,6 +1349,7 @@ button { cursor:pointer; }
       Download SWD Injection &amp; Induced Seismicity Forecast Report
     </button>
   </div>
+
 </div>
 </section>
 
