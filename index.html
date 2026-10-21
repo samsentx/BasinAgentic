@@ -204,45 +204,24 @@ button {cursor:pointer}
   font-weight:600;
 }
 
-/* FIVE HERO SLIDES */
-.hero-slider {
+/* HERO VIDEO — replaces five-image slider */
+.hero-video-frame {
   position:relative;
   width:100%;
-  height:clamp(440px,32vw,565px);
+  aspect-ratio:16 / 9;
   border-radius:25px;
   overflow:hidden;
-  background:#fff;
+  background:#071a33;
   border:1px solid #071a3329;
   box-shadow:0 23px 58px #071a332b;
 }
-.slide {
-  position:absolute;
-  inset:0;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 1s ease;
+.hero-video-frame video {
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  background:#071a33;
 }
-.slide.active {opacity:1;pointer-events:auto}
-.slide img {width:100%;height:100%;object-fit:cover;display:block}
-.slider-dots {
-  position:absolute;
-  z-index:5;
-  left:50%;
-  bottom:16px;
-  transform:translateX(-50%);
-  display:flex;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:30px;
-  background:#071a33a8;
-}
-.dot {
-  height:12px;width:12px;padding:0;
-  border-radius:50%;
-  border:1px solid #fff;
-  background:#ffffffa0;
-}
-.dot.active {background:var(--orange);border-color:var(--orange)}
 
 /* INTELLIGENCE SECTIONS */
 .intel-section {padding:35px var(--pad) 49px}
@@ -662,7 +641,7 @@ button {cursor:pointer}
   .hero-copy {max-width:960px;margin:auto;text-align:center}
   .domain-pills,.hero-agent-summary-title {justify-content:center}
   .hero-visual {width:100%;max-width:1050px;margin:auto}
-  .hero-slider {height:clamp(390px,52vw,620px)}
+  .hero-video-frame {max-width:1050px;margin:auto}
 }
 @media(max-width:1100px) {
   .navbar {flex-wrap:wrap;justify-content:center}
@@ -704,7 +683,7 @@ button {cursor:pointer}
   .nav-links a {width:100%;white-space:normal;background:#f1f6ff}
   .hero {padding:24px 16px 29px}
   .hero h1 {font-size:clamp(38px,10vw,54px)}
-  .hero-slider {height:clamp(250px,64vw,380px)}
+  .hero-video-frame {border-radius:16px}
   .intel-section {padding:24px 14px 35px}
   .intel-heading {padding:22px 18px;border-radius:19px}
   .intel-heading h2,
@@ -807,25 +786,13 @@ button {cursor:pointer}
     </div>
 
     <div class="hero-visual">
-      <div class="hero-slider" aria-label="BasinAgentic platform showcase">
-        <div class="slide active"><img src="hero1.png" alt="Production Intelligence"></div>
-        <div class="slide"><img src="hero2.png" alt="Seismicity Intelligence"></div>
-        <div class="slide"><img src="hero3.png" alt="SWD Intelligence"></div>
-        <div class="slide">
-          <img src="hero4.png" alt="Platform image 4"
-               onerror="this.onerror=null;this.src='hero1.png'">
-        </div>
-        <div class="slide">
-          <img src="hero5.png" alt="Platform image 5"
-               onerror="this.onerror=null;this.src='hero2.png'">
-        </div>
-        <div class="slider-dots">
-          <button class="dot active" aria-label="Slide 1"></button>
-          <button class="dot" aria-label="Slide 2"></button>
-          <button class="dot" aria-label="Slide 3"></button>
-          <button class="dot" aria-label="Slide 4"></button>
-          <button class="dot" aria-label="Slide 5"></button>
-        </div>
+      <div class="hero-video-frame" aria-label="BasinAgentic 3D subsurface demonstration video">
+        <video autoplay muted loop playsinline controls preload="metadata"
+               poster="hero_video_poster.jpg"
+               aria-label="Rotating three-dimensional seismicity, faults and injection visualization">
+          <source src="BasinAgentic_3D_360_Rotation_Zoom_Tilt_15s.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
       </div>
     </div>
 
@@ -1156,37 +1123,6 @@ document.addEventListener('click',event=>{
      !mobileMenuBtn.contains(event.target)) {
     closeMobileMenu();
   }
-});
-
-/* ==========================================================
-   HERO SLIDER
-========================================================== */
-
-let currentSlide=0;
-const slides=[...document.querySelectorAll('.slide')];
-const dots=[...document.querySelectorAll('.slider-dots .dot')];
-
-function showSlide(index) {
-  currentSlide=index;
-  slides.forEach((slide,i)=>{
-    slide.classList.toggle('active',i===index);
-  });
-  dots.forEach((dot,i)=>{
-    dot.classList.toggle('active',i===index);
-    dot.setAttribute('aria-current',String(i===index));
-  });
-}
-
-showSlide(0);
-
-setInterval(()=>{
-  if(slides.length>1) {
-    showSlide((currentSlide+1)%slides.length);
-  }
-},3500);
-
-dots.forEach((dot,index)=>{
-  dot.addEventListener('click',()=>showSlide(index));
 });
 
 /* ==========================================================
