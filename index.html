@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BasinAgentic Autonomous Basin Intelligence Platform">
+<title>BasinAgentic | Autonomous Basin Intelligence</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {--navy:#071a33;--blue:#174ea6;--red:#d7190f;--orange:#ff4d00;--ink:#092344;--pad:clamp(15px,3vw,52px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#eef4ff}
+a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+.navbar{position:sticky;top:0;z-index:1000;background:white;box-shadow:0 7px 25px #09234417;min-height:145px;padding:13px var(--pad);display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{display:flex;align-items:center;min-width:0;flex-shrink:0}
+/* Enlarge the full logo, including lettering embedded inside the image */
+.logo img{display:block;width:660px;max-width:47vw;max-height:170px;height:auto;object-fit:contain}
+.nav-links{display:flex;justify-content:flex-end;align-items:center;gap:4px;flex-wrap:wrap}
+.nav-links a{color:var(--navy);padding:12px 10px;border-radius:11px;font-size:clamp(14px,1vw,17px);font-weight:850;white-space:nowrap}
+.nav-links a:hover{background:#e9f1ff;color:var(--blue)}
+.nav-links .nav-login{background:linear-gradient(120deg,#071a33,#2563eb);color:white;padding:14px 18px}
+.mobile-menu-btn{display:none;background:linear-gradient(130deg,#071a33,#2563eb);border:0;color:white;border-radius:12px;width:46px;height:46px;font-size:20px}
+.hero{padding:30px var(--pad) 43px;background:radial-gradient(circle at 7% 15%,#2563eb38,transparent 38%),radial-gradient(circle at 96% 16%,#ff551a35,transparent 38%),linear-gradient(105deg,#e6f0ff,#fff 47%,#fff0e7)}
+.hero-inner{max-width:1820px;margin:auto;display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.16fr);align-items:center;gap:clamp(25px,3vw,56px)}
+.hero-copy{min-width:0}
+.hero-kicker{display:inline-flex;align-items:center;gap:9px;border:1px solid #bed3fa;border-radius:30px;background:white;padding:10px 15px;font-size:13px;font-weight:900;letter-spacing:.08em}
+.hero-kicker b{width:9px;height:9px;background:var(--orange);border-radius:50%}
+.hero h1{font-size:clamp(48px,4.6vw,78px);line-height:1.04;letter-spacing:-.045em;margin:18px 0 16px;font-weight:900}
+.agentic{display:block;background:linear-gradient(90deg,#174ea6,#2563eb 40%,#d7190f 78%,#ff4d00);-webkit-background-clip:text;background-clip:text;color:transparent}
+.basin{display:block;font-size:.87em;color:var(--navy)}
+.hero-subtitle{font-size:clamp(18px,1.2vw,22px);line-height:1.5;color:#344b6b;margin:0 0 18px}
+/* Important service links, visibly larger than the original small pills */
+.domain-pills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}
+.domain-pills a{min-height:100px;padding:17px 20px;border-radius:19px;display:flex;justify-content:center;align-items:center;gap:13px;text-align:center;line-height:1.25;color:white;font-size:clamp(17px,1.12vw,21px);font-weight:900;border:2px solid #ffffff99;box-shadow:0 12px 30px #0b254024;transition:transform .2s}
+.domain-pills a:hover{transform:translateY(-3px)}
+.domain-pills a i{font-size:24px;flex-shrink:0}
+.domain-pills a:first-child{background:linear-gradient(125deg,#071a33,#2563eb)}
+.domain-pills a:last-child{background:linear-gradient(125deg,#911a25,#ff6420)}
+.hero-agent-summary-title{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+.hero-agent-summary-title strong{font-size:18px}.hero-agent-summary-title small{color:#52647d;font-size:12.5px}
+.hero-agent-panels{display:grid;gap:10px}
+.hero-agent-panel{position:relative;overflow:hidden;background:#fffffff0;border:1px solid #d9e1ee;border-radius:14px;padding:13px 17px 13px 19px;box-shadow:0 9px 23px #0923440b}
+.hero-agent-panel:before{content:"";position:absolute;top:0;bottom:0;left:0;width:5px;background:var(--blue)}
+.hero-agent-panel.swd:before{background:var(--orange)}
+.hero-agent-panel-head{display:flex;align-items:center;gap:10px;margin-bottom:5px}
+.hero-agent-panel-head i{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;color:white;background:var(--blue)}
+.hero-agent-panel.swd i{background:var(--red)}
+.hero-agent-panel-head strong{font-size:14px}
+.hero-agent-panel p{margin:0;color:#445b79;font-size:12.8px;line-height:1.5;font-weight:600}
+.hero-video-frame{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:25px;background:var(--navy);border:1px solid #071a3329;box-shadow:0 23px 58px #071a332b}
+.hero-video-frame video{width:100%;height:100%;display:block;object-fit:contain;background:var(--navy)}
+.intel-section{padding:35px var(--pad) 49px}
+#production-intelligence{background:radial-gradient(circle at 3% 3%,#0089ff3e,transparent 36%),linear-gradient(135deg,#e1f1ff,#f4f8ff 46%,#e4e9ff)}
+#swd-injection-intelligence{background:radial-gradient(circle at 4% 6%,#ff582447,transparent 38%),linear-gradient(130deg,#fff0e9,#fff9f3 50%,#ffe8dc)}
+.intel-shell{max-width:1820px;margin:auto}
+.intel-heading{margin:0 0 17px;padding:30px clamp(24px,3vw,55px);border-radius:27px;background:linear-gradient(108deg,#071a33,#1247b3 63%,#2685ee);color:white;box-shadow:0 14px 36px #091c4124}
+#swd-injection-intelligence .intel-heading{background:linear-gradient(108deg,#6c1525,#d52618 52%,#ff742b)}
+.intel-heading h2{font-size:clamp(35px,3.2vw,60px);line-height:1.13;letter-spacing:-.03em;margin:0 0 11px;font-weight:900}
+#swd-injection-intelligence .intel-heading h2{font-size:clamp(29px,2.85vw,52px)}
+.intel-heading p{margin:0;color:#f3f7ff;font-size:clamp(17px,1.2vw,21px);line-height:1.45;font-weight:600}
+.query-panel{display:flex;align-items:center;gap:20px;min-height:92px;padding:16px 20px;margin:0 0 15px;border:2px solid #1e55a92e;border-radius:21px;background:white;box-shadow:0 11px 32px #0c254e21}
+#swd-injection-intelligence .query-panel{border-color:#ec572b4d}
+.query-copy{flex:0 1 34%;min-width:240px}.query-copy>span{display:block;color:#bc5915;font-size:13px;letter-spacing:.08em;font-weight:900}
+.query-copy strong{display:block;margin-top:5px;color:#0a2749;font-size:clamp(16px,1vw,19px);line-height:1.35}
+.query-controls{flex:1;min-width:0;display:grid;grid-template-columns:minmax(115px,1fr) minmax(115px,1fr) auto;gap:11px;align-items:center}
+.input-wrap{min-width:0;min-height:62px;display:flex;align-items:center;gap:10px;padding:8px 12px;border:2px solid #c9d9ef;border-radius:15px;background:#f3f8ff}
+#swd-injection-intelligence .input-wrap{border-color:#ffd5c7;background:#fff7f3}
+.coordinate-input>i{height:42px;width:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#071a33,#2563eb);color:white;font-size:18px}
+#swd-injection-intelligence .coordinate-input>i{background:linear-gradient(135deg,#d7190f,#ff4d00)}
+.coordinate-field{display:flex;flex-direction:column;min-width:0;width:100%}.coordinate-field span{font-size:12px;color:#52647d;font-weight:900}
+.coordinate-field input{width:100%;border:0;outline:0;background:transparent;color:#092444;font-size:clamp(19px,1.1vw,22px);font-weight:800}
+.primary-action,.download-btn{min-height:62px;border:0;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 21px;color:white;font-size:clamp(15px,.96vw,18px);font-weight:900;background:linear-gradient(135deg,#174ea6,#2563eb)}
+#swd-injection-intelligence .primary-action,#swd-injection-intelligence .download-btn,.production-downloads .download-btn{background:linear-gradient(135deg,#d7190f,#ff4d00)}
+.primary-action:disabled,.download-btn:disabled{opacity:.65;cursor:wait}
+.api-status-panel{display:none;margin:0 0 15px;padding:15px 20px;border:2px solid #bdd7ff;border-radius:16px;background:white}.api-status-panel.show{display:block}
+.api-status-row{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:800}
+.api-spinner{width:20px;height:20px;flex:0 0 20px;border:3px solid #2563eb33;border-top-color:#2563eb;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.api-spinner.done,.api-spinner.error{border:0;animation:none;display:grid;place-items:center}
+.api-spinner.done{color:#188044;background:#dcfce7}.api-spinner.error{color:#b91c1c;background:#fee2e2}
+.api-job{margin-top:7px;color:#52647d;font-size:13px;overflow-wrap:anywhere}
+.workflow-label{display:flex;align-items:center;gap:12px;margin-bottom:11px}.workflow-label span{font-size:13px;letter-spacing:.08em;font-weight:900;background:#122d57;color:white;border-radius:25px;padding:10px 14px}
+#swd-injection-intelligence .workflow-label span{background:#b62922}.workflow-label div{height:1px;flex:1;background:#0f428566}
+.agent-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
+.agent-card{--accent:#225add;--tint:#e2edff;position:relative;display:flex;flex-direction:column;min-width:0;min-height:335px;overflow:hidden;padding:21px 19px 17px;border-radius:20px;border:2px solid color-mix(in srgb,var(--accent) 24%,white);background:linear-gradient(165deg,var(--tint),white 43%);box-shadow:0 12px 25px #091c411a}
+.agent-card:before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:var(--accent)}
+.agent-card:nth-child(2){--accent:#008c97;--tint:#def9fa}.agent-card:nth-child(3){--accent:#7b42cb;--tint:#f1e7ff}.agent-card:nth-child(4){--accent:#cd7412;--tint:#fff1d9}.agent-card:nth-child(5){--accent:#d02a57;--tint:#ffe5ee}
+#swd-injection-intelligence .agent-card:nth-child(1){--accent:#ce3142;--tint:#ffe6eb}
+#swd-injection-intelligence .agent-card:nth-child(2){--accent:#e45b14;--tint:#ffeadc}
+#swd-injection-intelligence .agent-card:nth-child(4){--accent:#1667b9;--tint:#e2efff}
+#swd-injection-intelligence .agent-card:nth-child(5){--accent:#087d74;--tint:#dffaf1}
+.agent-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.agent-number{display:grid;place-items:center;min-width:44px;height:32px;border-radius:25px;background:var(--tint);color:var(--accent);font-size:13px;font-weight:900}
+.agent-icon{width:50px;height:50px;display:grid;place-items:center;border-radius:15px;background:var(--accent);color:white;font-size:21px}
+.agent-card h3{font-size:clamp(19px,1.24vw,24px);line-height:1.23;margin:0 0 11px;font-weight:900;color:#071a33}
+.agent-card p{margin:0 0 13px;color:#334761;font-size:clamp(15.5px,1vw,18px);line-height:1.5}
+.agent-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:13px;border-top:1px solid #dce4ee;font-weight:900;color:var(--accent);font-size:14px}
+.production-downloads,.swd-downloads{display:none;flex-wrap:wrap;gap:12px;margin:8px 0 16px}.production-downloads.show,.swd-downloads.show{display:flex}
+.download-progress-panel{width:100%;padding:16px 19px 14px;margin:0 0 19px;border:1px solid #adc8f4;border-radius:16px;background:white}.download-progress-panel[hidden]{display:none!important}
+.download-progress-header{display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;font-size:17px;font-weight:900}
+.download-progress-track{height:16px;border-radius:999px;background:#dce9ff;overflow:hidden}.download-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#174ea6,#38a5f9);transition:width .15s}
+.download-progress-track.indeterminate .download-progress-fill{width:38%;animation:download-indeterminate 1.25s ease-in-out infinite alternate}
+@keyframes download-indeterminate{from{transform:translateX(-110%)}to{transform:translateX(275%)}}
+.download-progress-track.done .download-progress-fill{width:100%;transform:none;background:linear-gradient(90deg,#087f58,#19bd88)}
+.download-progress-track.error .download-progress-fill{width:100%;transform:none;background:linear-gradient(90deg,#bf2525,#f46a5a)}
+.download-progress-detail{margin:9px 0 0;color:#435879;font-size:14px;font-weight:650;overflow-wrap:anywhere}
+.pricing-section{padding:65px var(--pad) 75px;background:linear-gradient(145deg,#f3f8ff,#fff 55%,#fff0e8)}
+.pricing-shell{max-width:1580px;margin:auto}.pricing-heading{text-align:center;max-width:950px;margin:0 auto 28px}
+.pricing-kicker{display:inline-flex;gap:8px;align-items:center;padding:9px 14px;border-radius:999px;border:1px solid #bed3fa;background:white;color:var(--blue);font-weight:900;font-size:13px}
+.pricing-heading h2{margin:16px 0 12px;color:var(--navy);font-weight:900;font-size:clamp(35px,3.4vw,56px);line-height:1.12}
+.pricing-heading p{color:#445b79;line-height:1.55;font-size:clamp(16px,1.15vw,20px)}
+.pricing-billing-bar{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:25px 0}
+.pricing-toggle{display:inline-flex;background:#e2edff;border:1px solid #bed3fa;border-radius:16px;padding:5px;gap:5px}
+.pricing-toggle button{border:0;border-radius:12px;background:transparent;color:#25415f;font-weight:900;padding:12px 17px}
+.pricing-toggle button[aria-pressed=true]{color:white;background:linear-gradient(130deg,#174ea6,#2563eb)}
+.pricing-save{font-size:13px;font-weight:900;color:#087a55;background:#dcfce7;border-radius:40px;padding:8px 12px}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.pricing-card{min-width:0;display:flex;flex-direction:column;background:#fff;border:2px solid #dce6f5;border-radius:23px;box-shadow:0 13px 30px #0b254017;padding:27px 21px 21px}
+.pricing-card.featured{border-color:#2563eb}.pricing-card.business{border-color:#f3a575}
+.pricing-card h3{margin:0 0 9px;font-size:clamp(21px,1.5vw,27px);color:var(--navy)}
+.pricing-audience{min-height:44px;margin:0;color:#51627a;font-size:14px;line-height:1.5}
+.pricing-price-row{display:flex;align-items:baseline;gap:4px;margin:20px 0 1px;flex-wrap:wrap}.pricing-price{font-weight:900;font-size:clamp(35px,3vw,48px);letter-spacing:-.04em;color:var(--navy)}.pricing-frequency{color:#5a6b80}
+.pricing-bill-note{min-height:36px;font-size:13px;color:#64748b;margin:10px 0 16px}
+.pricing-button{display:flex;justify-content:center;align-items:center;gap:8px;min-height:49px;padding:12px;border-radius:12px;background:linear-gradient(125deg,#174ea6,#2563eb);color:white;font-size:15px;font-weight:900;text-align:center}
+.pricing-card.business .pricing-button{background:linear-gradient(125deg,#ad291c,#ff6420)}
+.pricing-features{margin:19px 0 0;padding:16px 0 0;border-top:1px solid #e4eaf4;list-style:none;display:grid;gap:12px}
+.pricing-features li{display:flex;gap:9px;color:#334761;font-size:14px;line-height:1.4}.pricing-features i{color:#087a55;margin-top:3px}
+.pricing-notice{margin:22px auto;max-width:1250px;color:#4b5f76;text-align:center;line-height:1.6;font-size:14px}
+.pricing-report-panel{background:linear-gradient(125deg,#071a33,#123767);color:white;border-radius:23px;padding:28px;margin-top:32px}
+.pricing-report-panel h3{margin:0 0 8px;font-size:27px}.pricing-report-panel>p{color:#d7e6ff;margin:0 0 22px}
+.pricing-report-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.pricing-report{border:1px solid #ffffff39;border-radius:16px;padding:19px 17px;background:#ffffff14;display:flex;flex-direction:column;gap:9px}
+.pricing-report h4{font-size:17px;margin:0}.pricing-report-price{font-size:30px;font-weight:900}.pricing-report p{color:#dbe8fb;font-size:13px;line-height:1.5;flex:1}
+.pricing-report a{color:#071a33;background:white;border-radius:10px;text-align:center;padding:12px 10px;font-size:14px;font-weight:900}
+.footer{padding:20px var(--pad);text-align:center;background:linear-gradient(135deg,#071a33,#0f2748);color:#dbe6f5;font-weight:700}
+@media(max-width:1700px){.navbar{flex-wrap:wrap;justify-content:center;gap:6px}.logo{width:100%;justify-content:center}.logo img{width:620px;max-width:75vw;max-height:155px}.nav-links{width:100%;justify-content:center}}
+@media(max-width:1450px){.agent-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.agent-card{min-height:275px}}
+@media(max-width:1300px){.hero-inner{grid-template-columns:1fr}.hero-copy{max-width:960px;margin:auto;text-align:center}.hero-agent-summary-title{justify-content:center}.hero-video-frame{max-width:1050px;margin:auto}.domain-pills{grid-template-columns:1fr}}
+@media(max-width:1100px){.query-panel{flex-direction:column;align-items:stretch}.query-copy{min-width:0;flex:auto}.query-controls{width:100%}.agent-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){html{scroll-padding-top:110px}.navbar{min-height:115px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:11px 14px}.logo{width:auto;justify-content:flex-start}.logo img{width:min(450px,calc(100vw - 88px));max-width:100%;max-height:112px}.mobile-menu-btn{display:block}.nav-links{position:absolute;top:calc(100% + 7px);left:12px;right:12px;display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:12px;border-radius:19px;background:white;box-shadow:0 20px 45px #071a3338;visibility:hidden;opacity:0;pointer-events:none}.nav-links.open{visibility:visible;opacity:1;pointer-events:auto}.nav-links a{width:100%;white-space:normal;background:#f1f6ff}.hero{padding:24px 16px 29px}.hero h1{font-size:clamp(38px,10vw,54px)}.domain-pills a{min-height:85px;font-size:clamp(17px,4.25vw,20px);padding:15px 16px}.hero-video-frame{border-radius:16px}.intel-section{padding:24px 14px 35px}.intel-heading{padding:22px 18px;border-radius:19px}.intel-heading h2,#swd-injection-intelligence .intel-heading h2{font-size:clamp(28px,6.5vw,42px)}.query-controls{grid-template-columns:1fr}.primary-action,.download-btn{width:100%}.agent-grid{grid-template-columns:1fr}.agent-card{min-height:0}.pricing-section{padding:38px 14px 48px}.pricing-grid,.pricing-report-grid{grid-template-columns:1fr}.pricing-card{padding:23px 20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ================================================================
+   2026 MODERN NAVIGATION — PREMIUM, COLORFUL, RESPONSIVE
+   Keeps the original oversized image logo readable against white.
+   ================================================================ */
+.navbar{
+  position:sticky;top:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;
+  gap:clamp(12px,1.6vw,28px);
+  min-height:122px;padding:13px clamp(15px,2.3vw,42px) 17px;
+  background:linear-gradient(108deg,#061833 0%,#0b2856 38%,#104ab4 76%,#2067d8 100%);
+  box-shadow:0 15px 38px #071a3340;
+  isolation:isolate;
+}
+.navbar::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:5px;
+  background:linear-gradient(90deg,#2563eb,#20c5f5 27%,#ff812e 68%,#e61c32);pointer-events:none}
+.navbar .logo{margin:0;display:flex;align-items:center;justify-content:center;flex:0 1 auto;
+  min-width:0;width:auto;padding:9px 17px;border-radius:19px;
+  background:#fff;box-shadow:0 8px 26px #00122c3b;border:1px solid #dae8ff;
+  text-decoration:none;transition:transform .2s ease, box-shadow .2s ease}
+.navbar .logo:hover{transform:translateY(-2px);box-shadow:0 12px 32px #00122c4d}
+.navbar .logo img{display:block;width:clamp(330px,27vw,520px);max-width:100%;max-height:108px;height:auto;object-fit:contain}
+.navbar .nav-links{display:flex;flex:0 0 auto;align-items:center;justify-content:flex-end;
+  width:auto;margin-left:auto;gap:clamp(2px,.35vw,8px);flex-wrap:nowrap}
+.navbar .nav-links a{display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:13px clamp(8px,.75vw,15px);border-radius:12px;
+  color:#f7fbff;font-size:clamp(13px,.85vw,16px);font-weight:800;
+  line-height:1.25;white-space:nowrap;letter-spacing:.005em;
+  background:transparent;border:1px solid transparent;
+  transition:background .18s ease, transform .18s ease, border-color .18s ease}
+.navbar .nav-links a:hover{background:#ffffff21;border-color:#ffffff30;color:#fff;transform:translateY(-2px)}
+.navbar .nav-links a:focus-visible,.navbar .logo:focus-visible,.navbar .mobile-menu-btn:focus-visible{outline:3px solid #ffc277;outline-offset:3px}
+.navbar .nav-links a i{font-size:14px;color:#86d8ff}
+.navbar .nav-links .nav-pricing{background:linear-gradient(115deg,#fa5b21,#ff9347);
+  box-shadow:0 7px 22px #ff4d0066;color:#fff;border-color:#ffb1856e;
+  padding:14px 17px;font-weight:900}
+.navbar .nav-links .nav-pricing i{color:#fff}
+.navbar .nav-links .nav-pricing:hover{background:linear-gradient(115deg,#f44f18,#ff7918);border-color:#fff8}
+.navbar .nav-links .nav-login{background:#ffffffed;color:#103873;
+  border:1px solid #eef6ff;box-shadow:0 7px 18px #01173330;
+  padding:14px 16px;font-weight:900}
+.navbar .nav-links .nav-login i{color:#1654b7}
+.navbar .nav-links .nav-login:hover{background:#dcebff;color:#0b316b;border-color:white}
+.navbar .mobile-menu-btn{background:#ffffff1b;border:1px solid #ffffff70;color:white;
+  box-shadow:none;display:none}
+.pricing-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1350px;margin:0 auto}
+/* Keep sticky header reasonably compact and show a real mobile navigation
+   rather than wrapping long links in a crowded horizontal bar. */
+@media(max-width:1100px){.pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1490px){
+  .navbar{min-height:92px;flex-wrap:nowrap;justify-content:space-between;
+    display:flex;padding:11px 17px 15px;gap:12px}
+  .navbar .logo{padding:7px 12px;max-width:calc(100% - 70px);border-radius:14px;margin-left:0;margin-right:auto;justify-content:flex-start}
+  .navbar .logo img{width:min(530px,calc(100vw - 115px));max-width:100%;max-height:84px}
+  .navbar .mobile-menu-btn{display:inline-flex;align-items:center;justify-content:center;
+    width:50px;height:50px;flex:0 0 50px;border-radius:13px;font-size:22px}
+  .navbar .nav-links{position:absolute;top:calc(100% + 7px);left:12px;right:12px;width:auto;
+    display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;
+    background:linear-gradient(135deg,#081d3b,#0a347e 78%,#1656bb);
+    border:1px solid #5a9be5;border-radius:19px;padding:14px;gap:5px;
+    box-shadow:0 20px 45px #071a334f;
+    visibility:hidden;opacity:0;pointer-events:none;transform:translateY(-8px);
+    transition:opacity .18s ease, transform .18s ease, visibility .18s ease}
+  .navbar .nav-links.open{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}
+  .navbar .nav-links a{width:100%;justify-content:flex-start;font-size:16px;
+    white-space:normal;padding:14px 17px;border-radius:11px;background:#ffffff12}
+  .navbar .nav-links .nav-pricing,.navbar .nav-links .nav-login{justify-content:center}
+}
+@media(max-width:720px){
+  .pricing-grid{grid-template-columns:1fr}
+  .navbar .logo img{width:min(400px,calc(100vw - 115px));max-height:80px}
+  .navbar .nav-links{left:9px;right:9px}
+  .navbar{min-height:88px}
+}
+
+
+/* Well identification: two input methods, same Production ZIP workflow. */
+.production-query-panel{align-items:center}
+.production-entry{flex:1;min-width:0;display:grid;gap:12px}
+.well-search-tabs{display:flex;gap:10px;flex-wrap:wrap}
+.well-search-tab{border:2px solid #cadef7;background:#eef4ff;color:#163f78;border-radius:13px;padding:12px 17px;font-weight:900;font-size:14px;display:inline-flex;align-items:center;gap:9px;transition:.2s ease}
+.well-search-tab.active{background:linear-gradient(115deg,#103a80,#2672dd);color:white;border-color:#1e5bc0;box-shadow:0 8px 16px #0b47a026}
+.well-search-tab:hover:not(.active){background:#dceafd}
+.production-search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:11px;align-items:stretch}
+.production-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;min-width:0}
+#production-api-fields{grid-template-columns:minmax(0,1fr)}
+.production-inputs[hidden],.well-api-help[hidden]{display:none!important}
+.production-search-row .primary-action{white-space:normal;min-width:230px}
+.well-api-help{margin:0;color:#46617f;font-size:13px;line-height:1.5;font-weight:600}
+@media(max-width:1350px){.production-query-panel{flex-direction:column;align-items:stretch}.production-query-panel .query-copy{min-width:0;flex:auto}}
+@media(max-width:750px){.production-search-row{grid-template-columns:1fr}.production-inputs{grid-template-columns:1fr}.production-search-row .primary-action{width:100%;min-width:0}.well-search-tabs{display:grid;grid-template-columns:1fr 1fr}.well-search-tab{font-size:13px;padding:11px 10px;justify-content:center}}
+
+</style>
+</head>
+<body>
+<nav class="navbar" aria-label="Main navigation">
+  <a class="logo" href="#top" aria-label="BasinAgentic — home"><img src="basinagentic_logo.png" alt="BasinAgentic Logo"></a>
+  <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-controls="nav-links" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  <div class="nav-links" id="nav-links">
+    <a href="#top"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Platform</a>
+    <a href="#production-intelligence"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Production</a>
+    <a href="#swd-injection-intelligence"><i class="fa-solid fa-wave-square" aria-hidden="true"></i> SWD &amp; Seismicity</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="#pricing" class="nav-pricing"><i class="fa-solid fa-tags" aria-hidden="true"></i> Plans &amp; Pricing</a>
+    <a href="login.html" class="nav-login"><i class="fa-solid fa-user-lock" aria-hidden="true"></i> Client Login</a>
+  </div>
+</nav>
+<section class="hero" id="top"><div class="hero-inner">
+  <div class="hero-copy">
+    <div class="hero-kicker"><b></b> AGENTIC AI PLATFORM</div>
+    <h1><span class="agentic">AGENTIC AI</span><span class="basin">FOR BASIN INTELLIGENCE</span></h1>
+    <p class="hero-subtitle">Transforming basin-scale data into predictive insights, risk-aware decisions, and autonomous operational intelligence.</p>
+    <div class="domain-pills">
+      <a href="#production-intelligence"><i class="fa-solid fa-chart-line"></i><span>AGENTIC PRODUCTION INTELLIGENCE</span></a>
+      <a href="#swd-injection-intelligence"><i class="fa-solid fa-droplet"></i><span>AGENTIC SWD &amp; INDUCED SEISMICITY INTELLIGENCE</span></a>
+    </div>
+  </div>
+  <div class="hero-video-frame">
+    <video autoplay muted loop playsinline controls preload="metadata" poster="hero_video_poster.jpg" aria-label="BasinAgentic 3D subsurface demonstration video">
+      <source src="BasinAgentic_3D_360_Rotation_Zoom_Tilt_15s.mp4" type="video/mp4">Your browser does not support video.
+    </video>
+  </div>
+</div></section>
+<section class="intel-section" id="production-intelligence"><div class="intel-shell">
+  <div class="intel-heading"><h2>AGENTIC PRODUCTION INTELLIGENCE</h2><p>Autonomous AI-driven production forecasting and well intelligence.</p></div>
+  <div class="query-panel production-query-panel">
+    <div class="query-copy"><span>RUN WELL INTELLIGENCE</span><strong>Choose coordinates or a Texas Well API number</strong></div>
+    <div class="production-entry">
+      <div class="well-search-tabs" role="group" aria-label="Production input method">
+        <button id="production-method-coordinates" class="well-search-tab active" type="button" aria-pressed="true"><i class="fa-solid fa-location-dot"></i> Latitude / Longitude</button>
+        <button id="production-method-api" class="well-search-tab" type="button" aria-pressed="false"><i class="fa-solid fa-hashtag"></i> Well API Number</button>
+      </div>
+      <div class="production-search-row">
+        <div class="production-inputs" id="production-coordinates-fields">
+          <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-crosshairs"></i><span class="coordinate-field"><span>LATITUDE</span><input id="production-latitude" type="text" inputmode="decimal" placeholder="31.9686"></span></label>
+          <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-dot"></i><span class="coordinate-field"><span>LONGITUDE</span><input id="production-longitude" type="text" inputmode="decimal" placeholder="-102.0779"></span></label>
+        </div>
+        <div class="production-inputs" id="production-api-fields" hidden>
+          <label class="input-wrap coordinate-input api-number-wrap"><i class="fa-solid fa-hashtag"></i><span class="coordinate-field"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="numeric" autocomplete="off" placeholder="42-329-12345" aria-describedby="production-api-note"></span></label>
+        </div>
+        <button class="primary-action" id="production-generate-btn" type="button">Generate Forecast Report <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <p class="well-api-help" id="production-api-note" hidden>Enter a Texas 8-digit RRC API or 10-digit full API (42 + county + well); optional completion digits are accepted. The Production API must support well-number lookup.</p>
+    </div>
+  </div>
+  <div class="api-status-panel" id="production-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="production-status-icon"></div><div id="production-status-text">Preparing production forecast...</div></div><div class="api-job" id="production-job-text"></div></div>
+  <div class="production-downloads" id="production-downloads"><button class="download-btn" id="production-package-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete Production ZIP Package</button></div>
+  <div class="download-progress-panel" id="production-download-progress" hidden><div class="download-progress-header"><strong id="production-download-title">Preparing download...</strong><span id="production-download-percent">Preparing</span></div><div class="download-progress-track" id="production-download-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"><div class="download-progress-fill"></div></div><p class="download-progress-detail" id="production-download-detail"></p></div>
+  <div class="workflow-label"><span>5-AGENT WORKFLOW</span><div></div></div><div class="agent-grid" id="production-agent-grid"></div>
+</div></section>
+<section class="intel-section" id="swd-injection-intelligence"><div class="intel-shell">
+  <div class="intel-heading"><h2>AGENTIC SWD &amp; INDUCED SEISMICITY INTELLIGENCE</h2><p>Autonomous AI-driven SWD injection analysis, seismicity intelligence, and risk-aware decision support.</p></div>
+  <div class="query-panel">
+    <div class="query-copy"><span>RUN SWD INJECTION &amp; SEISMICITY INTELLIGENCE</span><strong>Enter a well location to start the SWD injection and induced seismicity agent workflow</strong></div>
+    <div class="query-controls">
+      <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-crosshairs"></i><span class="coordinate-field"><span>LATITUDE</span><input id="swd-latitude" type="text" placeholder="31.9686"></span></label>
+      <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-dot"></i><span class="coordinate-field"><span>LONGITUDE</span><input id="swd-longitude" type="text" placeholder="-102.0779"></span></label>
+      <button class="primary-action" id="swd-generate-btn" type="button">Generate SWD &amp; Seismicity Report <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </div>
+  <div class="api-status-panel" id="swd-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="swd-status-icon"></div><div id="swd-status-text">Preparing SWD and seismicity report...</div></div><div class="api-job" id="swd-job-text"></div></div>
+  <div class="swd-downloads" id="swd-downloads"><button class="download-btn" id="swd-download-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete SWD &amp; Seismicity ZIP Package</button></div>
+  <div class="download-progress-panel" id="swd-download-progress" hidden><div class="download-progress-header"><strong id="swd-download-title">Preparing download...</strong><span id="swd-download-percent">Preparing</span></div><div class="download-progress-track" id="swd-download-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"><div class="download-progress-fill"></div></div><p class="download-progress-detail" id="swd-download-detail"></p></div>
+  <div class="workflow-label"><span>5-AGENT WORKFLOW</span><div></div></div><div class="agent-grid" id="swd-agent-grid"></div>
+</div></section>
+<section class="pricing-section" id="pricing"><div class="pricing-shell">
+  <div class="pricing-heading"><span class="pricing-kicker"><i class="fa-solid fa-bolt"></i> PAID PLANS · EARLY ACCESS</span><h2>BASIN INTELLIGENCE THAT SCALES WITH YOU</h2></div>
+  <div class="pricing-billing-bar"><strong>Billing</strong><div class="pricing-toggle"><button id="pricing-monthly" type="button" aria-pressed="true">Monthly</button><button id="pricing-annually" type="button" aria-pressed="false">Annually</button></div><span class="pricing-save">Save about 20% annually</span></div>
+  <div class="pricing-grid">
+    <article class="pricing-card featured"><h3>Production Pro</h3><p class="pricing-audience">For engineers, geoscientists and consultants.</p><div class="pricing-price-row"><span class="pricing-price" data-monthly="$149" data-annual="$119">$149</span><span class="pricing-frequency">/ month</span></div><p class="pricing-bill-note" data-monthly="Billed monthly" data-annual="Billed $1,428 annually">Billed monthly</p><a href="contact.html?plan=production-pro" class="pricing-button">Request Early Access</a><ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Up to 20 analyses per month*</li><li><i class="fa-solid fa-check"></i> AI decline and 60-month forecast</li><li><i class="fa-solid fa-check"></i> P10 / P50 / P90 uncertainty</li><li><i class="fa-solid fa-check"></i> Complete Production ZIP package</li></ul></article>
+    <article class="pricing-card business"><h3>Basin Intelligence</h3><p class="pricing-audience">For operators and multidisciplinary teams.</p><div class="pricing-price-row"><span class="pricing-price" data-monthly="$449" data-annual="$359">$449</span><span class="pricing-frequency">/ month</span></div><p class="pricing-bill-note" data-monthly="Billed monthly" data-annual="Billed $4,308 annually">Billed monthly</p><a href="contact.html?plan=basin-intelligence" class="pricing-button">Request Early Access</a><ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Production + SWD / Seismicity*</li><li><i class="fa-solid fa-check"></i> 50 analysis credits per month*</li><li><i class="fa-solid fa-check"></i> Geology, faults, injection and pressure*</li><li><i class="fa-solid fa-check"></i> RRC screening and ZIP reports*</li></ul></article>
+    <article class="pricing-card"><h3>Enterprise</h3><p class="pricing-audience">For portfolios, teams and integrations.</p><div class="pricing-price-row"><span class="pricing-price">Custom</span></div><p class="pricing-bill-note">Quoted by users and usage</p><a href="contact.html?plan=enterprise" class="pricing-button">Contact Sales</a><ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Multi-user access*</li><li><i class="fa-solid fa-check"></i> Portfolio-scale analysis*</li><li><i class="fa-solid fa-check"></i> Custom API integration*</li><li><i class="fa-solid fa-check"></i> Onboarding and support*</li></ul></article>
+  </div>
+  <p class="pricing-notice">* Proposed paid launch plans. Features and limits depend on readiness. Prices in USD, excluding tax. Payments and server-side access controls are not yet connected; contact us to request access.</p>
+  <div class="pricing-report-panel"><h3><i class="fa-solid fa-file-invoice-dollar"></i> Need a single analysis?</h3><p>Pay-per-report options without a monthly subscription.</p><div class="pricing-report-grid">
+    <article class="pricing-report"><h4>Production Forecast ZIP</h4><div class="pricing-report-price">$29</div><p>Proposed one-time Production Intelligence ZIP package.</p><a href="contact.html?report=production">Request Report</a></article>
+    <article class="pricing-report"><h4>SWD &amp; Seismicity ZIP</h4><div class="pricing-report-price">$99</div><p>Proposed one-time five-agent SWD / seismicity ZIP.</p><a href="contact.html?report=swd-seismicity">Request Report</a></article>
+    <article class="pricing-report"><h4>Integrated Basin Report</h4><div class="pricing-report-price">$149</div><p>Planned combined Production, SWD and seismicity analysis.</p><a href="contact.html?report=integrated">Request Report</a></article>
+  </div></div>
+</div></section>
+<footer class="footer">© 2026 BasinAgentic — Autonomous Basin Intelligence Platform.</footer>
+<script>
+'use strict';
+const PRODUCTION_API='https://api.basinagentic.com';
+const SWD_API='https://swd-api.basinagentic.com';
+const byId=id=>document.getElementById(id);
+const productionAgents=[
+ ['Spatial / Formation / Geometry Agent','fa-location-dot','Detects local formation, adaptive search radius, depth proxy and lateral-length proxy from nearby wells.','Spatial Intelligence'],
+ ['Analog Selection Agent','fa-filter','Selects the most relevant nearby analog wells using location, formation, geometry and production history.','Analog Intelligence'],
+ ['Decline-Curve Agent','fa-chart-line','Builds decline-curve forecasts and production trajectories from analog-well history and fitted decline parameters.','Decline Intelligence'],
+ ['Transformer Forecasting Agent','fa-brain','Generates a DCA-anchored 60-month production forecast using Transformer-based sequence modeling.','AI Forecasting'],
+ ['Ensemble & Uncertainty Agent','fa-layer-group','Combines forecast signals and quantifies uncertainty for P10, P50 and P90 production outcomes.','Risk & Uncertainty']
+];
+const swdAgents=[
+ ['Seismicity and Fault Intelligence Agent','fa-earth-americas','Maps nearby seismic events, fault systems, clustering and trends to assess injection-related seismic exposure.','Seismicity & Fault Intelligence'],
+ ['Injection Intelligence Agent','fa-droplet','Analyzes disposal and other relevant injection volumes, rates and pressure records around the selected location.','Injection Analytics'],
+ ['Geology and Subsurface Intelligence Agent','fa-layer-group','Evaluates basin setting, formations, injection intervals, geometry and potential pathways to nearby faults.','Geologic & Subsurface Context'],
+ ['Geomechanics and Pressure Intelligence Agent','fa-gauge-high','Evaluates injection pressure, communication indicators, geomechanical constraints and potential fault reactivation.','Pressure & Geomechanical Risk'],
+ ['RRC Regulatory Compliance Agent','fa-clipboard-check','Reviews Texas RRC reporting requirements, permits and injection limits to flag potential compliance issues.','RRC Regulatory Screening']
+];
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderAgents(id,agents){byId(id).innerHTML=agents.map((a,i)=>`<article class="agent-card"><div class="agent-card-top"><span class="agent-number">${String(i+1).padStart(2,'0')}</span><div class="agent-icon"><i class="fa-solid ${esc(a[1])}"></i></div></div><h3>${esc(a[0])}</h3><p>${esc(a[2])}</p><div class="agent-footer"><span>${esc(a[3])}</span><i class="fa-solid fa-arrow-right"></i></div></article>`).join('');}
+renderAgents('production-agent-grid',productionAgents);
+renderAgents('swd-agent-grid',swdAgents);
+const menu=byId('nav-links'),menuBtn=byId('mobile-menu-btn');
+function closeMenu(){menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Open navigation menu');menuBtn.innerHTML='<i class="fa-solid fa-bars"></i>';}
+menuBtn.addEventListener('click',e=>{e.stopPropagation();const open=menu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');menuBtn.innerHTML=open?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('click',e=>{if(window.innerWidth<=1490&&!menu.contains(e.target)&&!menuBtn.contains(e.target))closeMenu();});
+function coordinate(v){const s=String(v??'').trim().replace(/,/g,'.').replace(/[−–—]/g,'-').replace(/\s+/g,'');return /^-?\d+(\.\d+)?$/.test(s)?Number(s):NaN;}
+function coordinates(prefix){const lat=coordinate(byId(`${prefix}-latitude`).value),lon=coordinate(byId(`${prefix}-longitude`).value);if(!Number.isFinite(lat)||!Number.isFinite(lon)||lat< -90||lat>90||lon< -180||lon>180)throw Error('Please enter valid latitude (-90 to 90) and longitude (-180 to 180).');byId(`${prefix}-latitude`).value=lat;byId(`${prefix}-longitude`).value=lon;return{latitude:lat,longitude:lon};}
+// The existing Forecast API takes latitude/longitude. Well API Number mode
+// first resolves the RRC identifier to coordinates on the SAME Production host.
+// Required backend contract: GET /well/resolve?api_number=4232912345
+// -> {"api_number":"4232912345","latitude":31.9,"longitude":-102.0}.
+let productionSearchMethod='coordinates';
+function setProductionSearchMethod(mode){
+  productionSearchMethod=mode==='api'?'api':'coordinates';
+  byId('production-coordinates-fields').hidden=productionSearchMethod!=='coordinates';
+  byId('production-api-fields').hidden=productionSearchMethod!=='api';
+  byId('production-api-note').hidden=productionSearchMethod!=='api';
+  for(const method of ['coordinates','api']){
+    const button=byId(`production-method-${method}`);
+    const selected=productionSearchMethod===method;
+    button.classList.toggle('active',selected);
+    button.setAttribute('aria-pressed',String(selected));
+  }
+}
+byId('production-method-coordinates').addEventListener('click',()=>setProductionSearchMethod('coordinates'));
+byId('production-method-api').addEventListener('click',()=>setProductionSearchMethod('api'));
+function normalizeTexasApi(value){
+  const original=String(value??'').trim();
+  if(!/^[\d\s-]+$/.test(original))throw Error('Well API Number must contain only digits, spaces or hyphens.');
+  const digits=original.replace(/[\s-]/g,'');
+  if(digits.length===8)return '42'+digits;
+  if([10,12,14].includes(digits.length)&&digits.startsWith('42'))return digits.slice(0,10);
+  throw Error('Enter an 8-digit Texas RRC API or a 10-digit Texas API starting with 42.');
+}
+async function resolveProductionWellApi(){
+  const apiNumber=normalizeTexasApi(byId('production-well-api').value);
+  let res;
+  try{
+    res=await fetch(`${PRODUCTION_API}/well/resolve?api_number=${encodeURIComponent(apiNumber)}`,{cache:'no-store'});
+  }catch(e){throw Error('Well API lookup is unavailable. The Production backend needs a /well/resolve endpoint and CORS support.');}
+  if(!res.ok){
+    if(res.status===404)throw Error(`Well API ${apiNumber} not found in the Production well database.`);
+    if(res.status===409)throw Error('More than one location matches this API. Contact support to identify the wellbore.');
+    if(res.status===405||res.status===501)throw Error('The Production backend does not yet support API-number lookup.');
+    let detail='';try{const body=await res.json();detail=body.detail||body.message||'';}catch(e){}
+    throw Error(`Well API lookup failed (HTTP ${res.status})${detail?': '+String(detail).slice(0,140):''}`);
+  }
+  const data=await res.json();
+  const latitude=Number(data.latitude),longitude=Number(data.longitude);
+  if(!Number.isFinite(latitude)||!Number.isFinite(longitude)||latitude< -90||latitude>90||longitude< -180||longitude>180)
+    throw Error('Well API lookup did not return valid latitude/longitude coordinates.');
+  byId('production-latitude').value=String(latitude);
+  byId('production-longitude').value=String(longitude);
+  return{latitude,longitude};
+}
+function apiStatus(prefix,kind,message,job=''){byId(`${prefix}-api-status`).classList.add('show');const icon=byId(`${prefix}-status-icon`);icon.className='api-spinner'+(kind==='done'?' done':kind==='error'?' error':'');icon.innerHTML=kind==='done'?'<i class="fa-solid fa-check"></i>':kind==='error'?'<i class="fa-solid fa-xmark"></i>':'';byId(`${prefix}-status-text`).textContent=message;byId(`${prefix}-job-text`).textContent=job;}
+function sizeLabel(n){if(n<1024)return n+' B';if(n<1048576)return(n/1024).toFixed(1)+' KB';if(n<1073741824)return(n/1048576).toFixed(2)+' MB';return(n/1073741824).toFixed(2)+' GB';}
+function progress(prefix,state,title,received=0,total=0,detail=''){const panel=byId(`${prefix}-download-progress`),track=byId(`${prefix}-download-track`),fill=track.querySelector('.download-progress-fill'),pct=byId(`${prefix}-download-percent`);panel.hidden=false;byId(`${prefix}-download-title`).textContent=title;track.className='download-progress-track';track.removeAttribute('aria-valuenow');if(state==='error'){track.classList.add('error');fill.style.width='100%';pct.textContent='Failed';}else if(state==='done'){track.classList.add('done');fill.style.width='100%';pct.textContent='100%';track.setAttribute('aria-valuenow','100');}else if(total>0){const value=Math.min(99,Math.floor(received/total*100));fill.style.width=value+'%';pct.textContent=value+'%';track.setAttribute('aria-valuenow',String(value));}else{track.classList.add('indeterminate');fill.style.width='';pct.textContent='Downloading...';}byId(`${prefix}-download-detail`).textContent=detail||(total>0?`${sizeLabel(received)} / ${sizeLabel(total)} received`:`${sizeLabel(received)} received; total size unavailable`);}
+function saveBlob(blob,filename){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000);}
+function browserDownload(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';document.body.appendChild(a);a.click();a.remove();}
+async function downloadZip(prefix,url,filename,label){progress(prefix,'loading',`Downloading ${label}...`,0,0,'Connecting to the download server...');let res;try{res=await fetch(url,{cache:'no-store'});}catch(e){browserDownload(url);progress(prefix,'waiting',`${label} sent to browser`,0,0,'Check your browser downloads; this page cannot measure the native transfer.');return;}
+ if(!res.ok)throw Error(`Download failed (HTTP ${res.status}): ${(await res.text().catch(()=>'' )).slice(0,200)}`);
+ const type=(res.headers.get('Content-Type')||'').toLowerCase();if(type.includes('text/html')||type.includes('application/json')||type.includes('application/pdf'))throw Error('API did not return a ZIP.');
+ const size=Number(res.headers.get('Content-Length'));const encoding=(res.headers.get('Content-Encoding')||'identity').toLowerCase();const total=encoding==='identity'&&Number.isFinite(size)&&size>0?size:0;
+ const parts=[];let received=0;if(res.body&&res.body.getReader){const reader=res.body.getReader();for(;;){const{done,value}=await reader.read();if(done)break;if(value?.byteLength){parts.push(value);received+=value.byteLength;progress(prefix,'loading',`Downloading ${label}...`,received,total);}}}else{const buf=new Uint8Array(await res.arrayBuffer());parts.push(buf);received=buf.byteLength;}
+ if(!received)throw Error('API returned an empty file.');if(total>0&&received!==total)throw Error(`Incomplete download: ${received}/${total} bytes.`);
+ const head=[];for(const part of parts){for(const x of part){head.push(x);if(head.length===4)break;}if(head.length===4)break;}if(head.join(',')!=='80,75,3,4')throw Error('Invalid ZIP signature from API.');
+ saveBlob(new Blob(parts,{type:'application/zip'}),filename);progress(prefix,'done',`${label} transferred`,received,total,`${sizeLabel(received)} transferred · ${filename} sent for saving.`);
+}
+const configs={
+ production:{api:PRODUCTION_API,start:'/forecast',status:'/status',download:'/download-package',prefix:'production',report:'Production',zipName:'BasinAgentic_Production_Complete'},
+ swd:{api:SWD_API,start:'/swd/forecast',status:'/swd/status',download:'/swd/download-package',prefix:'swd',report:'SWD & Seismicity',zipName:'BasinAgentic_SWD_5Agent_Complete_Report'}
+};
+const jobs={production:{id:null,timer:null,run:0,busy:false},swd:{id:null,timer:null,run:0,busy:false}};
+async function generate(prefix){
+  const cfg=configs[prefix],job=jobs[prefix],btn=byId(`${prefix}-generate-btn`);
+  if(btn.disabled)return;
+  if(job.timer)clearTimeout(job.timer);
+  job.timer=null;job.id=null;
+  const run=++job.run;
+  byId(`${prefix}-downloads`).classList.remove('show');
+  byId(`${prefix}-download-progress`).hidden=true;
+  btn.disabled=true;
+  btn.textContent=`Starting ${cfg.report}...`;
+  try{
+    let coords;
+    if(prefix==='production'&&productionSearchMethod==='api'){
+      apiStatus(prefix,'running','Resolving Well API Number to well location...');
+      coords=await resolveProductionWellApi();
+    }else{
+      coords=coordinates(prefix);
+    }
+    if(run!==job.run)return;
+    apiStatus(prefix,'running',`Connecting to BasinAgentic ${cfg.report} API...`);
+    const res=await fetch(cfg.api+cfg.start,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(coords),cache:'no-store'
+    });
+    if(!res.ok)throw Error(`${cfg.report} request failed (HTTP ${res.status}): ${(await res.text()).slice(0,250)}`);
+    const data=await res.json();
+    if(!data.job_id)throw Error('API did not return job_id.');
+    if(run!==job.run)return;
+    job.id=String(data.job_id);
+    apiStatus(prefix,'running',`${cfg.report} agents are running...`,`Job ID: ${job.id}`);
+    pollStatus(prefix,run);
+  }catch(e){
+    if(run!==job.run)return;
+    apiStatus(prefix,'error',e.message);
+    btn.disabled=false;
+    btn.textContent='Try Again';
+  }
+}
+async function pollStatus(prefix,run){const cfg=configs[prefix],job=jobs[prefix],btn=byId(`${prefix}-generate-btn`);if(!job.id||run!==job.run)return;
+ try{const res=await fetch(`${cfg.api}${cfg.status}/${encodeURIComponent(job.id)}`,{cache:'no-store'});if(!res.ok)throw Error(`${cfg.report} status HTTP ${res.status}`);const data=await res.json();if(run!==job.run)return;const state=String(data.status||'').toLowerCase();
+ if(['complete','completed','done','success'].includes(state)){apiStatus(prefix,'done',`Complete ${cfg.report} ZIP package is ready.`,`Job ID: ${job.id}`);byId(`${prefix}-downloads`).classList.add('show');btn.disabled=false;btn.textContent=`Generate Another ${cfg.report} Report`;job.timer=null;return;}
+ if(['failed','failure','error','cancelled','canceled'].includes(state))throw Error(data.error||data.message||`${cfg.report} report failed.`);
+ const raw=data.progress_percent??data.progress_pct;const percent=raw!==undefined&&raw!==null&&Number.isFinite(Number(raw))?` · ${Number(raw).toFixed(0)}%`:'';
+ const message=prefix==='swd'?(data.message||'SWD agents are processing...'):state==='queued'?'Production forecast queued...':state==='reporting'?'Building Production reports...':'Production agents are running...';apiStatus(prefix,'running',message,`Job ID: ${job.id} · Status: ${state||'running'}${percent}`);job.timer=setTimeout(()=>pollStatus(prefix,run),5000);
+ }catch(e){if(run!==job.run)return;apiStatus(prefix,'error',e.message,`Job ID: ${job.id}`);btn.disabled=false;btn.textContent='Try Again';job.timer=null;}
+}
+async function getZip(prefix){const cfg=configs[prefix],job=jobs[prefix],button=byId(prefix==='production'?'production-package-btn':'swd-download-btn');if(!job.id||job.busy)return;job.busy=true;button.disabled=true;try{await downloadZip(prefix,`${cfg.api}${cfg.download}/${encodeURIComponent(job.id)}`,`${cfg.zipName}_${job.id}.zip`,`Complete ${cfg.report} ZIP Package`);}catch(e){progress(prefix,'error',`${cfg.report} ZIP download failed`,0,0,e.message);}finally{job.busy=false;button.disabled=false;}}
+byId('production-generate-btn').addEventListener('click',()=>generate('production'));
+byId('swd-generate-btn').addEventListener('click',()=>generate('swd'));
+byId('production-package-btn').addEventListener('click',()=>getZip('production'));
+byId('swd-download-btn').addEventListener('click',()=>getZip('swd'));
+['production','swd'].forEach(prefix=>['latitude','longitude'].forEach(field=>byId(`${prefix}-${field}`).addEventListener('keydown',e=>{if(e.key==='Enter')generate(prefix);} )));
+byId('production-well-api').addEventListener('keydown',e=>{if(e.key==='Enter')generate('production');});
+function setBilling(annual){byId('pricing-monthly').setAttribute('aria-pressed',String(!annual));byId('pricing-annually').setAttribute('aria-pressed',String(annual));document.querySelectorAll('[data-monthly][data-annual]').forEach(el=>{el.textContent=annual?el.dataset.annual:el.dataset.monthly;});}
+byId('pricing-monthly').addEventListener('click',()=>setBilling(false));
+byId('pricing-annually').addEventListener('click',()=>setBilling(true));
+</script>
+</body>
+</html>
