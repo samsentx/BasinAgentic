@@ -231,6 +231,14 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 @media(max-width:1350px){.production-query-panel{flex-direction:column;align-items:stretch}.production-query-panel .query-copy{min-width:0;flex:auto}}
 @media(max-width:750px){.production-search-row{grid-template-columns:1fr}.production-inputs{grid-template-columns:1fr}.production-search-row .primary-action{width:100%;min-width:0}.well-search-tabs{display:grid;grid-template-columns:1fr 1fr}.well-search-tab{font-size:13px;padding:11px 10px;justify-content:center}}
 
+
+/* Requested visual-only adjustment: enlarge just the artwork and lettering
+   inside the existing white logo container. Do not resize the container. */
+.navbar .logo { overflow: hidden; }
+.navbar .logo img {
+  transform: scale(1.2);
+  transform-origin: center center;
+}
 </style>
 </head>
 <body>
