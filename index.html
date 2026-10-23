@@ -225,7 +225,6 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 .production-well-id-input:focus-within{outline:3px solid #82b4ff;outline-offset:2px}
 .production-well-id-input input{font-size:clamp(17px,1.05vw,21px)}
 .production-query-panel .primary-action{white-space:normal;min-height:62px;padding:10px 14px}
-.production-search-help{margin:0;color:#52647d;font-size:13.5px;line-height:1.45}
 @media(max-width:1550px){.production-search-controls{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)}.production-query-panel .primary-action{grid-column:1/-1}}
 @media(max-width:800px){.production-search-controls{grid-template-columns:1fr}.production-or-label{min-height:18px}.production-query-panel .primary-action{grid-column:auto}.production-number-fields{grid-template-columns:1fr}}
 @media(max-width:480px){.production-coordinate-fields,.production-number-fields{grid-template-columns:1fr}}
@@ -252,7 +251,6 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 .swd-well-id-input:focus-within{outline:3px solid #ffad87;outline-offset:2px}
 .swd-well-id-input input{font-size:clamp(17px,1.05vw,21px)}
 .swd-query-panel .primary-action{white-space:normal;min-height:62px;padding:10px 14px}
-.swd-search-help{margin:0;color:#52647d;font-size:13.5px;line-height:1.45}
 @media(max-width:1550px){.swd-search-controls{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)}.swd-query-panel .primary-action{grid-column:1/-1}}
 @media(max-width:800px){.swd-search-controls{grid-template-columns:1fr}.swd-or-label{min-height:18px}.swd-query-panel .primary-action{grid-column:auto}.swd-number-fields{grid-template-columns:1fr}}
 @media(max-width:480px){.swd-coordinate-fields,.swd-number-fields{grid-template-columns:1fr}}
@@ -322,6 +320,49 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 }
 @media(prefers-reduced-motion:reduce){.domain-pills a{transition:none}}
 
+
+/* ================================================================
+   MOBILE HEADER AND FORM POLISH — 2026-10-23
+   Do not magnify the embedded-text logo beyond its available width.
+   ================================================================ */
+.query-copy strong{margin-top:0;display:block;font-size:clamp(16px,1.1vw,20px)}
+.query-copy{flex:0 1 auto}
+.production-query-panel,.swd-query-panel{gap:11px}
+.coordinate-field input{min-width:0}
+@media(max-width:1490px){
+  /* The 1.65x desktop logo treatment crops lettering at tablet sizes. */
+  .navbar .logo img{transform:scale(1.10)}
+}
+@media(max-width:720px){
+  .navbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;
+    gap:9px;min-height:76px;padding:9px 11px 13px}
+  .navbar .logo{width:0;flex:1 1 auto;max-width:none;min-width:0;
+    padding:6px 8px;margin:0;overflow:hidden;border-radius:12px}
+  .navbar .logo img{display:block;width:100%;max-width:100%;max-height:78px;
+    height:auto;object-fit:contain;transform:none;transform-origin:center}
+  .navbar .mobile-menu-btn{display:inline-flex;flex:0 0 46px;width:46px;height:46px;
+    align-items:center;justify-content:center}
+  .hero h1{max-width:100%;overflow-wrap:normal;word-break:normal}
+  .hero h1 .basin{font-size:clamp(23px,6.4vw,33px);line-height:1.18;
+    letter-spacing:-.025em;overflow-wrap:break-word}
+  .hero-subtitle{overflow-wrap:break-word}
+  .hero-inner,.hero-copy,.domain-pills,.agent-ribbon{min-width:0;max-width:100%}
+  .query-panel{padding:14px;gap:11px}
+  .query-copy strong{font-size:17px;line-height:1.35}
+  .production-search-controls,.swd-search-controls{min-width:0;width:100%;gap:10px}
+  .production-coordinate-fields,.swd-coordinate-fields,
+  .production-number-fields,.swd-number-fields{min-width:0;width:100%}
+  .input-wrap{min-width:0;width:100%}
+}
+@media(max-width:380px){
+  .navbar{gap:7px;padding:8px 9px 12px}
+  .navbar .logo{padding:5px 6px}
+  .navbar .mobile-menu-btn{flex-basis:43px;width:43px;height:43px}
+  .hero h1{font-size:clamp(32px,9.5vw,40px)}
+  .hero h1 .basin{font-size:clamp(21px,6.1vw,26px)}
+  .intel-heading h2,#swd-injection-intelligence .intel-heading h2{
+    font-size:clamp(24px,7vw,30px);overflow-wrap:break-word}
+}
 </style>
 </head>
 <body>
@@ -332,8 +373,8 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
     <a href="#top"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Platform</a>
     <a href="#production-intelligence"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Production</a>
     <a href="#swd-injection-intelligence"><i class="fa-solid fa-wave-square" aria-hidden="true"></i> SWD &amp; Seismicity</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="about.html"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> About</a>
+    <a href="contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a>
     <a href="#pricing" class="nav-pricing"><i class="fa-solid fa-tags" aria-hidden="true"></i> Plans &amp; Pricing</a>
     <a href="login.html" class="nav-login"><i class="fa-solid fa-user-lock" aria-hidden="true"></i> Client Login</a>
   </div>
@@ -386,8 +427,7 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   <div class="intel-heading"><h2>AGENTIC PRODUCTION INTELLIGENCE</h2><p>Autonomous AI-driven production forecasting and well intelligence.</p></div>
   <div class="query-panel production-query-panel">
     <div class="query-copy">
-      <span>FIND A PRODUCTION WELL</span>
-      <strong>Search by location or Well API Number</strong>
+      <strong>Enter Coordinates or Well API Number</strong>
     </div>
     <div class="production-search-controls">
       <div class="production-coordinate-fields">
@@ -404,14 +444,13 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <div class="production-number-fields">
         <label class="input-wrap coordinate-input production-well-id-input">
           <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="numeric" placeholder="42-329-12345" autocomplete="off" aria-describedby="production-api-note"></span>
+          <span class="coordinate-field"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="numeric" placeholder="42-329-12345" autocomplete="off"></span>
         </label>
       </div>
       <button class="primary-action" id="production-generate-btn" type="button">
         Generate Forecast Report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </button>
     </div>
-    <p class="production-search-help" id="production-api-note">Enter latitude and longitude <strong>or</strong> a Texas Well API Number. When a matching well is found, its location is used.</p>
   </div>
   <div class="api-status-panel" id="production-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="production-status-icon"></div><div id="production-status-text">Preparing production forecast...</div></div><div class="api-job" id="production-job-text"></div></div>
   <div class="production-downloads" id="production-downloads"><button class="download-btn" id="production-package-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete Production ZIP Package</button></div>
@@ -422,8 +461,7 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   <div class="intel-heading"><h2>AGENTIC SWD &amp; INDUCED SEISMICITY INTELLIGENCE</h2><p>Autonomous AI-driven SWD injection analysis, seismicity intelligence, and risk-aware decision support.</p></div>
   <div class="query-panel swd-query-panel">
     <div class="query-copy">
-      <span>FIND AN INJECTION WELL</span>
-      <strong>Search by location or Injection Well API Number</strong>
+      <strong>Enter Coordinates or Well API Number</strong>
     </div>
     <div class="swd-search-controls">
       <div class="swd-coordinate-fields">
@@ -440,14 +478,13 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <div class="swd-number-fields">
         <label class="input-wrap coordinate-input swd-well-id-input">
           <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>INJECTION WELL API NUMBER</span><input id="swd-well-identifier" type="text" inputmode="numeric" placeholder="42-445-00329" autocomplete="off" aria-describedby="swd-search-help"></span>
+          <span class="coordinate-field"><span>INJECTION WELL API NUMBER</span><input id="swd-well-identifier" type="text" inputmode="numeric" placeholder="42-445-00329" autocomplete="off"></span>
         </label>
       </div>
       <button class="primary-action" id="swd-generate-btn" type="button">
         Generate SWD &amp; Seismicity Report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </button>
     </div>
-    <p class="swd-search-help" id="swd-search-help">Enter latitude and longitude <strong>or</strong> an injection well API number. If matched in the RRC data, its location is used.</p>
   </div>
   <div class="api-status-panel" id="swd-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="swd-status-icon"></div><div id="swd-status-text">Preparing SWD and seismicity report...</div></div><div class="api-job" id="swd-job-text"></div></div>
   <div class="swd-downloads" id="swd-downloads"><button class="download-btn" id="swd-download-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete SWD &amp; Seismicity ZIP Package</button></div>
