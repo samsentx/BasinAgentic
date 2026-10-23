@@ -215,22 +215,20 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 }
 
 
-/* Well identification: two input methods, same Production ZIP workflow. */
-.production-query-panel{align-items:center}
-.production-entry{flex:1;min-width:0;display:grid;gap:12px}
-.well-search-tabs{display:flex;gap:10px;flex-wrap:wrap}
-.well-search-tab{border:2px solid #cadef7;background:#eef4ff;color:#163f78;border-radius:13px;padding:12px 17px;font-weight:900;font-size:14px;display:inline-flex;align-items:center;gap:9px;transition:.2s ease}
-.well-search-tab.active{background:linear-gradient(115deg,#103a80,#2672dd);color:white;border-color:#1e5bc0;box-shadow:0 8px 16px #0b47a026}
-.well-search-tab:hover:not(.active){background:#dceafd}
-.production-search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:11px;align-items:stretch}
-.production-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;min-width:0}
-#production-api-fields{grid-template-columns:minmax(0,1fr)}
-.production-inputs[hidden],.well-api-help[hidden]{display:none!important}
-.production-search-row .primary-action{white-space:normal;min-width:230px}
-.well-api-help{margin:0;color:#46617f;font-size:13px;line-height:1.5;font-weight:600}
-@media(max-width:1350px){.production-query-panel{flex-direction:column;align-items:stretch}.production-query-panel .query-copy{min-width:0;flex:auto}}
-@media(max-width:750px){.production-search-row{grid-template-columns:1fr}.production-inputs{grid-template-columns:1fr}.production-search-row .primary-action{width:100%;min-width:0}.well-search-tabs{display:grid;grid-template-columns:1fr 1fr}.well-search-tab{font-size:13px;padding:11px 10px;justify-content:center}}
-
+/* Production search: the same coordinates OR API-number design as SWD. */
+.production-query-panel{flex-direction:column;align-items:stretch;gap:13px}
+.production-query-panel .query-copy{flex:none;min-width:0}
+.production-search-controls{display:grid;grid-template-columns:minmax(250px,1.15fr) 40px minmax(280px,1.12fr) minmax(215px,.8fr);gap:13px;align-items:stretch;min-width:0}
+.production-coordinate-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}
+.production-number-fields{display:grid;grid-template-columns:minmax(180px,1fr);gap:10px;min-width:0}
+.production-or-label{display:flex;justify-content:center;align-items:center;font-size:13px;font-weight:900;letter-spacing:.07em;color:#174ea6}
+.production-well-id-input:focus-within{outline:3px solid #82b4ff;outline-offset:2px}
+.production-well-id-input input{font-size:clamp(17px,1.05vw,21px)}
+.production-query-panel .primary-action{white-space:normal;min-height:62px;padding:10px 14px}
+.production-search-help{margin:0;color:#52647d;font-size:13.5px;line-height:1.45}
+@media(max-width:1550px){.production-search-controls{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)}.production-query-panel .primary-action{grid-column:1/-1}}
+@media(max-width:800px){.production-search-controls{grid-template-columns:1fr}.production-or-label{min-height:18px}.production-query-panel .primary-action{grid-column:auto}.production-number-fields{grid-template-columns:1fr}}
+@media(max-width:480px){.production-coordinate-fields,.production-number-fields{grid-template-columns:1fr}}
 
 /* LOGO OPTICAL SIZE FIX: Keep the existing white box exactly the same.
    The supplied logo image has substantial internal blank space.
@@ -243,6 +241,87 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   transform-origin: center center;
   transition: transform .2s ease;
 }
+
+/* SWD well lookup: coordinates or Texas Well API number. */
+.swd-query-panel{flex-direction:column;align-items:stretch;gap:13px}
+.swd-query-panel .query-copy{flex:none;min-width:0}
+.swd-search-controls{display:grid;grid-template-columns:minmax(250px,1.15fr) 40px minmax(280px,1.12fr) minmax(215px,.8fr);gap:13px;align-items:stretch;min-width:0}
+.swd-coordinate-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-width:0}
+.swd-number-fields{display:grid;grid-template-columns:minmax(180px,1fr);gap:10px;min-width:0}
+.swd-or-label{display:flex;justify-content:center;align-items:center;font-size:13px;font-weight:900;letter-spacing:.07em;color:#8a3d2c}
+.swd-well-id-input:focus-within{outline:3px solid #ffad87;outline-offset:2px}
+.swd-well-id-input input{font-size:clamp(17px,1.05vw,21px)}
+.swd-query-panel .primary-action{white-space:normal;min-height:62px;padding:10px 14px}
+.swd-search-help{margin:0;color:#52647d;font-size:13.5px;line-height:1.45}
+@media(max-width:1550px){.swd-search-controls{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)}.swd-query-panel .primary-action{grid-column:1/-1}}
+@media(max-width:800px){.swd-search-controls{grid-template-columns:1fr}.swd-or-label{min-height:18px}.swd-query-panel .primary-action{grid-column:auto}.swd-number-fields{grid-template-columns:1fr}}
+@media(max-width:480px){.swd-coordinate-fields,.swd-number-fields{grid-template-columns:1fr}}
+
+/* COMPACT HERO AGENT RIBBON: ten real names, minimal vertical space. */
+.hero{padding-bottom:24px}
+.hero-inner{gap:clamp(22px,2.6vw,44px)}
+.hero h1{margin:14px 0 12px}
+.hero-subtitle{margin-bottom:12px}
+.domain-pills{margin:17px 0 0;gap:11px}
+.domain-pills a{min-height:82px;padding:12px 14px;border-radius:16px;font-size:clamp(15px,1.05vw,19px);box-shadow:0 8px 24px #0b254020}
+.domain-pills a i{font-size:21px}
+
+.agent-ribbon{max-width:1820px;margin:20px auto 0;padding:13px;display:grid;
+  grid-template-columns:minmax(145px,.33fr) minmax(0,1fr) minmax(0,1fr);
+  gap:11px;align-items:stretch;border:1px solid #bed4ee;border-radius:20px;
+  background:linear-gradient(115deg,#e4efffdd,#fffffff2 44%,#fff0e9db);
+  box-shadow:0 12px 35px #08254a12}
+.agent-ribbon-label{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+  padding:12px 12px 12px 17px;min-width:0}
+.agent-ribbon-total{color:#1451ac;font-size:clamp(39px,3.25vw,61px);font-weight:950;
+  letter-spacing:-.065em;line-height:.95}
+.agent-ribbon-label strong{display:block;color:#091f40;font-weight:900;font-size:clamp(15px,1.07vw,20px);
+  line-height:1.1;margin-top:8px}
+.agent-ribbon-label small{display:block;color:#566b89;font-size:12px;line-height:1.3;margin-top:6px;font-weight:700}
+.agent-ribbon-panel{min-width:0;border-radius:15px;padding:11px 14px 9px;
+  border:1px solid #d1e0fa;background:#ffffffeb}
+.agent-ribbon-panel.swd{border-color:#ffcfb5;background:#fffaf6eb}
+.agent-ribbon-panel h2{display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin:0 0 7px;padding:0 0 8px;border-bottom:1px solid #e5ebf4;
+  color:#0b387f;font-size:clamp(14px,1.03vw,18px);font-weight:900;line-height:1.25}
+.agent-ribbon-panel.swd h2{color:#ba3d1b;border-bottom-color:#f5ded4}
+.agent-ribbon-panel h2 i{font-size:14px}
+.agent-ribbon-panel h2 span{margin-left:auto;color:#60738e;background:#edf3fb;border-radius:99px;
+  font-size:11px;padding:3px 7px;white-space:nowrap}
+.agent-ribbon-panel.swd h2 span{background:#ffebdd;color:#a65327}
+.agent-ribbon-list{list-style:none;margin:0;padding:0;display:grid;gap:1px}
+.agent-ribbon-list li{display:flex;align-items:baseline;gap:8px;min-width:0;
+  padding:4px 2px;color:#233b57;font-size:clamp(12.5px,.86vw,15px);
+  font-weight:700;line-height:1.22}
+.agent-ribbon-index{flex:0 0 21px;font-size:11px;font-weight:900;color:#2465bd;font-variant-numeric:tabular-nums}
+.agent-ribbon-panel.swd .agent-ribbon-index{color:#d95d26}
+/* Keep the video beside the headline on laptops instead of stacking early. */
+@media(min-width:1001px) and (max-width:1300px){
+  .hero-inner{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+  .hero-copy{text-align:left;max-width:none;margin:0}
+  .hero h1{font-size:clamp(39px,4.2vw,57px)}
+  .hero-video-frame{max-width:none}
+}
+@media(max-width:1200px){
+  .agent-ribbon{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .agent-ribbon-label{grid-column:1/-1;display:flex;flex-direction:row;align-items:center;gap:13px;
+    padding:2px 8px 6px}
+  .agent-ribbon-total{font-size:34px}
+  .agent-ribbon-label strong{margin:0;font-size:18px}
+  .agent-ribbon-label small{margin:0 0 0 auto}
+}
+@media(max-width:750px){
+  .hero{padding-bottom:23px}
+  .agent-ribbon{grid-template-columns:1fr;gap:9px;padding:10px;margin-top:16px}
+  .agent-ribbon-label{grid-column:auto}
+  .agent-ribbon-label small{display:none}
+  .agent-ribbon-panel{padding:11px 13px}
+  .agent-ribbon-list li{font-size:13px;padding:4px 2px}
+  .domain-pills{grid-template-columns:1fr;gap:10px}
+  .domain-pills a{min-height:65px;font-size:clamp(15px,3.9vw,18px)}
+}
+@media(prefers-reduced-motion:reduce){.domain-pills a{transition:none}}
+
 </style>
 </head>
 <body>
@@ -274,28 +353,65 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <source src="BasinAgentic_3D_360_Rotation_Zoom_Tilt_15s.mp4" type="video/mp4">Your browser does not support video.
     </video>
   </div>
-</div></section>
+</div>
+  <div class="agent-ribbon" aria-label="Ten specialized BasinAgentic AI agents">
+    <div class="agent-ribbon-label">
+      <div class="agent-ribbon-total" aria-hidden="true">10</div>
+      <strong>Specialized<br>AI Agents</strong>
+      <small>Two intelligent workflows</small>
+    </div>
+    <section class="agent-ribbon-panel production" aria-labelledby="ribbon-production-title">
+      <h2 id="ribbon-production-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Production Intelligence <span>5 AGENTS</span></h2>
+      <ol class="agent-ribbon-list">
+        <li><span class="agent-ribbon-index">01</span>Spatial / Formation / Geometry Agent</li>
+        <li><span class="agent-ribbon-index">02</span>Analog Selection Agent</li>
+        <li><span class="agent-ribbon-index">03</span>Decline-Curve Agent</li>
+        <li><span class="agent-ribbon-index">04</span>Transformer Forecasting Agent</li>
+        <li><span class="agent-ribbon-index">05</span>Ensemble &amp; Uncertainty Agent</li>
+      </ol>
+    </section>
+    <section class="agent-ribbon-panel swd" aria-labelledby="ribbon-swd-title">
+      <h2 id="ribbon-swd-title"><i class="fa-solid fa-droplet" aria-hidden="true"></i> SWD &amp; Seismicity <span>5 AGENTS</span></h2>
+      <ol class="agent-ribbon-list" start="6">
+        <li><span class="agent-ribbon-index">06</span>Seismicity and Fault Intelligence Agent</li>
+        <li><span class="agent-ribbon-index">07</span>Injection Intelligence Agent</li>
+        <li><span class="agent-ribbon-index">08</span>Geology and Subsurface Intelligence Agent</li>
+        <li><span class="agent-ribbon-index">09</span>Geomechanics and Pressure Intelligence Agent</li>
+        <li><span class="agent-ribbon-index">10</span>RRC Regulatory Compliance Agent</li>
+      </ol>
+    </section>
+  </div>
+</section>
 <section class="intel-section" id="production-intelligence"><div class="intel-shell">
   <div class="intel-heading"><h2>AGENTIC PRODUCTION INTELLIGENCE</h2><p>Autonomous AI-driven production forecasting and well intelligence.</p></div>
   <div class="query-panel production-query-panel">
-    <div class="query-copy"><span>RUN WELL INTELLIGENCE</span><strong>Choose coordinates or a Texas Well API number</strong></div>
-    <div class="production-entry">
-      <div class="well-search-tabs" role="group" aria-label="Production input method">
-        <button id="production-method-coordinates" class="well-search-tab active" type="button" aria-pressed="true"><i class="fa-solid fa-location-dot"></i> Latitude / Longitude</button>
-        <button id="production-method-api" class="well-search-tab" type="button" aria-pressed="false"><i class="fa-solid fa-hashtag"></i> Well API Number</button>
-      </div>
-      <div class="production-search-row">
-        <div class="production-inputs" id="production-coordinates-fields">
-          <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-crosshairs"></i><span class="coordinate-field"><span>LATITUDE</span><input id="production-latitude" type="text" inputmode="decimal" placeholder="31.9686"></span></label>
-          <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-dot"></i><span class="coordinate-field"><span>LONGITUDE</span><input id="production-longitude" type="text" inputmode="decimal" placeholder="-102.0779"></span></label>
-        </div>
-        <div class="production-inputs" id="production-api-fields" hidden>
-          <label class="input-wrap coordinate-input api-number-wrap"><i class="fa-solid fa-hashtag"></i><span class="coordinate-field"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="numeric" autocomplete="off" placeholder="42-329-12345" aria-describedby="production-api-note"></span></label>
-        </div>
-        <button class="primary-action" id="production-generate-btn" type="button">Generate Forecast Report <i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-      <p class="well-api-help" id="production-api-note" hidden>Enter a Texas 8-digit RRC API or 10-digit full API (42 + county + well); optional completion digits are accepted. The Production API must support well-number lookup.</p>
+    <div class="query-copy">
+      <span>FIND A PRODUCTION WELL</span>
+      <strong>Search by location or Well API Number</strong>
     </div>
+    <div class="production-search-controls">
+      <div class="production-coordinate-fields">
+        <label class="input-wrap coordinate-input">
+          <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+          <span class="coordinate-field"><span>LATITUDE</span><input id="production-latitude" type="text" inputmode="decimal" placeholder="31.9686" autocomplete="off"></span>
+        </label>
+        <label class="input-wrap coordinate-input">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <span class="coordinate-field"><span>LONGITUDE</span><input id="production-longitude" type="text" inputmode="decimal" placeholder="-102.0779" autocomplete="off"></span>
+        </label>
+      </div>
+      <div class="production-or-label" aria-label="or">OR</div>
+      <div class="production-number-fields">
+        <label class="input-wrap coordinate-input production-well-id-input">
+          <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
+          <span class="coordinate-field"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="numeric" placeholder="42-329-12345" autocomplete="off" aria-describedby="production-api-note"></span>
+        </label>
+      </div>
+      <button class="primary-action" id="production-generate-btn" type="button">
+        Generate Forecast Report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <p class="production-search-help" id="production-api-note">Enter latitude and longitude <strong>or</strong> a Texas Well API Number. When a matching well is found, its location is used.</p>
   </div>
   <div class="api-status-panel" id="production-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="production-status-icon"></div><div id="production-status-text">Preparing production forecast...</div></div><div class="api-job" id="production-job-text"></div></div>
   <div class="production-downloads" id="production-downloads"><button class="download-btn" id="production-package-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete Production ZIP Package</button></div>
@@ -304,13 +420,34 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 </div></section>
 <section class="intel-section" id="swd-injection-intelligence"><div class="intel-shell">
   <div class="intel-heading"><h2>AGENTIC SWD &amp; INDUCED SEISMICITY INTELLIGENCE</h2><p>Autonomous AI-driven SWD injection analysis, seismicity intelligence, and risk-aware decision support.</p></div>
-  <div class="query-panel">
-    <div class="query-copy"><span>RUN SWD INJECTION &amp; SEISMICITY INTELLIGENCE</span><strong>Enter a well location to start the SWD injection and induced seismicity agent workflow</strong></div>
-    <div class="query-controls">
-      <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-crosshairs"></i><span class="coordinate-field"><span>LATITUDE</span><input id="swd-latitude" type="text" placeholder="31.9686"></span></label>
-      <label class="input-wrap coordinate-input"><i class="fa-solid fa-location-dot"></i><span class="coordinate-field"><span>LONGITUDE</span><input id="swd-longitude" type="text" placeholder="-102.0779"></span></label>
-      <button class="primary-action" id="swd-generate-btn" type="button">Generate SWD &amp; Seismicity Report <i class="fa-solid fa-arrow-right"></i></button>
+  <div class="query-panel swd-query-panel">
+    <div class="query-copy">
+      <span>FIND AN INJECTION WELL</span>
+      <strong>Search by location or Injection Well API Number</strong>
     </div>
+    <div class="swd-search-controls">
+      <div class="swd-coordinate-fields">
+        <label class="input-wrap coordinate-input">
+          <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+          <span class="coordinate-field"><span>LATITUDE</span><input id="swd-latitude" type="text" inputmode="decimal" placeholder="31.9686" autocomplete="off"></span>
+        </label>
+        <label class="input-wrap coordinate-input">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <span class="coordinate-field"><span>LONGITUDE</span><input id="swd-longitude" type="text" inputmode="decimal" placeholder="-102.0779" autocomplete="off"></span>
+        </label>
+      </div>
+      <div class="swd-or-label" aria-label="or">OR</div>
+      <div class="swd-number-fields">
+        <label class="input-wrap coordinate-input swd-well-id-input">
+          <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
+          <span class="coordinate-field"><span>INJECTION WELL API NUMBER</span><input id="swd-well-identifier" type="text" inputmode="numeric" placeholder="42-445-00329" autocomplete="off" aria-describedby="swd-search-help"></span>
+        </label>
+      </div>
+      <button class="primary-action" id="swd-generate-btn" type="button">
+        Generate SWD &amp; Seismicity Report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <p class="swd-search-help" id="swd-search-help">Enter latitude and longitude <strong>or</strong> an injection well API number. If matched in the RRC data, its location is used.</p>
   </div>
   <div class="api-status-panel" id="swd-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="swd-status-icon"></div><div id="swd-status-text">Preparing SWD and seismicity report...</div></div><div class="api-job" id="swd-job-text"></div></div>
   <div class="swd-downloads" id="swd-downloads"><button class="download-btn" id="swd-download-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete SWD &amp; Seismicity ZIP Package</button></div>
@@ -363,25 +500,60 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('click',e=>{if(window.innerWidth<=1490&&!menu.contains(e.target)&&!menuBtn.contains(e.target))closeMenu();});
 function coordinate(v){const s=String(v??'').trim().replace(/,/g,'.').replace(/[−–—]/g,'-').replace(/\s+/g,'');return /^-?\d+(\.\d+)?$/.test(s)?Number(s):NaN;}
 function coordinates(prefix){const lat=coordinate(byId(`${prefix}-latitude`).value),lon=coordinate(byId(`${prefix}-longitude`).value);if(!Number.isFinite(lat)||!Number.isFinite(lon)||lat< -90||lat>90||lon< -180||lon>180)throw Error('Please enter valid latitude (-90 to 90) and longitude (-180 to 180).');byId(`${prefix}-latitude`).value=lat;byId(`${prefix}-longitude`).value=lon;return{latitude:lat,longitude:lon};}
-// The existing Forecast API takes latitude/longitude. Well API Number mode
-// first resolves the RRC identifier to coordinates on the SAME Production host.
-// Required backend contract: GET /well/resolve?api_number=4232912345
-// -> {"api_number":"4232912345","latitude":31.9,"longitude":-102.0}.
-let productionSearchMethod='coordinates';
-function setProductionSearchMethod(mode){
-  productionSearchMethod=mode==='api'?'api':'coordinates';
-  byId('production-coordinates-fields').hidden=productionSearchMethod!=='coordinates';
-  byId('production-api-fields').hidden=productionSearchMethod!=='api';
-  byId('production-api-note').hidden=productionSearchMethod!=='api';
-  for(const method of ['coordinates','api']){
-    const button=byId(`production-method-${method}`);
-    const selected=productionSearchMethod===method;
-    button.classList.toggle('active',selected);
-    button.setAttribute('aria-pressed',String(selected));
+// The Production Forecast API accepts coordinates. A Well API Number is
+// resolved by GET /well/resolve?api_number=... on the Production host.
+// If a number is entered, it takes precedence over coordinate fields.
+// When users manually enter one method, clear the other to avoid stale input.
+byId('production-well-api').addEventListener('input', () => {
+  if (byId('production-well-api').value.trim()) {
+    byId('production-latitude').value = '';
+    byId('production-longitude').value = '';
   }
+});
+['latitude','longitude'].forEach(field => {
+  byId(`production-${field}`).addEventListener('input', () => {
+    if (byId(`production-${field}`).value.trim()) {
+      byId('production-well-api').value = '';
+    }
+  });
+});
+
+// SWD API Number lookup uses the separate SWD FastAPI backend.
+// GET /swd/well/resolve?identifier_type=api&identifier=4244500329
+function normalizeSwdApi(value) {
+  const original=String(value ?? '').trim();
+  if (!/^[\d\s-]+$/.test(original)) throw Error('Injection Well API Number must contain digits, spaces, or hyphens only.');
+  const digits=original.replace(/[\s-]/g,'');
+  if(digits.length===8) return '42'+digits;
+  if([10,12,14].includes(digits.length) && digits.startsWith('42')) return digits.slice(0,10);
+  throw Error('Enter an 8-digit Texas API or a 10-digit API starting with 42.');
 }
-byId('production-method-coordinates').addEventListener('click',()=>setProductionSearchMethod('coordinates'));
-byId('production-method-api').addEventListener('click',()=>setProductionSearchMethod('api'));
+async function resolveSwdWellIdentifier() {
+  const identifier=normalizeSwdApi(byId('swd-well-identifier').value);
+  const url=`${SWD_API}/swd/well/resolve?identifier_type=api&identifier=${encodeURIComponent(identifier)}`;
+  let res;
+  try { res = await fetch(url, {cache:'no-store'}); }
+  catch(e) {throw Error('Injection well lookup is unavailable. Check SWD API connectivity and CORS.');}
+  if (!res.ok) {
+    let detail = '';
+    try {const body = await res.json(); detail = body.detail || body.message || '';} catch(e) {}
+    if(res.status===404) throw Error(detail || 'Injection well not found, or the SWD lookup endpoint is not yet installed.');
+    if(res.status===409) throw Error('Multiple conflicting well locations found for that number. Check the RRC source data.');
+    if([405,501,503].includes(res.status)) throw Error(detail || 'The SWD backend lookup needs to be configured.');
+    throw Error(`Injection well lookup failed (HTTP ${res.status})${detail ? ': '+String(detail).slice(0,180) : ''}`);
+  }
+  const data = await res.json();
+  const latitude=Number(data.latitude), longitude=Number(data.longitude);
+  if(!Number.isFinite(latitude)||!Number.isFinite(longitude)||latitude < -90||latitude > 90||longitude < -180||longitude > 180)
+    throw Error('The SWD lookup returned invalid or missing coordinates.');
+  byId('swd-latitude').value = String(latitude);
+  byId('swd-longitude').value = String(longitude);
+  return {latitude,longitude};
+}
+byId('swd-well-identifier').addEventListener('keydown', e => {
+  if(e.key === 'Enter') generate('swd');
+});
+
 function normalizeTexasApi(value){
   const original=String(value??'').trim();
   if(!/^[\d\s-]+$/.test(original))throw Error('Well API Number must contain only digits, spaces or hyphens.');
@@ -442,9 +614,12 @@ async function generate(prefix){
   btn.textContent=`Starting ${cfg.report}...`;
   try{
     let coords;
-    if(prefix==='production'&&productionSearchMethod==='api'){
+    if(prefix==='production'&&byId('production-well-api').value.trim()){
       apiStatus(prefix,'running','Resolving Well API Number to well location...');
       coords=await resolveProductionWellApi();
+    }else if(prefix==='swd'&&byId('swd-well-identifier').value.trim()){
+      apiStatus(prefix,'running','Looking up the injection well in the RRC data...');
+      coords=await resolveSwdWellIdentifier();
     }else{
       coords=coordinates(prefix);
     }
