@@ -1,7 +1,5 @@
-/* PUBLIC configuration only. Never put a Stripe secret key or Supabase service role key here.
-   Replace the placeholders after creating your Supabase project and Cloudflare Worker. */
+/* PUBLIC ONLY — never add Clerk secret keys or Stripe keys here. */
 window.BA_CONFIG = Object.freeze({
-  SUPABASE_URL: 'https://YOUR_PROJECT.supabase.co',
-  SUPABASE_PUBLISHABLE_KEY: 'YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY',
+  CLERK_PUBLISHABLE_KEY: 'PASTE_CLERK_PUBLISHABLE_KEY_HERE',
   WORKER_URL: 'https://billing-api.basinagentic.com'
 });
