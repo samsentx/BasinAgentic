@@ -96,6 +96,7 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 .agent-card p{margin:0 0 13px;color:#334761;font-size:clamp(15.5px,1vw,18px);line-height:1.5}
 .agent-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:13px;border-top:1px solid #dce4ee;font-weight:900;color:var(--accent);font-size:14px}
 .production-downloads,.swd-downloads{display:none;flex-wrap:wrap;gap:12px;margin:8px 0 16px}.production-downloads.show,.swd-downloads.show{display:flex}
+.transient-note{flex:1 1 100%;margin:0;font-size:14px;font-weight:700;color:#415c7f}
 .download-progress-panel{width:100%;padding:16px 19px 14px;margin:0 0 19px;border:1px solid #adc8f4;border-radius:16px;background:white}.download-progress-panel[hidden]{display:none!important}
 .download-progress-header{display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;font-size:17px;font-weight:900}
 .download-progress-track{height:16px;border-radius:999px;background:#dce9ff;overflow:hidden}.download-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#174ea6,#38a5f9);transition:width .15s}
@@ -453,7 +454,7 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
     </div>
   </div>
   <div class="api-status-panel" id="production-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="production-status-icon"></div><div id="production-status-text">Preparing production forecast...</div></div><div class="api-job" id="production-job-text"></div></div>
-  <div class="production-downloads" id="production-downloads"><button class="download-btn" id="production-package-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete Production ZIP Package</button></div>
+  <div class="production-downloads" id="production-downloads"><button class="download-btn" id="production-package-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete Production ZIP Package</button><p class="transient-note">Download now. BasinAgentic does not keep an archive of your reports.</p></div>
   <div class="download-progress-panel" id="production-download-progress" hidden><div class="download-progress-header"><strong id="production-download-title">Preparing download...</strong><span id="production-download-percent">Preparing</span></div><div class="download-progress-track" id="production-download-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"><div class="download-progress-fill"></div></div><p class="download-progress-detail" id="production-download-detail"></p></div>
   <div class="workflow-label"><span>5-AGENT WORKFLOW</span><div></div></div><div class="agent-grid" id="production-agent-grid"></div>
 </div></section>
@@ -487,30 +488,47 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
     </div>
   </div>
   <div class="api-status-panel" id="swd-api-status" aria-live="polite"><div class="api-status-row"><div class="api-spinner" id="swd-status-icon"></div><div id="swd-status-text">Preparing SWD and seismicity report...</div></div><div class="api-job" id="swd-job-text"></div></div>
-  <div class="swd-downloads" id="swd-downloads"><button class="download-btn" id="swd-download-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete SWD &amp; Seismicity ZIP Package</button></div>
+  <div class="swd-downloads" id="swd-downloads"><button class="download-btn" id="swd-download-btn" type="button"><i class="fa-solid fa-file-zipper"></i> Download Complete SWD &amp; Seismicity ZIP Package</button><p class="transient-note">Download now. BasinAgentic does not keep an archive of your reports.</p></div>
   <div class="download-progress-panel" id="swd-download-progress" hidden><div class="download-progress-header"><strong id="swd-download-title">Preparing download...</strong><span id="swd-download-percent">Preparing</span></div><div class="download-progress-track" id="swd-download-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"><div class="download-progress-fill"></div></div><p class="download-progress-detail" id="swd-download-detail"></p></div>
   <div class="workflow-label"><span>5-AGENT WORKFLOW</span><div></div></div><div class="agent-grid" id="swd-agent-grid"></div>
 </div></section>
 <section class="pricing-section" id="pricing"><div class="pricing-shell">
-  <div class="pricing-heading"><span class="pricing-kicker"><i class="fa-solid fa-bolt"></i> PAID PLANS · EARLY ACCESS</span><h2>BASIN INTELLIGENCE THAT SCALES WITH YOU</h2></div>
-  <div class="pricing-billing-bar"><strong>Billing</strong><div class="pricing-toggle"><button id="pricing-monthly" type="button" aria-pressed="true">Monthly</button><button id="pricing-annually" type="button" aria-pressed="false">Annually</button></div><span class="pricing-save">Save about 20% annually</span></div>
-  <div class="pricing-grid">
-    <article class="pricing-card featured"><h3>Production Pro</h3><p class="pricing-audience">For engineers, geoscientists and consultants.</p><div class="pricing-price-row"><span class="pricing-price" data-monthly="$149" data-annual="$119">$149</span><span class="pricing-frequency">/ month</span></div><p class="pricing-bill-note" data-monthly="Billed monthly" data-annual="Billed $1,428 annually">Billed monthly</p><a href="contact.html?plan=production-pro" class="pricing-button">Request Early Access</a><ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Up to 20 analyses per month*</li><li><i class="fa-solid fa-check"></i> AI decline and 60-month forecast</li><li><i class="fa-solid fa-check"></i> P10 / P50 / P90 uncertainty</li><li><i class="fa-solid fa-check"></i> Complete Production ZIP package</li></ul></article>
-    <article class="pricing-card business"><h3>Basin Intelligence</h3><p class="pricing-audience">For operators and multidisciplinary teams.</p><div class="pricing-price-row"><span class="pricing-price" data-monthly="$449" data-annual="$359">$449</span><span class="pricing-frequency">/ month</span></div><p class="pricing-bill-note" data-monthly="Billed monthly" data-annual="Billed $4,308 annually">Billed monthly</p><a href="contact.html?plan=basin-intelligence" class="pricing-button">Request Early Access</a><ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Production + SWD / Seismicity*</li><li><i class="fa-solid fa-check"></i> 50 analysis credits per month*</li><li><i class="fa-solid fa-check"></i> Geology, faults, injection and pressure*</li><li><i class="fa-solid fa-check"></i> RRC screening and ZIP reports*</li></ul></article>
-    <article class="pricing-card"><h3>Enterprise</h3><p class="pricing-audience">For portfolios, teams and integrations.</p><div class="pricing-price-row"><span class="pricing-price">Custom</span></div><p class="pricing-bill-note">Quoted by users and usage</p><a href="contact.html?plan=enterprise" class="pricing-button">Contact Sales</a><ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Multi-user access*</li><li><i class="fa-solid fa-check"></i> Portfolio-scale analysis*</li><li><i class="fa-solid fa-check"></i> Custom API integration*</li><li><i class="fa-solid fa-check"></i> Onboarding and support*</li></ul></article>
+  <div class="pricing-heading"><span class="pricing-kicker"><i class="fa-solid fa-bolt"></i> SIMPLE MONTHLY SUBSCRIPTIONS</span>
+    <h2>UNLIMITED BASIN INTELLIGENCE</h2>
+    <p>One monthly payment. Unlimited reports and ZIP downloads while your subscription remains active. Cancel anytime.</p>
   </div>
-  <p class="pricing-notice">* Proposed paid launch plans. Features and limits depend on readiness. Prices in USD, excluding tax. Payments and server-side access controls are not yet connected; contact us to request access.</p>
-  <div class="pricing-report-panel"><h3><i class="fa-solid fa-file-invoice-dollar"></i> Need a single analysis?</h3><p>Pay-per-report options without a monthly subscription.</p><div class="pricing-report-grid">
-    <article class="pricing-report"><h4>Production Forecast ZIP</h4><div class="pricing-report-price">$29</div><p>Proposed one-time Production Intelligence ZIP package.</p><a href="contact.html?report=production">Request Report</a></article>
-    <article class="pricing-report"><h4>SWD &amp; Seismicity ZIP</h4><div class="pricing-report-price">$99</div><p>Proposed one-time five-agent SWD / seismicity ZIP.</p><a href="contact.html?report=swd-seismicity">Request Report</a></article>
-    <article class="pricing-report"><h4>Integrated Basin Report</h4><div class="pricing-report-price">$149</div><p>Planned combined Production, SWD and seismicity analysis.</p><a href="contact.html?report=integrated">Request Report</a></article>
-  </div></div>
+  <div class="pricing-grid">
+    <article class="pricing-card featured">
+      <h3>Production Pro</h3><p class="pricing-audience">For engineers, geoscientists and consultants.</p>
+      <div class="pricing-price-row"><span class="pricing-price">$149</span><span class="pricing-frequency">/ month</span></div>
+      <p class="pricing-bill-note">Monthly billing · Cancel anytime</p>
+      <a href="login.html?plan=production-pro" class="pricing-button"><i class="fa-solid fa-credit-card"></i> Subscribe Now</a>
+      <ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Unlimited Production analyses and ZIP downloads</li><li><i class="fa-solid fa-check"></i> All 5 Production AI agents</li><li><i class="fa-solid fa-check"></i> 60-month forecasts, decline and uncertainty</li><li><i class="fa-solid fa-check"></i> Direct ZIP download — no report archive</li></ul>
+    </article>
+    <article class="pricing-card business">
+      <h3>Basin Intelligence</h3><p class="pricing-audience">For operators and multidisciplinary teams.</p>
+      <div class="pricing-price-row"><span class="pricing-price">$449</span><span class="pricing-frequency">/ month</span></div>
+      <p class="pricing-bill-note">Monthly billing · Cancel anytime</p>
+      <a href="login.html?plan=basin-intelligence" class="pricing-button"><i class="fa-solid fa-credit-card"></i> Subscribe Now</a>
+      <ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Unlimited Production + SWD &amp; Seismicity analyses</li><li><i class="fa-solid fa-check"></i> Unlimited ZIP reports and downloads</li><li><i class="fa-solid fa-check"></i> All 10 specialized AI agents</li><li><i class="fa-solid fa-check"></i> Faults, pressure, geology and RRC screening</li></ul>
+    </article>
+    <article class="pricing-card"><h3>Enterprise</h3><p class="pricing-audience">For portfolios, teams and integrations.</p>
+      <div class="pricing-price-row"><span class="pricing-price">Custom</span></div>
+      <p class="pricing-bill-note">Tailored enterprise contracts</p>
+      <a href="contact.html?plan=enterprise" class="pricing-button"><i class="fa-solid fa-envelope"></i> Contact Sales</a>
+      <ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Multiple users and organizations</li><li><i class="fa-solid fa-check"></i> Portfolio-scale analyses</li><li><i class="fa-solid fa-check"></i> API integrations</li><li><i class="fa-solid fa-check"></i> Onboarding and support</li></ul>
+    </article>
+  </div>
+  <p class="pricing-notice"><i class="fa-solid fa-shield-halved"></i> Prices in USD, excluding applicable taxes. Unlimited normal individual use is subject to fair-use and security controls. No customer report archive or report history is provided. Payment activation requires Stripe and secure API configuration; see setup guide.</p>
 </div></section>
 <footer class="footer">© 2026 BasinAgentic — Autonomous Basin Intelligence Platform.</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script src="auth.js"></script>
 <script>
 'use strict';
-const PRODUCTION_API='https://api.basinagentic.com';
-const SWD_API='https://swd-api.basinagentic.com';
+const PRODUCTION_API=(window.BA_CONFIG?.WORKER_URL||'').replace(/\/$/,'')+'/api/production';
+const SWD_API=(window.BA_CONFIG?.WORKER_URL||'').replace(/\/$/,'')+'/api/swd';
 const byId=id=>document.getElementById(id);
 const productionAgents=[
  ['Spatial / Formation / Geometry Agent','fa-location-dot','Detects local formation, adaptive search radius, depth proxy and lateral-length proxy from nearby wells.','Spatial Intelligence'],
@@ -569,8 +587,8 @@ async function resolveSwdWellIdentifier() {
   const identifier=normalizeSwdApi(byId('swd-well-identifier').value);
   const url=`${SWD_API}/swd/well/resolve?identifier_type=api&identifier=${encodeURIComponent(identifier)}`;
   let res;
-  try { res = await fetch(url, {cache:'no-store'}); }
-  catch(e) {throw Error('Injection well lookup is unavailable. Check SWD API connectivity and CORS.');}
+  try { res = await window.BA_AUTH.apiFetch(url, {cache:'no-store'}); }
+  catch(e) {throw Error('Injection well lookup is unavailable. Check your subscription or gateway connection.');}
   if (!res.ok) {
     let detail = '';
     try {const body = await res.json(); detail = body.detail || body.message || '';} catch(e) {}
@@ -603,8 +621,8 @@ async function resolveProductionWellApi(){
   const apiNumber=normalizeTexasApi(byId('production-well-api').value);
   let res;
   try{
-    res=await fetch(`${PRODUCTION_API}/well/resolve?api_number=${encodeURIComponent(apiNumber)}`,{cache:'no-store'});
-  }catch(e){throw Error('Well API lookup is unavailable. The Production backend needs a /well/resolve endpoint and CORS support.');}
+    res=await window.BA_AUTH.apiFetch(`${PRODUCTION_API}/well/resolve?api_number=${encodeURIComponent(apiNumber)}`,{cache:'no-store'});
+  }catch(e){throw Error('Well API lookup is unavailable. The Production resolver or secure gateway may not be available.');}
   if(!res.ok){
     if(res.status===404)throw Error(`Well API ${apiNumber} not found in the Production well database.`);
     if(res.status===409)throw Error('More than one location matches this API. Contact support to identify the wellbore.');
@@ -625,7 +643,7 @@ function sizeLabel(n){if(n<1024)return n+' B';if(n<1048576)return(n/1024).toFixe
 function progress(prefix,state,title,received=0,total=0,detail=''){const panel=byId(`${prefix}-download-progress`),track=byId(`${prefix}-download-track`),fill=track.querySelector('.download-progress-fill'),pct=byId(`${prefix}-download-percent`);panel.hidden=false;byId(`${prefix}-download-title`).textContent=title;track.className='download-progress-track';track.removeAttribute('aria-valuenow');if(state==='error'){track.classList.add('error');fill.style.width='100%';pct.textContent='Failed';}else if(state==='done'){track.classList.add('done');fill.style.width='100%';pct.textContent='100%';track.setAttribute('aria-valuenow','100');}else if(total>0){const value=Math.min(99,Math.floor(received/total*100));fill.style.width=value+'%';pct.textContent=value+'%';track.setAttribute('aria-valuenow',String(value));}else{track.classList.add('indeterminate');fill.style.width='';pct.textContent='Downloading...';}byId(`${prefix}-download-detail`).textContent=detail||(total>0?`${sizeLabel(received)} / ${sizeLabel(total)} received`:`${sizeLabel(received)} received; total size unavailable`);}
 function saveBlob(blob,filename){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000);}
 function browserDownload(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';document.body.appendChild(a);a.click();a.remove();}
-async function downloadZip(prefix,url,filename,label){progress(prefix,'loading',`Downloading ${label}...`,0,0,'Connecting to the download server...');let res;try{res=await fetch(url,{cache:'no-store'});}catch(e){browserDownload(url);progress(prefix,'waiting',`${label} sent to browser`,0,0,'Check your browser downloads; this page cannot measure the native transfer.');return;}
+async function downloadZip(prefix,url,filename,label){progress(prefix,'loading',`Downloading ${label}...`,0,0,'Connecting to the download server...');let res;try{res=await window.BA_AUTH.apiFetch(url,{cache:'no-store'});}catch(e){throw Error('Secure download failed: '+(e.message||'network unavailable'));}
  if(!res.ok)throw Error(`Download failed (HTTP ${res.status}): ${(await res.text().catch(()=>'' )).slice(0,200)}`);
  const type=(res.headers.get('Content-Type')||'').toLowerCase();if(type.includes('text/html')||type.includes('application/json')||type.includes('application/pdf'))throw Error('API did not return a ZIP.');
  const size=Number(res.headers.get('Content-Length'));const encoding=(res.headers.get('Content-Encoding')||'identity').toLowerCase();const total=encoding==='identity'&&Number.isFinite(size)&&size>0?size:0;
@@ -638,12 +656,16 @@ const configs={
  production:{api:PRODUCTION_API,start:'/forecast',status:'/status',download:'/download-package',prefix:'production',report:'Production',zipName:'BasinAgentic_Production_Complete'},
  swd:{api:SWD_API,start:'/swd/forecast',status:'/swd/status',download:'/swd/download-package',prefix:'swd',report:'SWD & Seismicity',zipName:'BasinAgentic_SWD_5Agent_Complete_Report'}
 };
-const jobs={production:{id:null,timer:null,run:0,busy:false},swd:{id:null,timer:null,run:0,busy:false}};
+const jobs={production:{id:null,label:null,timer:null,run:0,busy:false},swd:{id:null,label:null,timer:null,run:0,busy:false}};
 async function generate(prefix){
   const cfg=configs[prefix],job=jobs[prefix],btn=byId(`${prefix}-generate-btn`);
   if(btn.disabled)return;
+  try {
+    const access=await window.BA_AUTH.requirePlan(prefix);
+    if(!access) return;
+  } catch(err) { apiStatus(prefix,'error',err.message||'Subscription check failed'); return; }
   if(job.timer)clearTimeout(job.timer);
-  job.timer=null;job.id=null;
+  job.timer=null;job.id=null;job.label=null;
   const run=++job.run;
   byId(`${prefix}-downloads`).classList.remove('show');
   byId(`${prefix}-download-progress`).hidden=true;
@@ -662,7 +684,7 @@ async function generate(prefix){
     }
     if(run!==job.run)return;
     apiStatus(prefix,'running',`Connecting to BasinAgentic ${cfg.report} API...`);
-    const res=await fetch(cfg.api+cfg.start,{
+    const res=await window.BA_AUTH.apiFetch(cfg.api+cfg.start,{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify(coords),cache:'no-store'
     });
@@ -671,7 +693,8 @@ async function generate(prefix){
     if(!data.job_id)throw Error('API did not return job_id.');
     if(run!==job.run)return;
     job.id=String(data.job_id);
-    apiStatus(prefix,'running',`${cfg.report} agents are running...`,`Job ID: ${job.id}`);
+    job.label=String(data.job_label||"temporary").slice(0,90);
+    apiStatus(prefix,'running',`${cfg.report} agents are running...`,`Job ID: ${job.label}`);
     pollStatus(prefix,run);
   }catch(e){
     if(run!==job.run)return;
@@ -681,23 +704,31 @@ async function generate(prefix){
   }
 }
 async function pollStatus(prefix,run){const cfg=configs[prefix],job=jobs[prefix],btn=byId(`${prefix}-generate-btn`);if(!job.id||run!==job.run)return;
- try{const res=await fetch(`${cfg.api}${cfg.status}/${encodeURIComponent(job.id)}`,{cache:'no-store'});if(!res.ok)throw Error(`${cfg.report} status HTTP ${res.status}`);const data=await res.json();if(run!==job.run)return;const state=String(data.status||'').toLowerCase();
- if(['complete','completed','done','success'].includes(state)){apiStatus(prefix,'done',`Complete ${cfg.report} ZIP package is ready.`,`Job ID: ${job.id}`);byId(`${prefix}-downloads`).classList.add('show');btn.disabled=false;btn.textContent=`Generate Another ${cfg.report} Report`;job.timer=null;return;}
+ try{const res=await window.BA_AUTH.apiFetch(`${cfg.api}${cfg.status}/${encodeURIComponent(job.id)}`,{cache:'no-store'});if(!res.ok)throw Error(`${cfg.report} status HTTP ${res.status}`);const data=await res.json();if(run!==job.run)return;const state=String(data.status||'').toLowerCase();
+ if(['complete','completed','done','success'].includes(state)){apiStatus(prefix,'done',`Complete ${cfg.report} ZIP package is ready.`,`Job ID: ${job.label}`);byId(`${prefix}-downloads`).classList.add('show');btn.disabled=false;btn.textContent=`Generate Another ${cfg.report} Report`;job.timer=null;return;}
  if(['failed','failure','error','cancelled','canceled'].includes(state))throw Error(data.error||data.message||`${cfg.report} report failed.`);
  const raw=data.progress_percent??data.progress_pct;const percent=raw!==undefined&&raw!==null&&Number.isFinite(Number(raw))?` · ${Number(raw).toFixed(0)}%`:'';
- const message=prefix==='swd'?(data.message||'SWD agents are processing...'):state==='queued'?'Production forecast queued...':state==='reporting'?'Building Production reports...':'Production agents are running...';apiStatus(prefix,'running',message,`Job ID: ${job.id} · Status: ${state||'running'}${percent}`);job.timer=setTimeout(()=>pollStatus(prefix,run),5000);
- }catch(e){if(run!==job.run)return;apiStatus(prefix,'error',e.message,`Job ID: ${job.id}`);btn.disabled=false;btn.textContent='Try Again';job.timer=null;}
+ const message=prefix==='swd'?(data.message||'SWD agents are processing...'):state==='queued'?'Production forecast queued...':state==='reporting'?'Building Production reports...':'Production agents are running...';apiStatus(prefix,'running',message,`Job ID: ${job.label} · Status: ${state||'running'}${percent}`);job.timer=setTimeout(()=>pollStatus(prefix,run),5000);
+ }catch(e){if(run!==job.run)return;apiStatus(prefix,'error',e.message,`Job ID: ${job.label}`);btn.disabled=false;btn.textContent='Try Again';job.timer=null;}
 }
-async function getZip(prefix){const cfg=configs[prefix],job=jobs[prefix],button=byId(prefix==='production'?'production-package-btn':'swd-download-btn');if(!job.id||job.busy)return;job.busy=true;button.disabled=true;try{await downloadZip(prefix,`${cfg.api}${cfg.download}/${encodeURIComponent(job.id)}`,`${cfg.zipName}_${job.id}.zip`,`Complete ${cfg.report} ZIP Package`);}catch(e){progress(prefix,'error',`${cfg.report} ZIP download failed`,0,0,e.message);}finally{job.busy=false;button.disabled=false;}}
+async function getZip(prefix){
+ const cfg=configs[prefix],job=jobs[prefix],button=byId(prefix==='production'?'production-package-btn':'swd-download-btn');
+ if(!job.id||job.busy)return;
+ job.busy=true;button.disabled=true;
+ try{
+   // Never save the ZIP or job token in browser storage / an account report list.
+   await downloadZip(prefix,`${cfg.api}${cfg.download}/${encodeURIComponent(job.id)}`,`${cfg.zipName}_${job.label||'Report'}.zip`,`Complete ${cfg.report} ZIP Package`);
+   job.id=null;job.label=null;byId(`${prefix}-downloads`).classList.remove('show');
+   apiStatus(prefix,'done','ZIP sent to your browser. Keep the file on your device; no customer report archive is available.');
+ }catch(e){progress(prefix,'error',`${cfg.report} ZIP download failed`,0,0,e.message);}
+ finally{job.busy=false;button.disabled=false;}
+}
 byId('production-generate-btn').addEventListener('click',()=>generate('production'));
 byId('swd-generate-btn').addEventListener('click',()=>generate('swd'));
 byId('production-package-btn').addEventListener('click',()=>getZip('production'));
 byId('swd-download-btn').addEventListener('click',()=>getZip('swd'));
 ['production','swd'].forEach(prefix=>['latitude','longitude'].forEach(field=>byId(`${prefix}-${field}`).addEventListener('keydown',e=>{if(e.key==='Enter')generate(prefix);} )));
 byId('production-well-api').addEventListener('keydown',e=>{if(e.key==='Enter')generate('production');});
-function setBilling(annual){byId('pricing-monthly').setAttribute('aria-pressed',String(!annual));byId('pricing-annually').setAttribute('aria-pressed',String(annual));document.querySelectorAll('[data-monthly][data-annual]').forEach(el=>{el.textContent=annual?el.dataset.annual:el.dataset.monthly;});}
-byId('pricing-monthly').addEventListener('click',()=>setBilling(false));
-byId('pricing-annually').addEventListener('click',()=>setBilling(true));
 </script>
 </body>
 </html>
