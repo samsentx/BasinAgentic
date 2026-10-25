@@ -364,6 +364,12 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   .intel-heading h2,#swd-injection-intelligence .intel-heading h2{
     font-size:clamp(24px,7vw,30px);overflow-wrap:break-word}
 }
+
+/* BasinAgentic legal links — added without altering site functionality */
+.footer .ba-legal-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:13px;font-weight:600}
+.footer .ba-legal-links a{color:#cfe4ff;text-decoration:none}
+.footer .ba-legal-links a:hover,.footer .ba-legal-links a:focus-visible{text-decoration:underline;color:#fff}
+.footer .ba-legal-links span{color:#83a7cf}
 </style>
 </head>
 <body>
@@ -521,7 +527,14 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   </div>
   <p class="pricing-notice"><i class="fa-solid fa-shield-halved"></i> Prices in USD, excluding applicable taxes. Unlimited normal individual use is subject to fair-use and security controls. No customer report archive or report history is provided. Checkout is provided by Clerk Billing with Stripe payment processing. Plans must be configured in Clerk; see setup guide.</p>
 </div></section>
-<footer class="footer">© 2026 BasinAgentic — Autonomous Basin Intelligence Platform.</footer>
+<footer class="footer">
+  <div>© 2026 BasinAgentic — Autonomous Basin Intelligence Platform.</div>
+  <nav class="ba-legal-links" aria-label="Legal links">
+    <a href="privacy.html">Privacy Policy</a>
+    <span aria-hidden="true">•</span>
+    <a href="subscription-agreement.html">Terms of Service</a>
+  </nav>
+</footer>
 <script src="config.js"></script>
 <script src="auth.js"></script>
 <script>
