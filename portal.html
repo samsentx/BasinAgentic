@@ -7,6 +7,56 @@
 .ba-page-footer nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
 .ba-page-footer a{color:#1554b2;font-weight:700;text-decoration:none}
 .ba-page-footer a:hover,.ba-page-footer a:focus-visible{text-decoration:underline}
+
+/* BasinAgentic — readable dashboard + Clerk Billing typography */
+.muted {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.65;
+  color: #294566;
+}
+.small, .ba-checkout-legal, .ba-page-footer {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #294566;
+}
+.ba-checkout-legal a, .small a, .ba-page-footer a {
+  font-weight: 800;
+  color: #154a9c;
+}
+.card h2 { font-weight: 850; }
+.button { font-size: 15px; }
+#clerk-pricing {
+  width: 100%;
+  font-size: 16px;
+  color: #162c48;
+  --clerk-font-size: 16px;
+  --clerk-color-muted-foreground: #334762;
+}
+/* Text rendered by Clerk PricingTable (CSS fallback for changing Clerk versions). */
+#clerk-pricing p,
+#clerk-pricing li,
+#clerk-pricing small,
+#clerk-pricing [class*="pricingTableCardDescription"],
+#clerk-pricing [class*="pricingTableCardFeePeriod"],
+#clerk-pricing [class*="pricingTableCardFeatures"] {
+  font-size: 16px !important;
+  font-weight: 650 !important;
+  line-height: 1.6 !important;
+  color: #253b56;
+}
+#clerk-pricing button,
+#clerk-pricing [role="button"] {
+  font-size: 15px;
+  font-weight: 800;
+}
+@media (max-width: 770px) {
+  .muted { font-size: 16px; }
+  .small, .ba-checkout-legal { font-size: 15px; }
+  #clerk-pricing { min-width: 0; }
+  #clerk-pricing > div { width: 100%; min-width: 0; }
+}
 </style>
 </head><body><header class="top"><a class="brand" href="index.html">Basin<span>Agentic</span></a><nav><a href="index.html">Main Website</a> <button type="button" id="signout">Sign Out</button></nav></header><main class="wrap"><div class="head"><div><h1>Client Dashboard</h1><p class="muted" id="who">Connecting to your Clerk account...</p></div><span class="tag" id="status">Checking subscription</span></div><div id="notice" class="notice" hidden role="status"></div>
 <div class="grid"><section class="card"><h2><i class="fa-solid fa-id-card"></i> My Subscription</h2><div id="plan" class="plan">Checking...</div><p id="plan-note" class="muted">Your access is verified securely for every report request.</p><div class="actions"><button class="button soft" type="button" id="billing">Manage Subscription &amp; Payment</button><button class="button soft" type="button" id="refresh">Refresh</button></div></section>
@@ -31,7 +81,19 @@
 function notify(msg){el('notice').hidden=false;el('notice').textContent=msg;}
 function showMembership(m){const names={'production-pro':'Production Pro','basin-intelligence':'Basin Intelligence',enterprise:'Enterprise'};el('plan').textContent=names[m.plan]||'No Active Plan';el('status').textContent=m.active?'ACTIVE SUBSCRIPTION':'NO ACTIVE PLAN';el('status').classList.toggle('active',m.active);el('plan-note').textContent=m.active?'Unlimited analyses and ZIP downloads for your active plan.':'Choose a monthly subscription below to activate reporting.';}
 async function refresh(){const c=await BA_AUTH.init();if(!c.user)return;await c.session.getToken({skipCache:true});showMembership(await BA_AUTH.getMembership());}
-(async()=>{try{const c=await BA_AUTH.init();if(!c.user){const u=new URL('login.html',location.href);const p=params.get('plan');if(['production-pro','basin-intelligence'].includes(p))u.searchParams.set('plan',p);location.replace(u.toString());return;}el('who').textContent=c.user.primaryEmailAddress?.emailAddress||'Signed in';await refresh();c.mountPricingTable(el('clerk-pricing'),{for:'user',highlightedPlan:['production-pro','basin-intelligence'].includes(params.get('plan'))?params.get('plan'):'basin-intelligence',newSubscriptionRedirectUrl:location.origin+'/portal.html'});if(params.has('upgrade'))notify('To upgrade, select Basin Intelligence below.');}catch(e){notify(e.message||'Unable to load Client Dashboard');el('plan').textContent='Not configured';}})();
+(async()=>{try{const c=await BA_AUTH.init();if(!c.user){const u=new URL('login.html',location.href);const p=params.get('plan');if(['production-pro','basin-intelligence'].includes(p))u.searchParams.set('plan',p);location.replace(u.toString());return;}el('who').textContent=c.user.primaryEmailAddress?.emailAddress||'Signed in';await refresh();c.mountPricingTable(el('clerk-pricing'),{
+  for:'user',
+  highlightedPlan:['production-pro','basin-intelligence'].includes(params.get('plan'))?params.get('plan'):'basin-intelligence',
+  newSubscriptionRedirectUrl:location.origin+'/portal.html',
+  appearance:{
+    variables:{
+      fontSize:'16px',
+      fontWeight:{normal:600,medium:650,semibold:700,bold:800},
+      colorForeground:'#112943',
+      colorMutedForeground:'#334762'
+    }
+  }
+});if(params.has('upgrade'))notify('To upgrade, select Basin Intelligence below.');}catch(e){notify(e.message||'Unable to load Client Dashboard');el('plan').textContent='Not configured';}})();
 el('refresh').addEventListener('click',()=>refresh().catch(e=>notify(e.message)));
 el('billing').addEventListener('click',async()=>{try{await BA_AUTH.openBillingPortal();}catch(e){notify(e.message);}});
 el('signout').addEventListener('click',async()=>{try{const c=await BA_AUTH.init();await c.signOut();location.assign('login.html');}catch(e){notify(e.message);}});
