@@ -463,10 +463,10 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   transform:none !important;
   filter:none !important;
 }
-/* Widen the two-column hero to the browser's right-hand edge. */
+/* Keep the video compact with an intentional margin at the right edge. */
 @media(min-width:1001px){
   .hero{
-    padding-right:0;
+    padding-right:clamp(38px,5vw,85px);
   }
   .hero-inner{
     width:100%;
@@ -483,8 +483,8 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
     max-width:none;
     margin:0;
     justify-self:end;
-    border-top-right-radius:0;
-    border-bottom-right-radius:0;
+    border-top-right-radius:25px;
+    border-bottom-right-radius:25px;
   }
 }
 /* Stack naturally on smaller displays with breathing room on both sides. */
@@ -504,8 +504,8 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 @media (min-width:721px) and (max-width:1000px){
   .hero-video-frame{
     width:min(100%,700px);max-width:700px;
-    justify-self:end;
-    margin-left:auto;margin-right:0;
+    justify-self:center;
+    margin-left:auto;margin-right:auto;
   }
 }
 @media (min-width:1301px){
@@ -522,8 +522,8 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   .hero-inner{grid-template-columns:minmax(0,1fr)}
   .hero-video-frame{
     width:min(100%,700px);max-width:700px;
-    justify-self:end;
-    margin-left:auto;margin-right:0;
+    justify-self:center;
+    margin-left:auto;margin-right:auto;
   }
 }
 
