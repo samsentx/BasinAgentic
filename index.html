@@ -438,11 +438,100 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
   .hero .platform-headline{font-size:clamp(34px,8.8vw,40px)}
 }
 
+/* ================================================================
+   OCT 26 FINAL: TRUE TRANSPARENT NAV LOGO + EDGE-ALIGNED HERO VIDEO
+   The transparent asset is essential; styling alone cannot erase
+   an opaque white rectangle embedded inside the original PNG.
+   ================================================================ */
+.navbar .logo,
+.navbar .logo:hover{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+.navbar .logo img{
+  background:transparent !important;
+  display:block;
+  width:clamp(350px,30vw,550px);
+  max-width:100%;
+  max-height:none;
+  height:auto;
+  object-fit:contain;
+  transform:none !important;
+  filter:none !important;
+}
+/* Widen the two-column hero to the browser's right-hand edge. */
+@media(min-width:1001px){
+  .hero{
+    padding-right:0;
+  }
+  .hero-inner{
+    width:100%;
+    max-width:none;
+    margin:0;
+    grid-template-columns:minmax(0,.96fr) minmax(0,1.14fr);
+    gap:clamp(22px,2.5vw,48px);
+  }
+  .hero-copy{
+    margin-left:clamp(0px, calc((100vw - 1500px) * .34), 135px);
+  }
+  .hero-video-frame{
+    width:100%;
+    max-width:none;
+    margin:0;
+    justify-self:end;
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+  }
+}
+/* Stack naturally on smaller displays with breathing room on both sides. */
+@media(max-width:1000px){
+  .hero{padding-right:var(--pad)}
+  .hero-inner{width:100%;max-width:100%;grid-template-columns:1fr}
+  .hero-video-frame{width:100%;max-width:100%;margin:0 auto}
+}
+@media(max-width:720px){
+  .navbar .logo{min-width:0;width:0;flex:1 1 auto;margin-right:auto}
+  .navbar .logo img{width:100%;max-width:100%;height:auto;max-height:none}
+  .hero{padding-right:16px}
+}
+
+
+/* 26 Oct 2026 — compact, right-aligned hero video. */
+@media (min-width:721px) and (max-width:1000px){
+  .hero-video-frame{
+    width:min(100%,700px);max-width:700px;
+    justify-self:end;
+    margin-left:auto;margin-right:0;
+  }
+}
+@media (min-width:1301px){
+  .hero-inner{
+    grid-template-columns:minmax(0,1fr) minmax(0,700px);
+  }
+  .hero-video-frame{
+    width:100%;max-width:700px;
+    justify-self:end;
+    margin-left:auto;margin-right:0;
+  }
+}
+@media (min-width:1001px) and (max-width:1300px){
+  .hero-inner{grid-template-columns:minmax(0,1fr)}
+  .hero-video-frame{
+    width:min(100%,700px);max-width:700px;
+    justify-self:end;
+    margin-left:auto;margin-right:0;
+  }
+}
+
 </style>
 </head>
 <body>
 <nav class="navbar" aria-label="Main navigation">
-  <a class="logo" href="#top" aria-label="BasinAgentic — home"><img src="basinagentic_logo.png" alt="BasinAgentic Logo"></a>
+  <a class="logo" href="#top" aria-label="BasinAgentic — home"><img src="basinagentic_logo_transparent.png?v=20261026-2" alt="BasinAgentic Logo"></a>
   <button class="mobile-menu-btn" id="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-controls="nav-links" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
   <div class="nav-links" id="nav-links">
     <a href="#top"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Platform</a>
