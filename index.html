@@ -119,14 +119,14 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 .pricing-card{min-width:0;display:flex;flex-direction:column;background:#fff;border:2px solid #dce6f5;border-radius:23px;box-shadow:0 13px 30px #0b254017;padding:27px 21px 21px}
 .pricing-card.featured{border-color:#2563eb}.pricing-card.business{border-color:#f3a575}
 .pricing-card h3{margin:0 0 9px;font-size:clamp(21px,1.5vw,27px);color:var(--navy)}
-.pricing-audience{min-height:44px;margin:0;color:#51627a;font-size:14px;line-height:1.5}
-.pricing-price-row{display:flex;align-items:baseline;gap:4px;margin:20px 0 1px;flex-wrap:wrap}.pricing-price{font-weight:900;font-size:clamp(35px,3vw,48px);letter-spacing:-.04em;color:var(--navy)}.pricing-frequency{color:#5a6b80}
-.pricing-bill-note{min-height:36px;font-size:13px;color:#64748b;margin:10px 0 16px}
-.pricing-button{display:flex;justify-content:center;align-items:center;gap:8px;min-height:49px;padding:12px;border-radius:12px;background:linear-gradient(125deg,#174ea6,#2563eb);color:white;font-size:15px;font-weight:900;text-align:center}
+.pricing-audience{min-height:48px;margin:0;color:#314761;font-size:17px;line-height:1.55;font-weight:700}
+.pricing-price-row{display:flex;align-items:baseline;gap:6px;margin:20px 0 3px;flex-wrap:wrap}.pricing-price{font-weight:900;font-size:clamp(35px,3vw,48px);letter-spacing:-.04em;color:var(--navy)}.pricing-frequency{color:#3f5878;font-size:18px;font-weight:800}
+.pricing-bill-note{min-height:40px;font-size:15px;color:#4f647f;margin:10px 0 18px;font-weight:700;line-height:1.45}
+.pricing-button{display:flex;justify-content:center;align-items:center;gap:8px;min-height:52px;padding:13px 14px;border-radius:12px;background:linear-gradient(125deg,#174ea6,#2563eb);color:white;font-size:18px;font-weight:900;text-align:center}
 .pricing-card.business .pricing-button{background:linear-gradient(125deg,#ad291c,#ff6420)}
 .pricing-features{margin:19px 0 0;padding:16px 0 0;border-top:1px solid #e4eaf4;list-style:none;display:grid;gap:12px}
-.pricing-features li{display:flex;gap:9px;color:#334761;font-size:14px;line-height:1.4}.pricing-features i{color:#087a55;margin-top:3px}
-.pricing-notice{margin:22px auto;max-width:1250px;color:#4b5f76;text-align:center;line-height:1.6;font-size:14px}
+.pricing-features li{display:flex;gap:10px;color:#233b57;font-size:17px;line-height:1.5;font-weight:700}.pricing-features i{color:#087a55;margin-top:4px}
+.pricing-notice{margin:24px auto;max-width:1250px;color:#334b69;text-align:center;line-height:1.65;font-size:16px;font-weight:700}
 .pricing-report-panel{background:linear-gradient(125deg,#071a33,#123767);color:white;border-radius:23px;padding:28px;margin-top:32px}
 .pricing-report-panel h3{margin:0 0 8px;font-size:27px}.pricing-report-panel>p{color:#d7e6ff;margin:0 0 22px}
 .pricing-report-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
@@ -370,6 +370,11 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
 .footer .ba-legal-links a{color:#cfe4ff;text-decoration:none}
 .footer .ba-legal-links a:hover,.footer .ba-legal-links a:focus-visible{text-decoration:underline;color:#fff}
 .footer .ba-legal-links span{color:#83a7cf}
+
+/* Mobile: preserve comfortable input padding with native text keyboards. */
+@media(max-width:380px){
+  .input-wrap{gap:7px;padding:7px 9px}
+}
 </style>
 </head>
 <body>
@@ -409,7 +414,7 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <small>Two intelligent workflows</small>
     </div>
     <section class="agent-ribbon-panel production" aria-labelledby="ribbon-production-title">
-      <h2 id="ribbon-production-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Production Intelligence <span>5 AGENTS</span></h2>
+      <h2 id="ribbon-production-title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Production Intelligence Agents <span>5 AGENTS</span></h2>
       <ol class="agent-ribbon-list">
         <li><span class="agent-ribbon-index">01</span>Spatial / Formation / Geometry Agent</li>
         <li><span class="agent-ribbon-index">02</span>Analog Selection Agent</li>
@@ -419,7 +424,7 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       </ol>
     </section>
     <section class="agent-ribbon-panel swd" aria-labelledby="ribbon-swd-title">
-      <h2 id="ribbon-swd-title"><i class="fa-solid fa-droplet" aria-hidden="true"></i> SWD &amp; Seismicity <span>5 AGENTS</span></h2>
+      <h2 id="ribbon-swd-title"><i class="fa-solid fa-droplet" aria-hidden="true"></i> SWD &amp; Seismicity Intelligence Agents <span>5 AGENTS</span></h2>
       <ol class="agent-ribbon-list" start="6">
         <li><span class="agent-ribbon-index">06</span>Seismicity and Fault Intelligence Agent</li>
         <li><span class="agent-ribbon-index">07</span>Injection Intelligence Agent</li>
@@ -440,19 +445,19 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <div class="production-coordinate-fields">
         <label class="input-wrap coordinate-input">
           <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>LATITUDE</span><input id="production-latitude" type="text" inputmode="decimal" placeholder="31.9686" autocomplete="off"></span>
+          <span class="coordinate-field"><span>LATITUDE</span><input id="production-latitude" type="text" inputmode="text" placeholder="31.9686" autocomplete="off"></span>
         </label>
-        <label class="input-wrap coordinate-input">
+        <div class="input-wrap coordinate-input">
           <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>LONGITUDE</span><input id="production-longitude" type="text" inputmode="decimal" placeholder="-102.0779" autocomplete="off"></span>
-        </label>
+          <label class="coordinate-field" for="production-longitude"><span>LONGITUDE</span><input id="production-longitude" type="text" inputmode="text" placeholder="-102.0779" autocomplete="off"></label>
+        </div>
       </div>
       <div class="production-or-label" aria-label="or">OR</div>
       <div class="production-number-fields">
-        <label class="input-wrap coordinate-input production-well-id-input">
+        <div class="input-wrap coordinate-input production-well-id-input">
           <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="numeric" placeholder="42-329-12345" autocomplete="off"></span>
-        </label>
+          <label class="coordinate-field" for="production-well-api"><span>WELL API NUMBER</span><input id="production-well-api" type="text" inputmode="text" placeholder="42-329-12345" autocomplete="off"></label>
+        </div>
       </div>
       <button class="primary-action" id="production-generate-btn" type="button">
         Generate Agentic Production Intelligence Report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -474,19 +479,19 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <div class="swd-coordinate-fields">
         <label class="input-wrap coordinate-input">
           <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>LATITUDE</span><input id="swd-latitude" type="text" inputmode="decimal" placeholder="31.9686" autocomplete="off"></span>
+          <span class="coordinate-field"><span>LATITUDE</span><input id="swd-latitude" type="text" inputmode="text" placeholder="31.9686" autocomplete="off"></span>
         </label>
-        <label class="input-wrap coordinate-input">
+        <div class="input-wrap coordinate-input">
           <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>LONGITUDE</span><input id="swd-longitude" type="text" inputmode="decimal" placeholder="-102.0779" autocomplete="off"></span>
-        </label>
+          <label class="coordinate-field" for="swd-longitude"><span>LONGITUDE</span><input id="swd-longitude" type="text" inputmode="text" placeholder="-102.0779" autocomplete="off"></label>
+        </div>
       </div>
       <div class="swd-or-label" aria-label="or">OR</div>
       <div class="swd-number-fields">
-        <label class="input-wrap coordinate-input swd-well-id-input">
+        <div class="input-wrap coordinate-input swd-well-id-input">
           <i class="fa-solid fa-hashtag" aria-hidden="true"></i>
-          <span class="coordinate-field"><span>INJECTION WELL API NUMBER</span><input id="swd-well-identifier" type="text" inputmode="numeric" placeholder="42-445-00329" autocomplete="off"></span>
-        </label>
+          <label class="coordinate-field" for="swd-well-identifier"><span>INJECTION WELL API NUMBER</span><input id="swd-well-identifier" type="text" inputmode="text" placeholder="42-445-00329" autocomplete="off"></label>
+        </div>
       </div>
       <button class="primary-action" id="swd-generate-btn" type="button">
         Generate Agentic SWD &amp; Induced Seismicity Intelligence Report <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -509,14 +514,26 @@ a{text-decoration:none}button,input{font:inherit}button{cursor:pointer}
       <div class="pricing-price-row"><span class="pricing-price">$149</span><span class="pricing-frequency">/ month</span></div>
       <p class="pricing-bill-note">Monthly billing · Cancel anytime</p>
       <a href="portal.html?plan=production-pro#plans" class="pricing-button"><i class="fa-solid fa-credit-card"></i> Subscribe Now</a>
-      <ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Unlimited Production analyses and ZIP downloads</li><li><i class="fa-solid fa-check"></i> All 5 Production AI agents</li><li><i class="fa-solid fa-check"></i> 60-month forecasts, decline and uncertainty</li><li><i class="fa-solid fa-check"></i> Direct ZIP download — no report archive</li></ul>
+      <ul class="pricing-features">
+        <li><i class="fa-solid fa-check"></i> Production analyses</li>
+        <li><i class="fa-solid fa-check"></i> 5 Production AI agents</li>
+        <li><i class="fa-solid fa-check"></i> 60-month forecasts, decline &amp; uncertainty</li>
+        <li><i class="fa-solid fa-check"></i> Spatial, formation &amp; analog-well intelligence</li>
+        <li><i class="fa-solid fa-check"></i> Unlimited ZIP downloads · No report archive</li>
+      </ul>
     </article>
     <article class="pricing-card business">
       <h3>Basin Intelligence</h3><p class="pricing-audience">For operators and multidisciplinary teams.</p>
       <div class="pricing-price-row"><span class="pricing-price">$449</span><span class="pricing-frequency">/ month</span></div>
       <p class="pricing-bill-note">Monthly billing · Cancel anytime</p>
       <a href="portal.html?plan=basin-intelligence#plans" class="pricing-button"><i class="fa-solid fa-credit-card"></i> Subscribe Now</a>
-      <ul class="pricing-features"><li><i class="fa-solid fa-check"></i> Unlimited Production + SWD &amp; Seismicity analyses</li><li><i class="fa-solid fa-check"></i> Unlimited ZIP reports and downloads</li><li><i class="fa-solid fa-check"></i> All 10 specialized AI agents</li><li><i class="fa-solid fa-check"></i> Faults, pressure, geology and RRC screening</li></ul>
+      <ul class="pricing-features">
+        <li><i class="fa-solid fa-check"></i> Production + SWD analyses</li>
+        <li><i class="fa-solid fa-check"></i> 10 Production + SWD AI agents</li>
+        <li><i class="fa-solid fa-check"></i> 60-month forecasts, decline &amp; uncertainty</li>
+        <li><i class="fa-solid fa-check"></i> Faults, pressure, geology &amp; RRC screening</li>
+        <li><i class="fa-solid fa-check"></i> Unlimited ZIP downloads · No report archive</li>
+      </ul>
     </article>
     <article class="pricing-card"><h3>Enterprise</h3><p class="pricing-audience">For portfolios, teams and integrations.</p>
       <div class="pricing-price-row"><span class="pricing-price">Custom</span></div>
