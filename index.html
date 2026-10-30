@@ -989,7 +989,7 @@ async function downloadZip(prefix,url,filename,label){
 }
 const configs={
  production:{api:PRODUCTION_API,start:'/forecast',status:'/status',download:'/download-package',stream:'/download-stream',prefix:'production',report:'Production',zipName:'BasinAgentic_Production_Complete'},
- swd:{api:SWD_API,start:'/swd/forecast',status:'/swd/status',download:'/swd/download-package',prefix:'swd',report:'SWD & Seismicity',zipName:'BasinAgentic_SWD_5Agent_Complete_Report'}
+ swd:{api:SWD_API,start:'/swd/forecast',status:'/swd/status',download:'/swd/download-package',stream:'/swd/download-stream',prefix:'swd',report:'SWD & Seismicity',zipName:'BasinAgentic_SWD_5Agent_Complete_Report'}
 };
  // ONE-CLICK GENERATE + AUTO DOWNLOAD: the 2nd ZIP button is for backup only.
  // Both desktop and mobile: no manual folder selection; use Downloads / Files.
@@ -1032,7 +1032,7 @@ const configs={
    // Make the SAME progress bar visible from analysis start through delivery.
    // Preparation has unknown total size; never invent a download percentage.
    progress(prefix,'preparing',`Preparing ${cfg.report} ZIP package...`,0,0,
-     'AI agents are running. ZIP transfer begins automatically after packaging is complete.');
+     'AI agents are running. The ZIP stream starts immediately, and report files follow as soon as they are ready.');
    btn.textContent=`Generating ${cfg.report} report...`;
    try{
      let coords;
@@ -1058,16 +1058,12 @@ const configs={
      job.id=String(data.job_id);
      job.label=String(data.job_label||'temporary').slice(0,90);
      apiStatus(prefix,'running',`${cfg.report} agents are running and the ZIP is being prepared.`,`Job ID: ${job.label}`);
-     if(prefix==='production'){
-       // V158: Start the authenticated ZIP request immediately; it streams
-       // generated files during 3D video rendering, with standard ZIP fallback.
-       streamProductionZip(run).catch(err=>{
-         if(run!==jobs.production.run)return;
-         apiStatus('production','error',err.message||String(err));
-       });
-     }else{
-       pollStatus(prefix,run);
-     }
+     // Both endpoints now stream a real ZIP while their 3D video is encoded.
+     // If a gateway blocks streaming, the existing ZIP route is retried.
+     streamReportZip(prefix,run).catch(err=>{
+       if(run!==jobs[prefix].run)return;
+       apiStatus(prefix,'error',err.message||String(err));
+     });
    }catch(e){
      if(run!==job.run)return;
      apiStatus(prefix,'error',e.message||String(e));
@@ -1075,38 +1071,36 @@ const configs={
      btn.disabled=false;btn.textContent=generationLabel(prefix);
    }
  }
- async function streamProductionZip(run){
-   const prefix='production',cfg=configs.production,job=jobs.production;
-   const btn=byId('production-generate-btn');
+ async function streamReportZip(prefix,run){
+   const cfg=configs[prefix],job=jobs[prefix];
+   const btn=byId(`${prefix}-generate-btn`);
    const fallback=async error=>{
-     // A non-streaming Cloudflare gateway may reject the new route. In that
-     // case wait for the normal finished ZIP and download it automatically.
      if(run!==job.run)return;
-     apiStatus(prefix,'running','Streaming unavailable; using standard ZIP download.',
+     // The standard getZip() must not be rejected by the former stream's busy flag.
+     job.busy=false;
+     apiStatus(prefix,'running',`${cfg.report} streaming unavailable; using standard ZIP download.`,
         String(error?.message||error||'').slice(0,140));
-     progress(prefix,'preparing','Preparing Production ZIP package...',0,0,
-        'Using the reliable standard download automatically.');
+     progress(prefix,'preparing',`Preparing ${cfg.report} ZIP package...`,0,0,
+        'Secure streaming could not complete. The finished report will download automatically.');
      pollStatus(prefix,run);
    };
    try{
      job.busy=true;
      btn.textContent='Preparing and streaming ZIP...';
-     apiStatus(prefix,'running','Production report preparation and secure streaming started.',`Job ID: ${job.label}`);
+     apiStatus(prefix,'running',`${cfg.report} report generation and ZIP streaming started.`,`Job ID: ${job.label}`);
      await downloadZip(prefix,`${cfg.api}${cfg.stream}/${encodeURIComponent(job.id)}`,
-       job.filename,'Production streaming ZIP');
+       job.filename,`${cfg.report} streaming ZIP`);
      if(run!==job.run)return;
-     // Do not trust a truncated ZIP that the gateway might have ended early;
-     // verify the job finished successfully before announcing completion.
-     let state;
-     try{
-       const response=await window.BA_AUTH.apiFetch(
-         `${cfg.api}${cfg.status}/${encodeURIComponent(job.id)}`,{cache:'no-store'});
-       if(response.ok)state=await response.json();
-     }catch(_e){}
-     if(state && !['complete','completed','done','success'].includes(String(state.status).toLowerCase()))
+     const response=await window.BA_AUTH.apiFetch(
+       `${cfg.api}${cfg.status}/${encodeURIComponent(job.id)}`,{cache:'no-store'});
+     if(!response.ok)throw Error(`Status check failed: HTTP ${response.status}`);
+     const state=await response.json();
+     if(!['complete','completed','done','success'].includes(String(state.status).toLowerCase()))
        throw Error(`Report did not finish successfully: ${state.error||state.status}`);
-     apiStatus(prefix,'done','Production ZIP download started. All agents and 3D video completed.',`Job ID: ${job.label}`);
-     byId('production-downloads').classList.remove('show');
+     apiStatus(prefix,'done',`${cfg.report} ZIP download started. All agents and 3D video completed.`,`Job ID: ${job.label}`);
+     const backup=byId(`${prefix}-downloads`);
+     if(mobileDownloadBrowser()&&/iPhone|iPad|iPod/i.test(navigator.userAgent||''))backup.classList.add('show');
+     else backup.classList.remove('show');
      btn.disabled=false;btn.textContent=generationLabel(prefix);
    }catch(error){
      if(run!==job.run)return;
