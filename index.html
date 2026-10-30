@@ -925,7 +925,7 @@ async function resolveProductionWellApi(){
 }
 function apiStatus(prefix,kind,message,job=''){byId(`${prefix}-api-status`).classList.add('show');const icon=byId(`${prefix}-status-icon`);icon.className='api-spinner'+(kind==='done'?' done':kind==='error'?' error':'');icon.innerHTML=kind==='done'?'<i class="fa-solid fa-check"></i>':kind==='error'?'<i class="fa-solid fa-xmark"></i>':'';byId(`${prefix}-status-text`).textContent=message;byId(`${prefix}-job-text`).textContent=job;}
 function sizeLabel(n){if(n<1024)return n+' B';if(n<1048576)return(n/1024).toFixed(1)+' KB';if(n<1073741824)return(n/1048576).toFixed(2)+' MB';return(n/1073741824).toFixed(2)+' GB';}
-function progress(prefix,state,title,received=0,total=0,detail=''){const panel=byId(`${prefix}-download-progress`),track=byId(`${prefix}-download-track`),fill=track.querySelector('.download-progress-fill'),pct=byId(`${prefix}-download-percent`);panel.hidden=false;byId(`${prefix}-download-title`).textContent=title;track.className='download-progress-track';track.removeAttribute('aria-valuenow');if(state==='error'){track.classList.add('error');fill.style.width='100%';pct.textContent='Failed';}else if(state==='done'){track.classList.add('done');fill.style.width='100%';pct.textContent='100%';track.setAttribute('aria-valuenow','100');}else if(total>0){const value=Math.min(99,Math.floor(received/total*100));fill.style.width=value+'%';pct.textContent=value+'%';track.setAttribute('aria-valuenow',String(value));}else{track.classList.add('indeterminate');fill.style.width='';pct.textContent='Downloading...';}byId(`${prefix}-download-detail`).textContent=detail||(total>0?`${sizeLabel(received)} / ${sizeLabel(total)} received`:`${sizeLabel(received)} received; total size unavailable`);}
+function progress(prefix,state,title,received=0,total=0,detail=''){const panel=byId(`${prefix}-download-progress`),track=byId(`${prefix}-download-track`),fill=track.querySelector('.download-progress-fill'),pct=byId(`${prefix}-download-percent`);panel.hidden=false;byId(`${prefix}-download-title`).textContent=title;track.className='download-progress-track';track.removeAttribute('aria-valuenow');if(state==='error'){track.classList.add('error');fill.style.width='100%';pct.textContent='Failed';}else if(state==='done'){track.classList.add('done');fill.style.width='100%';pct.textContent='100%';track.setAttribute('aria-valuenow','100');}else if(total>0){const value=Math.min(99,Math.floor(received/total*100));fill.style.width=value+'%';pct.textContent=value+'%';track.setAttribute('aria-valuenow',String(value));}else{track.classList.add('indeterminate');fill.style.width='';pct.textContent=state==='preparing'?'Preparing...':'Downloading...';}byId(`${prefix}-download-detail`).textContent=detail||(state==='preparing'?'AI agents are generating the complete report package.':total>0?`${sizeLabel(received)} / ${sizeLabel(total)} received`:`${sizeLabel(received)} received; total size unavailable`);}
 function saveBlob(blob,filename){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000);}
 function browserDownload(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';document.body.appendChild(a);a.click();a.remove();}
 // ONE-CLICK DOWNLOAD (Production + SWD): download through the secure,
@@ -1029,7 +1029,10 @@ const configs={
    job.timer=null;job.id=null;job.label=null;job.filename=filename;
    const run=++job.run;
    byId(`${prefix}-downloads`).classList.remove('show');
-   byId(`${prefix}-download-progress`).hidden=true;
+   // Make the SAME progress bar visible from analysis start through delivery.
+   // Preparation has unknown total size; never invent a download percentage.
+   progress(prefix,'preparing',`Preparing ${cfg.report} ZIP package...`,0,0,
+     'AI agents are running. ZIP transfer begins automatically after packaging is complete.');
    btn.textContent=`Generating ${cfg.report} report...`;
    try{
      let coords;
@@ -1054,11 +1057,12 @@ const configs={
      if(run!==job.run)return;
      job.id=String(data.job_id);
      job.label=String(data.job_label||'temporary').slice(0,90);
-     apiStatus(prefix,'running',`${cfg.report} agents are running. ZIP will download automatically when ready.`,`Job ID: ${job.label}`);
+     apiStatus(prefix,'running',`${cfg.report} agents are running and the ZIP is being prepared.`,`Job ID: ${job.label}`);
      pollStatus(prefix,run);
    }catch(e){
      if(run!==job.run)return;
      apiStatus(prefix,'error',e.message||String(e));
+     progress(prefix,'error',`${cfg.report} report preparation failed`,0,0,e.message||String(e));
      btn.disabled=false;btn.textContent=generationLabel(prefix);
    }
  }
@@ -1072,7 +1076,7 @@ const configs={
      const state=String(data.status||'').toLowerCase();
      if(['complete','completed','done','success'].includes(state)){
        job.timer=null;
-       apiStatus(prefix,'running',`${cfg.report} ZIP is ready. Automatically downloading to your device...`,`Job ID: ${job.label}`);
+       apiStatus(prefix,'running',`${cfg.report} report generation finished. Transferring ZIP to your device...`,`Job ID: ${job.label}`);
        // The same secure authenticated endpoint is used; no second click.
        await getZip(prefix,run,true);
        btn.disabled=false;btn.textContent=generationLabel(prefix);
@@ -1082,11 +1086,14 @@ const configs={
      const raw=data.progress_percent??data.progress_pct;
      const percent=raw!==undefined&&raw!==null&&Number.isFinite(Number(raw))?` · ${Number(raw).toFixed(0)}%`:'';
      const message=prefix==='swd'?(data.message||'SWD agents are processing...'):state==='queued'?'Production forecast queued...':state==='reporting'?'Building Production reports...':'Production agents are running...';
-     apiStatus(prefix,'running',message+ ' ZIP will download automatically.',`Job ID: ${job.label} · Status: ${state||'running'}${percent}`);
+     apiStatus(prefix,'running',message+' ZIP is being prepared.',`Job ID: ${job.label} · Status: ${state||'running'}${percent}`);
+     progress(prefix,'preparing',`Preparing ${cfg.report} ZIP package...`,0,0,
+       `${message} Download will start automatically after the ZIP is finalized.${percent}`);
      job.timer=setTimeout(()=>pollStatus(prefix,run),2000);
    }catch(e){
      if(run!==job.run)return;
      apiStatus(prefix,'error',e.message||String(e),`Job ID: ${job.label}`);
+     progress(prefix,'error',`${cfg.report} report preparation failed`,0,0,e.message||String(e));
      btn.disabled=false;btn.textContent=generationLabel(prefix);job.timer=null;
      // If report generation completed and only download failed, the retry button
      // is exposed by getZip(), not as part of the standard workflow.
